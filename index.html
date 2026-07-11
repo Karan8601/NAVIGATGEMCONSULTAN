@@ -49,30 +49,21 @@
    ========================================================================== */
 
 /* पूरी वेबसाइट के लिए ग्लोबल कलर वेरिएबल्स 
+star 
 
-/* आपके कार्ड्स और सेक्शन्स अब इन वेरिएबल्स को फॉलो करेंगे */
-.promo-section {
-    background: var(--site-bg) !important;
-    border-color: var(--border-color) !important;
-}
-.smarthub-section {
-    background: var(--site-bg) !important;
-}
-.smarthub-card {
-    background: var(--card-bg) !important;
-    border-color: var(--border-color) !important;
-}
-.hub-badge {
-    color: var(--primary-glow) !important;
-    border-color: var(--primary-glow) !important;
-}
-.input-group button, .checker-form button, .hub-btn {
-    background: var(--primary-glow) !important;
-}
+    /* ==========================================================================
+   NAVIGATEGEM EXCLUSIVE WRAPPER STYLES (NO GLOBAL CLASHES)
+   ========================================================================== */
 
+.gem-section-wrapper {
+    box-sizing: border-box;
+    width: 100%;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    padding: 20px 0;
+}
 
 /* --- Idea 18: Online Status Indicator --- */
-.status-badge-container {
+.gem-section-wrapper .status-badge-container {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -80,127 +71,119 @@
     border: 1px solid rgba(16, 185, 129, 0.2);
     padding: 6px 16px;
     border-radius: 50px;
-    margin: 20px auto;
+    margin: 10px auto 25px;
 }
-.status-dot {
+.gem-section-wrapper .status-dot {
     width: 8px; height: 8px;
     background-color: #10b981;
     border-radius: 50%;
     box-shadow: 0 0 10px #10b981;
     animation: statusPulse 1.5s infinite;
 }
-.status-text { color: #a7f3d0; font-size: 12px; font-weight: 600; }
-.status-text small { color: #6ee7b7; font-weight: 400; }
-@keyframes statusPulse {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 1; }
-}
+.gem-section-wrapper .status-text { color: #a7f3d0; font-size: 12px; font-weight: 600; }
+.gem-section-wrapper .status-text small { color: #6ee7b7; font-weight: 400; }
 
 /* --- Promo Dynamic Festival Section --- */
-.promo-section {
+.gem-section-wrapper .promo-section {
     position: relative;
-    background: #0b0f19;
-    padding: 50px 30px;
+    padding: 40px 25px;
     border-radius: 20px;
-    margin: 40px auto;
-    max-width: 1140px;
+    margin: 0 auto 40px;
+    max-width: 1200px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    border: 1px solid rgba(255, 255, 255, 0.05);
     overflow: hidden;
-    transition: all 0.5s ease, background 0.8s ease, border-color 0.8s ease;
+    box-sizing: border-box;
 }
-.particle-bg {
+.gem-section-wrapper .particle-bg {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     pointer-events: none; z-index: 1;
 }
-.promo-container {
+.gem-section-wrapper .promo-container {
     position: relative; z-index: 2;
-    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 30px;
 }
-.promo-content { flex: 1 1 500px; }
-.badge-discount-wrapper { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
-.dynamic-badge { color: #fff; padding: 6px 16px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 50px; transition: background 0.5s ease; }
-.discount-tag { background: linear-gradient(90deg, #ef4444, #f97316); color: #fff; padding: 6px 16px; font-size: 11px; font-weight: 700; border-radius: 50px; animation: pulseText 2s infinite; }
-.dynamic-heading { color: #fff; font-size: 34px; font-weight: 800; margin: 20px 0 15px; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-.dynamic-text { color: #94a3b8; font-size: 16px; line-height: 1.6; margin-bottom: 25px; }
+.gem-section-wrapper .promo-content { flex: 1 1 500px; }
+.gem-section-wrapper .badge-discount-wrapper { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.gem-section-wrapper .dynamic-badge { color: #fff; padding: 6px 16px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 50px; }
+.gem-section-wrapper .discount-tag { background: linear-gradient(90deg, #ef4444, #f97316); color: #fff; padding: 6px 16px; font-size: 11px; font-weight: 700; border-radius: 50px; animation: pulseText 2s infinite; }
+.gem-section-wrapper .dynamic-heading { color: #fff; font-size: 28px; font-weight: 800; margin: 15px 0; line-height: 1.3; }
+.gem-section-wrapper .dynamic-text { color: #94a3b8; font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
 
 /* --- Timer and Progress Engine --- */
-.timer-wrapper { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 12px; margin-bottom: 25px; max-width: 400px; }
-.timer-header { display: flex; align-items: center; gap: 8px; color: #94a3b8; font-size: 12px; font-weight: 600; letter-spacing: 1px; }
-.clock-digits { margin-left: auto; font-family: 'Courier New', monospace; font-size: 20px; font-weight: 700; color: #fff; }
-.progress-bar-bg { background: rgba(255,255,255,0.1); height: 6px; border-radius: 4px; margin-top: 10px; overflow: hidden; }
-.progress-bar-fill { height: 100%; width: 100%; transition: background 0.5s ease, width 1s linear; }
+.gem-section-wrapper .timer-wrapper { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 12px; margin-bottom: 20px; max-width: 100%; box-sizing: border-box; }
+.gem-section-wrapper .timer-header { display: flex; align-items: center; gap: 8px; color: #94a3b8; font-size: 12px; font-weight: 600; letter-spacing: 1px; }
+.gem-section-wrapper .clock-digits { margin-left: auto; font-family: monospace; font-size: 18px; font-weight: 700; color: #fff; }
+.gem-section-wrapper .progress-bar-bg { background: rgba(255,255,255,0.1); height: 5px; border-radius: 4px; margin-top: 8px; overflow: hidden; }
+.gem-section-wrapper .progress-bar-fill { height: 100%; width: 100%; }
 
-/* --- Button and Images --- */
-.promo-btn { display: inline-flex; align-items: center; gap: 12px; color: #fff; padding: 14px 32px; font-weight: 600; border-radius: 10px; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s ease; cursor: pointer; }
-.promo-btn:hover { transform: translateY(-3px); }
-.promo-image-box { flex: 1 1 380px; display: flex; justify-content: center; }
-.promo-image-box img { max-width: 100%; height: auto; border-radius: 14px; animation: floatAnim 4s ease-in-out infinite; box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
+/* --- Buttons & Image boxes --- */
+.gem-section-wrapper .promo-btn { display: inline-flex; align-items: center; gap: 12px; color: #fff; padding: 12px 28px; font-weight: 600; border-radius: 8px; text-decoration: none; transition: all 0.3s ease; cursor: pointer; }
+.gem-section-wrapper .promo-btn:hover { transform: translateY(-2px); }
+.gem-section-wrapper .promo-image-box { flex: 1 1 300px; display: flex; justify-content: center; }
+.gem-section-wrapper .promo-image-box img { max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
 
-/* --- Secure Crypto Shield Animation Matrix --- */
-.secure-seal-wrap { display: flex; align-items: center; gap: 12px; background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.2); padding: 12px; border-radius: 8px; margin-bottom: 25px; }
-.secure-seal-wrap p { color: #38bdf8; margin: 0; font-weight: 600; font-size: 13px; }
-.seal-circle { width: 32px; height: 32px; background: #0ea5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; animation: rotateSeal 1.5s ease-in-out; }
+/* --- Secure Crypto Shield Block --- */
+.gem-section-wrapper .secure-seal-wrap { display: flex; align-items: center; gap: 12px; background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.2); padding: 10px; border-radius: 8px; margin-bottom: 20px; }
+.gem-section-wrapper .secure-seal-wrap p { color: #38bdf8; margin: 0; font-weight: 600; font-size: 13px; }
+.gem-section-wrapper .seal-circle { width: 30px; height: 30px; background: #0ea5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; }
 
-/* --- Smart Hub Grid Cards Structure --- */
-.smarthub-section { background: #04060a; padding: 40px 0; }
-.smarthub-container { max-width: 1140px; margin: 0 auto 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-.smarthub-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 25px; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s ease, border-color 0.3s ease; }
-.smarthub-card:hover { transform: translateY(-5px); }
-.hub-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #0ea5e9; border: 1px solid rgba(14, 165, 233, 0.3); padding: 4px 10px; border-radius: 50px; display: inline-block; margin-bottom: 15px; }
-.smarthub-card h3 { color: #fff; font-size: 18px; margin: 0 0 10px; }
-.smarthub-card p { color: #94a3b8; font-size: 13px; line-height: 1.5; margin-bottom: 20px; }
+/* --- Smart Hub Grid Layout Cards --- */
+.gem-section-wrapper .smarthub-section { padding: 20px 0; width: 100%; }
+.gem-section-wrapper .smarthub-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 0 15px; box-sizing: border-box; }
+.gem-section-wrapper .smarthub-card { border-radius: 16px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 10px 30px rgba(0,0,0,0.3); min-height: 400px; box-sizing: border-box; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.gem-section-wrapper .smarthub-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); }
+.gem-section-wrapper .hub-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 50px; display: inline-block; margin-bottom: 15px; }
+.gem-section-wrapper .smarthub-card h3 { color: #fff; font-size: 18px; margin: 0 0 10px; font-weight: 700; }
+.gem-section-wrapper .smarthub-card p { color: #94a3b8; font-size: 13px; line-height: 1.5; margin: 0 0 20px; }
 
-/* --- Internal Quiz Layout Structures --- */
-.quiz-step { display: none; }
-.quiz-step.active { display: block; animation: fadeIn 0.4s ease; }
-.quiz-step label { color: #cbd5e1; display: block; margin-bottom: 12px; font-weight: 600; font-size: 14px; }
-.quiz-step button { display: block; width: 100%; background: rgba(255,255,255,0.04); color: #fff; border: 1px solid rgba(255,255,255,0.08); padding: 10px; margin-bottom: 8px; border-radius: 8px; text-align: left; cursor: pointer; font-size: 13px; transition: background 0.2s; }
-.quiz-step button:hover { background: #0ea5e9; }
-.score-circle { width: 80px; height: 80px; border-radius: 50%; border: 4px solid #0ea5e9; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 22px; font-weight: 700; }
-.hub-btn { display: block; text-align: center; background: #0ea5e9; color: #fff; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 15px; font-size: 13px; }
+/* --- Internal Forms, Selects & Inputs Matrix --- */
+.gem-section-wrapper #quiz-container, .gem-section-wrapper .input-group, .gem-section-wrapper .checker-form { margin-top: auto; width: 100%; box-sizing: border-box; }
+.gem-section-wrapper .quiz-step label { color: #cbd5e1; display: block; margin-bottom: 10px; font-weight: 600; font-size: 13px; }
+.gem-section-wrapper .quiz-step button { display: block; width: 100%; background: rgba(255,255,255,0.04); color: #fff; border: 1px solid rgba(255,255,255,0.08); padding: 12px; margin-bottom: 8px; border-radius: 8px; text-align: left; cursor: pointer; font-size: 13px; transition: background 0.2s; box-sizing: border-box; }
+.gem-section-wrapper .quiz-step button:hover { background: #0ea5e9; }
+.gem-section-wrapper .score-circle { width: 70px; height: 70px; border-radius: 50%; border: 4px solid #0ea5e9; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; font-weight: 700; }
+.gem-section-wrapper .hub-btn { display: block; text-align: center; color: #fff; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 12px; font-size: 13px; box-sizing: border-box; }
 
-/* --- Input Groups & Exempt Form Elements --- */
-.input-group { display: flex; gap: 10px; }
-.input-group input { flex: 1; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; color: #fff; font-size: 14px; }
-.input-group button { background: #0ea5e9; color: #fff; border: none; padding: 0 15px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 13px; }
-.checker-form select { width: 100%; margin-bottom: 10px; padding: 10px; background: #0b0f19; border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 8px; }
-.checker-form button { background: #0ea5e9; color: #fff; border: none; padding: 10px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 13px; width: 100%; }
-#pricing-result { background: rgba(14,165,233,0.1); padding: 12px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #0ea5e9; color: #fff; font-size: 13px; }
-.warning-text { font-size: 11px; color: #f59e0b; display: block; margin-top: 5px; }
-.result-box { padding: 12px; border-radius: 8px; margin-top: 15px; font-weight: 600; font-size: 13px; line-height: 1.4; }
-.result-box.success { background: rgba(16, 185, 129, 0.15); color: #52ea9a; border-left: 4px solid #10b981; }
-.result-box.fail { background: rgba(239, 68, 68, 0.15); color: #f87171; border-left: 4px solid #ef4444; }
+.gem-section-wrapper .input-group input, .gem-section-wrapper .checker-form select { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.12); padding: 12px; border-radius: 8px; color: #fff; font-size: 13px; box-sizing: border-box; margin-bottom: 10px; }
+.gem-section-wrapper .input-group button, .gem-section-wrapper .checker-form button { color: #fff; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 13px; width: 100%; box-sizing: border-box; }
+.gem-section-wrapper #pricing-result { background: rgba(14,165,233,0.1); padding: 10px; border-radius: 8px; margin-top: 10px; border-left: 4px solid #0ea5e9; color: #fff; font-size: 12px; box-sizing: border-box; }
+.gem-section-wrapper .warning-text { font-size: 11px; color: #f59e0b; display: block; margin-top: 4px; line-height: 1.4; }
+.gem-section-wrapper .result-box { padding: 10px; border-radius: 8px; margin-top: 10px; font-weight: 600; font-size: 12px; line-height: 1.4; box-sizing: border-box; }
+.gem-section-wrapper .result-box.success { background: rgba(16, 185, 129, 0.15); color: #52ea9a; border-left: 4px solid #10b981; }
+.gem-section-wrapper .result-box.fail { background: rgba(239, 68, 68, 0.15); color: #f87171; border-left: 4px solid #ef4444; }
 
-/* --- Idea 8: Before After Visual Slider --- */
-.comparison-slider { position: relative; width: 100%; height: 180px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
-.image-before, .image-after { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
-.image-before { background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400'); z-index: 1; filter: grayscale(100%); }
-.image-after { background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400'); width: 50%; z-index: 2; border-right: 2px solid #0ea5e9; }
-.slider-label { background: rgba(0,0,0,0.7); color: #fff; font-size: 9px; padding: 4px 8px; border-radius: 4px; position: absolute; bottom: 10px; white-space: nowrap; }
-.image-before .slider-label { left: 10px; color: #ef4444; }
-.image-after .slider-label { right: 10px; color: #10b981; }
-.slider-bar { position: absolute; width: 100%; height: 100%; opacity: 0; z-index: 3; cursor: ew-resize; top: 0; left: 0; margin: 0; }
+/* --- Idea 8: Visual Slider Component --- */
+.gem-section-wrapper .comparison-slider { position: relative; width: 100%; height: 180px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); margin-top: auto; }
+.gem-section-wrapper .image-before, .gem-section-wrapper .image-after { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
+.gem-section-wrapper .image-before { background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400'); z-index: 1; filter: grayscale(100%); }
+.gem-section-wrapper .image-after { background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400'); width: 50%; z-index: 2; border-right: 2px solid #0ea5e9; }
+.gem-section-wrapper .slider-label { background: rgba(0,0,0,0.7); color: #fff; font-size: 9px; padding: 4px 8px; border-radius: 4px; position: absolute; bottom: 10px; white-space: nowrap; }
+.gem-section-wrapper .image-before .slider-label { left: 10px; color: #ef4444; }
+.gem-section-wrapper .image-after .slider-label { right: 10px; color: #10b981; }
+.gem-section-wrapper .slider-bar { position: absolute; width: 100%; height: 100%; opacity: 0; z-index: 3; cursor: ew-resize; top: 0; left: 0; margin: 0; }
 
-/* --- Idea 2: Live Log Infoticker Banner --- */
-.live-ticker-wrap { max-width: 1140px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 50px; display: flex; align-items: center; overflow: hidden; padding: 5px; }
-.ticker-title { background: #0ea5e9; color: #fff; font-size: 11px; font-weight: 800; padding: 8px 16px; border-radius: 50px; letter-spacing: 1px; }
-.ticker-content { flex: 1; padding: 0 20px; color: #cbd5e1; font-size: 13px; font-weight: 500; transition: opacity 0.3s ease; }
+/* --- Idea 2: Live Log Infoticker Loop --- */
+.gem-section-wrapper .live-ticker-wrap { max-width: 1200px; margin: 25px auto 0; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 50px; display: flex; align-items: center; overflow: hidden; padding: 5px; box-sizing: border-box; }
+.gem-section-wrapper .ticker-title { color: #fff; font-size: 10px; font-weight: 800; padding: 8px 16px; border-radius: 50px; letter-spacing: 1px; white-space: nowrap; }
+.gem-section-wrapper .ticker-content { flex: 1; padding: 0 15px; color: #cbd5e1; font-size: 13px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* --- Idea 5: Structural Exit Intent Popup Modal --- */
-.exit-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(4, 6, 14, 0.85); z-index: 9999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
-.exit-modal-content { background: #0f172a; border: 1px solid rgba(239, 68, 68, 0.2); padding: 40px; border-radius: 20px; max-width: 500px; width: 90%; text-align: center; position: relative; }
-.close-popup { position: absolute; top: 15px; right: 20px; color: #94a3b8; font-size: 28px; cursor: pointer; }
-.popup-alert-tag { background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2); padding: 4px 12px; border-radius: 50px; font-size: 10px; font-weight: 700; }
-.exit-modal-content h2 { color: #fff; font-size: 24px; margin: 20px 0 10px; }
-.exit-modal-content p { color: #94a3b8; font-size: 14px; line-height: 1.6; margin-bottom: 25px; }
-.popup-btn { display: block; background: linear-gradient(90deg, #ef4444, #ea580c); color: #fff; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: 600; }
+.gem-section-wrapper .exit-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(4, 6, 14, 0.85); z-index: 99999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+.gem-section-wrapper .exit-modal-content { background: #0f172a; border: 1px solid rgba(239, 68, 68, 0.2); padding: 30px; border-radius: 20px; max-width: 480px; width: 90%; text-align: center; position: relative; box-sizing: border-box; }
+.gem-section-wrapper .close-popup { position: absolute; top: 10px; right: 15px; color: #94a3b8; font-size: 26px; cursor: pointer; }
+.gem-section-wrapper .popup-alert-tag { background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2); padding: 4px 12px; border-radius: 50px; font-size: 10px; font-weight: 700; }
+.gem-section-wrapper .exit-modal-content h2 { color: #fff; font-size: 22px; margin: 15px 0 10px; font-weight: 700; }
+.gem-section-wrapper .exit-modal-content p { color: #94a3b8; font-size: 13px; line-height: 1.6; margin-bottom: 20px; }
+.gem-section-wrapper .popup-btn { display: block; background: linear-gradient(90deg, #ef4444, #ea580c); color: #fff; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; }
 
-@keyframes pulseText { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
-@keyframes floatAnim { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
-@keyframes rotateSeal { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes statusPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+@keyframes pulseText { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      
+
+/* --- Button and Images - end -- */
+
 
 /* ==========================================================================
    NEXT-GEN MATRIX SYSTEMS: DESIGN TOKEN ARCHITECTURE & VARIABLES
@@ -704,143 +687,175 @@ body {
         </div>
     </main>
   
-  <section id="dynamic-festival-section" class="promo-section" style="display: none;">
 
-    <div id="particle-canvas" class="particle-bg"></div>
-    <div class="promo-container">
-        <div class="promo-content">
-            <div class="badge-discount-wrapper">
-                <span id="promo-badge" class="dynamic-badge">SPECIAL</span>
-                <span id="promo-discount" class="discount-tag">0% OFF</span>
+
+
+
+
+  <div class="gem-section-wrapper">
+    <!-- ONLINE STATUS INDICATOR -->
+    <div class="status-badge-container">
+        <span class="status-dot"></span>
+        <span class="status-text">Karan Yadav is Online Now <small>(Response: 2 mins)</small></span>
+    </div>
+
+    <!-- DYNAMIC PROMO SECTION -->
+    <section id="dynamic-festival-section" class="promo-section" style="display: none;">
+        <div id="particle-canvas" class="particle-bg"></div>
+        <div class="promo-container">
+            <div class="promo-content">
+                <div class="badge-discount-wrapper">
+                    <span id="promo-badge" class="dynamic-badge">SPECIAL</span>
+                    <span id="promo-discount" class="discount-tag">0% OFF</span>
+                </div>
+                
+                <h2 id="promo-heading" class="dynamic-heading">Loading Today's Offer...</h2>
+                <p id="promo-text" class="dynamic-text">Connecting to secure parameters...</p>
+                
+                <div class="timer-wrapper">
+                    <div class="timer-header">
+                        <i class="far fa-clock"></i> <span>OFFER ENDS IN:</span>
+                        <span id="countdown-clock" class="clock-digits">00:00:00</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div id="timer-progress" class="progress-bar-fill"></div>
+                    </div>
+                </div>
+
+                <div id="secure-seal-box" class="secure-seal-wrap" style="display: none;">
+                    <div class="seal-circle">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <p>⚡ NavigateGeM Secure Token Generated!</p>
+                </div>
+
+                <a id="promo-action-btn" href="https://wa.me/918601865676" target="_blank" class="promo-btn" onclick="triggerSecureSeal(event)">
+                    <span>Claim Offer Now</span>
+                    <i class="fab fa-whatsapp"></i>
+                </a>
             </div>
             
-            <h2 id="promo-heading" class="dynamic-heading">Loading Today's Offer...</h2>
-            <p id="promo-text" class="dynamic-text">Connecting to secure parameters...</p>
+            <div class="promo-image-box">
+                <img id="promo-img" src="" alt="Festival Poster">
+            </div>
+        </div>
+    </section>
+
+    <!-- SMART HUB CONTAINER (Grid Layout Cards) -->
+    <section class="smarthub-section">
+        <div class="smarthub-container">
             
-            <div class="timer-wrapper">
-                <div class="timer-header">
-                    <i class="far fa-clock"></i> <span>OFFER ENDS IN:</span>
-                    <span id="countdown-clock" class="clock-digits">00:00:00</span>
+            <!-- CARD 1: QUIZ -->
+            <div class="smarthub-card calculator-card">
+                <div>
+                    <span class="hub-badge">Interactive Tool</span>
+                    <h3>Check Your GeM Profile Readiness</h3>
+                    <p>Analyze if your business ecosystem is 100% compliant for government bidding matrix protocols.</p>
                 </div>
-                <div class="progress-bar-bg">
-                    <div id="timer-progress" class="progress-bar-fill"></div>
+                <div id="quiz-container">
+                    <div class="quiz-step active" data-step="1">
+                        <label>1. Select your primary business model architecture:</label>
+                        <button onclick="nextQuizStep(2, 25)">Original Equipment Manufacturer (OEM)</button>
+                        <button onclick="nextQuizStep(2, 15)">Reseller / Channel Trader</button>
+                    </div>
+                    <div class="quiz-step" data-step="2">
+                        <label>2. Do you possess a registered Trademark Certificate?</label>
+                        <button onclick="nextQuizStep(3, 35)">Yes, Fully Registered & Active</button>
+                        <button onclick="nextQuizStep(3, 10)">No / Currently Under Process</button>
+                    </div>
+                    <div class="quiz-step" data-step="3">
+                        <label>3. Is your business ITR perfectly synchronized with GSTIN?</label>
+                        <button onclick="calculateScore(40)">Yes, Integrated Data Streams</button>
+                        <button onclick="calculateScore(10)">No, Action Pending / Mismatched</button>
+                    </div>
+                    <div class="quiz-step" id="quiz-result">
+                        <div class="score-circle"><span id="score-num">0</span>%</div>
+                        <p id="score-msg"></p>
+                        <a id="score-wp-btn" href="#" target="_blank" class="hub-btn">Fix Compliance via WhatsApp</a>
+                    </div>
                 </div>
             </div>
 
-            <div id="secure-seal-box" class="secure-seal-wrap" style="display: none;">
-                <div class="seal-circle">
-                    <i class="fas fa-shield-alt"></i>
+            <!-- CARD 2: CALCULATOR -->
+            <div class="smarthub-card pricing-card">
+                <div>
+                    <span class="hub-badge">GeM Compliance</span>
+                    <h3>GeM 10% Market Reference Calculator</h3>
+                    <p>Input your commercial product MRP to instantly compute the maximum allowable ceiling price permitted under portal regularizations.</p>
                 </div>
-                <p>⚡ NavigateGeM Secure Token Generated!</p>
+                <div class="input-group">
+                    <input type="number" id="mrp-input" placeholder="Enter Product MRP ($)">
+                    <button onclick="calculateL1Price()">Compute</button>
+                    <div id="pricing-result" style="display:none; width: 100%;">
+                        <p>Max Permitted Selling Price: <strong id="allowed-price">₹0</strong></p>
+                        <span class="warning-text">⚠️ Catalog listings exceeding this threshold face algorithmic rejection sequences.</span>
+                    </div>
+                </div>
             </div>
 
-            <a id="promo-action-btn" href="https://wa.me/918601865676" target="_blank" class="promo-btn" onclick="triggerSecureSeal(event)">
-                <span>Claim Offer Now</span>
-                <i class="fab fa-whatsapp"></i>
+            <!-- CARD 3: EXEMPTION CHECKER -->
+            <div class="smarthub-card exemption-card">
+                <div>
+                    <span class="hub-badge">MSME / Startup Tool</span>
+                    <h3>Vendor Assessment Exemption Checker</h3>
+                    <p>Determine your institutional eligibility status regarding the RITES Assessment Fee (₹14,999) waiver protocols.</p>
+                </div>
+                <div class="checker-form">
+                    <select id="exemption-select">
+                        <option value="">-- Select Corporate Category --</option>
+                        <option value="exempt">DPIIT Verified Startup Entity</option>
+                        <option value="exempt">NSIC Registered Domestic Manufacturer</option>
+                        <option value="exempt">Sellers with Annual Turnover > ₹500 Crore</option>
+                        <option value="not-exempt">Reseller / Channel Partner (General)</option>
+                        <option value="not-exempt">General Manufacturer without NSIC/BIS</option>
+                    </select>
+                    <button onclick="checkExemption()">Verify Exemption Status</button>
+                    <div id="checker-result" class="result-box" style="display: none;"></div>
+                </div>
+            </div>
+
+            <!-- CARD 4: SLIDER -->
+            <div class="smarthub-card slider-card">
+                <div>
+                    <span class="hub-badge">Our Impact</span>
+                    <h3>Profile Optimization Benchmarks</h3>
+                    <p>Drag the interactive node viewport slider to isolate architectural differences between unoptimized catalogs and full OEM dashboards.</p>
+                </div>
+                <div class="comparison-slider">
+                    <div class="image-before"><div class="slider-label">Standard Profile Layout</div></div>
+                    <div class="image-after"><div class="slider-label">Verified OEM Approved Dashboard</div></div>
+                    <input type="range" min="0" max="100" value="50" class="slider-bar" oninput="moveSlider(this)">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- LIVE LOG UPDATES TICKER LOOP -->
+        <div class="live-ticker-wrap">
+            <div class="ticker-title">LIVE COMPLIANCE FEED</div>
+            <div class="ticker-content">
+                <div id="ticker-text">🟢 Booting global security verification matrix telemetry...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXIT-INTENT DETECTION POPUP MODAL -->
+    <div id="exit-popup" class="exit-modal" style="display: none;">
+        <div class="exit-modal-content">
+            <span class="close-popup" onclick="closeExitPopup()">&times;</span>
+            <span class="popup-alert-tag">⚠️ RISK ANALYSIS REPORT</span>
+            <h2>Hold On! Is Your Cataloging Matrix at Risk?</h2>
+            <p>90% of structural vendor profiles encounter critical platform blockades due to improper assessment configurations. Secure your free structural consultation protocol with our Principal Consultant, Karan Yadav, before leaving.</p>
+            <a id="popup-wp-btn" href="https://wa.me/918601865676" target="_blank" class="popup-btn">
+                <i class="fab fa-whatsapp"></i> Initiate Free Diagnostics Session
             </a>
         </div>
+    </div>
+  </div>
+  
+                
+
         
-        <div class="promo-image-box">
-            <img id="promo-img" src="" alt="Festival Poster">
-        </div>
-    </div>
-</section>
-
-<section class="smarthub-section">
-    <div class="smarthub-container">
-        
-        <div class="smarthub-card calculator-card">
-            <span class="hub-badge">Interactive Tool</span>
-            <h3>Check Your GeM Profile Readiness</h3>
-            <p>Analyze if your business ecosystem is 100% compliant for government bidding matrix protocols.</p>
-            <div id="quiz-container">
-                <div class="quiz-step active" data-step="1">
-                    <label>1. Select your primary business model architecture:</label>
-                    <button onclick="nextQuizStep(2, 25)">Original Equipment Manufacturer (OEM)</button>
-                    <button onclick="nextQuizStep(2, 15)">Reseller / Channel Trader</button>
-                </div>
-                <div class="quiz-step" data-step="2">
-                    <label>2. Do you possess a registered Trademark Certificate?</label>
-                    <button onclick="nextQuizStep(3, 35)">Yes, Fully Registered & Active</button>
-                    <button onclick="nextQuizStep(3, 10)">No / Currently Under Process</button>
-                </div>
-                <div class="quiz-step" data-step="3">
-                    <label>3. Is your business ITR perfectly synchronized with GSTIN?</label>
-                    <button onclick="calculateScore(40)">Yes, Integrated Data Streams</button>
-                    <button onclick="calculateScore(10)">No, Action Pending / Mismatched</button>
-                </div>
-                <div class="quiz-step" id="quiz-result">
-                    <div class="score-circle"><span id="score-num">0</span>%</div>
-                    <p id="score-msg"></p>
-                    <a id="score-wp-btn" href="#" target="_blank" class="hub-btn">Fix Compliance via WhatsApp</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="smarthub-card pricing-card">
-            <span class="hub-badge">GeM Compliance</span>
-            <h3>GeM 10% Market Reference Calculator</h3>
-            <p>Input your commercial product MRP to instantly compute the maximum allowable ceiling price permitted under portal regularizations.</p>
-            <div class="input-group">
-                <input type="number" id="mrp-input" placeholder="Enter Product MRP ($)">
-                <button onclick="calculateL1Price()">Compute</button>
-            </div>
-            <div id="pricing-result" style="display:none;">
-                <p>Max Permitted Selling Price: <strong id="allowed-price">₹0</strong></p>
-                <span class="warning-text">⚠️ Catalog listings exceeding this threshold face algorithmic rejection sequences.</span>
-            </div>
-        </div>
-
-        <div class="smarthub-card exemption-card">
-            <span class="hub-badge">MSME / Startup Tool</span>
-            <h3>Vendor Assessment Exemption Checker</h3>
-            <p>Determine your institutional eligibility status regarding the RITES Assessment Fee (₹14,999) waiver protocols.</p>
-            <div class="checker-form">
-                <select id="exemption-select">
-                    <option value="">-- Select Corporate Category --</option>
-                    <option value="exempt">DPIIT Verified Startup Entity</option>
-                    <option value="exempt">NSIC Registered Domestic Manufacturer</option>
-                    <option value="exempt">Sellers with Annual Turnover > ₹500 Crore</option>
-                    <option value="not-exempt">Reseller / Channel Partner (General)</option>
-                    <option value="not-exempt">General Manufacturer without NSIC/BIS</option>
-                </select>
-                <button onclick="checkExemption()">Verify Exemption Status</button>
-            </div>
-            <div id="checker-result" class="result-box" style="display: none;"></div>
-        </div>
-
-        <div class="smarthub-card slider-card">
-            <span class="hub-badge">Our Impact</span>
-            <h3>Profile Optimization Benchmarks</h3>
-            <p>Drag the interactive node viewport slider to isolate architectural differences between unoptimized catalogs and full OEM dashboards.</p>
-            <div class="comparison-slider">
-                <div class="image-before"><div class="slider-label">Standard Profile Layout</div></div>
-                <div class="image-after"><div class="slider-label">Verified OEM Approved Dashboard</div></div>
-                <input type="range" min="0" max="100" value="50" class="slider-bar" oninput="moveSlider(this)">
-            </div>
-        </div>
-
-    </div>
-
-    <div class="live-ticker-wrap">
-        <div class="ticker-title">LIVE COMPLIANCE FEED</div>
-        <div class="ticker-content">
-            <div id="ticker-text">🟢 Booting global security verification matrix telemetry...</div>
-        </div>
-    </div>
-</section>
-
-<div id="exit-popup" class="exit-modal" style="display: none;">
-    <div class="exit-modal-content">
-        <span class="close-popup" onclick="closeExitPopup()">&times;</span>
-        <span class="popup-alert-tag">⚠️ RISK ANALYSIS REPORT</span>
-        <h2>Hold On! Is Your Cataloging Matrix at Risk?</h2>
-        <p>90% of structural vendor profiles encounter critical platform blockades due to improper assessment configurations. Secure your free structural consultation protocol with our Principal Consultant, Karan Yadav, before leaving.</p>
-        <a id="popup-wp-btn" href="https://wa.me/918601865676" target="_blank" class="popup-btn">
-            <i class="fab fa-whatsapp"></i> Initiate Free Diagnostics Session
-        </a>
-    </div>
-</div>
 
 
     <!-- SECTION 2: GEM PORTAL REGISTRATION MATRIX -->
@@ -2127,8 +2142,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-  <Scrit/>
-    <Script>
+
+  /**
+ * ==========================================================================
+ * NAVIGATEGEM ULTRA-HYBRID AUTOMATION ENGINE (script.js)
+ * 100% FULLY AUTOMATED MULTI-THEME FESTIVAL & GEO-TARGETED MATRIX
+ * ========================================================================
   /**
  * ==========================================================================
  * NAVIGATEGEM ULTRA-HYBRID AUTOMATION ENGINE (script.js)
@@ -2140,13 +2159,13 @@ document.addEventListener('DOMContentLoaded', () => {
 let totalScore = 0;
 function nextQuizStep(nextStep, scoreToAdd) {
     totalScore += scoreToAdd;
-    document.querySelector('.quiz-step.active').classList.remove('active');
-    document.querySelector(`[data-step="${nextStep}"]`).classList.add('active');
+    document.querySelector('.gem-section-wrapper .quiz-step.active').classList.remove('active');
+    document.querySelector(`.gem-section-wrapper [data-step="${nextStep}"]`).classList.add('active');
 }
 
 function calculateScore(scoreToAdd) {
     totalScore += scoreToAdd;
-    document.querySelector('.quiz-step.active').classList.remove('active');
+    document.querySelector('.gem-section-wrapper .quiz-step.active').classList.remove('active');
     document.getElementById('quiz-result').classList.add('active');
     document.getElementById('score-num').innerText = totalScore;
     
@@ -2450,7 +2469,9 @@ window.addEventListener('DOMContentLoaded', () => {
         if (monthNum === 1 && dateNum === 30) return { badge: "MARTYRS' DAY MEMORIAL", discount: "20% OFF", heading: "Honoring Standard Core Legacies", text: "Building reliable procurement tracks structured on robust, compliant historical matrix baselines.", img: "https://images.unsplash.com/photo-1447b55843422-777e80d4c88?q=80&w=600" };
 
         // --- FEBRUARY MAPPINGS ---
-        if (monthNum === 2 && dateNum === 4) return { badge: "WORLD CANCER DAY", discount: "20% OFF", heading: "Eradicating Catalog Anomalies", text: "
-  
-</script>
+        if (monthNum === 2 && dateNum === 4) return { badge: "WORLD CANCER DAY", discoun
+                                                     <Script/>
+
+  </body>
 </html>
+          
