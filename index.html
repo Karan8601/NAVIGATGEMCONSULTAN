@@ -44,6 +44,179 @@
 
     <style>
 
+      /* ==========================================================================
+   NAVIGATEGEM COMPONENT STRUCTURAL STYLES
+   ========================================================================== */
+
+/* पूरी वेबसाइट के लिए ग्लोबल कलर वेरिएबल्स */
+:root {
+    --site-bg: #04060a;
+    --card-bg: rgba(255, 255, 255, 0.02);
+    --border-color: rgba(255, 255, 255, 0.05);
+    --primary-glow: #0ea5e9;
+    --text-main: #fff;
+    --text-muted: #94a3b8;
+}
+
+/* पूरी वेबसाइट की बॉडी पर वेरिएबल्स लागू करना */
+body {
+    background-color: var(--site-bg) !important;
+    color: var(--text-main);
+    transition: background 0.8s ease, color 0.8s ease;
+}
+
+/* आपके कार्ड्स और सेक्शन्स अब इन वेरिएबल्स को फॉलो करेंगे */
+.promo-section {
+    background: var(--site-bg) !important;
+    border-color: var(--border-color) !important;
+}
+.smarthub-section {
+    background: var(--site-bg) !important;
+}
+.smarthub-card {
+    background: var(--card-bg) !important;
+    border-color: var(--border-color) !important;
+}
+.hub-badge {
+    color: var(--primary-glow) !important;
+    border-color: var(--primary-glow) !important;
+}
+.input-group button, .checker-form button, .hub-btn {
+    background: var(--primary-glow) !important;
+}
+
+
+/* --- Idea 18: Online Status Indicator --- */
+.status-badge-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin: 20px auto;
+}
+.status-dot {
+    width: 8px; height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #10b981;
+    animation: statusPulse 1.5s infinite;
+}
+.status-text { color: #a7f3d0; font-size: 12px; font-weight: 600; }
+.status-text small { color: #6ee7b7; font-weight: 400; }
+@keyframes statusPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* --- Promo Dynamic Festival Section --- */
+.promo-section {
+    position: relative;
+    background: #0b0f19;
+    padding: 50px 30px;
+    border-radius: 20px;
+    margin: 40px auto;
+    max-width: 1140px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    transition: all 0.5s ease, background 0.8s ease, border-color 0.8s ease;
+}
+.particle-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 1;
+}
+.promo-container {
+    position: relative; z-index: 2;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px;
+}
+.promo-content { flex: 1 1 500px; }
+.badge-discount-wrapper { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.dynamic-badge { color: #fff; padding: 6px 16px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 50px; transition: background 0.5s ease; }
+.discount-tag { background: linear-gradient(90deg, #ef4444, #f97316); color: #fff; padding: 6px 16px; font-size: 11px; font-weight: 700; border-radius: 50px; animation: pulseText 2s infinite; }
+.dynamic-heading { color: #fff; font-size: 34px; font-weight: 800; margin: 20px 0 15px; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+.dynamic-text { color: #94a3b8; font-size: 16px; line-height: 1.6; margin-bottom: 25px; }
+
+/* --- Timer and Progress Engine --- */
+.timer-wrapper { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 12px; margin-bottom: 25px; max-width: 400px; }
+.timer-header { display: flex; align-items: center; gap: 8px; color: #94a3b8; font-size: 12px; font-weight: 600; letter-spacing: 1px; }
+.clock-digits { margin-left: auto; font-family: 'Courier New', monospace; font-size: 20px; font-weight: 700; color: #fff; }
+.progress-bar-bg { background: rgba(255,255,255,0.1); height: 6px; border-radius: 4px; margin-top: 10px; overflow: hidden; }
+.progress-bar-fill { height: 100%; width: 100%; transition: background 0.5s ease, width 1s linear; }
+
+/* --- Button and Images --- */
+.promo-btn { display: inline-flex; align-items: center; gap: 12px; color: #fff; padding: 14px 32px; font-weight: 600; border-radius: 10px; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s ease; cursor: pointer; }
+.promo-btn:hover { transform: translateY(-3px); }
+.promo-image-box { flex: 1 1 380px; display: flex; justify-content: center; }
+.promo-image-box img { max-width: 100%; height: auto; border-radius: 14px; animation: floatAnim 4s ease-in-out infinite; box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
+
+/* --- Secure Crypto Shield Animation Matrix --- */
+.secure-seal-wrap { display: flex; align-items: center; gap: 12px; background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.2); padding: 12px; border-radius: 8px; margin-bottom: 25px; }
+.secure-seal-wrap p { color: #38bdf8; margin: 0; font-weight: 600; font-size: 13px; }
+.seal-circle { width: 32px; height: 32px; background: #0ea5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; animation: rotateSeal 1.5s ease-in-out; }
+
+/* --- Smart Hub Grid Cards Structure --- */
+.smarthub-section { background: #04060a; padding: 40px 0; }
+.smarthub-container { max-width: 1140px; margin: 0 auto 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+.smarthub-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 25px; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s ease, border-color 0.3s ease; }
+.smarthub-card:hover { transform: translateY(-5px); }
+.hub-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #0ea5e9; border: 1px solid rgba(14, 165, 233, 0.3); padding: 4px 10px; border-radius: 50px; display: inline-block; margin-bottom: 15px; }
+.smarthub-card h3 { color: #fff; font-size: 18px; margin: 0 0 10px; }
+.smarthub-card p { color: #94a3b8; font-size: 13px; line-height: 1.5; margin-bottom: 20px; }
+
+/* --- Internal Quiz Layout Structures --- */
+.quiz-step { display: none; }
+.quiz-step.active { display: block; animation: fadeIn 0.4s ease; }
+.quiz-step label { color: #cbd5e1; display: block; margin-bottom: 12px; font-weight: 600; font-size: 14px; }
+.quiz-step button { display: block; width: 100%; background: rgba(255,255,255,0.04); color: #fff; border: 1px solid rgba(255,255,255,0.08); padding: 10px; margin-bottom: 8px; border-radius: 8px; text-align: left; cursor: pointer; font-size: 13px; transition: background 0.2s; }
+.quiz-step button:hover { background: #0ea5e9; }
+.score-circle { width: 80px; height: 80px; border-radius: 50%; border: 4px solid #0ea5e9; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 22px; font-weight: 700; }
+.hub-btn { display: block; text-align: center; background: #0ea5e9; color: #fff; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 15px; font-size: 13px; }
+
+/* --- Input Groups & Exempt Form Elements --- */
+.input-group { display: flex; gap: 10px; }
+.input-group input { flex: 1; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; color: #fff; font-size: 14px; }
+.input-group button { background: #0ea5e9; color: #fff; border: none; padding: 0 15px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 13px; }
+.checker-form select { width: 100%; margin-bottom: 10px; padding: 10px; background: #0b0f19; border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 8px; }
+.checker-form button { background: #0ea5e9; color: #fff; border: none; padding: 10px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 13px; width: 100%; }
+#pricing-result { background: rgba(14,165,233,0.1); padding: 12px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #0ea5e9; color: #fff; font-size: 13px; }
+.warning-text { font-size: 11px; color: #f59e0b; display: block; margin-top: 5px; }
+.result-box { padding: 12px; border-radius: 8px; margin-top: 15px; font-weight: 600; font-size: 13px; line-height: 1.4; }
+.result-box.success { background: rgba(16, 185, 129, 0.15); color: #52ea9a; border-left: 4px solid #10b981; }
+.result-box.fail { background: rgba(239, 68, 68, 0.15); color: #f87171; border-left: 4px solid #ef4444; }
+
+/* --- Idea 8: Before After Visual Slider --- */
+.comparison-slider { position: relative; width: 100%; height: 180px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+.image-before, .image-after { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
+.image-before { background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400'); z-index: 1; filter: grayscale(100%); }
+.image-after { background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400'); width: 50%; z-index: 2; border-right: 2px solid #0ea5e9; }
+.slider-label { background: rgba(0,0,0,0.7); color: #fff; font-size: 9px; padding: 4px 8px; border-radius: 4px; position: absolute; bottom: 10px; white-space: nowrap; }
+.image-before .slider-label { left: 10px; color: #ef4444; }
+.image-after .slider-label { right: 10px; color: #10b981; }
+.slider-bar { position: absolute; width: 100%; height: 100%; opacity: 0; z-index: 3; cursor: ew-resize; top: 0; left: 0; margin: 0; }
+
+/* --- Idea 2: Live Log Infoticker Banner --- */
+.live-ticker-wrap { max-width: 1140px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 50px; display: flex; align-items: center; overflow: hidden; padding: 5px; }
+.ticker-title { background: #0ea5e9; color: #fff; font-size: 11px; font-weight: 800; padding: 8px 16px; border-radius: 50px; letter-spacing: 1px; }
+.ticker-content { flex: 1; padding: 0 20px; color: #cbd5e1; font-size: 13px; font-weight: 500; transition: opacity 0.3s ease; }
+
+/* --- Idea 5: Structural Exit Intent Popup Modal --- */
+.exit-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(4, 6, 14, 0.85); z-index: 9999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+.exit-modal-content { background: #0f172a; border: 1px solid rgba(239, 68, 68, 0.2); padding: 40px; border-radius: 20px; max-width: 500px; width: 90%; text-align: center; position: relative; }
+.close-popup { position: absolute; top: 15px; right: 20px; color: #94a3b8; font-size: 28px; cursor: pointer; }
+.popup-alert-tag { background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2); padding: 4px 12px; border-radius: 50px; font-size: 10px; font-weight: 700; }
+.exit-modal-content h2 { color: #fff; font-size: 24px; margin: 20px 0 10px; }
+.exit-modal-content p { color: #94a3b8; font-size: 14px; line-height: 1.6; margin-bottom: 25px; }
+.popup-btn { display: block; background: linear-gradient(90deg, #ef4444, #ea580c); color: #fff; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: 600; }
+
+@keyframes pulseText { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+@keyframes floatAnim { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+@keyframes rotateSeal { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
 /* ==========================================================================
    NEXT-GEN MATRIX SYSTEMS: DESIGN TOKEN ARCHITECTURE & VARIABLES
    ========================================================================== */
@@ -545,6 +718,142 @@ body {
             </div>
         </div>
     </main>
+  section id="dynamic-festival-section" class="promo-section" style="display: none;">
+    <div id="particle-canvas" class="particle-bg"></div>
+    <div class="promo-container">
+        <div class="promo-content">
+            <div class="badge-discount-wrapper">
+                <span id="promo-badge" class="dynamic-badge">SPECIAL</span>
+                <span id="promo-discount" class="discount-tag">0% OFF</span>
+            </div>
+            
+            <h2 id="promo-heading" class="dynamic-heading">Loading Today's Offer...</h2>
+            <p id="promo-text" class="dynamic-text">Connecting to secure parameters...</p>
+            
+            <div class="timer-wrapper">
+                <div class="timer-header">
+                    <i class="far fa-clock"></i> <span>OFFER ENDS IN:</span>
+                    <span id="countdown-clock" class="clock-digits">00:00:00</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="timer-progress" class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <div id="secure-seal-box" class="secure-seal-wrap" style="display: none;">
+                <div class="seal-circle">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <p>⚡ NavigateGeM Secure Token Generated!</p>
+            </div>
+
+            <a id="promo-action-btn" href="https://wa.me/918601865676" target="_blank" class="promo-btn" onclick="triggerSecureSeal(event)">
+                <span>Claim Offer Now</span>
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        
+        <div class="promo-image-box">
+            <img id="promo-img" src="" alt="Festival Poster">
+        </div>
+    </div>
+</section>
+
+<section class="smarthub-section">
+    <div class="smarthub-container">
+        
+        <div class="smarthub-card calculator-card">
+            <span class="hub-badge">Interactive Tool</span>
+            <h3>Check Your GeM Profile Readiness</h3>
+            <p>Analyze if your business ecosystem is 100% compliant for government bidding matrix protocols.</p>
+            <div id="quiz-container">
+                <div class="quiz-step active" data-step="1">
+                    <label>1. Select your primary business model architecture:</label>
+                    <button onclick="nextQuizStep(2, 25)">Original Equipment Manufacturer (OEM)</button>
+                    <button onclick="nextQuizStep(2, 15)">Reseller / Channel Trader</button>
+                </div>
+                <div class="quiz-step" data-step="2">
+                    <label>2. Do you possess a registered Trademark Certificate?</label>
+                    <button onclick="nextQuizStep(3, 35)">Yes, Fully Registered & Active</button>
+                    <button onclick="nextQuizStep(3, 10)">No / Currently Under Process</button>
+                </div>
+                <div class="quiz-step" data-step="3">
+                    <label>3. Is your business ITR perfectly synchronized with GSTIN?</label>
+                    <button onclick="calculateScore(40)">Yes, Integrated Data Streams</button>
+                    <button onclick="calculateScore(10)">No, Action Pending / Mismatched</button>
+                </div>
+                <div class="quiz-step" id="quiz-result">
+                    <div class="score-circle"><span id="score-num">0</span>%</div>
+                    <p id="score-msg"></p>
+                    <a id="score-wp-btn" href="#" target="_blank" class="hub-btn">Fix Compliance via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="smarthub-card pricing-card">
+            <span class="hub-badge">GeM Compliance</span>
+            <h3>GeM 10% Market Reference Calculator</h3>
+            <p>Input your commercial product MRP to instantly compute the maximum allowable ceiling price permitted under portal regularizations.</p>
+            <div class="input-group">
+                <input type="number" id="mrp-input" placeholder="Enter Product MRP ($)">
+                <button onclick="calculateL1Price()">Compute</button>
+            </div>
+            <div id="pricing-result" style="display:none;">
+                <p>Max Permitted Selling Price: <strong id="allowed-price">₹0</strong></p>
+                <span class="warning-text">⚠️ Catalog listings exceeding this threshold face algorithmic rejection sequences.</span>
+            </div>
+        </div>
+
+        <div class="smarthub-card exemption-card">
+            <span class="hub-badge">MSME / Startup Tool</span>
+            <h3>Vendor Assessment Exemption Checker</h3>
+            <p>Determine your institutional eligibility status regarding the RITES Assessment Fee (₹14,999) waiver protocols.</p>
+            <div class="checker-form">
+                <select id="exemption-select">
+                    <option value="">-- Select Corporate Category --</option>
+                    <option value="exempt">DPIIT Verified Startup Entity</option>
+                    <option value="exempt">NSIC Registered Domestic Manufacturer</option>
+                    <option value="exempt">Sellers with Annual Turnover > ₹500 Crore</option>
+                    <option value="not-exempt">Reseller / Channel Partner (General)</option>
+                    <option value="not-exempt">General Manufacturer without NSIC/BIS</option>
+                </select>
+                <button onclick="checkExemption()">Verify Exemption Status</button>
+            </div>
+            <div id="checker-result" class="result-box" style="display: none;"></div>
+        </div>
+
+        <div class="smarthub-card slider-card">
+            <span class="hub-badge">Our Impact</span>
+            <h3>Profile Optimization Benchmarks</h3>
+            <p>Drag the interactive node viewport slider to isolate architectural differences between unoptimized catalogs and full OEM dashboards.</p>
+            <div class="comparison-slider">
+                <div class="image-before"><div class="slider-label">Standard Profile Layout</div></div>
+                <div class="image-after"><div class="slider-label">Verified OEM Approved Dashboard</div></div>
+                <input type="range" min="0" max="100" value="50" class="slider-bar" oninput="moveSlider(this)">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="live-ticker-wrap">
+        <div class="ticker-title">LIVE COMPLIANCE FEED</div>
+        <div class="ticker-content">
+            <div id="ticker-text">🟢 Booting global security verification matrix telemetry...</div>
+        </div>
+    </div>
+</section>
+
+<div id="exit-popup" class="exit-modal" style="display: none;">
+    <div class="exit-modal-content">
+        <span class="close-popup" onclick="closeExitPopup()">&times;</span>
+        <span class="popup-alert-tag">⚠️ RISK ANALYSIS REPORT</span>
+        <h2>Hold On! Is Your Cataloging Matrix at Risk?</h2>
+        <p>90% of structural vendor profiles encounter critical platform blockades due to improper assessment configurations. Secure your free structural consultation protocol with our Principal Consultant, Karan Yadav, before leaving.</p>
+        <a id="popup-wp-btn" href="https://wa.me/918601865676" target="_blank" class="popup-btn">
+            <i class="fab fa-whatsapp"></i> Initiate Free Diagnostics Session
+        </a>
+    </div>
+</div>
 
 
     <!-- SECTION 2: GEM PORTAL REGISTRATION MATRIX -->
@@ -1830,5 +2139,328 @@ document.addEventListener('DOMContentLoaded', () => {
         sections.forEach(section => sectionObserver.observe(section));
     }
 });
+  /**
+ * ==========================================================================
+ * NAVIGATEGEM ULTRA-HYBRID AUTOMATION ENGINE (script.js)
+ * 100% FULLY AUTOMATED MULTI-THEME FESTIVAL & GEO-TARGETED MATRIX
+ * ==========================================================================
+ */
+
+// --- 1. IDEA 1: INTERACTIVE GeM SCORECARD READINESS ---
+let totalScore = 0;
+function nextQuizStep(nextStep, scoreToAdd) {
+    totalScore += scoreToAdd;
+    document.querySelector('.quiz-step.active').classList.remove('active');
+    document.querySelector(`[data-step="${nextStep}"]`).classList.add('active');
+}
+
+function calculateScore(scoreToAdd) {
+    totalScore += scoreToAdd;
+    document.querySelector('.quiz-step.active').classList.remove('active');
+    document.getElementById('quiz-result').classList.add('active');
+    document.getElementById('score-num').innerText = totalScore;
+    
+    let msg = "";
+    if (totalScore >= 80) {
+        msg = "Excellent! Your profile architecture is primed for bidding. Secure verification immediately.";
+    } else if (totalScore >= 50) {
+        msg = "Warning! Essential parameters present, but severe OEM Assessment risk vectors identified.";
+    } else {
+        msg = "Critical! Significant baseline compliance gaps detected. Optimization mandatory.";
+    }
+    
+    document.getElementById('score-msg').innerText = msg;
+    const wpMsg = `Hi Karan, I executed my GeM Profile Readiness Diagnostic. Score: ${totalScore}%. Requiring technical architecture optimization.`;
+    document.getElementById('score-wp-btn').href = `https://wa.me/918601865676?text=${encodeURIComponent(wpMsg)}`;
+}
+
+// --- 2. IDEA 4: 10% MARKET SIMULATOR ENGINE ---
+function calculateL1Price() {
+    const mrp = parseFloat(document.getElementById('mrp-input').value);
+    if (!mrp || mrp <= 0) return alert("Please present a valid numerical MRP.");
+    const maxAllowedPrice = mrp * 0.90;
+    document.getElementById('allowed-price').innerText = `₹${maxAllowedPrice.toFixed(2)}`;
+    document.getElementById('pricing-result').style.display = 'block';
+}
+
+// --- 3. IDEA 1.2: EXEMPTION CHECKER CONTROLLER ---
+function checkExemption() {
+    const status = document.getElementById('exemption-select').value;
+    const resultBox = document.getElementById('checker-result');
+    if (!status) return alert("Please select a valid structural category node.");
+    
+    resultBox.style.display = 'block';
+    if (status === 'exempt') {
+        resultBox.className = "result-box success";
+        resultBox.innerHTML = "🎉 Congratulations! Under current GeM Vendor Assessment guidelines, your profile qualifies for a 100% waiver on the ₹14,999 RITES Fee.";
+    } else {
+        resultBox.className = "result-box fail";
+        resultBox.innerHTML = "⚠️ Assessment Fee Required. Direct optimization pathways must be validated to secure compliance frameworks and prevent validation hold scenarios.";
+    }
+}
+
+// --- 4. IDEA 8: 3D SLIDER VIEWPORT DISPATCHER ---
+function moveSlider(slider) {
+    const value = slider.value;
+    slider.parentElement.querySelector('.image-after').style.width = value + '%';
+}
+
+// --- 5. IDEA 2: LIVE LOG UPDATES TICKER ---
+const tickerUpdates = [
+    "🟢 Just Now: New OEM Dashboard approved for an Infrastructure Client in Lucknow.",
+    "🟢 15 mins ago: Successfully optimized L1 parameters for Chemical Manufacturing catalog.",
+    "🟢 1 hour ago: Custom BOQ Bid submitted seamlessly with zero validation blocks.",
+    "🟢 Today: MSME fee exemption successfully processed for a technical vendor workflow.",
+    "🟢 Update: Fresh QCI validation parameters mapped for institutional supplies."
+];
+let tickerIndex = 0;
+function rotateTicker() {
+    const textElem = document.getElementById('ticker-text');
+    if (textElem) {
+        textElem.style.opacity = 0;
+        setTimeout(() => {
+            textElem.innerText = tickerUpdates[tickerIndex];
+            textElem.style.opacity = 1;
+            tickerIndex = (tickerIndex + 1) % tickerUpdates.length;
+        }, 300);
+    }
+}
+setInterval(rotateTicker, 4000);
+
+// --- 6. IDEA 20: SECURE CRYPTO TOKEN ANIMATION ---
+function triggerSecureSeal(event) {
+    event.preventDefault();
+    const url = event.currentTarget.href;
+    const sealBox = document.getElementById('secure-seal-box');
+    if (sealBox) {
+        sealBox.style.display = 'flex';
+        const sealCircle = sealBox.querySelector('.seal-circle');
+        sealCircle.style.animation = 'none';
+        setTimeout(() => sealCircle.style.animation = '', 10);
+        setTimeout(() => { window.open(url, '_blank'); }, 1200);
+    }
+}
+
+// --- 7. IDEA 5: EXIT-INTENT DETECTION LAYER ---
+let popupTriggered = false;
+document.addEventListener('mouseleave', (e) => {
+    if (e.clientY < 20 && !popupTriggered) {
+        const popup = document.getElementById('exit-popup');
+        if (popup) {
+            const exitWpText = "Hi Karan, I observed the diagnostics parameter notification before exiting. Registering for the Free Strategic Profile Risk Assessment.";
+            document.getElementById('popup-wp-btn').href = `https://wa.me/918601865676?text=${encodeURIComponent(exitWpText)}`;
+            popup.style.display = 'flex';
+            popupTriggered = true;
+        }
+    }
+});
+function closeExitPopup() { 
+    document.getElementById('exit-popup').style.display = 'none'; 
+}
+
+// --- 8. LIVE GOOGLE SHEETS, LOCATIONAL ENGINE & MASTER DATABASE ---
+window.addEventListener('DOMContentLoaded', () => {
+    const sheetId = '1hHpUAqLeldFoNz3fSZ2HoPHm-S_cub_waBsHoL3xgZY'; 
+    const sheetName = 'Sheet1'; 
+    const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${sheetName}`;
+
+    const today = new Date();
+    const dateNum = today.getDate();
+    const monthNum = today.getMonth() + 1;
+    const dayOfWeek = today.getDay();
+    const todayStr = `${String(dateNum).padStart(2, '0')}-${String(monthNum).padStart(2, '0')}-${today.getFullYear()}`;
+
+    // ==========================================
+    // 1. GLOBAL WEBSITE THEME MORPHING CONTROLLER
+    // ==========================================
+    function applyDynamicTheme(badgeText) {
+        const section = document.getElementById('dynamic-festival-section');
+        const badge = document.getElementById('promo-badge');
+        const fillBar = document.getElementById('timer-progress');
+        const btn = document.getElementById('promo-action-btn');
+        const canvas = document.getElementById('particle-canvas');
+        
+        let colors = [];
+        let tag = badgeText.toUpperCase();
+        let particleType = "circle";
+        const root = document.documentElement;
+
+        // A. DIWALI, DEEPAWALI & DHANTERAS (Purple Gold Grand Theme)
+        if (tag.includes("DIWALI") || tag.includes("DHANTERAS") || tag.includes("DEEPAWALI")) {
+            root.style.setProperty('--site-bg', '#120721');
+            root.style.setProperty('--card-bg', 'rgba(124, 58, 237, 0.05)');
+            root.style.setProperty('--border-color', 'rgba(234, 179, 8, 0.3)');
+            root.style.setProperty('--primary-glow', '#eab308');
+            
+            section.style.background = "#180c2e";
+            section.style.borderColor = "rgba(234, 179, 8, 0.4)";
+            badge.style.background = "linear-gradient(90deg, #7c3aed, #eab308)";
+            fillBar.style.background = "linear-gradient(90deg, #eab308, #ea580c)";
+            btn.style.background = "linear-gradient(90deg, #ea580c, #7c3aed)";
+            colors = ['#eab308', '#ea580c', '#ca8a04', '#a78bfa', '#ffffff'];
+        } 
+        // B. PATRIOTIC / REPUBLIC / INDEPENDENCE (Tiranga Waves)
+        else if (tag.includes("INDEPENDENCE") || tag.includes("REPUBLIC") || tag.includes("PATRIOTIC") || tag.includes("MARTYRS") || tag.includes("VIJAY") || tag.includes("ARMY") || tag.includes("NAVY") || tag.includes("AIR FORCE") || tag.includes("CONSTITUTION")) {
+            root.style.setProperty('--site-bg', '#030d08');
+            root.style.setProperty('--card-bg', 'rgba(22, 163, 74, 0.05)');
+            root.style.setProperty('--border-color', 'rgba(249, 115, 22, 0.3)');
+            root.style.setProperty('--primary-glow', '#f97316');
+
+            section.style.background = "#05160e";
+            section.style.borderColor = "rgba(249, 115, 22, 0.4)";
+            badge.style.background = "linear-gradient(90deg, #f97316, #16a34a)";
+            fillBar.style.background = "linear-gradient(90deg, #ffffff, #16a34a)";
+            btn.style.background = "linear-gradient(90deg, #f97316, #15803d)";
+            colors = ['#f97316', '#ffffff', '#16a34a', '#ffedd5', '#dcfce7'];
+        } 
+        // C. HOLI SPLASH (Vibrant Fluid Colors)
+        else if (tag.includes("HOLI")) {
+            root.style.setProperty('--site-bg', '#140311');
+            root.style.setProperty('--card-bg', 'rgba(6, 182, 212, 0.05)');
+            root.style.setProperty('--border-color', 'rgba(236, 72, 153, 0.3)');
+            root.style.setProperty('--primary-glow', '#ec4899');
+
+            section.style.background = "#1e061a";
+            section.style.borderColor = "rgba(236, 72, 153, 0.4)";
+            badge.style.background = "linear-gradient(45deg, #ec4899, #06b6d4, #eab308)";
+            fillBar.style.background = "linear-gradient(90deg, #06b6d4, #ec4899)";
+            btn.style.background = "linear-gradient(90deg, #ec4899, #eab308)";
+            colors = ['#ec4899', '#06b6d4', '#eab308', '#a855f7', '#10b981'];
+        } 
+        // D. ROMANTIC & RELATIONAL DAYS (Pink Aura + Heart Particles)
+        else if (tag.includes("SISTER") || tag.includes("BROTHER") || tag.includes("KISS") || tag.includes("VALENTINE") || tag.includes("ROSE") || tag.includes("PROPOSE") || tag.includes("CHOCOLATE") || tag.includes("TEDDY") || tag.includes("PROMISE") || tag.includes("HUG") || tag.includes("GIRL CHILD") || tag.includes("CHILDREN")) {
+            root.style.setProperty('--site-bg', '#14030a');
+            root.style.setProperty('--card-bg', 'rgba(244, 63, 94, 0.05)');
+            root.style.setProperty('--border-color', 'rgba(244, 63, 94, 0.3)');
+            root.style.setProperty('--primary-glow', '#f43f5e');
+
+            section.style.background = "#200610";
+            section.style.borderColor = "rgba(244, 63, 94, 0.4)";
+            badge.style.background = "linear-gradient(90deg, #f43f5e, #fda4af)";
+            fillBar.style.background = "linear-gradient(90deg, #fb7185, #e11d48)";
+            btn.style.background = "linear-gradient(90deg, #be123c, #fda4af)";
+            colors = ['#f43f5e', '#fb7185', '#e11d48', '#fff1f2', '#fcd34d'];
+            particleType = "heart";
+        } 
+        // E. ECO / HEALTH / WORLD DAYS (Deep Botanical Green)
+        else if (tag.includes("ENVIRONMENT") || tag.includes("YOGA") || tag.includes("EARTH") || tag.includes("HEALTH") || tag.includes("WILDLIFE") || tag.includes("WATER") || tag.includes("FORESTRY") || tag.includes("CANCER") || tag.includes("TB") || tag.includes("BLOOD") || tag.includes("CONSERVATION") || tag.includes("POLLUTION")) {
+            root.style.setProperty('--site-bg', '#01120e');
+            root.style.setProperty('--card-bg', 'rgba(16, 185, 129, 0.05)');
+            root.style.setProperty('--border-color', 'rgba(16, 185, 129, 0.3)');
+            root.style.setProperty('--primary-glow', '#10b981');
+
+            section.style.background = "#021e17";
+            section.style.borderColor = "rgba(16, 185, 129, 0.4)";
+            badge.style.background = "linear-gradient(90deg, #059669, #10b981)";
+            fillBar.style.background = "linear-gradient(90deg, #34d399, #047857)";
+            btn.style.background = "linear-gradient(90deg, #10b981, #064e3b)";
+            colors = ['#10b981', '#34d399', '#059669', '#a7f3d0', '#ffffff'];
+        }
+        // DEFAULT FALLBACK (Classic Sapphire Dark Theme)
+        else {
+            root.style.setProperty('--site-bg', '#04060a');
+            root.style.setProperty('--card-bg', 'rgba(255, 255, 255, 0.02)');
+            root.style.setProperty('--border-color', 'rgba(255, 255, 255, 0.05)');
+            root.style.setProperty('--primary-glow', '#0ea5e9');
+
+            section.style.background = "#0b0f19";
+            section.style.borderColor = "rgba(14, 165, 233, 0.2)";
+            badge.style.background = "linear-gradient(90deg, #0369a1, #0ea5e9)";
+            fillBar.style.background = "linear-gradient(90deg, #0ea5e9, #2563eb)";
+            btn.style.background = "linear-gradient(90deg, #0ea5e9, #0284c7)";
+            colors = ['#0ea5e9', '#2563eb', '#38bdf8', '#1e1b4b'];
+        }
+
+        canvas.innerHTML = '';
+        for (let i = 0; i < 30; i++) {
+            const p = document.createElement('div');
+            p.style.position = 'absolute'; p.style.bottom = '-20px'; p.style.left = Math.random() * 100 + '%';
+            const size = Math.random() * 6 + 4;
+            if (particleType === "heart") {
+                p.innerHTML = "♥"; p.style.color = colors[Math.floor(Math.random() * colors.length)];
+                p.style.fontSize = size + 'px'; p.style.background = "none";
+            } else {
+                p.style.width = size + 'px'; p.style.height = size + 'px';
+                p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]; p.style.borderRadius = '50%';
+            }
+            p.style.setProperty('--x-move', (Math.random() * 120 - 60) + 'px');
+            p.style.animation = `floatParticle ${Math.random() * 4 + 3}s linear infinite`;
+            p.style.animationDelay = Math.random() * 4 + 's';
+            canvas.appendChild(p);
+        }
+    }
+
+    // ========================================================
+    // 2. GEO-TARGETED WISHES MATRIX ENGINE (HAPPY ADDED FILTER)
+    // ========================================================
+    function startTimerAndPublish(discountVal, headingVal, textVal, imgVal, badgeText) {
+        let finalHeading = headingVal;
+        let cleanBadge = badgeText ? badgeText : "SPECIAL";
+        let userCity = ""; 
+
+        fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(geoData => {
+                if (geoData && geoData.city) {
+                    userCity = geoData.city; 
+                }
+                renderTargetedUI();
+            })
+            .catch(() => {
+                renderTargetedUI(); 
+            });
+
+        function renderTargetedUI() {
+            let locationString = userCity ? ` ${userCity}` : "";
+            let festivalName = cleanBadge;
+            
+            // डबल हैप्पी या रिपीट टेक्स्ट क्लीन-अप फ़िल्टर
+            festivalName = festivalName.replace(/happy/i, '').replace(/festival/i, '').replace(/celebration/i, '').trim();
+
+            if (festivalName !== "SPECIAL" && festivalName !== "LIMITED TIME PROMO" && festivalName !== "WEEKEND SCALE-UP") {
+                // इंडियन-इंग्लिश स्टाइल 365 दिन परफेक्ट विश लॉजिक
+                finalHeading = `✨ Happy ${festivalName}${locationString} — Greetings from NavigateGeM Consultant! ✨`;
+            } else {
+                let vendorLocation = userCity ? ` for ${userCity} Vendors` : "";
+                finalHeading = `${headingVal}${vendorLocation} | NavigateGeM Consultant`;
+            }
+
+            document.getElementById('promo-heading').innerText = finalHeading;
+            document.getElementById('promo-text').innerText = textVal;
+            document.getElementById('promo-img').src = imgVal;
+            document.getElementById('promo-discount').innerText = discountVal;
+
+            let clientLoc = userCity ? ` from ${userCity}` : "";
+            const wpText = `Hi Karan Sir, I am connecting${clientLoc}. I saw the special dynamic offer on NavigateGeM Consultant portal today. Please activate my "${discountVal}" setup waiver.`;
+            document.getElementById('promo-action-btn').href = `https://wa.me/918601865676?text=${encodeURIComponent(wpText)}`;
+        }
+
+        document.getElementById('dynamic-festival-section').style.display = 'block';
+        setInterval(() => {
+            const diff = new Date().setHours(24, 0, 0, 0) - new Date();
+            const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+            const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+            const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+            document.getElementById('countdown-clock').innerText = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('timer-progress').style.width = (100 - ((86400000 - diff) / 86400000) * 100) + '%';
+        }, 1000);
+    }
+
+    // --- 365-DAY AUTOMATION ENGINE COMPLETE TIMELINE NODES ---
+    function getHardcodedCalendarNode() {
+        // --- JANUARY MAPPINGS ---
+        if (monthNum === 1 && dateNum === 1) return { badge: "NEW YEAR'S DAY", discount: "26% OFF", heading: "New Year, Unprecedented Scale!", text: "Launch into 2026 with optimized configurations. Eradicate catalog validation bottleneck loops instantly.", img: "https://images.unsplash.com/photo-1510519138101-570d1dca3d66?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 4) return { badge: "WORLD BRAILLE DAY", discount: "20% OFF", heading: "Accessibility In Public Bidding", text: "Structuring clear, accessible frameworks for entry-level micro profiles to access top tier tenders.", img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 10) return { badge: "WORLD HINDI DAY", discount: "20% OFF", heading: "Celebrating Local Marketplace Synergy", text: "Connecting structural local vendors across Indian micro-regions with streamlined government integrations.", img: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 12) return { badge: "NATIONAL YOUTH DAY", discount: "22% OFF", heading: "Youth Innovation Startup Drive", text: "Accelerating young business minds. Onboard your DPIIT startups on GeM with zero technical compliance issues.", img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 15) return { badge: "INDIAN ARMY DAY", discount: "25% OFF", heading: "Ironclad Security For B2B Layouts", text: "Deploy rigorous validation arrays. Protect your product catalogs from unvetted platform blocks.", img: "https://images.unsplash.com/photo-1590172545431-d599c5a5e86d?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 24) return { badge: "NATIONAL GIRL CHILD DAY", discount: "30% OFF", heading: "Empowering Diverse Enterprise Tiers", text: "Access exclusive government quotas and reservation protocols mapped for minority and diverse profiles.", img: "https://images.unsplash.com/photo-1484863137850-59afedd0a288?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 25) return { badge: "NATIONAL VOTERS DAY", discount: "20% OFF", heading: "Authorized Corporate Governance", text: "Ensure legitimate parameter mapping across validation matrices to verify pristine accountability parameters.", img: "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 26) return { badge: "REPUBLIC DAY INDIA", discount: "26% OFF", heading: "Sovereign Growth Frameworks!", text: "Celebrate constitutional business expansion. Claim direct L1 positioning strategy blueprints now.", img: "https://images.unsplash.com/photo-1562940301-49e5d23ad925?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 30) return { badge: "MARTYRS' DAY MEMORIAL", discount: "20% OFF", heading: "Honoring Standard Core Legacies", text: "Building reliable procurement tracks structured on robust, compliant historical matrix baselines.", img: "https://images.unsplash.com/photo-1447b55843422-777e80d4c88?q=80&w=600" };
+
+        // --- FEBRUARY MAPPINGS ---
+        if (monthNum === 2 && dateNum === 4) return { badge: "WORLD CANCER DAY", discount: "20% OFF", heading: "Eradicating Catalog Anomalies", text: "
+  
 </script>
 </html>
