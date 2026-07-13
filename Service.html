@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeM Portal Advanced Procurement Solutions</title>
+    <style>
+        :root {
+            --bg-dark: #071424;
+            --panel-dark: #0d1f34;
+            --accent-orange: #F26A1B;
+            --text-light: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-glow: #1e293b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; padding: 0;
+            color: var(--text-light);
+            background-color: var(--bg-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(242, 106, 27, 0.4); }
+            50% { transform: scale(1.04); box-shadow: 0 4px 30px rgba(242, 106, 27, 0.8); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(242, 106, 27, 0.4); }
+        }
+
+        .service-banner {
+            background: linear-gradient(180deg, #030a12 0%, var(--bg-dark) 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px 50px 20px;
+            animation: fadeInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+            border-bottom: 1px solid rgba(242, 106, 27, 0.1);
+        }
+
+        .service-banner h1 { margin: 0; font-size: 2.8rem; font-weight: 800; }
+        .service-banner p { margin: 15px 0 0 0; font-size: 1.3rem; color: var(--text-muted); }
+
+        .freshness-tag {
+            display: inline-block;
+            background: rgba(242, 106, 27, 0.1);
+            color: var(--accent-orange);
+            padding: 6px 18px; border-radius: 20px;
+            font-size: 0.85rem; font-weight: bold; margin-top: 20px;
+            border: 1px solid rgba(242, 106, 27, 0.3);
+        }
+
+        .main-container {
+            max-width: 1200px; margin: 0 auto; padding: 40px 20px;
+            animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+
+        .layout-flex { display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 50px; }
+        .content-area { flex: 2; min-width: 300px; }
+        .sidebar-form { flex: 1; min-width: 300px; }
+
+        .highlight-orange { color: var(--accent-orange); font-weight: bold; }
+
+        .corporate-about-box {
+            background: linear-gradient(135deg, #0d1f34 0%, #081524 100%);
+            border: 1px solid rgba(242, 106, 27, 0.2);
+            padding: 30px; border-radius: 12px; margin-bottom: 40px;
+        }
+        .corporate-about-box h4 { margin-top: 0; color: var(--accent-orange); font-size: 1.3rem; }
+
+        /* Idea 2: LinkedIn Authority Blueprint Widget Component */
+        .linkedin-blueprint-card {
+            background: linear-gradient(135deg, #0a1d30 0%, #05101c 100%);
+            border-left: 5px solid #0077b5;
+            padding: 25px; border-radius: 12px; margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        .linkedin-blueprint-card h5 { margin: 0 0 10px 0; font-size: 1.15rem; color: #0077b5; display: flex; align-items: center; gap: 8px; }
+
+        .form-card {
+            background: var(--panel-dark); border: 1px solid var(--border-glow);
+            padding: 35px; border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            position: sticky; top: 30px;
+        }
+
+        .form-card h3 { margin-top: 0; color: white; font-size: 1.5rem; text-align: center; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: var(--text-muted); }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 14px; background: #071424; color: white;
+            border: 1px solid var(--border-glow); border-radius: 8px;
+            box-sizing: border-box; font-size: 1rem;
+        }
+
+        .form-submit-link {
+            width: 100%; background: var(--accent-orange); color: white; border: none;
+            padding: 16px; font-size: 1.1rem; font-weight: bold; border-radius: 8px;
+            cursor: pointer; transition: 0.3s ease; text-align: center; display: block;
+            text-decoration: none; box-sizing: border-box;
+        }
+        .form-submit-link:hover { background: #d65510; }
+
+        .services-list-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px; margin-top: 30px;
+        }
+
+        .service-main-card {
+            background: var(--panel-dark); border: 1px solid var(--border-glow);
+            border-radius: 14px; padding: 30px;
+        }
+        .service-main-card:hover { border-color: var(--accent-orange); }
+        .service-main-card h3 { margin-top: 0; color: white; font-size: 1.3rem; }
+        .service-main-card p { font-size: 0.98rem; color: var(--text-muted); margin: 0; }
+
+        /* Idea 1: Dynamic Content Hub Grid Structure Styles */
+        .content-hub-section { background: var(--panel-dark); padding: 40px; border-radius: 16px; margin-top: 60px; border: 1px solid var(--border-glow); }
+        .content-hub-section h2 { text-align: center; color: white; margin-bottom: 10px; }
+        .content-hub-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 40px; font-size: 1.05rem; }
+        .hub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .hub-item { background: var(--bg-dark); padding: 25px; border-radius: 12px; border: 1px solid var(--border-glow); transition: 0.3s; }
+        .hub-item:hover { border-color: var(--accent-orange); transform: translateY(-3px); }
+        .hub-item h4 { margin: 0 0 12px 0; font-size: 1.15rem; color: white; }
+        .hub-item p { margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; }
+
+        .faq-container { background: var(--panel-dark); padding: 40px; border-radius: 16px; margin-top: 60px; border: 1px solid var(--border-glow); }
+        .faq-container h2 { text-align: center; color: white; margin-bottom: 30px; }
+        .faq-item { border-bottom: 1px solid var(--border-glow); padding: 20px 0; cursor: pointer; }
+        .faq-item h4 { margin: 0; font-size: 1.15rem; color: white; display: flex; justify-content: space-between; }
+        .faq-item p { margin: 10px 0 0 0; color: var(--text-muted); display: none; font-size: 1rem; }
+
+        .floating-whatsapp {
+            position: fixed; bottom: 30px; right: 30px;
+            background-color: #25D366; color: white;
+            padding: 16px 28px; border-radius: 50px;
+            font-weight: bold; text-decoration: none;
+            z-index: 99999; display: flex; align-items: center; gap: 10px;
+            animation: pulseGlow 2.5s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="service-banner">
+        <span id="greeting-box" style="font-weight: 600; font-size: 1.1rem; letter-spacing: 1.5px; color: var(--accent-orange);">WELCOME VISITOR</span>
+        <h1 id="dyn-main-title">GeM Portal Consultant & Service Partner</h1>
+        <p id="dyn-sub-title">Advanced L1 Bidding, OEM Registrations & Procurement Support Desk</p>
+        <div class="freshness-tag" id="live-date-tag">GeM Compliance Updated As Of: July 2026</div>
+    </header>
+
+    <div class="main-container">
+        
+        <section class="corporate-about-box">
+            <h4>Professional Credentials & Domain Expertise</h4>
+            <p style="margin: 0; font-size: 1.05rem; color: var(--text-light);">
+                Securing government contracts on the GeM portal requires precise operations and strategic execution. Backed by an academic foundation from **Lucknow University**, we bring years of direct experience managing high-volume **Government e-Marketplace (GeM) profiles**, complex product listings, and technical evaluation panels. We act as your reliable growth partner, providing top-class consulting services to business entities all over India.
+            </p>
+        </section>
+
+        <!-- Idea 2: LinkedIn Authority Blueprint Dynamic Alert Widget -->
+        <section class="linkedin-blueprint-card">
+            <h5>💼 B2B Compliance & Bid Risk Advisory Panel</h5>
+            <p style="margin: 0; font-size: 1rem; color: var(--text-light);">
+                Are you an enterprise director or executive tracking the updated 2026 procurement mandates? Missing dynamic administrative guidelines during catalog mapping or audit streaming causes immediate listing suspensions. Connect with our dedicated support desk to audit your local parameter profiles securely before submitting high-value central government auction sheets.
+            </p>
+        </section>
+
+        <div class="layout-flex">
+            
+            <div class="content-area">
+                <p style="font-size: 1.15rem; margin-top: 0; color: var(--text-muted);">
+                    Securing large central and state government orders on the Government e-Marketplace (GeM) platform is highly accessible now. We provide end-to-end technical support and panel management for business partners, contractors, and original equipment manufacturers in <span class="dyn-city-text highlight-orange">India</span> (<span id="dyn-state-zone">State Region</span> Zone) to help you consistently rank at the top of algorithmic filtering arrays.
+                </p>
+
+                <div class="services-list-grid">
+                    <div class="service-main-card" id="card-reg">
+                        <h3>GeM Portal Registration Compliance</h3>
+                        <p>Seamless vendor profile establishment, accurate document documentation verification, profile status check, and secure **Caution Money Deposit handling support** for Proprietorships, MSMEs, and Private Limited configurations.</p>
+                    </div>
+
+                    <div class="service-main-card" id="card-oem">
+                        <h3>OEM Registration & Brand Approval</h3>
+                        <p>Expert consulting for brand authorization updates. Get continuous assistance for **How to Add Unregistered Brand on GeM**, seamless Trademark matching adjustments, and hassle-free **GeM Portal Brand Authorization Letter Upload** workflow execution.</p>
+                    </div>
+
+                    <div class="service-main-card" id="card-assessment">
+                        <h3>OEM Vendor Assessment</h3>
+                        <p>Providing professional **GeM Desktop Assessment Clearance Expert** and **Video Assessment Audit Consultant** services. We systematically clear mandatory Quality Council of India (QCI) vendor assessment verifications along with structured factory live video streaming checklist configurations.</p>
+                    </div>
+
+                    <div class="service-main-card" id="card-l1">
+                        <h3>GeM L1 Bidding & Price Benchmarking</h3>
+                        <p>Advanced services by an experienced **GeM L1 Price Comparison Consultant**. We implement targeted **Direct Purchase L1 Software Optimization** and **L1 Clustered Cataloguing** models to cleanly map catalog frameworks for automated direct purchase orders generation.</p>
+                    </div>
+
+                    <div class="service-main-card" id="card-threshold">
+                        <h3>Direct Purchase Threshold Optimization</h3>
+                        <p>Strategic dashboard management by your primary **GeM Direct Purchase Limit Consultant**. We verify direct procurement order management thresholds and transaction caps without any procedural errors.</p>
+                    </div>
+
+                    <div class="service-main-card" id="card-catalog">
+                        <h3>Catalogue Management & Bulk Upload</h3>
+                        <p>Avail trusted **Bulk Catalog Upload Services on GeM** backed by a proficient **GeM Product Listing Agent**. We organize large inventory listing layouts with precise validation matching by **SAC HSN Mapping Experts**.</p>
+                    </div>
+
+                    <div class="service-main-card" id="card-bid">
+                        <h3>Custom Bid Creation & Reverse Auction (RA) Strategy</h3>
+                        <p>Premium **GeM Custom Bid Participation** support panel. Work alongside a dedicated **Reverse Auction Price Calculator Consultant** and a professional **GeM RA Strategy Guide** to securely process technical compliance parameters during live reverse auctions.</p>
+                    </div>
+
+                    <div class="service-main-card" id="card-pac">
+                        <h3>PAC Buying Procurement</h3>
+                        <p>Reliable panel assistance by a **PAC Bid Registration Consultant**. We systematically streamline legal propriety data matching rules and handle specialized **Proprietary Item Upload on GeM Portal** structures.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMPACT HYBRID SECURE DIRECTION FORM -->
+            <div class="sidebar-form">
+                <div class="form-card">
+                    <h3>Talk to a Partner</h3>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="formName" placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input type="tel" id="userPhone" placeholder="10 Digit Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <label>Required Support</label>
+                        <select id="formServiceDropdown">
+                            <option value="GeM Portal Registration">GeM Portal Registration</option>
+                            <option value="OEM Registry / Assessment">OEM Vendor Assessment & Brand Registry</option>
+                            <option value="L1 Bidding Optimization">L1 Price Benchmarking Optimization</option>
+                            <option value="Bulk Catalog Upload">Catalogue Management / Bulk Upload</option>
+                            <option value="Bid Support / RA">Custom Bid / Reverse Auction (RA)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Brief Requirement Note</label>
+                        <textarea id="formMessage" rows="3" placeholder="Describe your procurement issue..."></textarea>
+                    </div>
+                    <a href="#" id="submitAnchorLink" onclick="return processWhatsAppForm(event);" class="form-submit-link">Submit & Connect Panel</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Idea 1: Dynamic Content Hub / High-Intent Problem Solving Guides -->
+        <section class="content-hub-section">
+            <h2>GeM Technical Resolution Knowledge Hub</h2>
+            <div class="content-hub-subtitle">High-intent resolution articles capturing diagnostic user queries across <span class="dyn-city-text">India</span></div>
+            <div class="hub-grid">
+                <div class="hub-item">
+                    <h4>Resolving Trademark Matching Registry Errors</h4>
+                    <p>When manufacturers attempt a new catalog upload, the panel frequently throws structural brand validation faults. Uploading clear authorization documents cleans the tracking buffer loop instantly.</p>
+                </div>
+                <div class="hub-item">
+                    <h4>Desktop Evaluation Document Discrepancies</h4>
+                    <p>Rejections during preliminary QCI dashboard verifications happen due to mismatched revenue sheets or outdated industrial parameters. Structured checking reduces compliance faults to zero.</p>
+                </div>
+                <div class="hub-item">
+                    <h4>L1 Price Comparison Matrix Alignment</h4>
+                    <p>Securing direct procurement purchase value orders requires precise grouping under automated clustered frameworks. Optimization pushes products ahead of competing listing arrays cleanly.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-container">
+            <h2>Frequently Asked Questions - GeM Portal Services</h2>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <h4>GeM portal par primary registration kaise karein? <span>+</span></h4>
+                <p>To successfully complete registration, you require an active Aadhaar number linked with a mobile number, PAN card details, active bank account documents, and an active MSME/Udyam certificate to establish an error-free vendor seller profile account.</p>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <h4>GeM portal par verified OEM kaishe banein? <span>+</span></h4>
+                <p>To become a registered OEM, you must register your custom brand name or apply under an unregistered category. Once the trademark parameters are validated, you must successfully clear the QCI Desktop Assessment and Factory Video Assessment audits.</p>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <h4>Portal par fast brand approval kaishe lein? <span>+</span></h4>
+                <p>Brand approval can be secured by submitting the dynamic Upload Brand Registry application panel along with a clear Trademark registration certificate or a valid Brand Authorization Letter from the original manufacturer.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <a href="#" id="whatsapp-floating-btn" class="floating-whatsapp" target="_blank">
+        <span>Connect with a Partner</span>
+    </a>
+
+    <script>
+        const TARGET_DESK_NUMBER = "918601865676";
+        let activeCityGlobal = "India";
+        let activeRegionGlobal = "PAN India";
+        let activeIntentGlobal = "GeM Services Desk Operations";
+        let userLatitude = "Not Allowed";
+        let userLongitude = "Not Allowed";
+
+        document.getElementById('userPhone').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, ''); 
+            if (value.length > 10) value = value.slice(0, 10); 
+            e.target.value = value;
+        });
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                userLatitude = position.coords.latitude;
+                userLongitude = position.coords.longitude;
+            }, function(error) {
+                // Silently handle block
+            });
+        }
+
+        function toggleFaq(element) {
+            const description = element.querySelector('p');
+            const icon = element.querySelector('span');
+            if (description.style.display === "block") {
+                description.style.display = "none";
+                icon.textContent = "+";
+            } else {
+                description.style.display = "block";
+                icon.textContent = "-";
+            }
+        }
+
+        function processWhatsAppForm(event) {
+            const clientName = document.getElementById('formName').value.trim();
+            const clientPhone = document.getElementById('userPhone').value.trim();
+            const chosenService = document.getElementById('formServiceDropdown').value;
+            const clientNote = document.getElementById('formMessage').value.trim() || "None";
+
+            if(!clientName || !clientPhone) {
+                alert("Please fill your Name and 10-digit Mobile Number.");
+                return false;
+            }
+
+            if(clientPhone.length !== 10) {
+                alert("Please enter a valid 10-digit phone number.");
+                return false;
+            }
+
+            const userAgentString = navigator.userAgent;
+            let deviceType = "Desktop/PC";
+            if (/Android/i.test(userAgentString)) deviceType = "Android Device";
+            else if (/iPhone|iPad/i.test(userAgentString)) deviceType = "iOS Device";
+
+            const browserWidth = window.screen.width;
+            const browserHeight = window.screen.height;
+            const screenResolution = `${browserWidth}x${browserHeight}`;
+            const submissionTime = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+            const referencePage = document.referrer || "Direct Visit";
+
+            const telemetryReport = `*--- ADVANCED TELEMETRY LEAD REPORT ---*
+*User Query Data:*
+• Name: ${clientName}
+• Phone: ${clientPhone}
+• Service: ${chosenService}
+• Note: ${clientNote}
+
+*Captured Environmental Data:*
+• IP City: ${activeCityGlobal}
+• IP State: ${activeRegionGlobal}
+• Live Lat/Long: ${userLatitude}, ${userLongitude}
+• Device Segment: ${deviceType}
+• Resolution: ${screenResolution}
+• Timestamp: ${submissionTime}
+• Referrer Page: ${referencePage}`;
+
+            const encodedFormPayload = encodeURIComponent(telemetryReport);
+            const finalWaUrl = `https://wa.me/${TARGET_DESK_NUMBER}?text=${encodedFormPayload}`;
+            
+            const anchorElement = document.getElementById('submitAnchorLink');
+            anchorElement.href = finalWaUrl;
+            anchorElement.target = "_blank";
+            
+            return true;
+        }
+
+        function executeProcurementLogicPanel() {
+            const searchStrings = new URLSearchParams(window.location.search);
+            let targetCity = searchStrings.get('city');
+            let targetIntent = searchStrings.get('service') || "";
+            const checkMobileLayout = /Mobi|Android|iPhone/i.test(navigator.userAgent);
+
+            const currentHoursVal = new Date().getHours();
+            const greetElement = document.getElementById('greeting-box');
+            if (currentHoursVal < 12) greetElement.textContent = "☀️ GOOD MORNING PARTNER!";
+            else if (currentHoursVal < 17) greetElement.textContent = "🌤️ GOOD AFTERNOON ASSOCIATE!";
+            else greetElement.textContent = "🌙 GOOD EVENING BUSINESS OWNER!";
+
+            const namesArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const currentStamp = new Date();
+            document.getElementById('live-date-tag').textContent = `GeM Platform Policy Guidelines Active As Of: ${namesArray[currentStamp.getMonth()]} ${currentStamp.getFullYear()}`;
+
+            if (!targetCity) {
+                fetch('https://ipapi.co/json/')
+                    .then(res => res.json())
+                    .then(telemetry => {
+                        let parsedCity = telemetry.city || "India";
+                        let parsedRegion = telemetry.region || "State Procurement";
+                        activeCityGlobal = parsedCity;
+                        activeRegionGlobal = parsedRegion;
+                        renderIntegratedView(parsedCity, parsedRegion, targetIntent, checkMobileLayout);
+                    })
+                    .catch(() => {
+                        renderIntegratedView("India", "PAN India", targetIntent, checkMobileLayout);
+                    });
+            } else {
+                activeCityGlobal = targetCity;
+                renderIntegratedView(targetCity, "Local Region", targetIntent, checkMobileLayout);
+            }
+        }
+
+        function renderIntegratedView(cityName, regionName, intentName, isMobileFlag) {
+            cityName = cityName.trim().charAt(0).toUpperCase() + cityName.trim().slice(1);
+            activeCityGlobal = cityName;
+            
+            document.querySelectorAll('.dyn-city-text').forEach(n => n.textContent = cityName);
+            document.getElementById('dyn-state-zone').textContent = regionName;
+
+            const bannerTitle = document.getElementById('dyn-main-title');
+            const subTitle = document.getElementById('dyn-sub-title');
+            const dropdownSelector = document.getElementById('formServiceDropdown');
+
+            const cardArray = ['card-reg', 'card-oem', 'card-assessment', 'card-l1', 'card-threshold', 'card-catalog', 'card-bid', 'card-pac'];
+            cardArray.forEach(c => document.getElementById(c).style.borderColor = "#1e293b");
+
+            if (intentName.toLowerCase().includes('oem') || intentName.toLowerCase().includes('brand') || intentName.toLowerCase().includes('upload')) {
+                activeIntentGlobal = "OEM Registration & Brand Approval Upload Setup";
+                bannerTitle.innerHTML = `OEM Registration & Brand Approval Management in ${cityName}`;
+                subTitle.textContent = "Upload brand registries, trademark authorizations and activate manufacturer panel dashboards effortlessly.";
+                document.getElementById('card-oem').style.borderColor = "#F26A1B";
+                dropdownSelector.value = "OEM Registry / Assessment";
+            } 
+            else if (intentName.toLowerCase().includes('assessment') || intentName.toLowerCase().includes('video') || intentName.toLowerCase().includes('desktop')) {
+                activeIntentGlobal = "QCI Desktop & Factory Video Assessment Clearance Audit";
+                bannerTitle.innerHTML = `Desktop & Video Assessment Audit Consultants - ${cityName}`;
+                subTitle.textContent = "Clear mandatory Quality Council of India checks, document verification, and dynamic video factory verification screens.";
+                document.getElementById('card-assessment').style.borderColor = "#F26A1B";
+                dropdownSelector.value = "OEM Registry / Assessment";
+            }
+            else if (intentName.toLowerCase().includes('l1') || intentName.toLowerCase().includes('direct') || intentName.toLowerCase().includes('purchase')) {
+                activeIntentGlobal = "Direct Purchase L1 Price Comparison Engine Optimization";
+                bannerTitle.innerHTML = `GeM L1 Price Comparison & Direct Purchase Partner - ${cityName}`;
+                subTitle.textContent = "Optimize catalog structures to rank baseline products on lowest price benchmark parameters automatically.";
+                document.getElementById('card-l1').style.borderColor = "#F26A1B";
+                dropdownSelector.value = "L1 Bidding Optimization";
+            }
+            else if (intentName.toLowerCase().includes('bid') || intentName.toLowerCase().includes('tender') || intentName.toLowerCase().includes('auction')) {
+                activeIntentGlobal = "Custom Bid Creation & Reverse Auction Pricing Matrix Strategy";
+                bannerTitle.innerHTML = `GeM Bid Participation & Reverse Auction Specialist in ${cityName}`;
+                subTitle.textContent = "Calculate pricing logic structures securely during dynamic live reverse auction bidding sheets execution.";
+                document.getElementById('card-bid').style.borderColor = "#F26A1B";
+                dropdownSelector.value = "Bid Support / RA";
+            }
+            else {
+                bannerTitle.innerHTML = `GeM Portal Consultant & Service Partner in ${cityName}`;
+            }
+
+            document.title = `${bannerTitle.textContent} | Expert Procurement Desk`;
+
+            const whatsappFloatBtn = document.getElementById('whatsapp-floating-btn');
+            if (isMobileFlag) {
+                whatsappFloatBtn.innerHTML = "📲 Contact a Partner";
+            }
+
+            const textMessageBody = `Hi, I want to consult regarding *${activeIntentGlobal}* guidelines for my business enterprise in *${cityName}*.`;
+            const payloadEncoded = encodeURIComponent(textMessageBody);
+            whatsappFloatBtn.href = `https://api.whatsapp.com/send?phone=${TARGET_DESK_NUMBER}&text=${payloadEncoded}`;
+        }
+
+        window.onload = executeProcurementLogicPanel;
+    </script>
+</body>
+</html>
