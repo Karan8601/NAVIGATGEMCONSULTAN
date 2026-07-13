@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavigateGeM | Advanced Corporate Training Grid</title>
+    
+    <!-- Premium High-Tech Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep: #020617;
+            --accent-orange: #F26A1B;
+            --accent-glow: rgba(242, 106, 27, 0.35);
+            --neon-cyan: #00f2fe;
+            --cyan-glow: rgba(0, 242, 254, 0.25);
+            --panel-glass: rgba(15, 23, 42, 0.65);
+            --border-neon: rgba(51, 65, 85, 0.5);
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --success-green: #25D366;
+        }
+
+        * { box-sizing: border-box; transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            margin: 0; padding: 0;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(242, 106, 27, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 242, 254, 0.04) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* 🚀 ADVANCED KEYFRAMES CORE ANIMATIONS */
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px var(--accent-glow); border-color: var(--accent-orange); }
+            50% { box-shadow: 0 0 35px rgba(242, 106, 27, 0.6); border-color: #ff853c; }
+        }
+        @keyframes cyberShimmer {
+            0% { transform: translateX(-100%) skewX(-15deg); }
+            100% { transform: translateX(200%) skewX(-15deg); }
+        }
+        @keyframes lineFlow {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 0% 100%; }
+        }
+        @keyframes stepFadeIn {
+            from { opacity: 0; transform: translateX(-15px); filter: blur(4px); }
+            to { opacity: 1; transform: translateX(0); filter: blur(0); }
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 80px 24px;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 50px;
+        }
+        @media (max-width: 1024px) { .container { grid-template-columns: 1fr; padding: 40px 16px; } }
+
+        /* Left Side Editorial Brand Column */
+        .brand-intro-box h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.2rem; font-weight: 700; line-height: 1.1; letter-spacing: -2px; margin: 0 0 20px 0;
+        }
+        .brand-intro-box h1 span {
+            background: linear-gradient(135deg, #fff 20%, var(--accent-orange) 60%, var(--neon-cyan) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .brand-intro-box p { font-size: 1.1rem; color: var(--text-sub); line-height: 1.6; margin-bottom: 35px; }
+
+        /* Packages Selector Row Layout */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px; margin-bottom: 40px;
+        }
+        .package-item {
+            background: var(--panel-glass); border: 1px solid var(--border-neon);
+            border-radius: 16px; padding: 22px; backdrop-filter: blur(12px);
+            position: relative; overflow: hidden; cursor: pointer;
+        }
+        .package-item:hover {
+            border-color: var(--accent-orange); transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(242, 106, 27, 0.15);
+        }
+        .package-item.active-pkg {
+            border-color: var(--neon-cyan); background: rgba(0, 242, 254, 0.03);
+            box-shadow: 0 0 20px var(--cyan-glow);
+        }
+        .package-item h4 { margin: 0 0 6px 0; font-size: 1.05rem; color: #fff; font-family: 'Space Grotesk', sans-serif; }
+        .package-item .pkg-price { font-size: 1.4rem; font-weight: 800; color: var(--accent-orange); }
+        .package-item.active-pkg .pkg-price { color: var(--neon-cyan); }
+
+        /* 🌐 STEP-BY-STEP DYNAMIC TIMELINE HUB */
+        .curriculum-hub {
+            background: rgba(13, 31, 56, 0.3); border: 1px solid var(--border-neon);
+            border-radius: 24px; padding: 35px; position: relative;
+        }
+        .curriculum-hub h3 {
+            font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin: 0 0 25px 0;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .curriculum-hub h3 span { color: var(--neon-cyan); font-size: 0.85rem; border: 1px solid var(--neon-cyan); padding: 2px 8px; border-radius: 6px; text-transform: uppercase; }
+
+        .timeline-container { position: relative; padding-left: 35px; }
+        /* Animated Vertical Flow Line */
+        .timeline-container::before {
+            content: ''; position: absolute; left: 6px; top: 10px; width: 2px; height: calc(100% - 20px);
+            background: linear-gradient(to bottom, var(--neon-cyan), var(--accent-orange), transparent);
+            background-size: 100% 200%; animation: lineFlow 4s linear infinite;
+        }
+
+        .timeline-step {
+            position: relative; margin-bottom: 24px;
+            animation: stepFadeIn 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+        }
+        .timeline-dot {
+            position: absolute; left: -35px; top: 4px; width: 14px; height: 14px;
+            border-radius: 50%; background: var(--bg-deep); border: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 8px var(--neon-cyan);
+        }
+        .timeline-step:hover .timeline-dot { background: var(--accent-orange); border-color: #fff; box-shadow: 0 0 12px var(--accent-glow); }
+        
+        .timeline-content h5 { margin: 0 0 4px 0; font-size: 1.05rem; color: #fff; font-weight: 700; }
+        .timeline-content p { margin: 0; font-size: 0.88rem; color: var(--text-sub); line-height: 1.5; }
+
+        /* Right Side Processing Engine Form Layout Box */
+        .booking-card-wrapper { position: relative; border-radius: 28px; padding: 2px; background: linear-gradient(135deg, var(--border-neon), transparent); height: fit-content; position: sticky; top: 40px; }
+        .booking-card-wrapper:focus-within { background: linear-gradient(135deg, var(--accent-orange), var(--neon-cyan)); }
+        
+        .booking-card { background: #090f20; padding: 40px; border-radius: 26px; box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+        .booking-card h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.7rem; margin: 0 0 25px 0; border-left: 4px solid var(--accent-orange); padding-left: 12px; }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-sub); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+        .form-group input, .form-group select {
+            width: 100%; background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border-neon);
+            padding: 15px; border-radius: 12px; color: #fff; font-size: 0.95rem; outline: none;
+        }
+        .form-group input:focus, .form-group select:focus { border-color: var(--accent-orange); background: #0f172a; }
+
+        .dynamic-bill-box {
+            background: rgba(242, 106, 27, 0.04); border: 1px dashed rgba(242, 106, 27, 0.3);
+            padding: 20px; border-radius: 14px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center;
+        }
+        .dynamic-bill-box span { font-size: 0.85rem; font-weight: 700; color: var(--text-sub); text-transform: uppercase; }
+        .dynamic-bill-box .computed-price { font-size: 1.8rem; font-weight: 800; color: var(--accent-orange); font-family: 'Space Grotesk', sans-serif; }
+
+        .cyber-submit-btn {
+            width: 100%; background: var(--accent-orange); color: #fff; border: none; padding: 18px;
+            border-radius: 14px; font-size: 0.95rem; font-weight: 700; cursor: pointer; position: relative;
+            overflow: hidden; font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.5px; text-transform: uppercase;
+        }
+        .cyber-submit-btn:hover { background: #d65510; transform: translateY(-2px); box-shadow: 0 10px 25px var(--accent-glow); }
+        .cyber-submit-btn::after {
+            content: ''; position: absolute; inset:0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+        }
+        .cyber-submit-btn:hover::after { animation: cyberShimmer 1.2s infinite; }
+
+        /* Secure Overlay Screen Ticket Receipt Pass */
+        .overlay {
+            position: fixed; top:0; left:0; width:100%; height:100%;
+            background: rgba(2, 6, 23, 0.94); backdrop-filter: blur(16px);
+            z-index: 99999; display: none; align-items: center; justify-content: center; padding: 20px;
+        }
+        .ticket-receipt {
+            background: #0b1329; border: 1px solid var(--accent-orange); padding: 40px; border-radius: 24px;
+            max-width: 480px; width: 100%; text-align: left; animation: pulseGlow 4s infinite alternate;
+        }
+        .ticket-header { text-align: center; margin-bottom: 25px; border-bottom: 1px dashed var(--border-neon); padding-bottom: 20px; }
+        .ticket-header h2 { font-family: 'Space Grotesk', sans-serif; margin: 0; font-size: 1.6rem; color: #fff; }
+        .ticket-header .token-string { font-family: monospace; color: var(--neon-cyan); font-size: 1.1rem; margin-top: 6px; display: block; letter-spacing: 1px; }
+
+        .ticket-body { font-size: 0.92rem; line-height: 1.6; color: var(--text-sub); margin-bottom: 30px; }
+        .ticket-row { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.03); padding-bottom: 6px; }
+        .ticket-row strong { color: #fff; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Left Panel: Content Modules & Live Timeline -->
+    <div class="brand-intro-box">
+        <div style="font-size:0.85rem; font-weight:700; color:var(--accent-orange); text-transform:uppercase; letter-spacing:2px; margin-bottom:12px;">Compliance Node & Training Hub</div>
+        <h1>Gem Portal Online And Offline <span> Training Available On Navigategem Consultant</span></h1>
+        <p>Select a dynamic modular framework. Each program locks in custom milestone pathways designed to eliminate submission faults completely.</p>
+        
+        <!-- Package Matrix Selector Layout -->
+        <div class="packages-grid">
+            <div class="package-item active-pkg" id="pkg-all" onclick="selectPackageSync('A to Z All Modules', 14999, 'pkg-all')">
+                <h4>A to Z Complete Training</h4>
+                <div class="pkg-price">₹14,999</div>
+            </div>
+            <div class="package-item" id="pkg-vendor" onclick="selectPackageSync('Vendor Assessment Only', 9999, 'pkg-vendor')">
+                <h4>Vendor Assessment Mastery</h4>
+                <div class="pkg-price">₹9,999</div>
+            </div>
+            <div class="package-item" id="pkg-listing" onclick="selectPackageSync('Product Listing & Billing', 5999, 'pkg-listing')">
+                <h4>Product Listing & Billing</h4>
+                <div class="pkg-price">₹5,999</div>
+            </div>
+            <div class="package-item" id="pkg-bid" onclick="selectPackageSync('Bid Participation Only', 6999, 'pkg-bid')">
+                <h4>Bid Participation Master</h4>
+                <div class="pkg-price">₹6,999</div>
+            </div>
+            <div class="package-item" id="pkg-service" onclick="selectPackageSync('GeM Services Expert', 7999, 'pkg-service')">
+                <h4>GeM Services Core Training</h4>
+                <div class="pkg-price">₹7,999</div>
+            </div>
+        </div>
+
+        <!-- 🌐 DYNAMIC LIVE ANIMATED TIMELINE CURRICULUM GRID -->
+        <div class="curriculum-hub">
+            <h3>Training Roadmap Structure <span id="moduleBadge">All Modules Embedded</span></h3>
+            <div class="timeline-container" id="timelineGridBox">
+                <!-- Javascript will auto-inject the timeline nodes below dynamically based on selection -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Side: Interactive Processing Scheduling Form Box -->
+    <div class="booking-card-wrapper">
+        <div class="booking-card">
+            <h2>Schedule Live Session</h2>
+            <form onsubmit="buildTransactionPackage(event)">
+                <div class="form-group">
+                    <label>Representative / Full Name</label>
+                    <input type="text" id="formName" placeholder="Enter Signatory Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Corporate Entity / Enterprise</label>
+                    <input type="text" id="formCompany" placeholder="Enter Company Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Target Commencement Date</label>
+                    <input type="date" id="formDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Daily Time Window Slot</label>
+                    <select id="formTime" required>
+                        <option>11:00 AM - 01:00 PM (Morning Slot)</option>
+                        <option>03:00 PM - 05:00 PM (Evening Slot)</option>
+                    </select>
+                </div>
+
+                <div class="dynamic-bill-box">
+                    <span>Selected Plan Price:</span>
+                    <div class="computed-price" id="priceDisplay">₹14,999</div>
+                </div>
+
+                <button type="submit" class="cyber-submit-btn">
+                    🚀 Initialize Training Framework Configuration
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- High-Tech Pass Token Receipt Overlay Frame Box -->
+<div class="overlay" id="invoiceOverlay">
+    <div class="ticket-receipt">
+        <div class="ticket-header">
+            <h2>Training Slot Provisioned</h2>
+            <span class="token-string" id="receiptToken">NGM-TRN-XXXXXX</span>
+        </div>
+        <div class="ticket-body">
+            <div class="ticket-row"><span>Program Stream:</span> <strong id="rcptPlan">-</strong></div>
+            <div class="ticket-row"><span>Corporate Entity:</span> <strong id="rcptCompany">-</strong></div>
+            <div class="ticket-row"><span>Commencement:</span> <strong id="rcptDate">-</strong></div>
+            <div class="ticket-row"><span>Time Matrix:</span> <strong id="rcptTime">-</strong></div>
+            <div class="ticket-row" style="border:none; margin-top:15px;"><span style="color:#fff; font-weight:700;">Net Package Fee:</span> <strong style="color:var(--accent-orange); font-size:1.15rem;" id="rcptPrice">-</strong></div>
+        </div>
+        <button class="cyber-submit-btn" onclick="dispatchWhatsAppStream()">
+            📲 Deploy Ledger Details & Token to WhatsApp Support
+        </button>
+    </div>
+</div>
+
+<script>
+    let activePlanName = "A to Z All Modules";
+    let activePlanPrice = 14999;
+    let computedPayload = {};
+
+    // 📚 STEP-BY-STEP MAP DATA REGISTER
+    const curriculumData = {
+        "A to Z All Modules": [
+            { title: "Step 1: Primary GeM Profile Registration", desc: "Aadhaar authentication string parameters setup, organizational matrix configuration, and PAN database integration." },
+            { title: "Step 2: OEM Vendor Assessment Engine", desc: "RITES documentation validation, manufacturing floor layout checks, and structural desktop audit preparation." },
+            { title: "Step 3: Manufacturing Live Video Assignment", desc: "Continuous continuous-shot high-res processing video guidelines asset matching under 10MB bounds." },
+            { title: "Step 4: Brand Registration & Category Cataloging", desc: "Trademark public summary logs linking codes mapping, generic rejections clearance pathways, and inventory uploads." },
+            { title: "Step 5: Core Bidding Operations & Auction Parameters", desc: "EMD payment exemptions validation, DSC cryptographic EmBridge integration scripts, and technical specification optimization." },
+            { title: "Step 6: Advanced L1 Price Strategy & Margins", desc: "MRP markdown percentage logic grids calculation metrics, freight costs matrix planning, and competitive positioning." },
+            { title: "Step 7: Portal Invoice Creation & CRAC Verification", desc: "Order execution handling loops, digital delivery challenge nodes setup, and tax component generation logs." },
+            { title: "Step 8: Government Payment Status Tracking", desc: "Catching transaction delays holds anomalies, and tracking treasury clearance updates independently." }
+        ],
+        "Vendor Assessment Only": [
+            { title: "Step 1: OEM Dashboard Infrastructure Setup", desc: "Primary vendor settings hooks mapping and structural profile synchronization parameters." },
+            { title: "Step 2: RITES Desktop Evaluation Checklist", desc: "Assembling structural asset logs balance sheets certified audit scripts without failures." },
+            { title: "Step 3: Production Floor Video Assignment", desc: "Framing live machine plates operational continuous video sequences cleanly." }
+        ],
+        "Product Listing & Billing": [
+            { title: "Step 1: Custom Inventory Catalog Publishing", desc: "Brand authorization statements parsing and mapping specific target data-sheets." },
+            { title: "Step 2: GeM Generation Invoice Nodes", desc: "Order acceptance processing grids deployment and formatting precise billing structures." },
+            { title: "Step 3: Post-Delivery Payment Tracker Hooks", desc: "Tracking buyer CRAC logs receipts timelines to avoid payout delays nodes." }
+        ],
+        "Bid Participation Only": [
+            { title: "Step 1: Technical Tender Analysis Grids", desc: "Isolating buyer specification parameters and corrigendum checklist mapping." },
+            { title: "Step 2: DSC EmBridge Cryptographic Signing", desc: "Resolving port allocation runtime exceptions conflicts for locking submissions." },
+            { title: "Step 3: Reverse Auction (RA) Dynamic Bidding", desc: "Executing strategic decrement drop steps values before countdown timeouts closures." }
+        ],
+        "GeM Services Expert": [
+            { title: "Step 1: Service Catalog Parameters Setup", desc: "Configuring localized human resource or delivery execution cost estimation sheets." },
+            { title: "Step 2: SLA Legal Performance Frameworks", desc: "Understanding dynamic service level agreement metrics and monthly logging protocols." }
+        ]
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('formDate').min = new Date().toISOString().split('T')[0];
+        renderTimelineLogic("A to Z All Modules"); // Initialize first view layout default load
+    });
+
+    // 🔮 DYNAMIC ENGINE TIMELINE GENERATOR LOGIC
+    function renderTimelineLogic(planName) {
+        const timelineBox = document.getElementById('timelineGridBox');
+        const steps = curriculumData[planName] || curriculumData["A to Z All Modules"];
+        
+        timelineBox.innerHTML = ''; // Flush existing nodes visual branches
+        
+        steps.forEach((step, index) => {
+            const stepElement = document.createElement('div');
+            stepElement.className = 'timeline-step';
+            stepElement.style.animationDelay = `${index * 0.08}s`; // Staggered entry animation delay
+            
+            stepElement.innerHTML = `
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h5>${step.title}</h5>
+                    <p>${step.desc}</p>
+                </div>
+            `;
+            timelineBox.appendChild(stepElement);
+        });
+    }
+
+    // 💳 INTERACTIVE PACKAGE SYNCHRONIZATION EVENT LOGIC
+    function selectPackageSync(name, price, elementId) {
+        activePlanName = name;
+        activePlanPrice = price;
+        
+        document.querySelectorAll('.package-item').forEach(item => item.classList.remove('active-pkg'));
+        document.getElementById(elementId).classList.add('active-pkg');
+        
+        document.getElementById('priceDisplay').textContent = "₹" + price.toLocaleString('en-IN');
+        document.getElementById('moduleBadge').textContent = name + " Grid Active";
+        
+        renderTimelineLogic(name); // Switch roadmap steps on matching runtime loop
+    }
+
+    // 📑 TRANSACTION COMPILATION & PASS TOKEN GENERATOR LOGIC
+    function buildTransactionPackage(e) {
+        e.preventDefault();
+
+        computedPayload = {
+            token: 'NGM-TRN-' + Math.floor(100000 + Math.random() * 900000),
+            name: document.getElementById('formName').value,
+            company: document.getElementById('formCompany').value,
+            date: document.getElementById('formDate').value,
+            time: document.getElementById('formTime').value,
+            plan: activePlanName,
+            price: activePlanPrice.toLocaleString('en-IN')
+        };
+
+        document.getElementById('receiptToken').textContent = computedPayload.token;
+        document.getElementById('rcptPlan').textContent = computedPayload.plan;
+        document.getElementById('rcptCompany').textContent = computedPayload.company;
+        document.getElementById('rcptDate').textContent = computedPayload.date;
+        document.getElementById('rcptTime').textContent = computedPayload.time;
+        document.getElementById('rcptPrice').textContent = "₹" + computedPayload.price;
+
+        document.getElementById('invoiceOverlay').style.display = 'flex';
+    }
+
+    // 📲 WHATSAPP BUNDLE DISPATCH ROUTING ENGINE LOGIC
+    function dispatchWhatsAppStream() {
+        const textStream = `*NavigateGeM Corporate Training Desk Booking Summary*\n\n` + 
+            `• *Training Token ID:* ${computedPayload.token}\n` +
+            `• *Company Entity Name:* ${computedPayload.company}\n` +
+            `• *Representative Trainee:* ${computedPayload.name}\n` +
+            `• *Selected Package Program:* ${computedPayload.plan}\n` +
+            `• *Commencement Date Locked:* ${computedPayload.date}\n` +
+            `• *Daily Training Time Matrix Slot:* ${computedPayload.time}\n` +
+            `• *Total Investment Value:* ₹${computedPayload.price}\n\n` +
+            `Please authorize system nodes parameters and activate this scheduling structure framework.`;
+
+        window.open(`https://wa.me/918601865676?text=${encodeURIComponent(textStream)}`, '_blank');
+        document.getElementById('invoiceOverlay').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
