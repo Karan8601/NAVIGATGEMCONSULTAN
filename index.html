@@ -1507,10 +1507,10 @@ body {
         <div class="exit-modal-content">
             <span class="close-popup" onclick="closeExitPopup()">&times;</span>
             <span class="popup-alert-tag">⚠️ RISK ANALYSIS REPORT</span>
-            <h2>Hold On! Is Your Cataloging Matrix at Risk?</h2>
-            <p>90% of structural vendor profiles encounter critical platform blockades due to improper assessment configurations. Secure your free structural consultation protocol with our Principal Consultant, Karan Yadav, before leaving.</p>
+            <h2>Ek minute rukiye! Kya aapka GeM profile aur catalog khatre mein hai?</h2>
+            <p>Lagbhag 90% sellers ke vendor profiles sirf galat assessment settings ki wajah se portal par block ya reject ho jaate hain. Is page se jaane se pehle, hamare Principal Consultant, Karan Yadav ke saath ek free 1-on-1 consultation call book karein aur apna profile safe rakhein.</p>
             <a id="popup-wp-btn" href="https://wa.me/918601865676" target="_blank" class="popup-btn">
-                <i class="fab fa-whatsapp"></i> Initiate Free Diagnostics Session
+                <i class="fab fa-whatsapp"></i> ⚡ Abhi Free Consultation Shuru Karein
             </a>
         </div>
     </div>
@@ -3030,6 +3030,56 @@ window.addEventListener('DOMContentLoaded', () => {
         let colors = [];
         let tag = badgeText.toUpperCase();
         let particleType = "circle";
+
+        fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            // गूगल के रिस्पॉन्स से शुद्ध JSON डेटा अलग करना
+            const jsonString = data.substring(data.indexOf('{'), data.lastIndexOf('}') + 1);
+            const jsonData = JSON.parse(jsonString);
+            const rows = jsonData.table.rows;
+            
+
+            // आज की तारीख (todayStr) वाली रो (Row) को शीट में ढूंढना
+            const todayOfferRow = rows.find(row => {
+                if (!row || !row.c || !row.c[0]) return false;
+                // 'f' (Formatted text) या 'v' (Value) में से तारीख निकालना
+                const cellDate = (row.c[0].f || row.c[0].v || '').toString().trim();
+                return cellDate === todayStr;
+            });
+
+            if (todayOfferRow) {
+                // शीट के कॉलम्स से डेटा निकालना
+                const badge = todayOfferRow.c[1] ? todayOfferRow.c[1].v : '';
+                const heading = todayOfferRow.c[2] ? todayOfferRow.c[2].v : '';
+                const text = todayOfferRow.c[3] ? todayOfferRow.c[3].v : '';
+                const imageUrl = todayOfferRow.c[4] ? todayOfferRow.c[4].v : '';
+                const discount = todayOfferRow.c[5] ? todayOfferRow.c[5].v : '0';
+
+                // 1. आपके छुपे हुए फेस्टिवल सेक्शन को स्क्रीन पर लाइव दिखाना
+                const section = document.getElementById('dynamic-festival-section');
+                if (section) section.style.display = 'block';
+
+                // 2. आपके HTML के आईडी वाले बॉक्सेस में डेटा भरना
+                if (document.getElementById('promo-badge')) document.getElementById('promo-badge').innerText = badge;
+                if (document.getElementById('promo-discount')) document.getElementById('promo-discount').innerText = `${discount}% OFF`;
+                if (document.getElementById('promo-heading')) document.getElementById('promo-heading').innerText = heading;
+                if (document.getElementById('promo-text')) document.getElementById('promo-text').innerText = text;
+                
+                const imgElement = document.getElementById('promo-img');
+                if (imgElement && imageUrl) imgElement.src = imageUrl;
+
+                // 3. आपके बनाए हुए 'applyDynamicTheme' फंक्शन को बिना बदले यहाँ कॉल करना
+                if (typeof applyDynamicTheme === 'function') {
+                    applyDynamicTheme(badge);
+                }
+            } else {
+                console.log("आज की तारीख का कोई ऑफर शीट में नहीं मिला।");
+            }
+        })
+        .catch(error => {
+            console.error("गूगल शीट लोड करने में एरर:", error);
+        });
 
         // 1. DIWALI & DHANTERAS (Purple Gold Grand Festival Glow)
         if (tag.includes("DIWALI") || tag.includes("DHANTERAS")) {
