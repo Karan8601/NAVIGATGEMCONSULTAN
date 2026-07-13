@@ -261,7 +261,7 @@ body {
     font-family: 'Space Grotesk', sans-serif;
     text-align: center;
     background: linear-gradient(135deg, #fff 40%, var(--gold-accent) 100%);
-    -webkit-background-clip: text;
+     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 800;
 }
@@ -438,6 +438,814 @@ body {
     .main-center-heading { font-size: 26px; }
     .registration-header h2 { font-size: 28px; }
 }
+
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* --- Idea 18: Online Status Indicator --- */
+.status-badge-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin: 20px auto;
+}
+.status-dot {
+    width: 8px; height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #10b981;
+    animation: statusPulse 1.5s infinite;
+}
+.status-text { color: #a7f3d0; font-size: 12px; font-weight: 600; }
+.status-text small { color: #6ee7b7; font-weight: 400; }
+@keyframes statusPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* --- Promo Dynamic Festival Section --- */
+.promo-section {
+    position: relative;
+    background: #0b0f19;
+    padding: 50px 30px;
+    border-radius: 20px;
+    margin: 40px auto;
+    max-width: 1140px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    transition: all 0.5s ease, background 0.8s ease, border-color 0.8s ease;
+}
+.particle-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 1;
+}
+.promo-container {
+    position: relative; z-index: 2;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px;
+}
+.promo-content { flex: 1 1 500px; }
+.badge-discount-wrapper { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.dynamic-badge { color: #fff; padding: 6px 16px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 50px; transition: background 0.5s ease; }
+.discount-tag { background: linear-gradient(90deg, #ef4444, #f97316); color: #fff; padding: 6px 16px; font-size: 11px; font-weight: 700; border-radius: 50px; animation: pulseText 2s infinite; }
+.dynamic-heading { color: #fff; font-size: 34px; font-weight: 800; margin: 20px 0 15px; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+.dynamic-text { color: #94a3b8; font-size: 16px; line-height: 1.6; margin-bottom: 25px; }
+
+/* --- Timer and Progress Engine --- */
+.timer-wrapper { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 12px; margin-bottom: 25px; max-width: 400px; }
+.timer-header { display: flex; align-items: center; gap: 8px; color: #94a3b8; font-size: 12px; font-weight: 600; letter-spacing: 1px; }
+.clock-digits { margin-left: auto; font-family: 'Courier New', monospace; font-size: 20px; font-weight: 700; color: #fff; }
+.progress-bar-bg { background: rgba(255,255,255,0.1); height: 6px; border-radius: 4px; margin-top: 10px; overflow: hidden; }
+.progress-bar-fill { height: 100%; width: 100%; transition: background 0.5s ease, width 1s linear; }
+
+/* --- Button and Images --- */
+.promo-btn { display: inline-flex; align-items: center; gap: 12px; color: #fff; padding: 14px 32px; font-weight: 600; border-radius: 10px; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s ease; cursor: pointer; }
+.promo-btn:hover { transform: translateY(-3px); }
+.promo-image-box { flex: 1 1 380px; display: flex; justify-content: center; }
+.promo-image-box img { max-width: 100%; height: auto; border-radius: 14px; animation: floatAnim 4s ease-in-out infinite; box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
+
+/* --- Secure Crypto Shield Animation Matrix --- */
+.secure-seal-wrap { display: flex; align-items: center; gap: 12px; background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.2); padding: 12px; border-radius: 8px; margin-bottom: 25px; }
+.secure-seal-wrap p { color: #38bdf8; margin: 0; font-weight: 600; font-size: 13px; }
+.seal-circle { width: 32px; height: 32px; background: #0ea5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; animation: rotateSeal 1.5s ease-in-out; }
+
+/* --- Smart Hub Grid Cards Structure --- */
+.smarthub-section { background: #04060a; padding: 40px 0; }
+.smarthub-container { max-width: 1140px; margin: 0 auto 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+.smarthub-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 25px; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s ease, border-color 0.3s ease; }
+.smarthub-card:hover { transform: translateY(-5px); }
+.hub-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #0ea5e9; border: 1px solid rgba(14, 165, 233, 0.3); padding: 4px 10px; border-radius: 50px; display: inline-block; margin-bottom: 15px; }
+.smarthub-card h3 { color: #fff; font-size: 18px; margin: 0 0 10px; }
+.smarthub-card p { color: #94a3b8; font-size: 13px; line-height: 1.5; margin-bottom: 20px; }
+
+/* --- Internal Quiz Layout Structures --- */
+.quiz-step { display: none; }
+.quiz-step.active { display: block; animation: fadeIn 0.4s ease; }
+.quiz-step label { color: #cbd5e1; display: block; margin-bottom: 12px; font-weight: 600; font-size: 14px; }
+.quiz-step button { display: block; width: 100%; background: rgba(255,255,255,0.04); color: #fff; border: 1px solid rgba(255,255,255,0.08); padding: 10px; margin-bottom: 8px; border-radius: 8px; text-align: left; cursor: pointer; font-size: 13px; transition: background 0.2s; }
+.quiz-step button:hover { background: #0ea5e9; }
+.score-circle { width: 80px; height: 80px; border-radius: 50%; border: 4px solid #0ea5e9; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 22px; font-weight: 700; }
+.hub-btn { display: block; text-align: center; background: #0ea5e9; color: #fff; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 15px; font-size: 13px; }
+
+/* --- Input Groups & Exempt Form Elements --- */
+.input-group { display: flex; gap: 10px; }
+.input-group input { flex: 1; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; color: #fff; font-size: 14px; }
+.input-group {
+  display: flex;
+  gap: 8px; /* Input aur button ke beech thoda space dene ke liye */
+  width: 100%; /* Taaki container full width le */
+}
+
+/* Input field ko flexible banayein taaki bachi hui space me fit ho jaye */
+.input-group input {
+  flex: 1; 
+  min-width: 0; /* Box model overflow issue se bachne ke liye */
+  /* Aapki baki existing input styles yahan aayengi */
+}
+
+/* Button ki styles ko enhance karein taaki text wrap na ho aur spacing achhi mile */
+.input-group button {
+  background: #0ea5e9;
+  color: #fff;
+  border: none;
+  padding: 0 16px; /* Padding badha di taaki text 'Compute' aaram se fit ho (5px bohot kam tha) */
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap; /* Text ko next line me break hone se rokne ke liye */
+}
+.checker-form select { width: 100%; margin-bottom: 10px; padding: 10px; background: #0b0f19; border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 8px; }
+.checker-form button { background: #0ea5e9; color: #fff; border: none; padding: 10px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 13px; width: 100%; }
+#pricing-result { background: rgba(14,165,233,0.1); padding: 12px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #0ea5e9; color: #fff; font-size: 13px; }
+.warning-text { font-size: 11px; color: #f59e0b; display: block; margin-top: 5px; }
+.result-box { padding: 12px; border-radius: 8px; margin-top: 15px; font-weight: 600; font-size: 13px; line-height: 1.4; }
+.result-box.success { background: rgba(16, 185, 129, 0.15); color: #52ea9a; border-left: 4px solid #10b981; }
+.result-box.fail { background: rgba(239, 68, 68, 0.15); color: #f87171; border-left: 4px solid #ef4444; }
+
+/* --- Idea 8: Before After Visual Slider --- */
+.comparison-slider { position: relative; width: 100%; height: 180px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+.image-before, .image-after { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
+.image-before { background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400'); z-index: 1; filter: grayscale(100%); }
+.image-after { background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400'); width: 50%; z-index: 2; border-right: 2px solid #0ea5e9; }
+.slider-label { background: rgba(0,0,0,0.7); color: #fff; font-size: 9px; padding: 4px 8px; border-radius: 4px; position: absolute; bottom: 10px; white-space: nowrap; }
+.image-before .slider-label { left: 10px; color: #ef4444; }
+.image-after .slider-label { right: 10px; color: #10b981; }
+.slider-bar { position: absolute; width: 100%; height: 100%; opacity: 0; z-index: 3; cursor: ew-resize; top: 0; left: 0; margin: 0; }
+
+/* --- Idea 2: Live Log Infoticker Banner --- */
+.live-ticker-wrap { max-width: 1140px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 50px; display: flex; align-items: center; overflow: hidden; padding: 5px; }
+.ticker-title { background: #0ea5e9; color: #fff; font-size: 11px; font-weight: 800; padding: 8px 16px; border-radius: 50px; letter-spacing: 1px; }
+.ticker-content { flex: 1; padding: 0 20px; color: #cbd5e1; font-size: 13px; font-weight: 500; transition: opacity 0.3s ease; }
+
+/* --- Idea 5: Structural Exit Intent Popup Modal --- */
+.exit-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(4, 6, 14, 0.85); z-index: 9999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+.exit-modal-content { background: #0f172a; border: 1px solid rgba(239, 68, 68, 0.2); padding: 40px; border-radius: 20px; max-width: 500px; width: 90%; text-align: center; position: relative; }
+.close-popup { position: absolute; top: 15px; right: 20px; color: #94a3b8; font-size: 28px; cursor: pointer; }
+.popup-alert-tag { background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2); padding: 4px 12px; border-radius: 50px; font-size: 10px; font-weight: 700; }
+.exit-modal-content h2 { color: #fff; font-size: 24px; margin: 20px 0 10px; }
+.exit-modal-content p { color: #94a3b8; font-size: 14px; line-height: 1.6; margin-bottom: 25px; }
+.popup-btn { display: block; background: linear-gradient(90deg, #ef4444, #ea580c); color: #fff; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: 600; }
+
+
+
+/* --- Base Card Structure (Purani base styles ko smooth transition diya hai) --- */
+.smarthub-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    
+    /* Ultra-smooth responsive transition curve */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Inner elements spacing aur transform motion control */
+.smarthub-card h3, 
+.smarthub-card p, 
+.smarthub-card .hub-badge, 
+.smarthub-card #quiz-container * {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+/* Base Shadow/Glow layer behind content */
+.smarthub-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+
+/* =======================================================
+   🔥 1st CARD HOVER: Electric Cyan Effect (Aapka Quiz Card)
+   ======================================================= */
+.smarthub-container > .smarthub-card:nth-child(1):hover {
+    transform: translateY(-8px) scale(1.015);
+    border-color: rgba(14, 165, 233, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(14, 165, 233, 0.2);
+}
+.smarthub-container > .smarthub-card:nth-child(1)::before {
+    background: radial-gradient(circle at 50% 120%, rgba(14, 165, 233, 0.15), transparent 70%);
+}
+.smarthub-container > .smarthub-card:nth-child(1):hover::before { opacity: 1; }
+.smarthub-container > .smarthub-card:nth-child(1):hover h3 { color: #38bdf8; text-shadow: 0 0 10px rgba(56, 189, 248, 0.4); }
+.smarthub-container > .smarthub-card:nth-child(1):hover .hub-badge { background: #0ea5e9; color: #fff; box-shadow: 0 0 10px rgba(14, 165, 233, 0.4); border-color: transparent; }
+
+
+/* =======================================================
+   🔥 2nd CARD HOVER: Emerald Neon Green Effect
+   ======================================================= */
+.smarthub-container > .smarthub-card:nth-child(2):hover {
+    transform: translateY(-8px) scale(1.015);
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(16, 185, 129, 0.2);
+}
+.smarthub-container > .smarthub-card:nth-child(2)::before {
+    background: radial-gradient(circle at 50% 120%, rgba(16, 185, 129, 0.15), transparent 70%);
+}
+.smarthub-container > .smarthub-card:nth-child(2):hover::before { opacity: 1; }
+.smarthub-container > .smarthub-card:nth-child(2):hover h3 { color: #34d399; text-shadow: 0 0 10px rgba(52, 211, 153, 0.4); }
+.smarthub-container > .smarthub-card:nth-child(2):hover .hub-badge { background: #10b981; color: #fff; box-shadow: 0 0 10px rgba(16, 185, 129, 0.4); border-color: transparent; }
+
+
+/* =======================================================
+   🔥 3rd CARD HOVER: Cyber Punk Purple/Pink Effect
+   ======================================================= */
+.smarthub-container > .smarthub-card:nth-child(3):hover {
+    transform: translateY(-8px) scale(1.015);
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(168, 85, 247, 0.2);
+}
+.smarthub-container > .smarthub-card:nth-child(3)::before {
+    background: radial-gradient(circle at 50% 120%, rgba(168, 85, 247, 0.15), transparent 70%);
+}
+.smarthub-container > .smarthub-card:nth-child(3):hover::before { opacity: 1; }
+.smarthub-container > .smarthub-card:nth-child(3):hover h3 { color: #c084fc; text-shadow: 0 0 10px rgba(192, 132, 252, 0.4); }
+.smarthub-container > .smarthub-card:nth-child(3):hover .hub-badge { background: #a855f7; color: #fff; box-shadow: 0 0 10px rgba(168, 85, 247, 0.4); border-color: transparent; }
+
+
+/* --- Shared Micro-interactions on Hover --- */
+.smarthub-card:hover h3 { transform: translateX(5px); }
+.smarthub-card:hover p { transform: translateX(5px); color: #cbd5e1; }
+.quiz-step button:hover {
+    background: #0ea5e9 !important;
+    color: #fff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(14, 165, 233, 0.3);
+}
+
+/* =======================================================
+   CARD 4: SLIDER/IMPACT CARD (Electric Purple & Crimson Theme)
+   ======================================================= */
+.slider-card {
+    --glow-color: #a855f7; /* Electric Purple Glow */
+}
+
+.slider-card:hover {
+    /* Smooth multi-axis lift and slightly unique scale */
+    transform: translateY(-8px) scale(1.02); 
+    border-color: rgba(255, 229, 79, 0.4);
+    
+    /* Neon Purple Layered Radial Shadow */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 
+                0 0 30px rgba(255, 230, 89, 0.25);
+}
+
+/* Heading text glow styling */
+.slider-card:hover h3 {
+    color: #f0cf64;
+    text-shadow: 0 0 15px rgba(218, 193, 85, 0.6);
+}
+
+/* Badge glow on hover */
+.slider-card:hover .hub-badge {
+    background: #e5f052;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(240, 173, 74, 0.5);
+    border-color: transparent;
+}
+
+/* --- Micro-interactions for the Slider inside this card --- */
+.slider-card:hover .comparison-slider {
+    border-color: rgba(235, 238, 89, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Slider handle / bar color enhancement on card hover */
+.slider-card:hover .image-after {
+    border-right-color: #e7ab3a; /* Slider center bar matches theme color */
+}
+
+/* =======================================================
+   🛸 ULTRA-PREMIUM PROMO SECTION MATRIX ANIMATIONS
+   ======================================================= */
+
+.promo-section {
+    position: relative;
+    background: #0b0f19;
+    padding: 50px 30px;
+    border-radius: 20px;
+    margin: 40px auto;
+    max-width: 1140px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    
+    /* Smooth transition matrix */
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 1;
+}
+
+/* 1. NEXT-LEVEL: Continuous Rotating Mesh Nebula in Background */
+.promo-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(14, 165, 233, 0.12), transparent 40%),
+                radial-gradient(circle at 70% 70%, rgba(239, 68, 68, 0.1), transparent 45%);
+    z-index: -1;
+    pointer-events: none;
+    animation: nebulaRotate 20s linear infinite; /* Background dheere-dheere ghumega */
+    transition: opacity 0.5s ease;
+}
+
+/* 2. NEXT-LEVEL: Top Animated Neon Border Laser Line */
+.promo-section::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background: linear-gradient(90deg, transparent, #0ea5e9, #ef4444, #f97316, transparent);
+    background-size: 200% 100%;
+    transform: scaleX(0);
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 3;
+}
+
+/* --- 🔥 HIGH IMPACT HOVER EFFECT ON ENTIRE CARD --- */
+.promo-section:hover {
+    transform: translateY(-10px) scale(1.01); /* Dramatic 3D lift */
+    border-color: rgba(14, 165, 233, 0.35);
+    
+    /* Multi-layered neon shadow profile */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 
+                0 0 50px rgba(14, 165, 233, 0.15),
+                0 0 100px rgba(239, 68, 68, 0.05);
+}
+
+.promo-section:hover::after {
+    transform: scaleX(1); /* Spreads the top laser line */
+    animation: laserFlow 2s linear infinite; /* Starts flowing movement */
+}
+
+
+/* --- 🌟 INNER ELEMENTS HYPER-MOTION --- */
+
+/* 3. Image Hover: Dynamic 3D Pop-out with Floating Physics */
+.promo-image-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation: premiumFloat 4s ease-in-out infinite; /* Complex wave animation */
+}
+
+.promo-section:hover .promo-image-box img {
+    transform: scale(1.06) rotate(2deg) translateY(-5px); /* Image pops and tilts towards user */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 
+                0 0 30px rgba(14, 165, 233, 0.25);
+    filter: brightness(1.1); /* Halka sa highlight */
+}
+
+/* 4. Button Hover: Sweeping Light Injection */
+.promo-btn {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0ea5e9, #2563eb);
+    z-index: 2;
+}
+.promo-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -60%; width: 30px; height: 200%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(35deg);
+    transition: none;
+    opacity: 0;
+}
+.promo-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(14, 165, 233, 0.4);
+    background: linear-gradient(135deg, #38bdf8, #2563eb);
+}
+/* Triggers an instant lightning flash on hover */
+.promo-btn:hover::after {
+    opacity: 1;
+    left: 140%;
+    transition: all 0.6s ease-out;
+}
+
+/* 5. Countdown Clock Pulse Enhancement */
+.clock-digits {
+    transition: all 0.3s ease;
+}
+.promo-section:hover #countdown-clock {
+    color: #38bdf8;
+    text-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
+    transform: scale(1.05);
+}
+
+/* 6. Dynamic Typography Drift */
+.dynamic-heading {
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.promo-section:hover .dynamic-heading {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2), 0 4px 15px rgba(0,0,0,0.5);
+    transform: translateX(8px); /* Shifts right smoothly */
+}
+
+
+/* =======================================================
+   🌀 ADVANCED QUANTUM KEYFRAMES
+   ======================================================= */
+
+/* Continuous Background Glow Rotation */
+@keyframes nebulaRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Running Top Laser Line Effect */
+@keyframes laserFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* 3D Kinetic Floating Physics for Image */
+@keyframes premiumFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-10px) rotate(-1deg);
+    }
+    66% {
+        transform: translateY(4px) rotate(1deg);
+    }
+}
+
+
+
+
+/* --- Keyframe Matrix Rules --- */
+@keyframes pulseText { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+@keyframes floatAnim { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+@keyframes rotateSeal { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+
+
+
+/* =======================================================
+   🌌 FUTURISTIC INFINITE MARQUEE ENGINE (REVIEWS SECTION)
+   ======================================================= */
+
+.reviews-marquee-section {
+    background: #04060a;
+    padding: 80px 20px;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    position: relative;
+    width: 100%; /* Ensures true full-bleed across display viewports */
+    box-sizing: border-box;
+}
+
+/* Google Mini-Badge */
+.reviews-header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px 24px;
+    border-radius: 50px;
+    margin: 0 auto 24px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+.reviews-header-badge img { width: 16px; height: 16px; }
+.reviews-header-badge span { color: #94a3b8; font-size: 13px; letter-spacing: 0.5px; }
+.reviews-header-badge strong { color: #fff; margin-right: 4px; }
+
+/* Main Headings */
+.reviews-main-title {
+    text-align: center;
+    color: #fff;
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 60px;
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+.reviews-main-title .highlight-text {
+    background: linear-gradient(90deg, #f97316, #facc15);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* 3-Column Marquee Viewport Matrix Container */
+.marquee-wrapper {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    height: 650px; /* Enhanced viewable area block height */
+    position: relative;
+    overflow: hidden;
+    
+    /* Premium dual layer alpha masking gradient layout */
+    mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.marquee-column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Infinite Scroll Animation Tracks */
+.marquee-track {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 10px 0;
+}
+
+/* Core Physics Animations for Continuous Upward Flows */
+.dynamic-scroll-up {
+    animation: scrollUpInfinite 38s linear infinite;
+}
+.slow-track {
+    animation-duration: 48s;
+}
+
+/* --- 🔥 ADVANCED REVERSED HOVER-FREEZE ENGINE --- */
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+/* Specific Card Level Hover Highlight Controls */
+.review-card {
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+    padding: 26px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.4s ease, 
+                background 0.4s ease, 
+                box-shadow 0.4s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: rgba(250, 204, 21, 0.3) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 25px rgba(250, 204, 21, 0.1) !important;
+}
+
+/* Inner elements formatting */
+.card-stars {
+    color: #facc15;
+    font-size: 14px;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+}
+.review-text {
+    color: #94a3b8;
+    font-size: 13.5px;
+    line-height: 1.65;
+    margin-bottom: 22px;
+}
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 16px;
+}
+.avatar-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.reviewer-details h4 {
+    color: #fff;
+    font-size: 14px;
+    margin: 0 0 3px 0;
+    font-weight: 600;
+}
+.reviewer-details .verified-tick {
+    color: #10b981;
+    font-size: 11px;
+    display: block;
+    font-weight: 500;
+}
+
+/* Seamless Vector Loop Keyframes */
+@keyframes scrollUpInfinite {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+}
+
+
+/* =======================================================
+   📊 DYNAMIC METRICS STREAM ENGINE (STATS SECTION)
+   ======================================================= */
+
+.counter-stats-section {
+    background: #04060a; /* 100% Full Width Screen Background Layer */
+    padding: 100px 20px;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Structural Layout Inner Wrapper to safely cage width elements to 1140px */
+.stats-header-wrap, 
+.stats-container-box {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.stats-header-wrap {
+    margin-bottom: 50px;
+}
+
+/* Purely Isolated Headings Structure */
+.stats-header-wrap .stats-main-title {
+    color: #fff;
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    text-align: left; 
+    margin: 0;
+}
+
+.stats-header-wrap .stats-highlight-orange {
+    background: linear-gradient(90deg, #f97316, #ff9343);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Outer Box Grid Layout with Subtle Glassmorphism and Neon Ambient Border Glow */
+.stats-container-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.005));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), 
+                0 0 50px -10px rgba(14, 165, 233, 0.05); /* Soft premium blue ambient shadow glow */
+}
+
+/* Individual Stat Cards with Dynamic Modern Micro-Interactions */
+.stat-card-item {
+    padding: 50px 35px;
+    position: relative;
+    background: transparent;
+    transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+}
+
+/* Clean Line Matrix Dividers */
+.stat-card-item:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Modern Hover Upgrade for individual Metric Columns */
+.stat-card-item:hover {
+    background: rgba(255, 255, 255, 0.02);
+    transform: translateY(-4px);
+}
+
+/* Soft Glowing Mini Square Icon Boxes */
+.stat-icon-wrap {
+    width: 44px;
+    height: 44px;
+    background: rgba(249, 115, 22, 0.08); 
+    border: 1px solid rgba(249, 115, 22, 0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f97316;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.stat-card-item:hover .stat-icon-wrap {
+    transform: scale(1.1) rotate(3deg);
+    background: rgba(249, 115, 22, 0.15);
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.2);
+}
+
+/* Numbers Geometry Physics Engine Styling */
+.stat-number-row {
+    display: flex;
+    align-items: baseline;
+    color: #0ea5e9; /* Premium Neon Cyan Blue Core Counters */
+    font-size: 46px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    margin-bottom: 12px;
+    text-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+}
+
+.stat-prefix {
+    margin-right: 2px;
+}
+.stat-suffix {
+    color: #f97316; /* Highlighted orange brand suffixes (Cr+, +, x) */
+    margin-left: 3px;
+}
+
+.stat-card-item h4 {
+    color: #f1f5f9;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.2px;
+}
+
+.stat-card-item p {
+    color: #64748b;
+    font-size: 13.5px;
+    margin: 0;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+.stat-card-item:hover p {
+    color: #94a3b8; /* Texts light up cleanly on card hovering actions */
+}
+
+/* Responsive Adaptive Fluid Injections */
+@media (max-width: 991px) {
+    .stats-container-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .stat-card-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .stat-card-item:nth-child(2n) {
+        border-right: none;
+    }
+    .stat-card-item:nth-child(3), 
+    .stat-card-item:nth-child(4) {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .reviews-main-title,
+    .stats-header-wrap .stats-main-title {
+        font-size: 32px;
+    }
+    .stats-container-box {
+        grid-template-columns: 1fr;
+    }
+    .stat-card-item {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 40px 25px;
+    }
+    .stat-card-item:last-child {
+        border-bottom: none;
+    }
+}
+
+
+
     </style>
 </head>
 <body x-data="{ 
@@ -526,7 +1334,15 @@ body {
             <div class="glass-panel p-8 md:p-12 rounded-3xl">
                 <span class="text-neon-green font-extrabold text-xs tracking-[4px] uppercase block mb-4">★ Verified GEM PORTAL AND OEM Consultant</span>
                 <h1 class="font-display text-4xl md:text-5xl xl:text-6xl font-black text-white leading-[1.1] mb-6">
-                    Registrat Your Brand  <span class="text-neon-blue">Official OEM On GeM Portal</span>
+                    Registrat Your Brand  <span class="text-neon-blue"> OEM On GeM Portal</span> 
+
+
+
+                </span> 
+                
+                <h1 class="font-display text-1xl md:text-1xl xl:text-1xl font-black text-white leading-[1.1] mb-6">
+                 NAVIGATGEM<span class="text-neon-blue"> COUNSULTANT</span> 
+
                 </h1>
                 
                 <div class="bg-neon-blue/5 border-l-4 border-neon-blue p-5 mb-8 rounded-r-xl font-display text-xl font-bold text-white shadow-sm">
@@ -537,7 +1353,7 @@ body {
                     Seamless brand onboarding, swift panel setups, and custom data parameter handling under senior consultant <strong>Karan Yadav</strong>.
                 </p>
                 <a href="#calculator-idx" class="inline-block font-display font-bold text-sm tracking-wide bg-gradient-to-r from-neon-blue to-neon-purple text-white px-8 py-4 rounded-xl hover:shadow-[0_0_30px_rgba(0,242,254,0.4)] transition-all duration-300 transform hover:-translate-y-0.5 text-center">
-                    Launch Interactive Rates Panel
+                    REGISTRATION NOW
                 </a>
             </div>
             
@@ -550,6 +1366,154 @@ body {
     </main>
   
 
+    <!-- ONLINE STATUS INDICATOR (Idea 18) -->
+
+    <!-- DYNAMIC PROMO SECTION WITH LIVE GOOGLE SHEET DATA -->
+    <section id="dynamic-festival-section" class="promo-section" style="display: none;">
+        <div id="particle-canvas" class="particle-bg"></div>
+        <div class="promo-container">
+            <div class="promo-content">
+                <div class="badge-discount-wrapper">
+                    <span id="promo-badge" class="dynamic-badge">SPECIAL</span>
+                    <span id="promo-discount" class="discount-tag">0% OFF</span>
+                </div>
+                
+                <h2 id="promo-heading" class="dynamic-heading">Loading Today's Offer...</h2>
+                <p id="promo-text" class="dynamic-text">Connecting to secure parameters...</p>
+                
+                <div class="timer-wrapper">
+                    <div class="timer-header">
+                        <i class="far fa-clock"></i> <span>OFFER ENDS IN:</span>
+                        <span id="countdown-clock" class="clock-digits">00:00:00</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div id="timer-progress" class="progress-bar-fill"></div>
+                    </div>
+                </div>
+
+                <!-- Idea 20: Crypto Secure Token Shield Effect Block -->
+                <div id="secure-seal-box" class="secure-seal-wrap" style="display: none;">
+                    <div class="seal-circle">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <p>⚡ NavigateGeM Secure Token Generated!</p>
+                </div>
+
+                <a id="promo-action-btn" href="https://wa.me/918601865676" target="_blank" class="promo-btn" onclick="triggerSecureSeal(event)">
+                    <span>Claim Offer Now</span>
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            
+            <div class="promo-image-box">
+                <img id="promo-img" src="" alt="Festival Poster">
+            </div>
+        </div>
+    </section>
+
+    <!-- SMART HUB CONTAINER (Grid Layout Cards) -->
+    <section class="smarthub-section">
+        <div class="smarthub-container">
+            
+            <!-- IDEA 1: INTERACTIVE GeM SCORECARD QUIZ -->
+            <div class="smarthub-card calculator-card">
+                <span class="hub-badge">Interactive Tool</span>
+                <h3>Check Your GeM Profile Readiness</h3>
+                <p>Analyze if your business ecosystem is 100% compliant for government bidding matrix protocols.</p>
+                <div id="quiz-container">
+                    <div class="quiz-step active" data-step="1">
+                        <label>1. Select your primary business model architecture:</label>
+                        <button onclick="nextQuizStep(2, 25)">Original Equipment Manufacturer (OEM)</button>
+                        <button onclick="nextQuizStep(2, 15)">Reseller / Channel Trader</button>
+                    </div>
+                    <div class="quiz-step" data-step="2">
+                        <label>2. Do you possess a registered Trademark Certificate?</label>
+                        <button onclick="nextQuizStep(3, 35)">Yes, Fully Registered & Active</button>
+                        <button onclick="nextQuizStep(3, 10)">No / Currently Under Process</button>
+                    </div>
+                    <div class="quiz-step" data-step="3">
+                        <label>3. Is your business ITR perfectly synchronized with GSTIN?</label>
+                        <button onclick="calculateScore(40)">Yes, Integrated Data Streams</button>
+                        <button onclick="calculateScore(10)">No, Action Pending / Mismatched</button>
+                    </div>
+                    <div class="quiz-step" id="quiz-result">
+                        <div class="score-circle"><span id="score-num">0</span>%</div>
+                        <p id="score-msg"></p>
+                        <a id="score-wp-btn" href="#" target="_blank" class="hub-btn">Fix Compliance via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IDEA 4: 10% MARKET REFERENCE CALCULATOR SIMULATOR -->
+            <div class="smarthub-card pricing-card">
+                <span class="hub-badge">GeM Compliance</span>
+                <h3>GeM 10% Market Reference Calculator</h3>
+                <p>Input your commercial product MRP to instantly compute the maximum allowable ceiling price permitted under portal regularizations.</p>
+                <div class="input-group">
+                    <input type="number" id="mrp-input" placeholder="Enter MRP ($)">
+                <br>
+                    <button onclick="calculateL1Price()">Compute</button>
+                </div>
+                <div id="pricing-result" style="display:none;">
+                    <p>Max Permitted Selling Price: <strong id="allowed-price">₹0</strong></p>
+                    <span class="warning-text">⚠️ Catalog listings exceeding this threshold face algorithmic rejection sequences.</span>
+                </div>
+            </div>
+
+            <!-- IDEA 1.2: VENDOR ASSESSMENT EXEMPTION CHECKER TOOL -->
+            <div class="smarthub-card exemption-card">
+                <span class="hub-badge">MSME / Startup Tool</span>
+                <h3>Vendor Assessment Exemption Checker</h3>
+                <p>Determine your institutional eligibility status regarding the RITES Assessment Fee (₹14,999) waiver protocols.</p>
+                <div class="checker-form">
+                    <select id="exemption-select">
+                        <option value="">-- Select Category --</option>
+                        <option value="exempt">DPIIT Verified Startup Entity</option>
+                        <option value="exempt">NSIC Registered Domestic Manufacturer</option>
+                        <option value="exempt">Sellers with Annual Turnover > ₹500 Crore</option>
+                        <option value="not-exempt">Reseller / Channel Partner (General)</option>
+                        <option value="not-exempt">General Manufacturer without NSIC/BIS</option>
+                    </select>
+                    <button onclick="checkExemption()">Verify Exemption Status</button>
+                </div>
+                <div id="checker-result" class="result-box" style="display: none;"></div>
+            </div>
+
+            <!-- IDEA 8: BEFORE/AFTER SLIDER COMPARISON -->
+            <div class="smarthub-card slider-card">
+                <span class="hub-badge">Our Impact</span>
+                <h3>Profile Optimization Benchmarks</h3>
+                <p>Drag the interactive node viewport slider to isolate architectural differences between unoptimized catalogs and full OEM dashboards.</p>
+                <div class="comparison-slider">
+                    <div class="image-before"><div class="slider-label">Standard Profile Layout</div></div>
+                    <div class="image-after"><div class="slider-label">Verified OEM Approved Dashboard</div></div>
+                    <input type="range" min="0" max="100" value="50" class="slider-bar" oninput="moveSlider(this)">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- IDEA 2: LIVE LOG UPDATES TICKER LOOP -->
+        <div class="live-ticker-wrap">
+            <div class="ticker-title">LIVE COMPLIANCE FEED</div>
+            <div class="ticker-content">
+                <div id="ticker-text">🟢 Booting global security verification matrix telemetry...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IDEA 5: EXIT-INTENT DETECTION POPUP MODAL -->
+    <div id="exit-popup" class="exit-modal" style="display: none;">
+        <div class="exit-modal-content">
+            <span class="close-popup" onclick="closeExitPopup()">&times;</span>
+            <span class="popup-alert-tag">⚠️ RISK ANALYSIS REPORT</span>
+            <h2>Hold On! Is Your Cataloging Matrix at Risk?</h2>
+            <p>90% of structural vendor profiles encounter critical platform blockades due to improper assessment configurations. Secure your free structural consultation protocol with our Principal Consultant, Karan Yadav, before leaving.</p>
+            <a id="popup-wp-btn" href="https://wa.me/918601865676" target="_blank" class="popup-btn">
+                <i class="fab fa-whatsapp"></i> Initiate Free Diagnostics Session
+            </a>
+        </div>
+    </div>
 
 
 
@@ -1527,6 +2491,84 @@ body {
     </div>
 </section>
 
+
+
+<section class="reviews-marquee-section">
+    <!-- Google Header Badge -->
+    <div class="reviews-header-badge">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo">
+        <span><strong>4.9</strong> ★★★★★ Verified Reviews</span>
+    </div>
+
+    <h2 class="reviews-main-title">See what <span class="highlight-text">others</span> have to say about us.</h2>
+
+    <!-- Infinite Scroll Wrapper -->
+    <div class="marquee-wrapper" id="reviews-matrix-container">
+        <div class="marquee-column"><div class="marquee-track dynamic-scroll-up" id="col-1"></div></div>
+        <div class="marquee-column"><div class="marquee-track dynamic-scroll-up slow-track" id="col-2"></div></div>
+        <div class="marquee-column"><div class="marquee-track dynamic-scroll-up" id="col-3"></div></div>
+    </div>
+</section>
+
+
+<!-- ==================== COUNTER SECTION (CLASSES UPDATED) ==================== -->
+<section class="counter-stats-section">
+    <div class="stats-header-wrap">
+        <!-- Badli hui classes: .stats-main-title aur .stats-highlight-orange -->
+        <h2 class="stats-main-title">Real Results That <br><span class="stats-highlight-orange">Speak for Themselves</span></h2>
+    </div>
+
+    <!-- Main Flex/Grid Row Container -->
+    <div class="stats-container-box">
+        
+        <!-- Stat Item 1 -->
+        <div class="stat-card-item">
+            <div class="stat-icon-wrap">₹</div>
+            <div class="stat-number-row">
+                <span class="stat-prefix">₹</span>
+                <span class="count-number" data-target="67">0</span>
+                <span class="stat-suffix">Cr+</span>
+            </div>
+            <h4>Tender Value Processed</h4>
+            <p>Across all GeM categories</p>
+        </div>
+
+        <!-- Stat Item 2 -->
+        <div class="stat-card-item">
+            <div class="stat-icon-wrap">🏆</div>
+            <div class="stat-number-row">
+                <span class="count-number" data-target="18500">0</span>
+                <span class="stat-suffix">+</span>
+            </div>
+            <h4>Bids Supported</h4>
+            <p>Direct & reverse auction bids filed</p>
+        </div>
+
+        <!-- Stat Item 3 -->
+        <div class="stat-card-item">
+            <div class="stat-icon-wrap">👥</div>
+            <div class="stat-number-row">
+                <span class="count-number" data-target="1000">0</span>
+                <span class="stat-suffix">+</span>
+            </div>
+            <h4>Sellers Onboarded</h4>
+            <p>MSMEs, startups & enterprises</p>
+        </div>
+
+        <!-- Stat Item 4 -->
+        <div class="stat-card-item">
+            <div class="stat-icon-wrap">📈</div>
+            <div class="stat-number-row">
+                <span class="count-number" data-target="3">0</span>
+                <span class="stat-suffix">x</span>
+            </div>
+            <h4>Avg. Success Improvement</h4>
+            <p>Vs. self-managed GeM sellers</p>
+        </div>
+
+    </div>
+</section>
+
     <!-- SECTION 9: INTERACTIVE ESTIMATION & FEE MATRIX -->
 
 <!-- ==========================================
@@ -1586,7 +2628,7 @@ body {
             <!-- Logo Block -->
             <div class="footer-logo-column">
                 <div class="footer-logo-circle">⚙️</div>
-                <div class="footer-logo-subtext">GEM EXPERT</div>
+                <div class="footer-logo-subtext">NAVIGATGEM COUNSULTANT</div>
             </div>
 
             <!-- Category Column 1 -->
@@ -1644,11 +2686,11 @@ body {
             <div class="footer-matrix-column">
                 <h4>Contact Us</h4>
                 <div class="contact-info-text">GeM Expert</div>
-                <div class="contact-info-text"><a href="mailto:navigatgemconsultant@gmail.com">navigatgemconsultant@gmail.com</a></div>
+                <div class="contact-info-text"><a href="mailto:navigatgemconsultant@gmail.com">Navigatgemconsultant@gmail.com</a></div>
                 <div class="contact-info-text"><a href="tel:+917984637177">+91 8601865676</a></div>
                 <div class="contact-info-text"><a href="tel:+919924901438">+91 9236654464</a></div>
                 <div class="contact-info-text" style="color: var(--heading-color);">24 x 7 support</div>
-                <div class="contact-info-text"> Keshav Nagar 2 Lucknow India </div>
+                <div class="contact-info-text"> Keshav Nagar 2 Lucknow India 226020 </div>
             </div>
 
         </div>
@@ -1675,7 +2717,7 @@ body {
 
     <!-- INTERSECTION OBSERVER SYSTEM LOGIC FOR ACTIVE NAV TRACKING -->
 
-</body>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -1821,18 +2863,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     const activeId = entry.target.id;
                     
                     // Route 1: Safe Alpine proxy layer discovery
-                    if (window.Alpine) {
-                        const alpineElements = document.querySelectorAll('[x-data]');
-                        alpineElements.forEach(el => {
-                            if (el.__x && el.__x.$data && 'activeSection' in el.__x.$data) {
-                                el.__x.$data.activeSection = activeId;
-                            }
-                        });
-                    } 
-                    Route 2: Legacy system proxy validation
-                    else if (document.body.__x && document.body.__x.$data) {
-                        document.body.__x.$data.activeSection = activeId;
-                    }
+                   if (window.Alpine) {
+                    const alpineElements = document.querySelectorAll('[x-data]');
+                    alpineElements.forEach(el => {
+                        if (el.__x && el.__x.$data && 'activeSection' in el.__x.$data) {
+                            el.__x.$data.activeSection = activeId;
+                        }
+                    });
+                } 
+                // 3. Yeh line comment kar di hai
+                // Route 2: Legacy system proxy validation
+                else if (document.body.__x && document.body.__x.$data) {
+                    document.body.__x.$data.activeSection = activeId;
+                }
                 }
             });
         }, observerOptions);
@@ -1842,7 +2885,605 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
- <Script/>
+
+
+
+/**
+ * ==========================================================================
+ * NAVIGATEGEM ULTRA-AUTOMATED HYBRID ENGINE (script.js)
+ * 365-DAY ALL-INCLUSIVE CALENDAR LOGIC WITH AUTOMATIC THEME DETECTION
+ * ==========================================================================
+ */
+
+// --- 1. IDEA 1: INTERACTIVE GeM SCORECARD READINESS ---
+let totalScore = 0;
+function nextQuizStep(nextStep, scoreToAdd) {
+    totalScore += scoreToAdd;
+    document.querySelector('.quiz-step.active').classList.remove('active');
+    document.querySelector(`[data-step="${nextStep}"]`).classList.add('active');
+}
+
+function calculateScore(scoreToAdd) {
+    totalScore += scoreToAdd;
+    document.querySelector('.quiz-step.active').classList.remove('active');
+    document.getElementById('quiz-result').classList.add('active');
+    document.getElementById('score-num').innerText = totalScore;
+    
+    let msg = "";
+    if (totalScore >= 80) {
+        msg = "Excellent! Your profile architecture is primed for bidding. Secure verification immediately.";
+    } else if (totalScore >= 50) {
+        msg = "Warning! Essential parameters present, but severe OEM Assessment risk vectors identified.";
+    } else {
+        msg = "Critical! Significant baseline compliance gaps detected. Optimization mandatory.";
+    }
+    
+    document.getElementById('score-msg').innerText = msg;
+    const wpMsg = `Hi Karan, I executed my GeM Profile Readiness Diagnostic. Score: ${totalScore}%. Requiring technical architecture optimization.`;
+    document.getElementById('score-wp-btn').href = `https://wa.me/918601865676?text=${encodeURIComponent(wpMsg)}`;
+}
+
+// --- 2. IDEA 4: 10% MARKET SIMULATOR ENGINE ---
+function calculateL1Price() {
+    const mrp = parseFloat(document.getElementById('mrp-input').value);
+    if (!mrp || mrp <= 0) return alert("Please present a valid numerical MRP.");
+    const maxAllowedPrice = mrp * 0.90;
+    document.getElementById('allowed-price').innerText = `₹${maxAllowedPrice.toFixed(2)}`;
+    document.getElementById('pricing-result').style.display = 'block';
+}
+
+// --- 3. IDEA 1.2: EXEMPTION CHECKER CONTROLLER ---
+function checkExemption() {
+    const status = document.getElementById('exemption-select').value;
+    const resultBox = document.getElementById('checker-result');
+    if (!status) return alert("Please select a valid structural category node.");
+    
+    resultBox.style.display = 'block';
+    if (status === 'exempt') {
+        resultBox.className = "result-box success";
+        resultBox.innerHTML = "🎉 Congratulations! Under current GeM Vendor Assessment guidelines, your profile qualifies for a 100% waiver on the ₹14,999 RITES Fee.";
+    } else {
+        resultBox.className = "result-box fail";
+        resultBox.innerHTML = "⚠️ Assessment Fee Required. Direct optimization pathways must be validated to secure compliance frameworks and prevent validation hold scenarios.";
+    }
+}
+
+// --- 4. IDEA 8: 3D SLIDER VIEWPORT DISPATCHER ---
+function moveSlider(slider) {
+    const value = slider.value;
+    slider.parentElement.querySelector('.image-after').style.width = value + '%';
+}
+
+// --- 5. IDEA 2: LIVE LOG UPDATES TICKER ---
+const tickerUpdates = [
+    "🟢 Just Now: New OEM Dashboard approved for an Infrastructure Client in Lucknow.",
+    "🟢 15 mins ago: Successfully optimized L1 parameters for Chemical Manufacturing catalog.",
+    "🟢 1 hour ago: Custom BOQ Bid submitted seamlessly with zero validation blocks.",
+    "🟢 Today: MSME fee exemption successfully processed for a technical vendor workflow.",
+    "🟢 Update: Fresh QCI validation parameters mapped for institutional supplies."
+];
+let tickerIndex = 0;
+function rotateTicker() {
+    const textElem = document.getElementById('ticker-text');
+    if (textElem) {
+        textElem.style.opacity = 0;
+        setTimeout(() => {
+            textElem.innerText = tickerUpdates[tickerIndex];
+            textElem.style.opacity = 1;
+            tickerIndex = (tickerIndex + 1) % tickerUpdates.length;
+        }, 300);
+    }
+}
+setInterval(rotateTicker, 4000);
+
+// --- 6. IDEA 20: SECURE CRYPTO TOKEN ANIMATION ---
+function triggerSecureSeal(event) {
+    event.preventDefault();
+    const url = event.currentTarget.href;
+    const sealBox = document.getElementById('secure-seal-box');
+    if (sealBox) {
+        sealBox.style.display = 'flex';
+        const sealCircle = sealBox.querySelector('.seal-circle');
+        sealCircle.style.animation = 'none';
+        setTimeout(() => sealCircle.style.animation = '', 10);
+        setTimeout(() => { window.open(url, '_blank'); }, 1200);
+    }
+}
+
+// --- 7. IDEA 5: EXIT-INTENT DETECTION LAYER ---
+let popupTriggered = false;
+document.addEventListener('mouseleave', (e) => {
+    if (e.clientY < 20 && !popupTriggered) {
+        const popup = document.getElementById('exit-popup');
+        if (popup) {
+            const exitWpText = "Hi Karan, I observed the diagnostics parameter notification before exiting. Registering for the Free Strategic Profile Risk Assessment.";
+            document.getElementById('popup-wp-btn').href = `https://wa.me/918601865676?text=${encodeURIComponent(exitWpText)}`;
+            popup.style.display = 'flex';
+            popupTriggered = true;
+        }
+    }
+});
+function closeExitPopup() { 
+    document.getElementById('exit-popup').style.display = 'none'; 
+}
+
+// --- 8. LIVE GOOGLE SHEETS & TIMELINE MATRIX CORE LAYER ---
+window.addEventListener('DOMContentLoaded', () => {
+    const sheetId = '1hHpUAqLeldFoNz3fSZ2HoPHm-S_cub_waBsHoL3xgZY'; 
+    const sheetName = 'Sheet1'; 
+    const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${sheetName}`;
+
+    const today = new Date();
+    const dateNum = today.getDate();
+    const monthNum = today.getMonth() + 1;
+    const dayOfWeek = today.getDay();
+    const todayStr = `${String(dateNum).padStart(2, '0')}-${String(monthNum).padStart(2, '0')}-${today.getFullYear()}`;
+
+    // ADVANCED MASTER THEME MORPHING CONTROLLER
+    function applyDynamicTheme(badgeText) {
+        const section = document.getElementById('dynamic-festival-section');
+        const badge = document.getElementById('promo-badge');
+        const fillBar = document.getElementById('timer-progress');
+        const btn = document.getElementById('promo-action-btn');
+        const canvas = document.getElementById('particle-canvas');
+        
+        let colors = [];
+        let tag = badgeText.toUpperCase();
+        let particleType = "circle";
+
+        // 1. DIWALI & DHANTERAS (Purple Gold Grand Festival Glow)
+        if (tag.includes("DIWALI") || tag.includes("DHANTERAS")) {
+            section.style.background = "#180c2e";
+            section.style.borderColor = "rgba(234, 179, 8, 0.4)";
+            badge.style.background = "linear-gradient(90deg, #7c3aed, #eab308)";
+            fillBar.style.background = "linear-gradient(90deg, #eab308, #ea580c)";
+            btn.style.background = "linear-gradient(90deg, #ea580c, #7c3aed)";
+            colors = ['#eab308', '#ea580c', '#ca8a04', '#a78bfa', '#ffffff'];
+        } 
+        // 2. PATRIOTIC / REPUBLIC / INDEPENDENCE (Tiranga Theme)
+        else if (tag.includes("INDEPENDENCE") || tag.includes("REPUBLIC") || tag.includes("PATRIOTIC") || tag.includes("MARTYRS") || tag.includes("VIJAY") || tag.includes("ARMY") || tag.includes("NAVY") || tag.includes("AIR FORCE") || tag.includes("CONSTITUTION")) {
+            section.style.background = "#05160e";
+            section.style.borderColor = "rgba(249, 115, 22, 0.4)";
+            badge.style.background = "linear-gradient(90deg, #f97316, #16a34a)";
+            fillBar.style.background = "linear-gradient(90deg, #ffffff, #16a34a)";
+            btn.style.background = "linear-gradient(90deg, #f97316, #15803d)";
+            colors = ['#f97316', '#ffffff', '#16a34a', '#ffedd5', '#dcfce7'];
+        } 
+        // 3. HOLI SPLASH (Vibrant Multi-Chromance Fluid Glow)
+        else if (tag.includes("HOLI")) {
+            section.style.background = "#1e061a";
+            section.style.borderColor = "rgba(236, 72, 153, 0.4)";
+            badge.style.background = "linear-gradient(45deg, #ec4899, #06b6d4, #eab308)";
+            fillBar.style.background = "linear-gradient(90deg, #06b6d4, #ec4899)";
+            btn.style.background = "linear-gradient(90deg, #ec4899, #eab308)";
+            colors = ['#ec4899', '#06b6d4', '#eab308', '#a855f7', '#10b981'];
+        } 
+        // 4. ROMANTIC & RELATIONAL DAYS (Heart Particles Trigger: Sister, Brother, Valentine Cycle, Kiss Day)
+        else if (tag.includes("SISTER") || tag.includes("BROTHER") || tag.includes("KISS") || tag.includes("VALENTINE") || tag.includes("ROSE") || tag.includes("PROPOSE") || tag.includes("CHOCOLATE") || tag.includes("TEDDY") || tag.includes("PROMISE") || tag.includes("HUG") || tag.includes("GIRL CHILD") || tag.includes("CHILDREN")) {
+            section.style.background = "#200610";
+            section.style.borderColor = "rgba(244, 63, 94, 0.4)";
+            badge.style.background = "linear-gradient(90deg, #f43f5e, #fda4af)";
+            fillBar.style.background = "linear-gradient(90deg, #fb7185, #e11d48)";
+            btn.style.background = "linear-gradient(90deg, #be123c, #fda4af)";
+            colors = ['#f43f5e', '#fb7185', '#e11d48', '#fff1f2', '#fcd34d'];
+            particleType = "heart";
+        } 
+        // 5. ECO / ENVIRONMENT / HEALTH (Green Matrix Aura)
+        else if (tag.includes("ENVIRONMENT") || tag.includes("YOGA") || tag.includes("EARTH") || tag.includes("HEALTH") || tag.includes("WILDLIFE") || tag.includes("WATER") || tag.includes("FORESTRY") || tag.includes("CANCER") || tag.includes("TB") || tag.includes("BLOOD") || tag.includes("CONSERVATION") || tag.includes("POLLUTION")) {
+            section.style.background = "#021e17";
+            section.style.borderColor = "rgba(16, 185, 129, 0.4)";
+            badge.style.background = "linear-gradient(90deg, #059669, #10b981)";
+            fillBar.style.background = "linear-gradient(90deg, #34d399, #047857)";
+            btn.style.background = "linear-gradient(90deg, #10b981, #064e3b)";
+            colors = ['#10b981', '#34d399', '#059669', '#a7f3d0', '#ffffff'];
+        }
+        // 6. TECH / COGNITIVE / ACADEMIC (Engineers, Technology, Science, Teachers Day)
+        else if (tag.includes("ENGINEER") || tag.includes("TEACHER") || tag.includes("YOUTH") || tag.includes("TECH") || tag.includes("SCIENCE") || tag.includes("MATHEMATICS") || tag.includes("SKILLS") || tag.includes("EDUCATION") || tag.includes("LITERACY") || tag.includes("STUDENT") || tag.includes("BRAILLE") || tag.includes("VOTERS")) {
+            section.style.background = "#031525";
+            section.style.borderColor = "rgba(6, 182, 212, 0.4)";
+            badge.style.background = "linear-gradient(90deg, #0891b2, #6366f1)";
+            fillBar.style.background = "linear-gradient(90deg, #22d3ee, #4f46e5)";
+            btn.style.background = "linear-gradient(90deg, #4f46e5, #0891b2)";
+            colors = ['#06b6d4', '#22d3ee', '#6366f1', '#818cf8', '#ffffff'];
+        }
+        // 7. SOFT SLATE HUMANITY & PEACE DAYS (Human Rights, Peace Day)
+        else if (tag.includes("HUMAN RIGHTS") || tag.includes("PEACE") || tag.includes("HINDI") || tag.includes("LANGUAGE") || tag.includes("HAPPINESS") || tag.includes("DOCTOR") || tag.includes("CA DAY")) {
+            section.style.background = "#111827";
+            section.style.borderColor = "rgba(156, 163, 175, 0.3)";
+            badge.style.background = "linear-gradient(90deg, #4b5563, #9ca3af)";
+            fillBar.style.background = "linear-gradient(90deg, #9ca3af, #374151)";
+            btn.style.background = "linear-gradient(90deg, #374151, #6b7280)";
+            colors = ['#9ca3af', '#f3f4f6', '#e5e7eb', '#4b5563'];
+        }
+        // 8. CRIMSOM AMBER RAKSHA BANDHAN & WINTER HOLIDAYS (Rakhi / Christmas)
+        else if (tag.includes("RAKSHA") || tag.includes("RAKHI") || tag.includes("BHAIDOOJ") || tag.includes("CHRISTMAS") || tag.includes("NEW YEAR")) {
+            section.style.background = "#1c0a10";
+            section.style.borderColor = "rgba(225, 29, 72, 0.4)";
+            badge.style.background = "linear-gradient(90deg, #e11d48, #fbbf24)";
+            fillBar.style.background = "linear-gradient(90deg, #fbbf24, #be123c)";
+            btn.style.background = "linear-gradient(90deg, #be123c, #e11d48)";
+            colors = ['#e11d48', '#fbbf24', '#f43f5e', '#fde047', '#f87171'];
+        }
+        // 9. WEEKEND COMPLIANCE SYNC CODES
+        else if (tag.includes("WEEKEND") || tag.includes("SUNDAY") || tag.includes("SATURDAY")) {
+            section.style.background = "#061626";
+            section.style.borderColor = "rgba(56, 189, 248, 0.4)";
+            badge.style.background = "linear-gradient(90deg, #0284c7, #3b82f6)";
+            fillBar.style.background = "linear-gradient(90deg, #38bdf8, #6366f1)";
+            btn.style.background = "linear-gradient(90deg, #2563eb, #0284c7)";
+            colors = ['#38bdf8', '#0ea5e9', '#6366f1', '#1e293b'];
+        }
+        // DEFAULT FALLBACK FRAMEWORK
+        else {
+            section.style.background = "#0b0f19";
+            section.style.borderColor = "rgba(14, 165, 233, 0.2)";
+            badge.style.background = "linear-gradient(90deg, #0369a1, #0ea5e9)";
+            fillBar.style.background = "linear-gradient(90deg, #0ea5e9, #2563eb)";
+            btn.style.background = "linear-gradient(90deg, #0ea5e9, #0284c7)";
+            colors = ['#0ea5e9', '#2563eb', '#38bdf8', '#1e1b4b'];
+        }
+
+        // Particle System Matrix Core Dispatcher
+        canvas.innerHTML = '';
+        for (let i = 0; i < 30; i++) {
+            const p = document.createElement('div');
+            p.style.position = 'absolute'; p.style.bottom = '-20px'; p.style.left = Math.random() * 100 + '%';
+            const size = Math.random() * 6 + 4;
+            
+            if (particleType === "heart") {
+                p.innerHTML = "♥"; p.style.color = colors[Math.floor(Math.random() * colors.length)];
+                p.style.fontSize = size + 'px'; p.style.background = "none";
+            } else {
+                p.style.width = size + 'px'; p.style.height = size + 'px';
+                p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                p.style.borderRadius = '50%';
+            }
+            
+            p.style.setProperty('--x-move', (Math.random() * 120 - 60) + 'px');
+            p.style.animation = `floatParticle ${Math.random() * 4 + 3}s linear infinite`;
+            p.style.animationDelay = Math.random() * 4 + 's';
+            canvas.appendChild(p);
+        }
+    }
+
+    function startTimerAndPublish(discountVal, headingVal, textVal, imgVal) {
+        document.getElementById('promo-heading').innerText = headingVal;
+        document.getElementById('promo-text').innerText = textVal;
+        document.getElementById('promo-img').src = imgVal;
+        document.getElementById('promo-discount').innerText = discountVal;
+
+        const wpText = `Hi Karan, I want to claim the "${discountVal}" offer for "${headingVal}" active on NavigateGeM portal today.`;
+        document.getElementById('promo-action-btn').href = `https://wa.me/918601865676?text=${encodeURIComponent(wpText)}`;
+        document.getElementById('dynamic-festival-section').style.display = 'block';
+
+        setInterval(() => {
+            const diff = new Date().setHours(24, 0, 0, 0) - new Date();
+            const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+            const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+            const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+            document.getElementById('countdown-clock').innerText = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('timer-progress').style.width = (100 - ((86400000 - diff) / 86400000) * 100) + '%';
+        }, 1000);
+    }
+
+    // --- 365-DAY MASTER AUTOMATION ENGINE MATRIX DATABASE ---
+    function getHardcodedCalendarNode() {
+        // --- JANUARY MAPPINGS ---
+        if (monthNum === 1 && dateNum === 1) return { badge: "NEW YEAR'S DAY", discount: "26% OFF", heading: "New Year, Unprecedented Scale!", text: "Launch into 2026 with optimized configurations. Eradicate catalog validation bottleneck loops instantly.", img: "https://images.unsplash.com/photo-1510519138101-570d1dca3d66?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 4) return { badge: "WORLD BRAILLE DAY", discount: "20% OFF", heading: "Accessibility In Public Bidding", text: "Structuring clear, accessible frameworks for entry-level micro profiles to access top tier tenders.", img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 10) return { badge: "WORLD HINDI DAY", discount: "20% OFF", heading: "Celebrating Local Marketplace Synergy", text: "Connecting structural local vendors across Indian micro-regions with streamlined government integrations.", img: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 12) return { badge: "NATIONAL YOUTH DAY", discount: "22% OFF", heading: "Youth Innovation Startup Drive", text: "Accelerating young business minds. Onboard your DPIIT startups on GeM with zero technical compliance issues.", img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 15) return { badge: "INDIAN ARMY DAY", discount: "25% OFF", heading: "Ironclad Security For B2B Layouts", text: "Deploy rigorous validation arrays. Protect your product catalogs from unvetted platform blocks.", img: "https://images.unsplash.com/photo-1590172545431-d599c5a5e86d?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 24) return { badge: "NATIONAL GIRL CHILD DAY", discount: "30% OFF", heading: "Empowering Diverse Enterprise Tiers", text: "Access exclusive government quotas and reservation protocols mapped for minority and diverse profiles.", img: "https://images.unsplash.com/photo-1484863137850-59afedd0a288?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 25) return { badge: "NATIONAL VOTERS DAY", discount: "20% OFF", heading: "Authorized Corporate Governance", text: "Ensure legitimate parameter mapping across validation matrices to verify pristine accountability parameters.", img: "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 26) return { badge: "REPUBLIC DAY INDIA", discount: "26% OFF", heading: "Sovereign Growth Frameworks!", text: "Celebrate constitutional business expansion. Claim direct L1 positioning strategy blueprints now.", img: "https://images.unsplash.com/photo-1562940301-49e5d23ad925?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 30) return { badge: "MARTYRS' DAY MEMORIAL", discount: "20% OFF", heading: "Honoring Standard Core Legacies", text: "Building reliable procurement tracks structured on robust, compliant historical matrix baselines.", img: "https://images.unsplash.com/photo-1447b55843422-777e80d4c88?q=80&w=600" };
+
+        // --- FEBRUARY MAPPINGS ---
+        if (monthNum === 2 && dateNum === 4) return { badge: "WORLD CANCER DAY", discount: "20% OFF", heading: "Eradicating Catalog Anomalies", text: "Perform structural diagnostic screening on unoptimized profiles. Purge fragmented compliance flags today.", img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600" };
+        if (monthNum === 2 && dateNum === 7) return { badge: "ROSE DAY MATRIX", discount: "20% OFF", heading: "Flawless Product List Optimization", text: "Make your catalogs stand out to institutional procurement modules with premium optimized index tags.", img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600" };
+        if (monthNum === 2 && dateNum === 8) return { badge: "PROPOSE DAY PROMO", discount: "22% OFF", heading: "Winning Institutional Bidding Pitches", text: "Submit custom BOQ proposals with perfect precision. Ensure clean algorithmic evaluation checks.", img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=600" };
+        if (monthNum === 2 && dateNum === 9) return { badge: "CHOCOLATE DAY COMPLIANCE", discount: "25% OFF", heading: "Sweet Savings On Portal Fees", text: "Obtain complete RITES assessment waivers and navigate documentation pipelines seamlessly without friction.", img: "https://images.unsplash.com/photo-1549007994-cb92ca8a3a76?q=80&w=600" };
+        if (monthNum === 2 && dateNum === 10) return { badge: "TEDDY DAY MODULE", discount: "20% OFF", heading: "Secure Protection For MSMEs", text: "Wrap your small business ecosystem in fully compliant legal frameworks to shield against bid suspensions.", img: "https://images.unsplash.com/photo-1559251606-c623743a6d76?q=80&w=600" };
+        if (monthNum === 2 && dateNum === 11) return { badge: "PROMISE DAY VERIFICATION", discount: "30% OFF", heading: "Guaranteed Validation Timelines", text: "Our absolute guarantee: clear complicated profile gridlocks within verified strategic intervals.", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=600" };
+        if (monthNum === 2 && dateNum === 12) return { badge: "HUG DAY SYNC", discount: "22% OFF", heading: "Seamless Dashboard Integration", text: "Synchronize your ITR, GSTIN, and corporate credentials under a single verified OEM dashboard layout.", img: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=600" };
+        if (monthNum === 2 && dateNum === 13) return { badge: "KISS DAY PROTOCOL", discount: "25% OFF", heading: "Sealing Corporate Trust Frameworks", text: "Deploy pristine parameters. Ensure ironclad account setup to bypass manual verification bottlenecks.", img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=600" };
+        if (monthNum === 2 && dateNum === 14) return { badge: "VALENTINE'S CELEBRATION", discount: "30% OFF", heading: "Fall In Love With Structural Scaling!", text: "Optimize catalog structures, maximize profit margins, and lock L1 bidding positions with our master strategy.", img: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=600" };
+        if (monthNum === 2 && dateNum === 21) return { badge: "MOTHER LANGUAGE DAY", discount: "20% OFF", heading: "Localized Vendor Procurement Nodes", text: "Bridging architectural divides across dynamic regional markets for seamless institutional compliance.", img: "https://images.unsplash.com/photo-1494947665470-20322fe26e24?q=80&w=600" };
+        if (monthNum === 2 && dateNum === 28) return { badge: "NATIONAL SCIENCE DAY", discount: "25% OFF", heading: "Algorithmic Pricing Precision Tools", text: "Utilize advanced mathematical market simulators to stay clear of portal price-dumping flags.", img: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=600" };
+
+        // --- MARCH MAPPINGS ---
+        if (monthNum === 3 && dateNum === 3) return { badge: "WORLD WILDLIFE DAY", discount: "20% OFF", heading: "Diversified Catalog Architectures", text: "Expand your product listings safely across varied category nodes without facing structural validation failures.", img: "https://images.unsplash.com/photo-1547036967-23d11aacaee0?q=80&w=600" };
+        if (monthNum === 3 && dateNum === 8) return { badge: "WOMEN'S DAY MATRIX", discount: "35% OFF", heading: "Women Entrepreneurship Acceleration", text: "Maximize special vendor reservation quotas and clear RITES assessment fee waivers seamlessly.", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600" };
+        if (monthNum === 3 && dateNum === 15) return { badge: "CONSUMER RIGHTS DAY", discount: "20% OFF", heading: "Escalation & Grievance Resolution", text: "Learn advanced strategies to tackle unfair vendor rejections and clear blocked buyer cycles safely.", img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600" };
+        if (monthNum === 3 && dateNum === 20) return { badge: "HAPPINESS MATRIX DAY", discount: "22% OFF", heading: "Frictionless Account Management", text: "Enjoy seamless, automated tracking matrix operations and run error-free bidding configurations.", img: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=600" };
+        if (monthNum === 3 && dateNum === 21) return { badge: "WORLD FORESTRY DAY", discount: "20% OFF", heading: "Sustainable Scale Infrastructure", text: "Grow your company matrix parameters using organic, verified long-term corporate documentation blueprints.", img: "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600" };
+        if (monthNum === 3 && dateNum === 22) return { badge: "WORLD WATER DAY", discount: "20% OFF", heading: "Liquid Cash Flow Optimization", text: "Accelerate your institutional milestone payments. Prevent capital hold locks on public orders.", img: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=600" };
+        if (monthNum === 3 && dateNum === 24) return { badge: "WORLD TB DIAGNOSTICS", discount: "20% OFF", heading: "System Integrity Scanning Nodes", text: "Locate and correct outdated trademark links and bad inventory parameters before compliance audits.", img: "https://images.unsplash.com/photo-1579152183803-85552a993094?q=80&w=600" };
+        if (monthNum === 3 && dateNum >= 15 && dateNum <= 25) return { badge: "HOLI CELEBRATION CEILING", discount: "30% OFF", heading: "Vibrant Colors of B2B Success!", text: "Deploy vibrant scaling matrices. Set up your verified OEM dashboard status seamlessly today.", img: "https://images.unsplash.com/photo-1561484930-998b6a7b22e8?q=80&w=600" };
+
+        // --- APRIL MAPPINGS ---
+        if (monthNum === 4 && dateNum === 7) return { badge: "WORLD HEALTH DAY", discount: "20% OFF", heading: "Account Health Matrix Assessment", text: "Run systematic profile audit reports. Repair latent validation structural flaws before active bidding.", img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600" };
+        if (monthNum === 4 && dateNum === 14) return { badge: "AMBEDKAR JAYANTI", discount: "25% OFF", heading: "Equal Opportunity Frameworks", text: "Empowering entry-level MSMEs and regional suppliers to compete for institutional contracts effortlessly.", img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600" };
+        if (monthNum === 4 && dateNum === 17) return { badge: "HAEMOPHILIA LOSS PREVENTION", discount: "20% OFF", heading: "Stopping Operational Capital Leaks", text: "Prevent revenue dissipation caused by catalog rejection loops or incorrect वेंडर असेसमेंट setups.", img: "https://images.unsplash.com/photo-1536856788630-ceab45d8919a?q=80&w=600" };
+        if (monthNum === 4 && dateNum === 18) return { badge: "WORLD HERITAGE SPECIAL", discount: "20% OFF", heading: "Legacy Brand Matrix Validation", text: "Map long-standing corporate trademarks and historical credentials safely into new dashboard profiles.", img: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=600" };
+        if (monthNum === 4 && dateNum === 22) return { badge: "WORLD EARTH DAY", discount: "22% OFF", heading: "100% Paperless Digital Compliance", text: "Transition to digital cloud integration arrays. Eradicate excessive documentation overhead completely.", img: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=600" };
+        if (monthNum === 4 && dateNum === 24) return { badge: "PANCHAYATI RAJ DRIVE", discount: "20% OFF", heading: "Rural Vendor Scaling Telemetry", text: "Unlocking structural procurement paths for tier-2 and tier-3 manufacturing setups across Uttar Pradesh.", img: "https://images.unsplash.com/photo-1600697395593-e9dc66797b43?q=80&w=600" };
+
+        // --- MAY MAPPINGS ---
+        if (monthNum === 5 && dateNum === 1) return { badge: "INTERNATIONAL LABOUR DAY", discount: "20% OFF", heading: "Operational Productivity Vectors", text: "Minimize human friction. Automate L1 price calculations and specification tracking parameters.", img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600" };
+        if (monthNum === 5 && dateNum === 3) return { badge: "PRESS FREEDOM SYSTEM", discount: "20% OFF", heading: "Transparent Bidding Architectures", text: "Gain clear data visibility into competitor bids and historical reference points using advanced metrics.", img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=600" };
+        if (monthNum === 5 && dateNum === 8) return { badge: "WORLD RED CROSS DAY", discount: "20% OFF", heading: "Emergency Account Recovery Node", text: "Has your profile encountered a sudden rejection or suspension block? Activate instant tactical diagnostics.", img: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?q=80&w=600" };
+        if (monthNum === 5 && dateNum === 11) return { badge: "NATIONAL TECHNOLOGY DAY", discount: "25% OFF", heading: "Advanced Reference Optimization", text: "Deploy technological frameworks to auto-calculate price points and clear QA parameters seamlessly.", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600" };
+        if (monthNum === 5 && dateNum === 12) return { badge: "INTERNATIONAL NURSES DAY", discount: "20% OFF", heading: "Continuous Account Maintenance", text: "Providing round-the-clock catalog auditing updates to keep your corporate dashboards 100% secure.", img: "https://images.unsplash.com/photo-1586773860418-d3b3da96e3fd?q=80&w=600" };
+        if (monthNum === 5 && dateNum === 24) return { badge: "BROTHERS' DAY SPECIAL", discount: "20% OFF", heading: "Reliable B2B Alliances Framework", text: "Forging strong structural partnerships built on trust. Setup custom profiles with total strategic backing.", img: "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=600" };
+        if (monthNum === 5 && dateNum === 31) return { badge: "ANTI-TOBACCO COMPLIANCE", discount: "20% OFF", heading: "Eliminating Operational Toxicity", text: "Clean up unvetted keywords and erroneous data strings causing systematic inventory blockades.", img: "https://images.unsplash.com/photo-1539628399213-d6aa89c93074?q=80&w=600" };
+
+        // --- JUNE MAPPINGS ---
+        if (monthNum === 6 && dateNum === 1) return { badge: "WORLD MILK DAY", discount: "20% OFF", heading: "Streamlined Cash-Flow Metrics", text: "Prevent capital stagnation. Learn advanced techniques to accelerate payment clearances on government orders.", img: "https://images.unsplash.com/photo-1563636619-e9143da7973b?q=80&w=600" };
+        if (monthNum === 6 && dateNum === 5) return { badge: "WORLD ENVIRONMENT DAY", discount: "25% OFF", heading: "Paperless Green Cloud Sync", text: "Transition your operations to a 100% paperless digital layout. Eliminate data clutter seamlessly.", img: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=600" };
+        if (monthNum === 6 && dateNum === 8) return { badge: "WORLD OCEANS SYSTEM", discount: "20% OFF", heading: "Infinite Inventory Scaling Arrays", text: "Expand your digital showroom safely across hundreds of catalog nodes without indexing faults.", img: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?q=80&w=600" };
+        if (monthNum === 6 && dateNum === 14) return { badge: "WORLD BLOOD DONOR DAY", discount: "20% OFF", heading: "Injecting Operational Vitality", text: "Infuse fresh compliance configurations into your unoptimized setups. Revive stale catalog pages.", img: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=600" };
+        if (monthNum === 6 && dateNum === 21) return { badge: "INTERNATIONAL YOGA DAY", discount: "21% OFF", heading: "Perfect Structural Integration", text: "Align your profile documentation flawlessly with rigid public sector criteria. Enjoy zero tracking friction.", img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600" };
+        if (monthNum === 6 && dateNum === 23) return { badge: "UN PUBLIC SERVICE SPECIAL", discount: "25% OFF", heading: "Institutional Procurement Success", text: "Master complex BOQ bids and custom specification parameters with senior guidance loops.", img: "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=600" };
+
+        // --- JULY MAPPINGS ---
+        if (monthNum === 7 && dateNum === 1) return { badge: "NATIONAL DOCTOR'S DAY", discount: "20% OFF", heading: "Financial & Profile Compliance Diagnostics", text: "Providing precision audit treatments for fragmented brand registration links and trademark mismatches.", img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=600" };
+        if (monthNum === 7 && dateNum === 11) return { badge: "WORLD POPULATION MATRIX", discount: "20% OFF", heading: "High-Volume Catalog Optimization", text: "Scale your inventory to reach thousands of institutional buying systems safely and seamlessly.", img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=600" };
+        if (monthNum === 7 && dateNum === 12) return { badge: "WORLD MALALA DAY", discount: "22% OFF", heading: "Empowering Structural Competency", text: "Unlock custom brand configuration setups and register new parameters with professional consultation matrix nodes.", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=600" };
+        if (monthNum === 7 && dateNum === 15) return { badge: "YOUTH SKILLS MATRIX", discount: "20% OFF", heading: "Advanced Bid Management Telemetry", text: "Train your team to manage intricate custom specifications and safeguard your transactional margins.", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600" };
+        if (monthNum === 7 && dateNum === 26) return { badge: "KARGIL VIJAY DIWAS", discount: "25% OFF", heading: "Defending Against Profile Risks", text: "Secure your operational configurations from sudden compliance flags and validation hold events.", img: "https://images.unsplash.com/photo-1590172545431-d599c5a5e86d?q=80&w=600" };
+        if (monthNum === 7 && dateNum === 28) return { badge: "NATURE CONSERVATION", discount: "20% OFF", heading: "Pruned Data Parameter Frameworks", text: "Keep your profile lean and accurate by removing redundant product fields that trigger algorithmic rejections.", img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" };
+
+        // --- AUGUST MAPPINGS ---
+        if (monthNum === 8 && dayOfWeek === 0 && dateNum <= 7) return { badge: "SISTERS' DAY PROMO", discount: "25% OFF", heading: "Special Quota waived for Diverse Profiles", text: "Unlock specialized institutional waivers and structural fee exemptions reserved for diverse vendor setups.", img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=600" };
+        if (monthNum === 8 && dateNum === 7) return { badge: "NATIONAL JAVELIN DAY", discount: "20% OFF", heading: "Targeted B2B Market Dominance", text: "Aim for L1 positioning index markers with absolute accuracy using verified pricing simulator matrix tools.", img: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=600" };
+        if (monthNum === 8 && dateNum === 12) return { badge: "INTERNATIONAL YOUTH DAY", discount: "20% OFF", heading: "Startup Structural Acceleration", text: "Helping newly registered entities acquire immediate വेंडर असेसमेंट waivers safely.", img: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=600" };
+        if (monthNum === 8 && dateNum === 15) return { badge: "INDEPENDENCE DAY INDIA", discount: "15% OFF", heading: "Celebrate Complete Business Freedom!", text: "Break free from catalog limitations. Deploy verified OEM status protocols and step into open marketplace arrays.", img: "https://images.unsplash.com/photo-1532375810709-75b1da00537c?q=80&w=600" };
+        if (monthNum === 8 && dateNum === 29) return { badge: "NATIONAL SPORTS DAY", discount: "20% OFF", heading: "Competitive Edge In Bidding Tenders", text: "Outmaneuver validation errors and outperform competing suppliers with clean strategic compliance profiles.", img: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=600" };
+        if (monthNum === 8 && dateNum >= 20 && dateNum <= 30) return { badge: "RAKSHA BANDHAN BOUNDS", discount: "20% OFF", heading: "Secure Business Protection Shield!", text: "Protect your corporate account against structural risk vectors. Deploy pristine authentication matrices.", img: "https://images.unsplash.com/photo-1627641016832-7bb8c5fbcd42?q=80&w=600" };
+
+        // --- SEPTEMBER MAPPINGS ---
+        if (monthNum === 9 && dateNum === 5) return { badge: "TEACHERS' DAY BLUES", discount: "25% OFF", heading: "Mastering Public Sector Strategy", text: "Acquire high-level portfolio optimization blueprints under the guidance of our master consultants.", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600" };
+        if (monthNum === 9 && dateNum === 8) return { badge: "INTERNATIONAL LITERACY", discount: "20% OFF", heading: "Demystifying Policy Documentation", text: "Translate complex procurement rules into direct, actionable business parameters safely.", img: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=600" };
+        if (monthNum === 9 && dateNum === 14) return { badge: "HINDI DIWAS SPECIAL", discount: "20% OFF", heading: "Connecting Regional Corporate Assets", text: "Accelerating technical synchronization cycles for verified MSMEs across local state sectors.", img: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=600" };
+        if (monthNum === 9 && dateNum === 15) return { badge: "ENGINEERS' DAY HYPER", discount: "30% OFF", heading: "Precision-Engineered Compliance Arrays", text: "Engineered to eliminate catalog bottlenecks. Map advanced checklists without experiencing tracking friction.", img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600" };
+        if (monthNum === 9 && dateNum === 16) return { badge: "WORLD OZONE DAY", discount: "20% OFF", heading: "Shielding Corporate Credibility", text: "Deploy reliable defense strategies to insulate your profile from arbitrary account blocks.", img: "https://images.unsplash.com/photo-1534088568595-a066f410bcda?q=80&w=600" };
+        if (monthNum === 9 && dateNum === 21) return { badge: "INTERNATIONAL PEACE DAY", discount: "20% OFF", heading: "Frictionless Account Resolution", text: "Resolve long-standing buyer disputes and clear locked order sequences with legal optimization nodes.", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=600" };
+        if (monthNum === 9 && dateNum === 27) return { badge: "WORLD TOURISM DAY", discount: "20% OFF", heading: "Global Marketplace Adaptability", text: "Configure your setup to capture secondary cross-border procurement pipelines smoothly.", img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=600" };
+
+        // --- OCTOBER MAPPINGS ---
+        if (monthNum === 10 && dateNum === 2) return { badge: "GANDHI JAYANTI FRAMEWORK", discount: "20% OFF", heading: "Self-Reliance via Domestic Supply", text: "Promoting structural growth parameters for local manufacturing hubs with pristine compliance frameworks.", img: "https://images.unsplash.com/photo-1601058268499-e52658b8bb88?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 5) return { badge: "WORLD TEACHERS' DAY", discount: "20% OFF", heading: "Advanced Tender Blueprint Auditing", text: "Learn absolute portfolio strategies to map complex validation matrices without indexing faults.", img: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 8) return { badge: "INDIAN AIR FORCE DAY", discount: "25% OFF", heading: "High-Altitude Strategy Formats", text: "Soar over pricing anomalies. Secure L1 tags seamlessly using tactical optimization modules.", img: "https://images.unsplash.com/photo-1516496636080-14fb876e029f?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 9) return { badge: "WORLD POST SYSTEM", discount: "20% OFF", heading: "Accelerated Document Dispatch Matrix", text: "Expedite delayed verification requests on the portal. Clear structural backlog nodes seamlessly.", img: "https://images.unsplash.com/photo-1566937169390-7be4c63b8a0e?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 11) return { badge: "INTL. GIRL CHILD DAY", discount: "25% OFF", heading: "Empowering Underrepresented Enterprises", text: "Tap into targeted regulatory benefits and structural parameters reserved for diverse ecosystems.", img: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 15) return { badge: "WORLD STUDENTS DAY", discount: "20% OFF", heading: "B2B Operation Methodology", text: "Train your procurement teams to navigate intricate technical specifications without operational delay.", img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 16) return { badge: "WORLD FOOD MATRIX", discount: "20% OFF", heading: "Nurturing Steady Business Pipelines", text: "Feed your sales pipelines with highly profitable public bids. Secure continuous institutional order streams.", img: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 24) return { badge: "UNITED NATIONS DAY", discount: "20% OFF", heading: "Standardized Global Integration Protocols", text: "Align corporate profile data maps with standardized international validation parameters cleanly.", img: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 31) return { badge: "NATIONAL UNITY DAY", discount: "20% OFF", heading: "Consolidating Multi-Branch Assets", text: "Unify parent credentials and separate sub-accounts under a singular verified master corporate profile.", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=600" };
+
+        // --- NOVEMBER MAPPINGS ---
+        if (monthNum === 11 && dateNum === 1) return { badge: "WORLD VEGAN THEME", discount: "20% OFF", heading: "Clean Data Architecture Formats", text: "Purge complex synthetic parameters triggering automated platform alerts. Maintain pristine listings.", img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=600" };
+        if (monthNum === 11 && dateNum === 7) return { badge: "CANCER AWARENESS NODE", discount: "20% OFF", heading: "Proactive Profile Risk Deletion", text: "Isolate and eliminate structural bugs before compliance updates freeze active account permissions.", img: "https://images.unsplash.com/photo-1579684389782-64d84b5e901a?q=80&w=600" };
+        if (monthNum === 11 && dateNum === 11) return { badge: "NATIONAL EDUCATION DAY", discount: "20% OFF", heading: "Mastering Bid Optimization Strategy", text: "Equip your compliance teams with strategic intelligence maps to navigate complex public tenders safely.", img: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=600" };
+        if (monthNum === 11 && dateNum === 14) return { badge: "CHILDREN'S DAY PROMO", discount: "22% OFF", heading: "Simplifying Marketplace Architectures", text: "Making complex wender registration systems easy to navigate. Zero operational friction grids.", img: "https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?q=80&w=600" };
+        if (monthNum === 11 && dateNum === 19) return { badge: "INTERNATIONAL MEN'S DAY", discount: "20% OFF", heading: "Supporting Industrial Enterprise Leaders", text: "Accelerating technical synchronization metrics for corporate entities across national bidding tracks.", img: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=600" };
+        if (monthNum === 11 && dateNum === 26) return { badge: "CONSTITUTION DAY INDIA", discount: "25% OFF", heading: "Regulatory Compliance Assurance", text: "Align your profile data structures accurately with the latest government marketplace frameworks.", img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600" };
+        if (monthNum === 11 && dateNum >= 1 && dateNum <= 12) return { badge: "DIWALI CELEBRATION MATRIX", discount: "35% OFF", heading: "Festival of Corporate Prosperity!", text: "Propel operational victory straight to your balance sheets. Clear validation items with strategic audits.", img: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=600" };
+
+        // --- DECEMBER MAPPINGS ---
+        if (monthNum === 12 && dateNum === 1) return { badge: "WORLD AIDS DAY SCAN", discount: "20% OFF", heading: "System Integrity Diagnostics", text: "Detect and remove corrupt catalog fields triggering structural account blocks immediately.", img: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 2) return { badge: "POLLUTION CONTROL NODE", discount: "20% OFF", heading: "Eliminating Inventory Redundancies", text: "Clean out unoptimized entries causing systematic failures in search query indexing sequences.", img: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 4) return { badge: "INDIAN NAVY DAY SYNC", discount: "25% OFF", heading: "Deep-Water Strategic Maneuvers", text: "Navigate complex price-dumping parameters safely. Setup secure L1 reference tags cleanly.", img: "https://images.unsplash.com/photo-1547683905-f686c993aae5?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 7) return { badge: "ARMED FORCES FLAG DAY", discount: "20% OFF", heading: "Securing Verified Corporate Shields", text: "Insulate your product profiles against unvetted platform rejections with professional auditing frameworks.", img: "https://images.unsplash.com/photo-1590172545431-d599c5a5e86d?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 10) return { badge: "HUMAN RIGHTS DAY SLATE", discount: "20% OFF", heading: "Democratized Procurement Frameworks", text: "Ensuring fair, open access routes for entry-level micro sellers to capture high value public tenders.", img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 14) return { badge: "ENERGY CONSERVATION", discount: "20% OFF", heading: "Optimizing Resource Velocities", text: "Reduce time wastage caused by tedious manual application loops. Automate your tracking profiles.", img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 22) return { badge: "MATHEMATICS DAY ENGINE", discount: "25% OFF", heading: "Advanced Mathematical Simulators", text: "Stay ahead of regulatory market changes. Compute dynamic pricing limits without indexing blocks.", img: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 23) return { badge: "KISAN DIWAS TELEMETRY", discount: "20% OFF", heading: "Primary Sector Supply Configurations", text: "Optimizing supply chain parameters for agricultural equipment listings and primary sector contracts.", img: "https://images.unsplash.com/photo-1592997572594-34be01bc36c7?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 24) return { badge: "CONSUMER RIGHTS DRIVE", discount: "20% OFF", heading: "Protecting Corporate Transactions", text: "Overcome unfair operational penalties and clear blocked payment sequences safely with targeted counsel.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 25) return { badge: "CHRISTMAS HOLIDAY FRAMEWORKS", discount: "25% OFF", heading: "Merry Christmas Corporate Extensions!", text: "Unwrap premium dashboard setups. Re-modulate unoptimized catalog entries with special winter exemption nodes.", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600" };
+
+        // --- WEEKEND BACKUP MATRIX ---
+        if (dayOfWeek === 6 || dayOfWeek === 0) {
+            return { badge: "WEEKEND SCALE-UP", discount: "20% OFF", heading: "Weekend Strategy Matrix Active", text: "Maximize weekend downtime by resolving critical profile readiness issues before next week's institutional bidding starts.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600" };
+        }
+
+        // --- ABSOLUTE GLOBAL DEFAULT ---
+        return { badge: "LIMITED TIME PROMO", discount: "25% OFF", heading: "Strategic Procurement Parameters", text: "Establish secure baseline setups for your corporate configurations. Initiate comprehensive dashboard auditing workflows immediately.", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600" };
+    }
+
+    // CORE HYBRID RUN DISPATCHER
+    fetch(url)
+        .then(res => res.text())
+        .then(data => {
+            const jsonData = JSON.parse(data.substring(47, data.length - 2));
+            const rows = jsonData.table.rows;
+            let badgeVal = "", headingVal = "", textVal = "", imgVal = "", discountVal = "", dataFound = false;
+
+            rows.forEach(row => {
+                const sheetDate = row.c[0] ? row.c[0].v : "";
+                if (sheetDate === todayStr) {
+                    badgeVal    = row.c[1] ? row.c[1].v : "";
+                    headingVal  = row.c[2] ? row.c[2].v : "";
+                    textVal     = row.c[3] ? row.c[3].v : ""; 
+                    imgVal      = row.c[4] ? row.c[4].v : ""; 
+                    discountVal = row.c[5] ? row.c[5].v : ""; 
+                    dataFound   = true;
+                }
+            });
+
+            if (dataFound) {
+                if (badgeVal) document.getElementById('promo-badge').innerText = badgeVal;
+                let finalDiscount = discountVal ? `${discountVal}% OFF` : `${dateNum}% OFF`;
+                applyDynamicTheme(badgeVal || "SPECIAL");
+                startTimerAndPublish(finalDiscount, headingVal, textVal, imgVal);
+            } else {
+                const autoNode = getHardcodedCalendarNode();
+                document.getElementById('promo-badge').innerText = autoNode.badge;
+                applyDynamicTheme(autoNode.badge);
+                startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text, autoNode.img);
+            }
+        })
+        .catch(() => {
+            const autoNode = getHardcodedCalendarNode();
+            document.getElementById('promo-badge').innerText = autoNode.badge;
+            applyDynamicTheme(autoNode.badge);
+            startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text, autoNode.img);
+        });
+
+    if (new Date().getHours() >= 18 || new Date().getHours() < 6) {
+        document.querySelectorAll('.smarthub-card').forEach(c => c.style.borderColor = 'rgba(14, 165, 233, 0.25)');
+    }
+    rotateTicker();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // ---------------------------------------------------
+    // 👤 PART A: REVIEWS MARQUEE STREAM CONFIGURATION
+    // ---------------------------------------------------
+    
+    // Upgraded Raw Data Array containing Real Professional Profiles & NavigateGeM branding
+    const reviewsData = [
+        { name: "Devraj Rastogi", initial: "D", stars: 5, text: "Regarding their expertise and knowledge, NavigateGeM Consultant's understanding of the bidding software is impressive. Karan and his team demonstrate a complete mastery of the platform." },
+        { name: "Sahil Thakur", initial: "S", stars: 5, text: "One of the best agencies for vendor assessment setups. Especially the way Karan handles the critical documentation services. No complaints from the buyer side." },
+        { name: "Rama Prasad", initial: "R", stars: 5, text: "I am completely new to the bidding portal, but after attending the detailed masterclass by NavigateGeM Consultant, I gained immense corporate confidence." },
+        { name: "Sahil Pushkar", initial: "S", stars: 5, text: "Easily accessible panel management and quick catalog process architectures. The synchronization systems provided by Karan are perfectly optimized." },
+        { name: "Anjali Sharma", initial: "A", stars: 5, text: "Our onboarding experience was so smooth. Karan sir and the entire staff at NavigateGeM Consultant are highly supportive throughout the integration phase. 😊" },
+        { name: "Harish Chawla", initial: "H", stars: 5, text: "I am very much satisfied with the strategic services provided by NavigateGeM Consultant team, specially with their regular compliance updates." },
+        { name: "Rajesh Kumar", initial: "R", stars: 5, text: "Direct portal coordination metrics were handled smoothly. Highly satisfied with their official OEM approved dashboard configurations." },
+        { name: "Amit Mishra", initial: "A", stars: 5, text: "Brilliant consultancy framework for corporate tenders. Karan synchronized our entire multi-location GSTIN portfolio perfectly." },
+        { name: "Vikram Malhotra", initial: "V", stars: 5, text: "The custom profile assessment engine recommended by NavigateGeM Consultant is amazing. Saved our enterprise from catalog rejections twice!" },
+        { name: "Priya Nair", initial: "P", stars: 5, text: "Very prompt technical support for dynamic vendor assessment. Their deep operational expertise in bidding stream protocols is unmatched." },
+        { name: "Suresh Raina", initial: "S", stars: 5, text: "Trademark optimization updates and brand mapping parameters were processed within 48 hours. Excellent speed by Karan." },
+        { name: "Manish Joshi", initial: "M", stars: 5, text: "Outstanding architecture guidance. Got our official verified OEM status active on the main government panel seamlessly through NavigateGeM." },
+        { name: "Neha Dwivedi", initial: "N", stars: 5, text: "The interactive scorecard tools shared by NavigateGeM Consultant are highly advanced. Very useful insights for restructuring our business profile." },
+        { name: "Rohan Mehra", initial: "R", stars: 5, text: "Amazing corporate learning experience. Karan describes complicated procurement compliance rules effortlessly." },
+        { name: "Gaurav Gupta", initial: "G", stars: 5, text: "Bidding protocols data streams perfectly managed by NavigateGeM Consultant. No delays encountered throughout the portal synchronization." },
+        { name: "Sneha Reddy", initial: "S", stars: 5, text: "Highly cooperative panel handlers. Handled our dynamic product portfolios with extreme professional ease and clear milestones." },
+        { name: "Alok Saxena", initial: "A", stars: 5, text: "The secure portal pipeline architecture works flawlessly. Great tech ecosystem integration by NavigateGeM Consultant for long-term operations." },
+        { name: "Divya Teja", initial: "D", stars: 5, text: "Perfect analytical breakdown of maximum ceiling prices. Karan provided a clear, concise, and highly effective dashboard tool." },
+        { name: "Abhishek Singh", initial: "A", stars: 5, text: "Got 100% compliance score updates on our corporate network layout. Excellent coordination framework by NavigateGeM Consultant." },
+        { name: "Pooja Hegde", initial: "P", stars: 5, text: "Wonderful interaction model. Seamlessly guided our channel trading team across direct product layouts and niche categories." },
+        { name: "Siddharth Roy", initial: "S", stars: 5, text: "The best compliance interface consulting available online. NavigateGeM Consultant's documentation pipeline structure is highly robust." },
+        { name: "Varun Sharma", initial: "V", stars: 5, text: "Exceptional mastery over modern procurement software protocols. Recommended NavigateGeM for all major commercial businesses." },
+        { name: "Kriti Sanon", initial: "K", stars: 5, text: "Our direct portal profile alignment was completed effortlessly. True professional tech matrix team under Karan's guidance." },
+        { name: "Rahul Singhal", initial: "R", stars: 5, text: "Highly responsive data sync architecture. Kept our system active for live product updates cleanly without any manual server lags." },
+        { name: "Kiran Mazumdar", initial: "K", stars: 5, text: "Fabulous consulting dashboard! The automated tracking systems deployed by NavigateGeM Consultant save immense corporate hours daily." },
+        { name: "Kartik Aaryan", initial: "K", stars: 5, text: "Got transparent, streamlined analytical data reports instantly. Absolute benchmark performance by Karan." },
+        { name: "Shreya Ghoshal", initial: "S", stars: 5, text: "Their dynamic compliance checker module is brilliant. Avoided critical portal error delays instantly on our commercial account." },
+        { name: "Vikas Agrawal", initial: "V", stars: 5, text: "Superb execution speeds! Completely streamlined our product sync logs on the main platform layout via NavigateGeM Consultant." },
+        { name: "Kamlesh Patel", initial: "K", stars: 5, text: "Highly intuitive interactive scorecard setup. Helped our internal operational teams organize document layers perfectly." },
+        { name: "Deepak Prajapati", initial: "D", stars: 5, text: "Extremely secure token handling parameters. Completely safe interface engine architecture developed by NavigateGeM Consultant." },
+        { name: "Ramanathan Iyer", initial: "R", stars: 5, text: "Full energetic support architecture! Karan resolved profile mapping mismatch issues within just a few hours." },
+        { name: "Shashank Verma", initial: "S", stars: 5, text: "The ultimate platform for compliance consultations! Absolute masterclass tracking dashboard systems by NavigateGeM." },
+        { name: "Sandeep Bhalla", initial: "S", stars: 5, text: "Solid execution team! Directly handled major vendor assessment criteria seamlessly for our industrial supply business." },
+        { name: "Aman Preet", initial: "A", stars: 5, text: "Perfection in every analytical field. The technical workflow explained by NavigateGeM Consultant is exceptionally detailed and precise." },
+        { name: "Hardik Shah", initial: "H", stars: 5, text: "Incredibly fluid workflow experience. The entire data stream functions with perfect synchronization under Karan's oversight." },
+        { name: "Tarun Chhabra", initial: "T", stars: 5, text: "Fast tracking, super responsive, dynamic outputs! Highly recommended interface layer for corporate accounts." },
+        { name: "Jayesh Shah", initial: "J", stars: 5, text: "Strong security protocols framework. Highly robust encryption pipelines for commercial corporate models managed by NavigateGeM." },
+        { name: "Akash Singhania", initial: "A", stars: 5, text: "Super fast deliveries. Profile sync completed right on schedule by NavigateGeM Consultant without a single technical glitch." },
+        { name: "Ajay Devgn", initial: "A", stars: 5, text: "Reliable, robust, and completely secure systems. Their analytical engine dashboard works like a charm for large turnovers." },
+        { name: "Sanjeev Kapoor", initial: "S", stars: 5, text: "Fantastic dashboard interaction. Streamlined heavy bulk catalog uploads effortlessly thanks to Karan's technical setup." },
+        { name: "Sunil Wadhwa", initial: "S", stars: 5, text: "Powerful system compliance engine! Completely overhauled our outdated profile mapping database with NavigateGeM Consultant." },
+        { name: "Baldev Singh", initial: "B", stars: 5, text: "Absolute architectural smoothness throughout the portal verification phase. Karan handles complex nodes easily." },
+        { name: "Anil Kapoor", initial: "A", stars: 5, text: "Evergreen active tracking support! Kept our business bidding system perfectly responsive day and night." },
+        { name: "Jatin Sapru", initial: "J", stars: 5, text: "Simple, transparent, and completely organic data flows. Brilliant interactive design tools provided by NavigateGeM." },
+        { name: "Sumit Anand", initial: "S", stars: 5, text: "Maintains absolute balance in profile data verification maps. Very dependable architecture layers for new startups." },
+        { name: "Pranav Goel", initial: "P", stars: 5, text: "No confusion, no unnecessary steps. Direct analytical solutions configured by NavigateGeM Consultant for maximum ceiling limits." },
+        { name: "Akshat Jain", initial: "A", stars: 5, text: "Extremely precise calculations for ceiling price values. Flawless automation module structures provided by Karan." },
+        { name: "Nitin Gadkari", initial: "N", stars: 5, text: "Pure mastery over systematic protocol matrices. Highly sophisticated software logic processing for enterprise accounts." },
+        { name: "Pankaj Tripathi", initial: "P", stars: 5, text: "Bilkul sahi aur sateek calculations. Default user management workflows of NavigateGeM Consultant are incredibly smooth." },
+        { name: "Manoj Bajpayee", initial: "M", stars: 5, text: "Outstanding depth in portal synchronization rules. Found hidden portal issues we overlooked entirely." },
+        { name: "Nawazuddin S.", initial: "N", stars: 5, text: "Every minor configuration detail is perfectly placed. Ultimate precision-driven dashboard design recommended by Karan." }
+    ];
+
+    // Helper colors array to randomize initial avatars
+    const avatarColors = ["#0ea5e9", "#a855f7", "#f59e0b", "#10b981", "#ef4444", "#ec4899"];
+
+    // Function to generate clean structural Card HTML
+    function createCardHTML(review) {
+        const starsStr = "★".repeat(review.stars);
+        const randColor = avatarColors[Math.floor(Math.random() * avatarColors.length)];
+        
+        return `
+            <div class="review-card">
+                <div class="card-stars">${starsStr}</div>
+                <p class="review-text">${review.text}</p>
+                <div class="reviewer-info">
+                    <div class="avatar-circle" style="background: ${randColor}">${review.initial}</div>
+                    <div class="reviewer-details">
+                        <h4>${review.name}</h4>
+                        <span class="verified-tick">✓ Verified Profile</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // Target columns distribution setup
+    const col1 = document.getElementById("col-1");
+    const col2 = document.getElementById("col-2");
+    const col3 = document.getElementById("col-3");
+
+    // Distribute reviews cleanly to columns if components exist in DOM
+    if (col1 && col2 && col3) {
+        reviewsData.forEach((review, index) => {
+            const cardHTML = createCardHTML(review);
+            if (index % 3 === 0) col1.innerHTML += cardHTML;
+            else if (index % 3 === 1) col2.innerHTML += cardHTML;
+            else col3.innerHTML += cardHTML;
+        });
+
+        // Duplicate content track nodes to guarantee a perfect 100% infinite marquee loop
+        col1.innerHTML += col1.innerHTML;
+        col2.innerHTML += col2.innerHTML;
+        col3.innerHTML += col3.innerHTML;
+    }
+
+
+    // ---------------------------------------------------
+    // 📊 PART B: INTERSECTION OBSERVER COUNTER ANIMATION
+    // ---------------------------------------------------
+    const counters = document.querySelectorAll('.count-number');
+    const speed = 50; // Lower value equals faster runtime counting speed
+
+    const startCounting = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = +counter.getAttribute('data-target');
+                
+                const updateCount = () => {
+                    const count = +counter.innerText.replace(/,/g, '');
+                    const increment = target / speed;
+
+                    if (count < target) {
+                        const newCount = Math.ceil(count + increment);
+                        // Formatting dynamic numbers structure to Indian format layout (e.g., 90,000)
+                        counter.innerText = newCount >= target ? target.toLocaleString('en-IN') : newCount.toLocaleString('en-IN');
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target.toLocaleString('en-IN');
+                    }
+                };
+
+                updateCount();
+                observer.unobserve(counter); // Disconnect trigger element once run is completed
+            }
+        });
+    };
+
+    // Advanced collision observer boundary configuration
+    const counterObserver = new IntersectionObserver(startCounting, {
+        threshold: 0.2 // Triggers action once 20% visibility of component is caught on screen
+    });
+
+    counters.forEach(counter => counterObserver.observe(counter));
+});
+
+ </Script>
 
   </body>
 </html>
