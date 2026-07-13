@@ -1244,6 +1244,33 @@ body {
     }
 }
 
+         .social-media-block {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Base Icon Setup */
+        .social-link {
+            font-size: 36px; /* Icon size */
+            text-decoration: none;
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+
+        /* Match Exact Brand Colors */
+        .instagram { color: #E4405F; }
+        .youtube   { color: #FF0000; }
+        .facebook  { color: #1877F2; }
+        .linkedin  { color: #0077B5; }
+        
+        /* Smooth Hover Effects */
+        .social-link:hover {
+            transform: scale(1.2); /* Gently enlarges icon on hover */
+            filter: brightness(1.15); /* Makes color pop slightly */
+        }
+
 
 
     </style>
@@ -2699,11 +2726,28 @@ body {
         <hr class="footer-accent-divider">
 
         <!-- Social Media Navigation Dock (Using SVG/Text Icons as represented in sample layout) -->
-        <div class="footer-social-dock">
-            <a href="#" class="social-node-link" title="Facebook">📘</a>
-            <a href="#" class="social-node-link" title="Instagram">📸</a>
-            <a href="#" class="social-node-link" title="Twitter">🐦</a>
-            <a href="#" class="social-node-link" title="LinkedIn">💼</a>
+                <div class="footer-social-dock">
+           <a href="https://www.instagram.com/navigatgem_consultant?igsh=bGExOHhmd2dnMw==" class="social-link instagram" target="_blank" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+</a>
+        
+       <!-- Sahi Tarika (Corrected Code) -->
+<a href="https://youtube.com/@gemportalvideotraining" class="social-link youtube" target="_blank" aria-label="YouTube">
+    <i class="fab fa-youtube"></i>
+</a>
+        
+      <a href="https://www.facebook.com/share/1QE2d3WN3r/" class="social-link facebook" target="_blank" aria-label="Facebook">
+    <i class="fab fa-facebook"></i>
+</a>
+        
+        <a href="#" class="social-link linkedin" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+
+            
+
+
+            
         </div>
 
         <!-- 4. Bottom Base Copyright Content Segment -->
