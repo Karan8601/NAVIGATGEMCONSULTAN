@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corporate Identity | NavigateGeM Procurement Authority</title>
+    
     <!-- FontAwesome Framework (For Icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -14,7 +15,7 @@
     <meta property="og:title" content="NavigateGeM Corporate Strategy | Karan Yadav">
     <meta property="og:description" content="Architecting absolute compliance parameters for enterprise OEMs and MSMEs nationwide.">
     
-    <!-- Logic 1: Local SEO Schema Integration (JSON-LD For Google Maps Authority) -->
+    <!-- Local SEO Schema Integration (JSON-LD For Google Maps Authority) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -36,7 +37,7 @@
             --bg-deep: #030a16;
             --panel-glass: rgba(13, 31, 56, 0.7);
             --accent-orange: #F26A1B;
-            --accent-glow: rgba(242, 106, 27, 0.2);
+            --accent-glow: rgba(0, 174, 255, 0.2);
             --text-main: #f8fafc;
             --text-sub: #94a3b8;
             --border-neon: rgba(30, 41, 59, 0.8);
@@ -62,13 +63,59 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
+        /* ---------------------------------------------------- */
+        /* IN-LINE HEADER STYLING (FIXED TOP NAVBAR)            */
+        /* ---------------------------------------------------- */
+        .site-header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 99999;
+            background: #030a16;
+            border-bottom: 1px solid rgba(30, 41, 59, 0.8);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+        .brand-logo svg, .brand-logo img {
+            max-height: 35px;
+            width: auto;
+        }
+        .navigation-menu {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .navigation-menu a {
+            color: #f8fafc;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .navigation-menu a:hover {
+            color: var(--accent-orange);
+        }
+
         .hero-stage {
-            padding: 100px 0 60px 0; text-align: center;
+            padding: 140px 0 60px 0; text-align: center;
             position: relative; overflow: hidden;
         }
         .hero-stage::before {
             content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
-            width: 600px; height: 600px; background: radial-gradient(circle, rgba(242,106,27,0.08) 0%, transparent 70%);
+            width: 600px; height: 600px; background: radial-gradient(circle, rgba(3, 196, 255, 0.08) 0%, transparent 70%);
             z-index: -1; pointer-events: none;
         }
         .hero-stage h1 { font-size: 4rem; font-weight: 900; letter-spacing: -1px; margin: 0 0 24px 0; line-height: 1.1; }
@@ -120,6 +167,8 @@
         @media (max-width: 992px) {
             .profile-hero-grid { grid-template-columns: 1fr; gap: 40px; }
             .hero-stage h1 { font-size: 2.8rem; }
+            .site-header { flex-direction: column; gap: 15px; padding: 15px; text-align: center; }
+            .hero-stage { padding: 190px 0 60px 0; }
         }
 
         /* Corporate Showcase Structure Split */
@@ -189,9 +238,9 @@
         .cta-action-button {
             display: inline-flex; align-items: center; background: var(--accent-orange); color: white;
             padding: 18px 48px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.05rem;
-            box-shadow: 0 8px 24px rgba(242, 106, 27, 0.3);
+            box-shadow: 0 8px 24px rgba(13, 186, 255, 0.3);
         }
-        .cta-action-button:hover { background: #d65510; transform: scale(1.02); box-shadow: 0 12px 32px rgba(242, 106, 27, 0.4); }
+        .cta-action-button:hover { background: #d65510; transform: scale(1.02); box-shadow: 0 12px 32px rgba(4, 226, 255, 0.4); }
 
         /* Live Activity Notification Window */
         .live-toast-box {
@@ -214,19 +263,29 @@
             background: #0d1f38; border: 2px solid var(--accent-orange);
             padding: 48px; border-radius: 28px; max-width: 520px; text-align: center; box-shadow: 0 30px 60px rgba(0,0,0,0.8);
         }
+
+        /* ---------------------------------------------------- */
+        /* IN-LINE REAL FOOTER STYLING                          */
+        /* ---------------------------------------------------- */
+        .actual-footer {
+            background: #02060d;
+            border-top: 1px solid var(--border-neon);
+            padding: 30px 24px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
     </style>
 </head>
 <body>
-    <div id="global-header"></div>
-    <div class="h-20 w-full"></div>
 
-    <!-- Logic 3: Scroll Tracker Node Layer -->
+
+
     <div id="scroll-tracker"></div>
 
     <!-- Hero Stage -->
     <header class="hero-stage">
         <div class="container">
-            <!-- Logic 12: Real-Time Operating Status Desk Clock Badge -->
             <div class="live-status-pill" id="live-desk-indicator">⚙️ INITIALIZING SYSTEM SHIELD...</div>
             <h1 style="margin-top:24px;">Architecting <span>Procurement Infrastructure</span></h1>
             <p>We transform dense regulatory policy structures into seamless operational growth engines for forward-thinking manufacturers and suppliers.</p>
@@ -238,14 +297,13 @@
         <!-- Executive Section 1: Image Frame & Journey Split Layout -->
         <section class="profile-hero-grid">
             <div class="image-frame-container">
-                <!-- Real Image Asset Url Injected Successfully -->
                 <img src="https://i.ibb.co/tprk12tP/FB-IMG-1782711844822.jpg" alt="Karan Yadav - CEO & Founder NavigateGeM" class="profile-img-asset">
             </div>
             
             <div class="profile-narrative">
                 <h2>The Journey: From Compliance Friction to Enterprise Engine</h2>
-                <p>My professional journey began with a commitment to mastering the complexities of government procurement. Between 2021 and 2024, during my tenure as a GeM Operations & Office Coordinator at New Regent Trading Company, I developed a deep understanding of bid lifecycles, workflow optimization, and the critical importance of vendor compliance. Managing technical and financial bids with a **75% qualification success rate**, I realized that many manufacturers struggle not due to product quality, but due to the procedural friction of the GeM portal.</p>
-                <p>This realization led to the inception of **NavigateGeM**, a consulting firm based in Lucknow, dedicated to demystifying the GeM ecosystem for businesses across <span class="dyn-geo-city" style="color: var(--accent-orange); font-weight: 800;">India</span>. As the CEO and Founder, I have since transitioned into an expert GeM Portal & OEM Consultant, helping brands execute end-to-end OEM registration and successfully navigate the rigorous RITES and GeM Team vendor assessment processes.</p>
+                <p>My professional journey began with a commitment to mastering the complexities of government procurement. Between 2021 and 2024, during my tenure as a GeM Operations & Office Coordinator at New Regent Trading Company, I developed a deep understanding of bid lifecycles, workflow optimization, and the critical importance of vendor compliance. Managing technical and financial bids with a <strong>75% qualification success rate</strong>, I realized that many manufacturers struggle not due to product quality, but due to the procedural friction of the GeM portal.</p>
+                <p>This realization led to the inception of <strong>NavigateGeM</strong>, a consulting firm based in Lucknow, dedicated to demystifying the GeM ecosystem for businesses across <span class="dyn-geo-city" style="color: var(--accent-orange); font-weight: 800;">India</span>. As the CEO and Founder, I have since transitioned into an expert GeM Portal & OEM Consultant, helping brands execute end-to-end OEM registration and successfully navigate the rigorous RITES and GeM Team vendor assessment processes.</p>
             </div>
         </section>
 
@@ -254,7 +312,7 @@
             <div class="spotlight-card">
                 <div>
                     <h3 style="color: #fff; margin: 0 0 16px 0; font-size: 1.4rem; font-weight: 800;">The Growth Mandate</h3>
-                    <p style="font-size: 0.95rem; color: var(--text-sub); line-height: 1.7; margin: 0 0 24px 0;">Today, **NavigateGeM** is not just a consultancy; it is an engine for growth that serves clients nationwide. My focus remains on delivering strategic solutions—whether it is managing bulk cataloguing, ensuring ISO/BIS/CE compliance, or providing real-time support during reverse auctions. We are here to bridge the gap between your manufacturing excellence and the demands of government procurement, ensuring that your brand achieves the "Verified OEM" status it deserves.</p>
+                    <p style="font-size: 0.95rem; color: var(--text-sub); line-height: 1.7; margin: 0 0 24px 0;">Today, <strong>NavigateGeM</strong> is not just a consultancy; it is an engine for growth that serves clients nationwide. My focus remains on delivering strategic solutions—whether it is managing bulk cataloguing, ensuring ISO/BIS/CE compliance, or providing real-time support during reverse auctions. We are here to bridge the gap between your manufacturing excellence and the demands of government procurement, ensuring that your brand achieves the "Verified OEM" status it deserves.</p>
                 </div>
             </div>
             <div class="spotlight-card" style="justify-content: center; text-align: center; background: rgba(242,106,27,0.02); border-color: rgba(242,106,27,0.1);">
@@ -321,7 +379,7 @@
                 <div class="chronology-node">
                     <span class="time-tag">2021 - 2024 • Coordinator</span>
                     <h4>New Regent Trading Co.</h4>
-                    <p>Served as primary GeM Operations Coordinator, managing technical/financial parameters with a **75% qualification success rate**.</p>
+                    <p>Served as primary GeM Operations Coordinator, managing technical/financial parameters with a <strong>75% qualification success rate</strong>.</p>
                 </div>
                 <div class="chronology-node">
                     <span class="time-tag">2025 • Inception</span>
@@ -358,13 +416,18 @@
 
     </div>
 
-    <!-- Logic 14: Real-Time Mock Activity Action Toast Array System Loop -->
+    <!-- 2. MERGED IN-LINE FOOTER (No Fetch Needed) -->
+    <footer class="actual-footer">
+        <p>© 2026 NavigateGeM Procurement Advisory. All Rights Reserved. Managed by Karan Yadav.</p>
+    </footer>
+
+    <!-- Live Activity Notification Window -->
     <div class="live-toast-box" id="activityToastNotification">
         <div class="toast-h" id="toastHeaderTitle">System Engine Processing...</div>
         <div class="toast-b" id="toastBodyDetails">A verified supplier just ran L1 benchmark analysis scripts successfully.</div>
     </div>
 
-    <!-- Logic 20: Advanced Exit Intent Telemetry Overlays -->
+    <!-- Exit Intent Modal Shell Structure -->
     <div class="exit-overlay" id="intentExitOverlay">
         <div class="exit-modal-box">
             <h3 style="color: var(--accent-orange); margin: 0 0 16px 0; font-size: 1.8rem; font-weight: 900;">Secure Compliance Audit Ready</h3>
@@ -373,20 +436,22 @@
             <button onclick="dismissExitModal()" style="display: block; margin: 20px auto 0 auto; background: none; border: none; color: var(--text-sub); cursor: pointer; text-decoration: underline; font-weight: 600;">Return to Profile Data</button>
         </div>
     </div>
-    <div id="global-footer"></div>
+    
     <script>
         // Logic 3: Scroll Progress Bar Calculation
         window.onscroll = function() {
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             let scrolled = (winScroll / height) * 100;
-            document.getElementById("scroll-tracker").style.width = scrolled + "%";
+            let tracker = document.getElementById("scroll-tracker");
+            if (tracker) tracker.style.width = scrolled + "%";
         };
 
         // Logic 12: Real-Time Operational Clock System Tracker Badge
         function refreshSystemDeskBadge() {
             const currentHour = new Date().getHours();
             const badge = document.getElementById("live-desk-indicator");
+            if (!badge) return;
             if (currentHour >= 9 && currentHour < 18) {
                 badge.innerHTML = `<span style="color: #25D366; margin-right:6px;">●</span> SECURE ENTERPRISE DESK LIVE — SYSTEMS OPERATIONAL`;
                 badge.style.borderColor = "rgba(37, 211, 102, 0.3)";
@@ -402,7 +467,7 @@
             fetch('https://ipapi.co/json/')
                 .then(res => res.json())
                 .then(data => {
-                    if(data.city) {
+                    if(data && data.city) {
                         document.querySelectorAll(".dyn-geo-city").forEach(el => {
                             el.textContent = data.city + " (" + (data.region || 'State') + ")";
                         });
@@ -417,6 +482,7 @@
                 let score = 0;
                 document.querySelectorAll(".readiness-box").forEach(cb => { if(cb.checked) score += parseInt(cb.value); });
                 const box = document.getElementById("score-output-shield");
+                if(!box) return;
                 box.style.display = "block";
                 box.textContent = `Your Regulatory Readiness Score: ${score}%`;
                 if(score === 100) { box.style.background = "rgba(37, 211, 102, 0.15)"; box.style.color = "#25D366"; }
@@ -433,15 +499,20 @@
             ];
             let activeMessageIndex = 0;
             const notificationBox = document.getElementById("activityToastNotification");
+            if(!notificationBox) return;
             
             setTimeout(() => {
                 setInterval(() => {
                     if(activeMessageIndex < messages.length) {
-                        document.getElementById("toastHeaderTitle").textContent = messages[activeMessageIndex].h;
-                        document.getElementById("toastBodyDetails").textContent = messages[activeMessageIndex].b;
-                        notificationBox.classList.add("toast-visible");
-                        setTimeout(() => { notificationBox.classList.remove("toast-visible"); }, 4500);
-                        activeMessageIndex++;
+                        let header = document.getElementById("toastHeaderTitle");
+                        let body = document.getElementById("toastBodyDetails");
+                        if(header && body) {
+                            header.textContent = messages[activeMessageIndex].h;
+                            body.textContent = messages[activeMessageIndex].b;
+                            notificationBox.classList.add("toast-visible");
+                            setTimeout(() => { notificationBox.classList.remove("toast-visible"); }, 4500);
+                            activeMessageIndex++;
+                        }
                     }
                 }, 9000);
             }, 5000);
@@ -452,32 +523,27 @@
         document.addEventListener("mouseleave", function(event) {
             if(event.clientY < 20 && !intentFired) {
                 const modal = document.getElementById("intentExitOverlay");
-                modal.style.opacity = "1";
-                modal.style.pointerEvents = "auto";
-                intentFired = true;
+                if(modal) {
+                    modal.style.opacity = "1";
+                    modal.style.pointerEvents = "auto";
+                    intentFired = true;
+                }
             }
         });
         function dismissExitModal() {
             const modal = document.getElementById("intentExitOverlay");
-            modal.style.opacity = "0";
-            modal.style.pointerEvents = "none";
+            if(modal) {
+                modal.style.opacity = "0";
+                modal.style.pointerEvents = "none";
+            }
         }
 
-        window.onload = function() {
+        // DOMContentLoaded Flow Injection (Failsafe Async Handling)
+        window.addEventListener('DOMContentLoaded', () => {
             refreshSystemDeskBadge();
             setupLocalGeoString();
             runMockToasts();
-        };
-fetch('./header.html')
-        .then(response => {
-            if (!response.ok) throw new Error('Header missing');
-            return response.text();
-        })
-        .then(data => {
-            document.getElementById('global-header').innerHTML = data;
-        })
-        .catch(err => console.error(err));
-        
+        });
     </script>
 </body>
 </html>
