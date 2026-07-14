@@ -316,10 +316,16 @@
         
         .celebration-box h2 { font-size: 2.2rem; margin: 0 0 16px 0; color: #fff; font-weight: 900; }
         .celebration-box p { color: var(--text-sub); font-size: 1.05rem; line-height: 1.75; margin-bottom: 35px; }
+        <!-- FontAwesome Framework (For Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AlpineJS Framework (For Header Animation/Loop Logic) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </style>
 </head>
 <body>
     <div id="global-header"></div>
+    <div class="h-20 w-full"></div>
 
     <!-- WELCOME HERO SECTION -->
     <section class="hero-section">
@@ -492,7 +498,7 @@
     </div>
     <div id="global-footer"></div>
 
-    <script>
+  <script>
         let selectedCategory = '';
         let generatedURL = '';
 
@@ -508,16 +514,21 @@
             const activePanel = document.getElementById(`panel-${category}`);
             if(activePanel) activePanel.classList.add('panel-visible');
 
-            document.getElementById('action-wrapper').classList.add('action-active');
+            const actionWrapper = document.getElementById('action-wrapper');
+            if(actionWrapper) actionWrapper.classList.add('action-active');
+            
             uncheckOtherPanels(category);
         }
 
-        document.querySelectorAll('.check-item-row input[type="checkbox"]').forEach(box => {
-            box.addEventListener('change', function() {
-                const parentRow = this.closest('.check-item-row');
-                if(this.checked) parentRow.classList.add('checked-active');
-                else parentRow.classList.remove('checked-active');
-            });
+        // Fixed Event delegation model to avoid missing listeners
+        document.addEventListener('change', function(e) {
+            if (e.target && e.target.type === 'checkbox') {
+                const parentRow = e.target.closest('.check-item-row');
+                if (parentRow) {
+                    if(e.target.checked) parentRow.classList.add('checked-active');
+                    else parentRow.classList.remove('checked-active');
+                }
+            }
         });
 
         function uncheckOtherPanels(activeCat) {
@@ -559,7 +570,8 @@
             const messagePayload = `Hi Karan, I generated my matrix architectural roadmap on NavigateGeM.\n\nFramework Category: *${categoryName}*\n\nVerified Documents Ready:\n- ${selectedDocs.join('\n- ')}`;
             generatedURL = `https://wa.me/918601865676?text=${encodeURIComponent(messagePayload)}`;
 
-            document.getElementById('successCelebrationNode').classList.add('active');
+            const modal = document.getElementById('successCelebrationNode');
+            if(modal) modal.classList.add('active');
         }
 
         function sendContactFormToWhatsApp(event) {
@@ -579,7 +591,8 @@
         function redirectToWhatsApp() {
             if(generatedURL) {
                 window.open(generatedURL, '_blank');
-                document.getElementById('successCelebrationNode').classList.remove('active');
+                const modal = document.getElementById('successCelebrationNode');
+                if(modal) modal.classList.remove('active');
             }
         }
 
@@ -588,21 +601,24 @@
         });
     </script>
 
-    <!-- GitHub dynamic header-footer loader -->
-<script>
-    // Header Load karega
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('global-header').innerHTML = data;
-        });
+    <!-- GitHub Page Safe Header/Footer Fetch Engine -->
+    <script>
+        const fileFetchArray = [
+            { id: 'global-header', file: './header.html' },
+            { id: 'global-footer', file: './footer.html' }
+        ];
 
-    // Footer Load karega
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('global-footer').innerHTML = data;
+        fileFetchArray.forEach(target => {
+            fetch(target.file)
+                .then(response => {
+                    if (!response.ok) throw new Error('File fetch structure blocked');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(target.id).innerHTML = data;
+                })
+                .catch(err => console.warn(`Dynamic loading bypass engine active for ${target.file}`));
         });
-</script>
+    </script>
 </body>
 </html>
