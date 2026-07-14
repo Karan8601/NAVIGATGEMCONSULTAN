@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Build Your Project | NavigateGeM Procurement</title>
+    <!-- Tailwind CSS dynamic framework CDN link -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome Library Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AlpineJS Framework CDN Link -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
         :root {
             --bg-deep: #030712;
@@ -33,7 +39,6 @@
             background-attachment: fixed;
         }
 
-        /* NEXT-LEVEL HERO & WELCOME ANIMATION SECTION */
         .hero-section {
             padding: 180px 24px 120px 24px;
             text-align: center;
@@ -68,7 +73,6 @@
             100% { transform: translateY(-6px) scale(1.03); box-shadow: 0 0 30px rgba(255, 85, 0, 0.6); }
         }
 
-        /* BIGGER & DYNAMIC WELCOME TEXT */
         .hero-section h1 {
             font-size: 4.8rem;
             font-weight: 950;
@@ -103,7 +107,6 @@
 
         .container { max-width: 1050px; margin: 0 auto; padding: 60px 24px; }
 
-        /* Modern Navigation Matrix Grid */
         .service-trigger-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -140,7 +143,6 @@
             transform: scale(1.04);
         }
 
-        /* Fluid Accordion Panels System */
         .checklist-panel {
             background: var(--panel-glass);
             border: 1px solid var(--border-neon);
@@ -165,7 +167,6 @@
 
         .panel-h3 { font-size: 1.5rem; font-weight: 800; margin-top: 0; margin-bottom: 32px; color: #fff; border-left: 5px solid var(--accent-orange); padding-left: 16px; display: flex; align-items: center; gap: 12px; }
 
-        /* Sleek Technical List Rows */
         .check-item-row {
             background: rgba(3, 7, 18, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.02);
@@ -196,7 +197,6 @@
         .check-label-text strong { display: block; color: #fff; font-size: 1.05rem; margin-bottom: 5px; }
         .check-label-text span { font-size: 0.9rem; color: var(--text-sub); display: block; }
 
-        /* OEM Category Document Matrix */
         .oem-cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -223,7 +223,6 @@
         .oem-info-card ul { margin: 0; padding-left: 20px; font-size: 0.9rem; color: var(--text-main); }
         .oem-info-card li { margin-bottom: 10px; line-height: 1.55; }
 
-        /* Actions Container */
         .action-container { 
             text-align: center; 
             margin-top: 40px;
@@ -245,7 +244,6 @@
             box-shadow: 0 18px 45px rgba(255, 85, 0, 0.65); 
         }
 
-        /* Contact Form Section Styling */
         .contact-section {
             background: var(--panel-glass);
             border: 1px solid var(--border-neon);
@@ -275,7 +273,6 @@
             background: rgba(3, 7, 18, 0.95);
         }
 
-        /* Thank You Section Styling */
         .thankyou-section {
             text-align: center;
             padding: 90px 40px 50px 40px;
@@ -293,7 +290,6 @@
         }
         .footer-note { font-size: 0.9rem; color: rgba(255, 255, 255, 0.2); letter-spacing: 1.5px; text-transform: uppercase; }
 
-        /* Success Celebration Overlay */
         .celebration-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(2, 4, 12, 0.98); z-index: 999999;
@@ -316,16 +312,22 @@
         
         .celebration-box h2 { font-size: 2.2rem; margin: 0 0 16px 0; color: #fff; font-weight: 900; }
         .celebration-box p { color: var(--text-sub); font-size: 1.05rem; line-height: 1.75; margin-bottom: 35px; }
-        <!-- FontAwesome Framework (For Icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AlpineJS Framework (For Header Animation/Loop Logic) -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body>
     <div id="global-header"></div>
-    <div class="h-20 w-full"></div>
 
     <!-- WELCOME HERO SECTION -->
     <section class="hero-section">
@@ -496,9 +498,10 @@
             </button>
         </div>
     </div>
+    
     <div id="global-footer"></div>
 
-  <script>
+    <script>
         let selectedCategory = '';
         let generatedURL = '';
 
@@ -514,21 +517,16 @@
             const activePanel = document.getElementById(`panel-${category}`);
             if(activePanel) activePanel.classList.add('panel-visible');
 
-            const actionWrapper = document.getElementById('action-wrapper');
-            if(actionWrapper) actionWrapper.classList.add('action-active');
-            
+            document.getElementById('action-wrapper').classList.add('action-active');
             uncheckOtherPanels(category);
         }
 
-        // Fixed Event delegation model to avoid missing listeners
-        document.addEventListener('change', function(e) {
-            if (e.target && e.target.type === 'checkbox') {
-                const parentRow = e.target.closest('.check-item-row');
-                if (parentRow) {
-                    if(e.target.checked) parentRow.classList.add('checked-active');
-                    else parentRow.classList.remove('checked-active');
-                }
-            }
+        document.querySelectorAll('.check-item-row input[type="checkbox"]').forEach(box => {
+            box.addEventListener('change', function() {
+                const parentRow = this.closest('.check-item-row');
+                if(this.checked) parentRow.classList.add('checked-active');
+                else parentRow.classList.remove('checked-active');
+            });
         });
 
         function uncheckOtherPanels(activeCat) {
@@ -570,8 +568,7 @@
             const messagePayload = `Hi Karan, I generated my matrix architectural roadmap on NavigateGeM.\n\nFramework Category: *${categoryName}*\n\nVerified Documents Ready:\n- ${selectedDocs.join('\n- ')}`;
             generatedURL = `https://wa.me/918601865676?text=${encodeURIComponent(messagePayload)}`;
 
-            const modal = document.getElementById('successCelebrationNode');
-            if(modal) modal.classList.add('active');
+            document.getElementById('successCelebrationNode').classList.add('active');
         }
 
         function sendContactFormToWhatsApp(event) {
@@ -591,33 +588,32 @@
         function redirectToWhatsApp() {
             if(generatedURL) {
                 window.open(generatedURL, '_blank');
-                const modal = document.getElementById('successCelebrationNode');
-                if(modal) modal.classList.remove('active');
+                document.getElementById('successCelebrationNode').classList.remove('active');
             }
         }
 
         window.addEventListener('DOMContentLoaded', (event) => {
             switchChecklist('reg');
         });
-    </script>
 
-    <!-- GitHub Page Safe Header/Footer Fetch Engine -->
-    <script>
+        // Fail-safe Header/Footer Dynamic Injector Engine
         const fileFetchArray = [
-            { id: 'global-header', file: './header.html' },
-            { id: 'global-footer', file: './footer.html' }
+            { id: 'global-header', file: 'header.html' },
+            { id: 'global-footer', file: 'footer.html' }
         ];
 
         fileFetchArray.forEach(target => {
             fetch(target.file)
                 .then(response => {
-                    if (!response.ok) throw new Error('File fetch structure blocked');
+                    if (!response.ok) throw new Error('CORS or Local File Blocked');
                     return response.text();
                 })
                 .then(data => {
                     document.getElementById(target.id).innerHTML = data;
                 })
-                .catch(err => console.warn(`Dynamic loading bypass engine active for ${target.file}`));
+                .catch(err => {
+                    console.warn(`Local preview layout active for ${target.file}. Server bypass initiated.`);
+                });
         });
     </script>
 </body>
