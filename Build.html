@@ -319,6 +319,7 @@
     </style>
 </head>
 <body>
+    <div id="global-header"></div>
 
     <!-- WELCOME HERO SECTION -->
     <section class="hero-section">
@@ -489,6 +490,7 @@
             </button>
         </div>
     </div>
+    <div id="global-footer"></div>
 
     <script>
         let selectedCategory = '';
@@ -585,5 +587,22 @@
             switchChecklist('reg');
         });
     </script>
+
+    <!-- GitHub dynamic header-footer loader -->
+<script>
+    // Header Load karega
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('global-header').innerHTML = data;
+        });
+
+    // Footer Load karega
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('global-footer').innerHTML = data;
+        });
+</script>
 </body>
 </html>
