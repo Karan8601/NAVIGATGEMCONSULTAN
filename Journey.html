@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corporate Identity | NavigateGeM Procurement Authority</title>
+    <!-- FontAwesome Framework (For Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AlpineJS Framework (For Header Animation/Loop Logic) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <!-- Logic 5: Advanced Social Open-Graph Tags (SEO) -->
     <meta property="og:title" content="NavigateGeM Corporate Strategy | Karan Yadav">
@@ -212,6 +217,8 @@
     </style>
 </head>
 <body>
+    <div id="global-header"></div>
+    <div class="h-20 w-full"></div>
 
     <!-- Logic 3: Scroll Tracker Node Layer -->
     <div id="scroll-tracker"></div>
@@ -366,7 +373,7 @@
             <button onclick="dismissExitModal()" style="display: block; margin: 20px auto 0 auto; background: none; border: none; color: var(--text-sub); cursor: pointer; text-decoration: underline; font-weight: 600;">Return to Profile Data</button>
         </div>
     </div>
-
+    <div id="global-footer"></div>
     <script>
         // Logic 3: Scroll Progress Bar Calculation
         window.onscroll = function() {
@@ -461,6 +468,16 @@
             setupLocalGeoString();
             runMockToasts();
         };
+fetch('./header.html')
+        .then(response => {
+            if (!response.ok) throw new Error('Header missing');
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('global-header').innerHTML = data;
+        })
+        .catch(err => console.error(err));
+        
     </script>
 </body>
 </html>
