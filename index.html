@@ -2031,9 +2031,12 @@ body {
                         </div>
                     </div>
 
-                    <button @click="dispatchToast('📦 Syncing Universal Catalog Framework Data...')" class="self-start font-display font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-gold-accent to-neon-purple text-dark-bg px-6 py-3.5 rounded-xl hover:shadow-[0_0_20px_rgba(245,175,25,0.4)] transition-all duration-300">
-                        Launch Catalog Upload Node
-                    </button>
+                    <button @click="dispatchToast('📦 Syncing Universal Catalog Framework Data...')" class="relative self-start font-display font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-gold-accent to-neon-purple text-dark-bg px-6 py-3.5 rounded-xl hover:shadow-[0_0_20px_rgba(245,175,25,0.4)] transition-all duration-300">
+    <!-- Link jo poore button ko cover kar lega -->
+    <a href="https://admin-mkp.gem.gov.in/admin/cat/catalog/angular_catalog/#!/catalog/new" class="absolute inset-0 w-full h-full flex items-center justify-center text-dark-bg">
+        Launch Catalog Upload
+    </a>
+</button>
                 </div>
 
                 <div class="glass-panel p-8 rounded-3xl bg-dark-bg/40 border-dashed border-gold-accent/30 flex flex-col justify-center text-center">
@@ -2220,9 +2223,11 @@ body {
                         </div>
                     </div>
 
-                    <button @click="dispatchToast('⚔ Initializing Strategic Tender Protocol Hub...')" class="self-start font-display font-bold text-xs uppercase tracking-wider bg-neon-blue text-dark-bg px-6 py-3.5 rounded-xl hover:bg-white hover:shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all duration-300">
-                        Access Tender Matrix Console
-                    </button>
+                   <a href="https://bidplus.gem.gov.in/all-bids" class="inline-block self-start">
+    <button @click="dispatchToast('⚔ Initializing Strategic Tender Protocol Hub...')" class="font-display font-bold text-xs uppercase tracking-wider bg-neon-blue text-dark-bg px-6 py-3.5 rounded-xl hover:bg-white hover:shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all duration-300">
+        click Now
+    </button>
+</a>
                 </div>
 
                 <div class="relative rounded-3xl overflow-hidden group border border-white/5 h-[450px] shadow-2xl">
