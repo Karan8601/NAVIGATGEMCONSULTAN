@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeM Portal Advanced Procurement Solutions</title>
+    <title>Build Your Project | NavigateGeM Procurement</title>
+    <!-- Tailwind CSS dynamic framework CDN link -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome Library Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AlpineJS Framework CDN Link -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
+    
         :root {
             --bg-dark: #071424;
             --panel-dark: #0d1f34;
@@ -146,58 +153,9 @@
     </style>
 </head>
 <body>
-    <header x-data="{ isScrolled: false, activeSection: 'hero-view-idx' }"
-        @scroll.window="isScrolled = window.scrollY > 50"
-        :class="isScrolled ? 'bg-[#020617]/85 border-b border-white/5 backdrop-blur-md py-3 shadow-[0_4px_30px_rgba(0,0,0,0.4)]' : 'bg-transparent py-5'" 
-        class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 px-6 lg:px-12 flex items-center justify-between gap-6"
-        style="transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
-    
-    <!-- Brand Logo / Name -->
-    <div class="flex items-center gap-3 group cursor-pointer select-none shrink-0">
-        <div class="relative flex items-center justify-center w-9 h-9 transition-transform duration-500 group-hover:rotate-[180deg]">
-            <div class="absolute inset-0 bg-cyan-400/30 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
-            <svg class="w-full h-full text-cyan-400 drop-shadow-[0_0_8px_rgba(0,242,254,0.6)]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </div>
-        <div class="font-sans font-black text-2xl tracking-wider text-white transition-all duration-300 group-hover:text-gray-200"> 
-            NAVIGATEGEM<span class="text-cyan-400 ml-0.5 relative group-hover:drop-shadow-[0_0_12px_rgba(0,242,254,0.8)] transition-all duration-300">CONSULTANT</span>
-        </div>
-    </div>
+    <div id="global-header"></div>
 
-    <!-- Navigation Bar Menu -->
-    <nav class="w-full max-w-7xl overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-1 shadow-[0_4px_30px_rgba(0,0,0,0.2)] backdrop-blur-md">
-        <div class="no-scrollbar flex w-full flex-nowrap items-center justify-start gap-0.5 overflow-x-auto scroll-smooth xl:justify-center xl:gap-1 2xl:gap-1.5">
-            <template x-for="item in [
-                {url: 'index.html', id: 'hero-view-idx', label: 'HOME', iconClass: 'fa-solid fa-house'},
-                {url: 'Journey.html', id: 'about-idx', label: 'ABOUT', iconClass: 'fa-solid fa-compass'},
-                {url: 'Solution.html#gem-reg-idx', id: 'gem-reg-idx', label: 'REGISTRATION NOW', iconClass: 'fa-solid fa-file-invoice'},
-                {url: 'Solution.html#portfolio-idx', id: 'portfolio-idx', label: 'LIVE PROJECTS', iconClass: 'fa-solid fa-chart-simple'},
-                {url: 'Traning.html', id: 'training-node-idx', label: 'TRAINING', iconClass: 'fa-solid fa-book-open'},
-                {url: 'Service.html', id: 'service-idx', label: 'SERVICE', iconClass: 'fa-solid fa-toolbox'},
-                {url: 'Solution.html', id: 'solution-idx', label: 'GEM SOLUTION', iconClass: 'fa-solid fa-lightbulb'},
-                {url: 'Build.html', id: 'contact-idx', label: 'CONTACT', iconClass: 'fa-solid fa-envelope'}
-            ]">
-                <a :href="item.url"
-                   @click="activeSection = item.id"
-                   :class="activeSection === item.id 
-                           ? 'bg-gradient-to-r from-cyan-400 to-blue-500 text-white shadow-[0_0_12px_rgba(0,242,254,0.4)]' 
-                           : 'text-slate-300 hover:text-white hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500 hover:shadow-[0_0_12px_rgba(0,242,254,0.3)]'"
-                   class="inline-flex h-auto min-h-[32px] flex-shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-1 text-[9.5px] font-bold uppercase tracking-wider transition-all duration-300 ease-in-out transform hover:scale-105 xl:px-2.5 xl:text-[10px] 2xl:px-3">
-
-                    <!-- Updated Dynamic FontAwesome Tag -->
-                    <i :class="item.iconClass + ' text-[11px] flex-shrink-0'"></i>
-                    
-                    <span x-text="item.label"></span>
-                </a>
-            </template>
-        </div>
-    </nav>
-</header>
-
-    <header class="service-banner">
+ <header class="service-banner">
         <span id="greeting-box" style="font-weight: 600; font-size: 1.1rem; letter-spacing: 1.5px; color: var(--accent-orange);">WELCOME VISITOR</span>
         <h1 id="dyn-main-title">GeM Portal Consultant & Service Partner</h1>
         <p id="dyn-sub-title">Advanced L1 Bidding, OEM Registrations & Procurement Support Desk</p>
@@ -344,7 +302,12 @@
     <a href="#" id="whatsapp-floating-btn" class="floating-whatsapp" target="_blank">
         <span>Connect with a Partner</span>
     </a>
- <script>
+    
+    <div id="global-footer"></div>
+
+
+
+    <script>
         const TARGET_DESK_NUMBER = "918601865676";
         let activeCityGlobal = "India";
         let activeRegionGlobal = "PAN India";
@@ -526,7 +489,122 @@
         }
 
         window.onload = executeProcurementLogicPanel;
- </script>
+
+
     
-    </body>
+        let selectedCategory = '';
+        let generatedURL = '';
+
+        function switchChecklist(category) {
+            if(selectedCategory === category) return;
+            selectedCategory = category;
+            
+            document.querySelectorAll('.trigger-btn').forEach(btn => btn.classList.remove('active-tab'));
+            const targetedBtn = document.getElementById(`tab-${category}`);
+            if(targetedBtn) targetedBtn.classList.add('active-tab');
+
+            document.querySelectorAll('.checklist-panel').forEach(panel => panel.classList.remove('panel-visible'));
+            const activePanel = document.getElementById(`panel-${category}`);
+            if(activePanel) activePanel.classList.add('panel-visible');
+
+            document.getElementById('action-wrapper').classList.add('action-active');
+            uncheckOtherPanels(category);
+        }
+
+        document.querySelectorAll('.check-item-row input[type="checkbox"]').forEach(box => {
+            box.addEventListener('change', function() {
+                const parentRow = this.closest('.check-item-row');
+                if(this.checked) parentRow.classList.add('checked-active');
+                else parentRow.classList.remove('checked-active');
+            });
+        });
+
+        function uncheckOtherPanels(activeCat) {
+            const panels = ['reg', 'oem', 'bid', 'l1'];
+            panels.forEach(p => {
+                if(p !== activeCat) {
+                    const container = document.getElementById(`${p}-list-container`);
+                    if(container) {
+                        container.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                            cb.checked = false;
+                            const row = cb.closest('.check-item-row');
+                            if(row) row.classList.remove('checked-active');
+                        });
+                    }
+                }
+            });
+        }
+
+        function triggerCelebrationAndSend() {
+            const container = document.getElementById(`panel-${selectedCategory}`);
+            if(!container) return;
+
+            const selectedDocs = [];
+            container.querySelectorAll('input[type="checkbox"]:checked').forEach(box => {
+                selectedDocs.push(box.value);
+            });
+
+            if(selectedDocs.length === 0) {
+                alert("Please select at least one compliance row before syncing.");
+                return;
+            }
+
+            let categoryName = '';
+            if(selectedCategory === 'reg') categoryName = 'GeM Portal Registration';
+            if(selectedCategory === 'oem') categoryName = 'OEM Base Registration';
+            if(selectedCategory === 'bid') categoryName = 'Technical/Financial Bid';
+            if(selectedCategory === 'l1') categoryName = 'L1 Pricing Strategy';
+
+            const messagePayload = `Hi Karan, I generated my matrix architectural roadmap on NavigateGeM.\n\nFramework Category: *${categoryName}*\n\nVerified Documents Ready:\n- ${selectedDocs.join('\n- ')}`;
+            generatedURL = `https://wa.me/918601865676?text=${encodeURIComponent(messagePayload)}`;
+
+            document.getElementById('successCelebrationNode').classList.add('active');
+        }
+
+        function sendContactFormToWhatsApp(event) {
+            event.preventDefault(); 
+
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('userPhone').value;
+            const email = document.getElementById('userEmail').value || 'Not Provided';
+            const message = document.getElementById('userMessage').value;
+
+            const formPayload = `✨ *NavigateGeM Premium Consultation Request* ✨\n\n👤 *Client Name:* ${name}\n📞 *Mobile Number:* ${phone}\n📧 *Email ID:* ${email}\n\n📝 *Operational Requirements:* \n${message}\n\n--- Unified Core Systems Verified ---`;
+            
+            const contactURL = `https://wa.me/918601865676?text=${encodeURIComponent(formPayload)}`;
+            window.open(contactURL, '_blank');
+        }
+
+        function redirectToWhatsApp() {
+            if(generatedURL) {
+                window.open(generatedURL, '_blank');
+                document.getElementById('successCelebrationNode').classList.remove('active');
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            switchChecklist('reg');
+        });
+
+        // Fail-safe Header/Footer Dynamic Injector Engine
+        const fileFetchArray = [
+            { id: 'global-header', file: 'header.html' },
+            { id: 'global-footer', file: 'footer.html' }
+        ];
+
+        fileFetchArray.forEach(target => {
+            fetch(target.file)
+                .then(response => {
+                    if (!response.ok) throw new Error('CORS or Local File Blocked');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(target.id).innerHTML = data;
+                })
+                .catch(err => {
+                    console.warn(`Local preview layout active for ${target.file}. Server bypass initiated.`);
+                });
+        });
+    </script>
+</body>
 </html>
