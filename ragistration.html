@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeM Portal Services - NavigateGeM Consultant</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Premium Background Glass Effect */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* Hover Glow Effect Framework */
+        .hover-glow-cyan:hover {
+            border-color: rgba(34, 211, 238, 0.4);
+            box-shadow: 0 0 25px rgba(34, 211, 238, 0.15);
+        }
+        .hover-glow-blue:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.15);
+        }
+        .hover-glow-purple:hover {
+            border-color: rgba(168, 85, 247, 0.4);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.15);
+        }
+        .hover-glow-green:hover {
+            border-color: rgba(34, 197, 94, 0.4);
+            box-shadow: 0 0 25px rgba(34, 197, 94, 0.15);
+        }
+        .hover-glow-orange:hover {
+            border-color: rgba(249, 115, 22, 0.4);
+            box-shadow: 0 0 25px rgba(249, 115, 22, 0.15);
+        }
+        .hover-glow-red:hover {
+            border-color: rgba(239, 68, 68, 0.4);
+            box-shadow: 0 0 25px rgba(239, 68, 68, 0.15);
+        }
+    </style>
+</head>
+<body x-data="{ openModal: false, serviceSelected: '' }" class="bg-[#0b0f19] text-slate-200 font-sans antialiased overflow-x-hidden">
+    <div id="global-header"></div>
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[70vh] flex flex-col items-center justify-center px-4 pt-24 pb-12 overflow-hidden">
+        <!-- Radial Glowing Backgrounds -->
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-cyan-500/10 blur-[140px] pointer-events-none animate-pulse"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-blue-500/10 blur-[140px] pointer-events-none animate-pulse"></div>
+
+        <div class="relative z-10 max-w-4xl text-center">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-bold uppercase tracking-widest mb-6 animate-bounce">
+                <i class="fa-solid fa-shield-halved"></i> 100% Verified Government Compliance
+            </span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+                Registration On Gem Portal Your Business <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">With NAVIGATGEM CONSULTANY</span>
+            </h1>
+            <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+                Get more government orders. We help you with smooth vendor registration, OEM brand approvals, and winning bids with our expert GeM consultancy services.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#all-services-section" class="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-bold text-sm shadow-[0_0_20px_rgba(0,242,254,0.3)] hover:shadow-[0_0_35px_rgba(0,242,254,0.6)] hover:scale-105 transition-all duration-300">
+                    Explore All Services <i class="fa-solid fa-arrow-down ml-2"></i>
+                </a>
+                <a href="#eligibility-checker" class="px-6 py-3 rounded-xl glass-panel text-slate-300 hover:text-white font-bold text-sm hover:bg-white/5 hover:scale-105 transition-all duration-300">
+                    Check Your Eligibility
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALL SERVICES SECTION -->
+    <section id="all-services-section" class="max-w-7xl mx-auto px-4 py-16 scroll-mt-20">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-white mb-4">Our Complete GeM Portal Services</h2>
+            <p class="text-slate-400 max-w-xl mx-auto text-sm">Choose the right service to boost your business and start selling to government departments.</p>
+        </div>
+
+        <!-- 6-Grid Layout for All Services with advanced scale & glow effect -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- SERVICE 1: VENDOR REGISTRATION -->
+            <div class="glass-panel rounded-2xl p-6 relative overflow-hidden group hover-glow-cyan transition-all duration-500 transform hover:-translate-y-2 shadow-lg flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl mb-4 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all">
+                        <i class="fa-solid fa-file-invoice"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">GeM Portal Registration</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                        Create your fresh profile on the Government e-Marketplace. Participate in direct purchases and small government orders easily.
+                    </p>
+                    <ul class="space-y-1.5 text-xs text-slate-400 mb-6">
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-1.5"></i> Primary & Secondary User ID</li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-1.5"></i> PAN & Aadhaar Validation</li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-1.5"></i> Bank Account & PFMS Verification</li>
+                    </ul>
+                </div>
+                <button @click="openModal = true; serviceSelected = 'GeM Vendor Registration'" class="w-full py-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-bold text-xs uppercase tracking-wider hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500 hover:text-white hover:shadow-[0_0_15px_rgba(34,211,238,0.4)] transition-all duration-300">
+                    Register Now
+                </button>
+            </div>
+
+            <!-- SERVICE 2: OEM REGISTRATION -->
+            <div class="glass-panel rounded-2xl p-6 relative overflow-hidden group hover-glow-blue transition-all duration-500 transform hover:-translate-y-2 shadow-lg flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xl mb-4 group-hover:scale-110 group-hover:bg-blue-500/20 transition-all">
+                        <i class="fa-solid fa-industry"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">OEM Registration</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                        Register as a Manufacturer (OEM) on GeM. Approve your own brand name and control resellers who want to sell your products.
+                    </p>
+                    <ul class="space-y-1.5 text-xs text-slate-400 mb-6">
+                        <li><i class="fa-solid fa-check text-blue-400 mr-1.5"></i> Trademark & Brand Approval</li>
+                        <li><i class="fa-solid fa-check text-blue-400 mr-1.5"></i> Catalog Management Controls</li>
+                        <li><i class="fa-solid fa-check text-blue-400 mr-1.5"></i> QCI Vendor Assessment Support</li>
+                    </ul>
+                </div>
+                <button @click="openModal = true; serviceSelected = 'OEM Registration & Dashboard'" class="w-full py-2.5 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-400 font-bold text-xs uppercase tracking-wider hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500 hover:text-white hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] transition-all duration-300">
+                    Apply for OEM
+                </button>
+            </div>
+
+            <!-- SERVICE 3: L1 BIDDING -->
+            <div class="glass-panel rounded-2xl p-6 relative overflow-hidden group hover-glow-purple transition-all duration-500 transform hover:-translate-y-2 shadow-lg flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-xl mb-4 group-hover:scale-110 group-hover:bg-purple-500/20 transition-all">
+                        <i class="fa-solid fa-gavel"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">L1 Bidding Support</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                        Get expert support to calculate lowest pricing (L1) legally. We help you research competitive prices to win direct orders.
+                    </p>
+                    <ul class="space-y-1.5 text-xs text-slate-400 mb-6">
+                        <li><i class="fa-solid fa-check text-purple-400 mr-1.5"></i> Competitor Price Comparison</li>
+                        <li><i class="fa-solid fa-check text-purple-400 mr-1.5"></i> Custom Tender Participation</li>
+                        <li><i class="fa-solid fa-check text-purple-400 mr-1.5"></i> Technical Bid Drafting</li>
+                    </ul>
+                </div>
+                <button @click="openModal = true; serviceSelected = 'L1 Bidding & Tender Support'" class="w-full py-2.5 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 font-bold text-xs uppercase tracking-wider hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500 hover:text-white hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] transition-all duration-300">
+                    Win L1 Bids
+                </button>
+            </div>
+
+            <!-- SERVICE 4: CATALOG MANAGEMENT -->
+            <div class="glass-panel rounded-2xl p-6 relative overflow-hidden group hover-glow-green transition-all duration-500 transform hover:-translate-y-2 shadow-lg flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-400 text-xl mb-4 group-hover:scale-110 group-hover:bg-green-500/20 transition-all">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Catalog Management</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                        Upload your product listings or services with accurate details. Avoid catalog rejection from GeM authorities.
+                    </p>
+                    <ul class="space-y-1.5 text-xs text-slate-400 mb-6">
+                        <li><i class="fa-solid fa-check text-green-400 mr-1.5"></i> Bulk Product Uploading</li>
+                        <li><i class="fa-solid fa-check text-green-400 mr-1.5"></i> HSN Code & SKU Mapping</li>
+                        <li><i class="fa-solid fa-check text-green-400 mr-1.5"></i> Image & Spec Checking</li>
+                    </ul>
+                </div>
+                <button @click="openModal = true; serviceSelected = 'Product & Service Cataloging'" class="w-full py-2.5 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 font-bold text-xs uppercase tracking-wider hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500 hover:text-white hover:shadow-[0_0_15px_rgba(34,197,94,0.4)] transition-all duration-300">
+                    Manage Catalog
+                </button>
+            </div>
+
+            <!-- SERVICE 5: QCI ASSESSMENT -->
+            <div class="glass-panel rounded-2xl p-6 relative overflow-hidden group hover-glow-orange transition-all duration-500 transform hover:-translate-y-2 shadow-lg flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 text-xl mb-4 group-hover:scale-110 group-hover:bg-orange-500/20 transition-all">
+                        <i class="fa-solid fa-building-shield"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">Vendor Assessment</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                        Get clear guidance to pass the mandatory Quality Council of India (QCI) evaluation for manufacturers.
+                    </p>
+                    <ul class="space-y-1.5 text-xs text-slate-400 mb-6">
+                        <li><i class="fa-solid fa-check text-orange-400 mr-1.5"></i> Factory Profile Setup</li>
+                        <li><i class="fa-solid fa-check text-orange-400 mr-1.5"></i> Machinery & Process Proofs</li>
+                        <li><i class="fa-solid fa-check text-orange-400 mr-1.5"></i> NSIC/MSME Exemptions</li>
+                    </ul>
+                </div>
+                <button @click="openModal = true; serviceSelected = 'Vendor Assessment Preparation'" class="w-full py-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400 font-bold text-xs uppercase tracking-wider hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500 hover:text-white hover:shadow-[0_0_15px_rgba(249,115,22,0.4)] transition-all duration-300">
+                    Get Assessed
+                </button>
+            </div>
+
+            <!-- SERVICE 6: PROFILE AMENDMENT -->
+            <div class="glass-panel rounded-2xl p-6 relative overflow-hidden group hover-glow-red transition-all duration-500 transform hover:-translate-y-2 shadow-lg flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 text-xl mb-4 group-hover:scale-110 group-hover:bg-red-500/20 transition-all">
+                        <i class="fa-solid fa-user-gear"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">Profile & Caution Money</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                        Update your registered mobile number, email, address, or manage caution money deposits without losing active data.
+                    </p>
+                    <ul class="space-y-1.5 text-xs text-slate-400 mb-6">
+                        <li><i class="fa-solid fa-check text-red-400 mr-1.5"></i> Caution Money Management</li>
+                        <li><i class="fa-solid fa-check text-red-400 mr-1.5"></i> Profile Modification Logs</li>
+                        <li><i class="fa-solid fa-check text-red-400 mr-1.5"></i> Show Cause Notice Replies</li>
+                    </ul>
+                </div>
+                <button @click="openModal = true; serviceSelected = 'Profile Changes & Caution Money'" class="w-full py-2.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 font-bold text-xs uppercase tracking-wider hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500 hover:text-white hover:shadow-[0_0_15px_rgba(239,68,68,0.4)] transition-all duration-300">
+                    Fix Profile
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ELIGIBILITY CHECKER SECTION -->
+    <section id="eligibility-checker" class="max-w-4xl mx-auto px-4 py-12 scroll-mt-20">
+        <div class="glass-panel rounded-3xl p-6 sm:p-8 border-cyan-500/20 shadow-2xl relative">
+            <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-square-poll-vertical text-cyan-400"></i> Check Document Readiness Instantly
+            </h3>
+            <p class="text-xs text-slate-400 mb-6">Select the business documents you already have ready to check if you are eligible for GeM portal boarding.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <label class="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.02] border border-white/5 cursor-pointer hover:bg-white/[0.04] transition">
+                    <input type="checkbox" value="25" class="readiness-box w-4 h-4 rounded text-cyan-500 bg-slate-900 border-white/10 focus:ring-0 focus:ring-offset-0">
+                    <span class="text-xs text-slate-300">Active PAN & Aadhaar Linked Mobile</span>
+                </label>
+                <label class="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.02] border border-white/5 cursor-pointer hover:bg-white/[0.04] transition">
+                    <input type="checkbox" value="25" class="readiness-box w-4 h-4 rounded text-cyan-500 bg-slate-900 border-white/10 focus:ring-0 focus:ring-offset-0">
+                    <span class="text-xs text-slate-300">Valid GSTIN Registration Certificate</span>
+                </label>
+                <label class="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.02] border border-white/5 cursor-pointer hover:bg-white/[0.04] transition">
+                    <input type="checkbox" value="25" class="readiness-box w-4 h-4 rounded text-cyan-500 bg-slate-900 border-white/10 focus:ring-0 focus:ring-offset-0">
+                    <span class="text-xs text-slate-300">Registered Trademark / Brand Ownership Copy</span>
+                </label>
+                <label class="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.02] border border-white/5 cursor-pointer hover:bg-white/[0.04] transition">
+                    <input type="checkbox" value="25" class="readiness-box w-4 h-4 rounded text-cyan-500 bg-slate-900 border-white/10 focus:ring-0 focus:ring-offset-0">
+                    <span class="text-xs text-slate-300">Latest 3 Years Income Tax Returns (ITR)</span>
+                </label>
+            </div>
+            <div id="score-output-shield" class="hidden p-4 rounded-xl text-center text-xs font-bold tracking-wider uppercase transition-all duration-300"></div>
+        </div>
+    </section>
+
+    <!-- PREMIUM INTERACTIVE POPUP MODAL FORM -->
+    <div x-show="openModal" 
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 scale-95"
+         x-transition:enter-end="opacity-100 scale-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100 scale-100"
+         x-transition:leave-end="opacity-0 scale-95"
+         class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md" x-cloak>
+         
+        <div @click.away="openModal = false" class="bg-[#0f172a] border border-white/10 rounded-3xl w-full max-w-lg p-6 relative shadow-[0_0_50px_rgba(0,0,0,0.8)]">
+            
+            <!-- Close Button -->
+            <button @click="openModal = false" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Dynamic Header -->
+            <div class="mb-6">
+                <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider block mb-1">Service Selected</span>
+                <h3 class="text-2xl font-bold text-white" x-text="serviceSelected"></h3>
+                <p class="text-xs text-slate-400 mt-1">Fill the details below. Our expert team will call you back shortly.</p>
+            </div>
+
+            <!-- Lead Capture Form -->
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Company / Person Name</label>
+                    <input type="text" placeholder="Enter full name" class="w-full bg-slate-900/60 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-400 transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Mobile Number (WhatsApp Preferred)</label>
+                    <input type="tel" placeholder="Enter 10-digit number" class="w-full bg-slate-900/60 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-400 transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Email Address</label>
+                    <input type="email" placeholder="Enter email identity" class="w-full bg-slate-900/60 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-400 transition">
+                </div>
+
+                <div class="pt-2 flex flex-col gap-3">
+                    <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-bold text-sm shadow-[0_0_15px_rgba(0,242,254,0.3)] hover:shadow-[0_0_25px_rgba(0,242,254,0.5)] transition duration-300">
+                        Submit Application & Request Call
+                    </button>
+                    
+                    <div class="relative flex py-1 items-center">
+                        <div class="flex-grow border-t border-white/5"></div>
+                        <span class="flex-shrink mx-3 text-[10px] text-slate-500 uppercase tracking-widest">Or Instant Connect</span>
+                        <div class="flex-grow border-t border-white/5"></div>
+                    </div>
+
+                    <!-- Direct WhatsApp/Phone Integration Link Callouts -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <a href="https://wa.me/919999999999" target="_blank" class="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold uppercase hover:bg-green-500 hover:text-white transition duration-300">
+                            <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                        </a>
+                        <a href="tel:+919999999999" class="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold uppercase hover:bg-cyan-500 hover:text-white transition duration-300">
+                            <i class="fa-solid fa-phone text-xs"></i> Direct Call
+                        </a>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+     <div id="global-footer"></div>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".readiness-box").forEach(el => {
+                el.addEventListener("change", () => {
+                    let score = 0;
+                    document.querySelectorAll(".readiness-box").forEach(cb => {
+                        if (cb.checked) score += parseInt(cb.value, 10);
+                    });
+                    
+                    const box = document.getElementById("score-output-shield");
+                    if (!box) return;
+                    
+                    box.style.display = "block";
+                    box.textContent = `Your Business Document Readiness Score: ${score}%`;
+                    
+                    if (score === 100) {
+                        box.style.background = "rgba(37, 211, 102, 0.15)";
+                        box.style.color = "#25D366";
+                    } else if (score === 0) {
+                        box.style.display = "none";
+                    } else {
+                        box.style.background = "rgba(242, 106, 27, 0.08)";
+                        box.style.color = "#fff";
+                    }
+                });
+            });
+        });
+
+
+        
+        function redirectToWhatsApp() {
+            if(generatedURL) {
+                window.open(generatedURL, '_blank');
+                document.getElementById('successCelebrationNode').classList.remove('active');
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            switchChecklist('reg');
+        });
+
+        // Fail-safe Header/Footer Dynamic Injector Engine
+        const fileFetchArray = [
+            { id: 'global-header', file: 'header.html' },
+            { id: 'global-footer', file: 'footer.html' }
+        ];
+
+        fileFetchArray.forEach(target => {
+            fetch(target.file)
+                .then(response => {
+                    if (!response.ok) throw new Error('CORS or Local File Blocked');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(target.id).innerHTML = data;
+                })
+                .catch(err => {
+                    console.warn(`Local preview layout active for ${target.file}. Server bypass initiated.`);
+                });
+        });
+    </script>
+</body>
+</html>
