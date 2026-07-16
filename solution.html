@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Solution Page / Section Meta Tags -->
+<title>End-to-End Government Procurement & GeM Portal Solutions | NavigateGeM</title>
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Your Project | NavigateGeM Procurement</title>
+    <!-- Tailwind CSS dynamic framework CDN link -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome Library Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AlpineJS Framework CDN Link -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<meta name="description" content="NavigateGeM provides end-to-end government procurement solutions in Lucknow, including GeM portal registration, OEM panel setup, vendor assessment, and expert training.">
+
+<meta name="keywords" content="end-to-end government procurement solutions, gem portal solutions, government e-marketplace consultancy lucknow, oem registration solutions, gem training">
+  <style>
+        :root {
+            --bg-deep: #030a16;
+            --panel-glass: rgba(13, 31, 56, 0.7);
+            --accent-orange: #F26A1B;
+            --accent-glow: rgba(242, 106, 27, 0.25);
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --border-neon: rgba(30, 41, 59, 0.8);
+            --critical-red: #ff3838;
+            --success-green: #25D366;
+        }
+
+        * { box-sizing: border-box; transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            margin: 0; padding: 0;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 1. System Urgency Notice Board Sync Feed Logic */
+        .live-notice-strip {
+            background: linear-gradient(90deg, #7a2200 0%, #0d1f38 100%);
+            border-bottom: 1px solid var(--accent-orange);
+            padding: 10px 24px; text-align: center; font-size: 0.85rem; font-weight: 700;
+            position: sticky; top: 0; z-index: 99999; backdrop-filter: blur(10px);
+        }
+        .live-notice-strip span { color: var(--accent-orange); text-transform: uppercase; animation: blink 1.5s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        /* Hero Layout Banner Stage */
+        .hero-section {
+            padding: 80px 24px 50px 24px; text-align: center;
+            background: radial-gradient(circle at top center, rgba(242, 106, 27, 0.08) 0%, transparent 60%);
+            border-bottom: 1px solid var(--border-neon);
+        }
+        .hero-section h1 { font-size: 2.8rem; font-weight: 900; letter-spacing: -1px; margin: 0 0 16px 0; line-height: 1.2; }
+        .hero-section h1 span { background: linear-gradient(135deg, #fff 30%, var(--accent-orange) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-section p { font-size: 1.1rem; color: var(--text-sub); max-width: 800px; margin: 0 auto; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; display: grid; grid-template-columns: 1fr 320px; gap: 30px; }
+        @media (max-width: 900px) { .container { grid-template-columns: 1fr; } }
+
+        /* 2. Instant Search Filter Bar System Logic */
+        .search-wrapper { margin-bottom: 30px; position: relative; }
+        .search-input {
+            width: 100%; background: var(--panel-glass); border: 1px solid var(--border-neon);
+            padding: 16px 20px; border-radius: 12px; color: #fff; font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .search-input:focus { border-color: var(--accent-orange); outline: none; box-shadow: 0 0 15px var(--accent-glow); }
+
+        /* 3. Dynamic Interactive Yes/No Flowchart Wizard Engine Logic */
+        .wizard-card {
+            background: rgba(13, 31, 56, 0.4); border: 1px solid var(--border-neon);
+            padding: 24px; border-radius: 16px; margin-bottom: 30px;
+        }
+        .wizard-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 12px; color: var(--accent-orange); }
+        .wizard-btn-box { display: flex; gap: 12px; margin-top: 15px; }
+        .wizard-btn {
+            background: rgba(255,255,255,0.05); border: 1px solid var(--border-neon);
+            color: #fff; padding: 10px 24px; border-radius: 8px; cursor: pointer; font-weight: 700;
+        }
+        .wizard-btn:hover { border-color: var(--accent-orange); background: rgba(242,106,27,0.1); }
+
+        /* 4. Categorized Severity Tabs Navigation System Logic */
+        .tabs-row { display: flex; gap: 10px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 8px; }
+        .tab-btn {
+            background: var(--panel-glass); border: 1px solid var(--border-neon); padding: 12px 20px;
+            border-radius: 10px; color: var(--text-sub); cursor: pointer; font-weight: 700; white-space: nowrap;
+        }
+        .tab-btn.active-tab, .tab-btn:hover { border-color: var(--accent-orange); color: #fff; background: rgba(242,106,27,0.05); }
+
+        /* Problem Cards Architecture */
+        .issue-card {
+            background: var(--panel-glass); border: 1px solid var(--border-neon);
+            border-radius: 16px; padding: 24px; margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* 5. Severity Level Badges UI Logic */
+        .badge-row { display: flex; gap: 8px; margin-bottom: 12px; }
+        .badge { font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 6px; text-transform: uppercase; }
+        .badge-critical { background: rgba(255, 56, 56, 0.15); color: var(--critical-red); border: 1px solid rgba(255, 56, 56, 0.3); }
+        .badge-medium { background: rgba(242, 106, 27, 0.15); color: var(--accent-orange); border: 1px solid rgba(242, 106, 27, 0.3); }
+
+        /* 6. Step-by-Step Interactive Accordion System Logic */
+        .issue-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
+        .issue-header h3 { margin: 0; font-size: 1.2rem; color: #fff; }
+        .accordion-arrow { font-size: 1.2rem; color: var(--text-sub); transition: transform 0.3s; }
+        .issue-card.expanded .accordion-arrow { transform: rotate(180px); }
+
+        .issue-content { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .issue-card.expanded .issue-content { max-height: 2000px; opacity: 1; padding-top: 20px; }
+
+        /* 7. Common Sense Pre-flight Validation Checklist UI Logic */
+        .preflight-box {
+            background: rgba(3, 10, 22, 0.5); padding: 16px; border-radius: 10px;
+            margin-bottom: 16px; border-left: 3px solid var(--text-sub);
+        }
+        .preflight-box h5 { margin: 0 0 8px 0; color: #fff; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .preflight-box ul { margin: 0; padding-left: 18px; font-size: 0.85rem; color: var(--text-sub); }
+        .preflight-box li { margin-bottom: 4px; }
+
+        /* 8. 50% Diagnosis Limit Box & Rejection Analyzer Logic */
+        .diagnosis-box {
+            background: rgba(242, 106, 27, 0.02); border: 1px dashed rgba(242, 106, 27, 0.2);
+            padding: 16px; border-radius: 10px; font-size: 0.92rem; line-height: 1.5; color: var(--text-sub);
+        }
+        .diagnosis-box strong { color: #fff; display: block; margin-bottom: 4px; font-size: 0.8rem; text-transform: uppercase; }
+
+        /* 9. Smart Contextual Dynamic CTA Text Replacement System Logic */
+        .embedded-whatsapp-btn {
+            display: inline-flex; align-items: center; gap: 8px; background: rgba(242, 106, 27, 0.1);
+            color: var(--accent-orange); border: 1px solid var(--accent-orange); padding: 10px 18px;
+            border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.88rem; margin-top: 14px;
+        }
+        .embedded-whatsapp-btn:hover { background: var(--accent-orange); color: #fff; box-shadow: 0 0 15px var(--accent-glow); }
+
+        /* Right-Side Dashboard Sidebar Control Panel Layout */
+        .sidebar-panel {
+            background: var(--panel-glass); border: 1px solid var(--border-neon);
+            border-radius: 20px; padding: 24px; position: sticky; top: 80px; height: fit-content;
+        }
+        
+        /* 10. Risk Assessment Index Score Calculator UI Logic */
+        .risk-calculator-title { font-size: 1rem; font-weight: 800; color: #fff; margin-bottom: 12px; text-transform: uppercase; }
+        .risk-meter-container { height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
+        .risk-meter-fill { height: 100%; width: 30%; background: var(--accent-orange); transition: width 0.5s ease; }
+        .risk-status-text { font-size: 0.82rem; color: var(--text-sub); font-weight: 600; }
+
+        /* 11. Trusted Solution Metrics Live Social Proof Counter Logic */
+        .counter-badge-box {
+            margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.85rem; color: var(--success-green); font-weight: 700; display: flex; align-items: center; gap: 6px;
+        }
+
+        /* 12. Bookmark Selection Registry System Logic */
+        .bookmark-btn {
+            background: transparent; border: none; color: var(--text-sub); cursor: pointer; font-size: 1.1rem; padding: 4px;
+        }
+        .bookmark-btn.bookmarked { color: var(--accent-orange); }
+        .batch-share-btn {
+            width: 100%; background: var(--accent-orange); color: #fff; border: none; padding: 14px;
+            border-radius: 10px; font-weight: 700; font-size: 0.95rem; cursor: pointer; margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(242, 106, 27, 0.2); display: none;
+        }
+        .batch-share-btn.visible { display: block; animation: fadeIn 0.3s; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+     <div id="global-header"></div>
+
+    <!-- 1. Live Monitoring Strip Notice Bar Logic -->
+  
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container" style="padding:0; display:block;">
+            <h1 id="mainHeading">GeM Portal Problems <span>Advance Solution with NavigateGeM Consultant</span></h1>
+            <p>Deploy custom algorithmic diagnostic matrices to isolate primary profile dropouts and validation anomalies instantenously.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        
+        <!-- Main Content Area Left Panel -->
+        <main>
+            
+            <!-- 2. Search & Auto-Suggest Engine Input -->
+            <div class="search-wrapper">
+                <input type="text" id="diagnosticsSearch" class="search-input" placeholder="Type error code or context query keyword (e.g., Aadhaar, DSC, RITES, Trademark)..." oninput="executeSearchLogic()">
+            </div>
+
+            <!-- 3. Dynamic Interactive Decision Flowchart Wizard Block -->
+            <div class="wizard-card" id="wizardNode">
+                <div class="wizard-title" id="wizardQuestion">Diagnostic Wizard: Is your current system lock preventing account submission?</div>
+                <div class="wizard-btn-box">
+                    <button class="wizard-btn" onclick="processWizardNode(true)">YES (Submission Stuck)</button>
+                    <button class="wizard-btn" onclick="processWizardNode(false)">NO (Catalog/Auction Issue)</button>
+                </div>
+            </div>
+
+            <!-- 4. Severity Filter Navigation Row -->
+            <div class="tabs-row">
+                <button class="tab-btn active-tab" id="filter-all" onclick="filterSeverity('all')">All Anomalies Index</button>
+                <button class="tab-btn" id="filter-critical" onclick="filterSeverity('critical')">Critical Blockers (PAN/Signatory)</button>
+                <button class="tab-btn" id="filter-medium" onclick="filterSeverity('medium')">Medium Level Operational Glitches</button>
+            </div>
+
+            <!-- Problems Master Database List Container -->
+            <div id="problemsDatabaseGrid">
+                
+                <!-- Issue Block 1: Aadhaar Card Validation Dropout -->
+                <div class="issue-card" data-severity="critical" data-category="reg" id="card-aadhaar">
+                    <div class="badge-row">
+                        <span class="badge badge-critical">Critical Level</span>
+                        <span class="badge" style="background:rgba(255,255,255,0.05); color:#fff;">Code: ERR-REG-102</span>
+                    </div>
+                    <div class="issue-header" onclick="toggleAccordion('card-aadhaar')">
+                        <h3>Aadhaar Card OTP Validation Drop & Handshake Timeout</h3>
+                        <button class="bookmark-btn" onclick="toggleBookmark(event, 'ERR-REG-102: Aadhaar OTP Failure')">☆</button>
+                        <span class="accordion-arrow">▼</span>
+                    </div>
+                    <div class="issue-content">
+                        <!-- 7. Pre-flight Check Verification List Logic -->
+                        <div class="preflight-box">
+                            <h5>Pre-flight Diagnostic Verification Checklist:</h5>
+                            <ul>
+                                <li>Is mobile network routing layer cleared for UIDAI incoming push SMS packets?</li>
+                                <li>Does the spelling configuration string match perfectly with CBDT Income Tax PAN records?</li>
+                                <li>Have browser local storage cookie files been flushed within the last 15 minutes?</li>
+                            </ul>
+                        </div>
+                        <!-- 8. 50% Diagnostic Logic Box Configuration -->
+                        <div class="diagnosis-box">
+                            <strong>System Root Cause Analysis (50% Solution):</strong> 
+                            This validation loop collapse occurs when the user name string on the Aadhaar array deviates structurally from the Central Income Tax PAN database. GeM security tokens refuse cryptographic handshakes upon identifying mismatch metrics.
+                        </div>
+                        <!-- 9. Contextual CTA Text Switch Custom Hook -->
+                        <a href="https://wa.me/918601865676?text=Hi%20Karan%2C%20I%20am%20facing%20critical%20ERR-REG-102%20Aadhaar%20OTP%20timeouts.%20Need%20immediate%20NavigateGeM%20override%20patch." class="embedded-whatsapp-btn" target="_blank">
+                            🔒 Deploy Core Database Override Patch via NavigateGeM Consultant →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Issue Block 2: Organisation Type Lockout Parameters -->
+                <div class="issue-card" data-severity="critical" data-category="reg" id="card-org">
+                    <div class="badge-row">
+                        <span class="badge badge-critical">Critical Level</span>
+                        <span class="badge" style="background:rgba(255,255,255,0.05); color:#fff;">Code: ERR-REG-405</span>
+                    </div>
+                    <div class="issue-header" onclick="toggleAccordion('card-org')">
+                        <h3>Organisation Category Selection Grid Permanent Lockout Anomaly</h3>
+                        <button class="bookmark-btn" onclick="toggleBookmark(event, 'ERR-REG-405: Organisation Lockout')">☆</button>
+                        <span class="accordion-arrow">▼</span>
+                    </div>
+                    <div class="issue-content">
+                        <div class="preflight-box">
+                            <h5>Pre-flight Diagnostic Verification Checklist:</h5>
+                            <ul>
+                                <li>Was the primary profile token written under a Proprietorship configuration layout rule?</li>
+                                <li>Has the entity verification registry token been validated against MCA corporate master databases?</li>
+                            </ul>
+                        </div>
+                        <div class="diagnosis-box">
+                            <strong>System Root Cause Analysis (50% Solution):</strong> 
+                            Once an enterprise operational PAN token is written into the primary security ledger, the category type parameter gets permanently immutable. Changing from Proprietorship to Pvt Ltd throws programmatic access exceptions.
+                        </div>
+                        <a href="https://wa.me/918601865676?text=Hi%20Karan%2C%20I%20have%20an%20Organisation%20Type%20Lockout%20error%20ERR-REG-405.%20Need%20NavigateGeM%20database%20clearance." class="embedded-whatsapp-btn" target="_blank">
+                            🔒 Force Structural Category Reset Execution via NavigateGeM Consultant →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Issue Block 3: RITES Desktop Evaluation Dropouts -->
+                <div class="issue-card" data-severity="medium" data-category="oem" id="card-rites">
+                    <div class="badge-row">
+                        <span class="badge badge-medium">Medium Severity</span>
+                        <span class="badge" style="background:rgba(255,255,255,0.05); color:#fff;">Code: ERR-OEM-301</span>
+                    </div>
+                    <div class="issue-header" onclick="toggleAccordion('card-rites')">
+                        <h3>RITES Desktop Audit Rejection on Assembly Video Scrutiny</h3>
+                        <button class="bookmark-btn" onclick="toggleBookmark(event, 'ERR-OEM-301: RITES Video Rejection')">☆</button>
+                        <span class="accordion-arrow">▼</span>
+                    </div>
+                    <div class="issue-content">
+                        <div class="preflight-box">
+                            <h5>Pre-flight Diagnostic Verification Checklist:</h5>
+                            <ul>
+                                <li>Does your asset presentation media file size exceed strict 10MB container logic bounds?</li>
+                                <li>Are machine model plates, manufacturing serial indicators, and processing rooms cleanly visible?</li>
+                            </ul>
+                        </div>
+                        <div class="diagnosis-box">
+                            <strong>System Root Cause Analysis (50% Solution):</strong> 
+                            Vetting officers issue rejections when video arrays contain broken sequence frames or show zero live verification parameters of the manufacturing floor capability.
+                        </div>
+                        <a href="https://wa.me/918601865676?text=Hi%20Karan%2C%20my%20OEM%20video%20audit%20ERR-OEM-301%20got%20rejected.%20Need%20NavigateGeM%20compliance%20script." class="embedded-whatsapp-btn" target="_blank">
+                            🔒 Obtain RITES Compliant Production Script via NavigateGeM Consultant →
+                        </a>
+                    </div>
+                </div>
+              <!-- Issue Block 4: Trademark Category Mismatch Errors -->
+                <div class="issue-card" data-severity="medium" data-category="brand" id="card-tm">
+                    <div class="badge-row">
+                        <span class="badge badge-medium">Medium Severity</span>
+                        <span class="badge" style="background:rgba(255,255,255,0.05); color:#fff;">Code: ERR-BRD-882</span>
+                    </div>
+                    <div class="issue-header" onclick="toggleAccordion('card-tm')">
+                        <h3>Trademark Category Allocation Mismatch & Brand Rejection</h3>
+                        <button class="bookmark-btn" onclick="toggleBookmark(event, 'ERR-BRD-882: TM Class Mismatch')">☆</button>
+                        <span class="accordion-arrow">▼</span>
+                    </div>
+                    <div class="issue-content">
+                        <div class="preflight-box">
+                            <h5>Pre-flight Diagnostic Verification Checklist:</h5>
+                            <ul>
+                                <li>Is your trademark application status marked as 'Registered' or 'Objected' on IP India repository?</li>
+                                <li>Does the numerical class matching code correspond exactly to the GeM product catalog bucket?</li>
+                            </ul>
+                        </div>
+                        <div class="diagnosis-box">
+                            <strong>System Root Cause Analysis (50% Solution):</strong> 
+                            Verification filters trigger cancellation loops when your intellectual property registration class code does not perfectly cover the specific target listing parameters of the GeM category tree.
+                        </div>
+                        <a href="https://wa.me/918601865676?text=Hi%20Karan%2C%20my%20Brand%20Approval%20ERR-BRD-882%20is%20failing%20due%20to%20class%20mismatches.%20Need%20NavigateGeM%20brand%20clearance." class="embedded-whatsapp-btn" target="_blank">
+                            🔒 Override Generic Brand Safeguard Restrictions via NavigateGeM Consultant →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Issue Block 5: DSC Cryptographic Handshake Failures -->
+                <div class="issue-card" data-severity="medium" data-category="bid" id="card-dsc">
+                    <div class="badge-row">
+                        <span class="badge badge-medium">Medium Severity</span>
+                        <span class="badge" style="background:rgba(255,255,255,0.05); color:#fff;">Code: ERR-BID-504</span>
+                    </div>
+                    <div class="issue-header" onclick="toggleAccordion('card-dsc')">
+                        <h3>DSC Cryptographic Certificate Handshake Failure during Bid Submission</h3>
+                        <button class="bookmark-btn" onclick="toggleBookmark(event, 'ERR-BID-504: DSC Token Freezing')">☆</button>
+                        <span class="accordion-arrow">▼</span>
+                    </div>
+                    <div class="issue-content">
+                        <div class="preflight-box">
+                            <h5>Pre-flight Diagnostic Verification Checklist:</h5>
+                            <ul>
+                                <li>Is the EmBridge background background utility service operating inside port mapping 15886?</li>
+                                <li>Are you executing operations via an active updated Java Runtime Environment profile container?</li>
+                            </ul>
+                        </div>
+                        <div class="diagnosis-box">
+                            <strong>System Root Cause Analysis (50% Solution):</strong> 
+                            Browser scripting sandboxes prevent localized execution protocols from communicating data arrays into physical USB crypto tokens when digital signature configuration protocols are mismatched.
+                        </div>
+                        <a href="https://wa.me/918601865676?text=Hi%20Karan%2C%20my%20DSC%20EmBridge%20handshake%20ERR-BID-504%20is%20freezing.%20Need%20NavigateGeM%20technical%20assistance." class="embedded-whatsapp-btn" target="_blank">
+                            🔒 Force Cryptographic Certificate Signing Handshakes via NavigateGeM Consultant →
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Right Side Sidebar Controls Panel Layout -->
+        <aside>
+            <div class="sidebar-panel">
+                
+                <!-- 10. Risk Index Calculator Module Logic -->
+                <div class="risk-calculator-title">Account Risk Index</div>
+                <div class="risk-meter-container">
+                    <div class="risk-meter-fill" id="riskMeter"></div>
+                </div>
+                <div class="risk-status-text" id="riskStatus">Risk Level: 35% Normal Parameters</div>
+                
+                <!-- 11. Live Social Proof Verification Counter Logic -->
+                <div class="counter-badge-box">
+                    <span>✓</span> <span id="liveCounter">4,812</span> Active Suppliers Assisted This Month
+                </div>
+
+                <!-- 12. Batch Multi-Issue Bookmark Share Manager Logic Button -->
+                <button class="batch-share-btn" id="batchShareBtn" onclick="dispatchSelectedBookmarks()">
+                    📲 Share Bookmarked Issues Bundle via WhatsApp
+                </button>
+            </div>
+        </aside>
+
+    </div>
+    <div id="global-footer"></div>
+    <script>
+        let currentSeverityFilter = 'all';
+        const activeBookmarks = new Set();
+
+        // 13. Dynamic Live Counter Incrementor Loop Automation Logic
+        setInterval(() => {
+            const counterNode = document.getElementById('liveCounter');
+            let currentVal = parseInt(counterNode.textContent.replace(/,/g, ''));
+            counterNode.textContent = (currentVal + Math.floor(Math.random() * 3) + 1).toLocaleString();
+        }, 8000);
+
+        // 14. Smooth Accordion Layer Expansion Controller Logic
+        function toggleAccordion(cardId) {
+            const card = document.getElementById(cardId);
+            const isExpanded = card.classList.contains('expanded');
+            
+            // 15. Auto collapse active sister nodes configuration logic
+            document.querySelectorAll('.issue-card').forEach(c => c.classList.remove('expanded'));
+            
+            if (!isExpanded) {
+                card.classList.add('expanded');
+                // 16. Dynamic Risk Index Meter Modulation Adjustment Logic
+                updateRiskMeter(card.getAttribute('data-severity'));
+            } else {
+                updateRiskMeter('reset');
+            }
+        }
+
+        // 17. Risk Parameter Engine Weight Calculation Logic
+        function updateRiskMeter(severity) {
+            const meter = document.getElementById('riskMeter');
+            const statusText = document.getElementById('riskStatus');
+            if(severity === 'critical') {
+                meter.style.width = '85%'; meter.style.background = 'var(--critical-red)';
+                statusText.textContent = "Risk Level: 85% Critical Block Stage"; statusText.style.color = 'var(--critical-red)';
+            } else if(severity === 'medium') {
+                meter.style.width = '55%'; meter.style.background = 'var(--accent-orange)';
+                statusText.textContent = "Risk Level: 55% Operational Blocker"; statusText.style.color = 'var(--accent-orange)';
+            } else {
+                meter.style.width = '35%'; meter.style.background = 'var(--accent-orange)';
+                statusText.textContent = "Risk Level: 35% Normal Parameters"; statusText.style.color = 'var(--text-sub)';
+            }
+        }
+
+        // 18. Instant Search & Term Prediction Filtering Engine Logic
+        function executeSearchLogic() {
+            const query = document.getElementById('diagnosticsSearch').value.toLowerCase();
+            document.querySelectorAll('.issue-card').forEach(card => {
+                const textContent = card.textContent.toLowerCase();
+                // 19. Auto suggestion search match parameters filtering logic
+                if(textContent.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 20. Categorized Severity Tab Filtering Matrix Loop Logic
+        function filterSeverity(severity) {
+            currentSeverityFilter = severity;
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active-tab'));
+            document.getElementById(`filter-${severity}`).classList.add('active-tab');
+
+            document.querySelectorAll('.issue-card').forEach(card => {
+                if(severity === 'all' || card.getAttribute('data-severity') === severity) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 21. Interactive Decision Tree Tree Questionnaire Wizard Logic
+        function processWizardNode(answerIsYes) {
+            const questionNode = document.getElementById('wizardQuestion');
+            const wizardNode = document.getElementById('wizardNode');
+            if(answerIsYes) {
+                questionNode.innerHTML = "🚀 **Diagnostic Route recommendation:** Filter for 'Critical Blockers'. We advise checking **ERR-REG-102 Aadhaar Verification** instantly.";
+                filterSeverity('critical');
+            } else {
+                questionNode.innerHTML = "📊 **Diagnostic Route recommendation:** Check **ERR-OEM-301 RITES Evaluation rejections** or DSC Java configurations.";
+                filterSeverity('medium');
+            }
+        }
+
+        // 22. Bookmark Star State Registry Multi-Selection System Logic
+        function toggleBookmark(event, issueTitle) {
+            event.stopPropagation(); // 23. Prevent execution event propagation bubble lock
+            const btn = event.target;
+            btn.classList.toggle('bookmarked');
+            
+            if(btn.classList.contains('bookmarked')) {
+                btn.textContent = '★'; activeBookmarks.add(issueTitle);
+            } else {
+                btn.textContent = '☆'; activeBookmarks.delete(issueTitle);
+            }
+
+            // 24. Conditional multi-bookmark panel toggle view logic
+            const shareBtn = document.getElementById('batchShareBtn');
+            if(activeBookmarks.size > 0) {
+                shareBtn.classList.add('visible');
+            } else {
+                shareBtn.classList.remove('visible');
+            }
+        }
+
+        // 25. Multi-Issue Combined Parameter Bundle Share WhatsApp Dispatch Logic
+        function dispatchSelectedBookmarks() {
+            if(activeBookmarks.size === 0) return;
+            const bundleArr = Array.from(activeBookmarks);
+            const messagePayload = `Hi Karan, I have analyzed my GeM portal framework errors using the NavigateGeM Advanced Diagnostics Center.\n\nHere is my bookmarked critical error stack:\n- ${bundleArr.join('\n- ')}\n\nPlease process resolution parameters context.`;
+            window.open(`https://wa.me/918601865676?text=${encodeURIComponent(messagePayload)}`, '_blank');
+        }
+
+        // 26. Notice Strip Dynamic Content Rotation Engine Logic
+        const dynamicNotices = [
+            "● LIVE SYSTEM SCANNING: GeM Server EmBridge signature verification nodes are facing handshake latency today.",
+            "● POLICY COMPLIANCE WARNING: Local content Make in India (MII) auditor calculation sheets verification parameters tightened.",
+            "● CAUTION NOTE: Account lockout loops reported due to multiple signatory PAN verification requests."
+        ];
+        let noticeIdx = 0;
+        setInterval(() => {
+            noticeIdx = (noticeIdx + 1) % dynamicNotices.length;
+            document.getElementById('noticeStrip').innerHTML = `<span>● LIVE UPDATE:</span> ${dynamicNotices[noticeIdx]}`;
+        }, 12000);
+
+
+
+             function redirectToWhatsApp() {
+            if(generatedURL) {
+                window.open(generatedURL, '_blank');
+                document.getElementById('successCelebrationNode').classList.remove('active');
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            switchChecklist('reg');
+        });
+
+        // Fail-safe Header/Footer Dynamic Injector Engine
+        const fileFetchArray = [
+            { id: 'global-header', file: 'header.html' },
+            { id: 'global-footer', file: 'footer.html' }
+        ];
+
+        fileFetchArray.forEach(target => {
+            fetch(target.file)
+                .then(response => {
+                    if (!response.ok) throw new Error('CORS or Local File Blocked');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(target.id).innerHTML = data;
+                })
+                .catch(err => {
+                    console.warn(`Local preview layout active for ${target.file}. Server bypass initiated.`);
+                });
+        });
+    </script>
+</body>
+</html>
+                
