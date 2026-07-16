@@ -9,7 +9,11 @@
     
     <!-- Naya Meta Description (Isme clear likha hai ki aap Training bhi dete hain) -->
     <meta name="description" content="NavigateGeM offers trusted GeM portal registration, OEM panel setup, vendor assessment, and professional GeM training services in Lucknow & PAN India.">
-    
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome Library Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AlpineJS Framework CDN Link -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- Keywords Tag (Training keywords ke sath) -->
     <meta name="keywords" content="gem registration lucknow, gem portal consultant, oem registration service, gem training lucknow, gem portal training, gem vendor assessment lucnow">
 
@@ -195,6 +199,7 @@
     </style>
 </head>
 <body>
+    <div id="global-header"></div>
 
 <div class="container">
     
@@ -294,7 +299,7 @@
         </button>
     </div>
 </div>
-
+<div id="global-footer"></div>
 <script>
     let activePlanName = "A to Z All Modules";
     let activePlanPrice = 14999;
@@ -414,6 +419,38 @@
         window.open(`https://wa.me/918601865676?text=${encodeURIComponent(textStream)}`, '_blank');
         document.getElementById('invoiceOverlay').style.display = 'none';
     }
+
+
+          function redirectToWhatsApp() {
+            if(generatedURL) {
+                window.open(generatedURL, '_blank');
+                document.getElementById('successCelebrationNode').classList.remove('active');
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            switchChecklist('reg');
+        });
+
+        // Fail-safe Header/Footer Dynamic Injector Engine
+        const fileFetchArray = [
+            { id: 'global-header', file: 'header.html' },
+            { id: 'global-footer', file: 'footer.html' }
+        ];
+
+        fileFetchArray.forEach(target => {
+            fetch(target.file)
+                .then(response => {
+                    if (!response.ok) throw new Error('CORS or Local File Blocked');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(target.id).innerHTML = data;
+                })
+                .catch(err => {
+                    console.warn(`Local preview layout active for ${target.file}. Server bypass initiated.`);
+                });
+        });
 </script>
 
 </body>
