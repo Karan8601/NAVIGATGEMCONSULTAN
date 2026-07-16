@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NavigateGeM OEM Clients Portfolio | Live Showcase</title>
+        <link rel="stylesheet" href="
+https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
+">
+   <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Social Open-Graph Tags -->
+    <meta property="og:title" content="NavigateGeM Corporate Strategy | Karan Yadav">
+    <meta property="og:description"
+        content="Architecting absolute compliance parameters for enterprise OEMs and MSMEs nationwide.">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome for Premium Icons -->
@@ -54,6 +66,7 @@
     </style>
 </head>
 <body class="bg-[#070a13] text-slate-200 font-sans antialiased overflow-x-hidden">
+<div id="global-header"></div>
 
     <!-- DYNAMIC BACKGROUND GRID LAYER -->
     <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
@@ -508,7 +521,7 @@
             </div>
         </div>
     </div>
-
+<div id="global-footer"></div>
     <!-- CORE FUNCTIONAL CLIENT SIDE ARCHITECTURE (JAVASCRIPT) -->
     <script>
         // Tab filtering logic
@@ -583,6 +596,39 @@
             if (e.key === 'Escape') {
                 closeLightbox();
             }
+        });
+
+
+        
+  function redirectToWhatsApp() {
+            if(generatedURL) {
+                window.open(generatedURL, '_blank');
+                document.getElementById('successCelebrationNode').classList.remove('active');
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            switchChecklist('reg');
+        });
+
+        // Fail-safe Header/Footer Dynamic Injector Engine
+        const fileFetchArray = [
+            { id: 'global-header', file: 'header.html' },
+            { id: 'global-footer', file: 'footer.html' }
+        ];
+
+        fileFetchArray.forEach(target => {
+            fetch(target.file)
+                .then(response => {
+                    if (!response.ok) throw new Error('CORS or Local File Blocked');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(target.id).innerHTML = data;
+                })
+                .catch(err => {
+                    console.warn(`Local preview layout active for ${target.file}. Server bypass initiated.`);
+                });
         });
     </script>
 </body>
