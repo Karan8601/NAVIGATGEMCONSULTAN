@@ -1375,71 +1375,118 @@ body {
         </div>
     </div>
 
-    <!-- 60FPS Reactive Navigation System Shell -->
-    <header :class="isScrolled ? 'bg-dark-bg/85 border-b border-white/5 backdrop-blur-md py-3 shadow-[0_4px_30px_rgba(0,0,0,0.4)]' : 'bg-transparent py-5'" 
-        class="fixed top-0 left-0 right-0 z-40 transition-all cubic-bezier(0.4, 0, 0.2, 1) duration-300 px-6 lg:px-12 flex items-center justify-between">
+   <header x-data="{ isScrolled: false }"
+        @scroll.window="isScrolled = window.scrollY > 50"
+        :class="isScrolled ? 'bg-[#020617]/85 border-b border-white/5 backdrop-blur-md py-3 shadow-[0_4px_30px_rgba(0,0,0,0.4)]' : 'bg-transparent py-5'" 
+        class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-6"
+        style="transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
     
-    <div class="flex items-center gap-3 group cursor-pointer select-none">
+    <!-- Brand Logo / Name (Hamesha Active & Glowing) -->
+    <div class="flex items-center gap-3 group cursor-pointer select-none shrink-0" onclick="window.location.href='index.html'">
         <div class="relative flex items-center justify-center w-9 h-9 transition-transform duration-500 group-hover:rotate-[180deg]">
-            <div class="absolute inset-0 bg-neon-blue/30 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
-            <svg class="w-full h-full text-neon-blue drop-shadow-[0_0_8px_rgba(0,242,254,0.6)]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Static Glow Effect -->
+            <div class="absolute inset-0 bg-cyan-400/30 rounded-lg blur-md opacity-100 animate-pulse"></div>
+            <!-- Logo Icon hamesha cyan color aur drop-shadow me rahega -->
+            <svg class="w-full h-full text-cyan-400 drop-shadow-[0_0_8px_rgba(0,242,254,0.6)]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </div>
-        
-        <div class="font-display font-black text-2xl tracking-wider text-white transition-all duration-300 group-hover:text-gray-200"> 
-            NAVIGATEGEM<span class="text-neon-blue ml-0.5 relative group-hover:drop-shadow-[0_0_12px_rgba(0,242,254,0.8)] transition-all duration-300">CONSULTANT</span>
+        <!-- Logo Text hamesha glowing cyan rahega bina hover ki dependency ke -->
+        <div class="font-sans font-black text-2xl tracking-wider text-white transition-all duration-300"> 
+            NAVIGATEGEM<span class="text-cyan-400 ml-1 relative drop-shadow-[0_0_12px_rgba(0,242,254,0.8)]">CONSULTANT</span>
         </div>
     </div>
 
-<!-- MAIN NAV CONTAINER -->
-<!-- MAIN NAV CONTAINER (flex-wrap added, absolute widths and horizontal scroll removed) -->
-<!-- MAIN NAV CONTAINER -->
-<!-- MAIN NAV CONTAINER -->
-<nav class="w-full max-w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-1 shadow-[0_4px_30px_rgba(0,0,0,0.2)] backdrop-blur-md">
-  <!-- 
-    1. 'gap-0.5' aur xl/2xl par 'gap-1' kiya hai taki links ke beech ka space kam ho jaye.
-    2. 'justify-center' rakha hai taki screen par perfect align ho.
-  -->
-  <div class="no-scrollbar flex w-full flex-nowrap items-center justify-start gap-2.3 overflow-x-auto scroll-smooth xl:justify-center xl:gap-5 2xl:gap-3.5">
-    
-    <!-- SARE LINKS WITH ICONS -->
-    <template x-for="item in [
-      {url: '#', id: 'hero-view-idx', label: 'HOME', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'},
-      {url: 'Journey.html', id: 'about-idx', label: 'ABOUT', icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'},
-      {url: 'Service.html', id: 'gem-reg-idx', label: 'REGISTRATION NOW', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'},
-      {url: 'Traning.html', id: 'training-node-idx', label: 'TRAINING', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'},
-      {url: 'Service.html', id: 'service-idx', label: 'SERVICE', icon: 'M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'},
-      {url: 'Solution.html', id: 'solution-idx', label: 'GEM SOLUTION', icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'},
-      {url: 'Build.html', id: 'contact-idx', label: 'CONTACT', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'}
-    ]">
-      <!-- 
-        1. Padding ko 'px-1.5 py-1' kiya hai taaki buttons zyada chode na ho aur tightly fit ho sakein.
-        2. Font size ko text-[9px] se start kiya hai aur max text-[10px] kiya hai.
-      -->
-      <a :href="item.url"
-         :class="activeSection === item.id 
-                 ? 'bg-gradient-to-r from-neon-blue to-neon-purple text-white shadow-[0_0_12px_rgba(0,242,254,0.4)]' 
-                 : 'text-slate-300 hover:text-white hover:bg-gradient-to-r hover:from-neon-blue hover:to-neon-purple hover:shadow-[0_0_12px_rgba(0,242,254,0.3)]'"
-         class="inline-flex h-auto min-h-[32px] flex-shrink-0 items-center gap-1 whitespace-nowrap rounded-full px-1.5 py-1 text-[9px] font-bold uppercase tracking-wider transition-all duration-300 ease-in-out transform hover:scale-105 xl:px-2 xl:text-[9.5px] 2xl:px-2.5 2xl:text-[10px]">
-         
-         <!-- Icon size thoda optimize kiya (w-3 h-3) -->
-         <svg class="h-3 w-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="item.icon"></path>
-         </svg>
-         
-         <!-- Label text -->
-         <span x-text="item.label"></span>
-      </a>
-    </template>
-  </div>
-</nav>
+    <!-- Navigation Bar Menu (No-slider layout, matching index page) -->
+    <nav class="w-auto max-w-full rounded-full border border-white/10 bg-white/[0.03] p-1.5 shadow-[0_4px_30px_rgba(0,0,0,0.2)] backdrop-blur-md">
+        
+        <div class="flex w-full flex-wrap items-center justify-center gap-1 sm:gap-2 md:gap-3 px-1"
+             x-data="{ page: window.location.pathname.split('/').pop().toLowerCase() || 'index.html' }">
+            
+            <!-- HOME -->
+            <a href="index.html"
+               :class="(page === 'index.html' || page === '') 
+                       ? 'bg-gradient-to-r from-cyan-400 to-blue-600 text-white shadow-[0_0_12px_rgba(0,242,254,0.5)]' 
+                       : 'text-slate-300 hover:text-white hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 hover:shadow-[0_0_12px_rgba(0,242,254,0.5)]'"
+               class="inline-flex h-auto min-h-[34px] flex-shrink-0 justify-center items-center gap-2 rounded-full px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ease-in-out transform hover:scale-105 xl:text-[10.5px]">
+                <i class="fa-solid fa-house text-[11px] flex-shrink-0"></i>
+                <span>HOME</span>
+            </a>
 
-<!-- CSS scrollbar-hide helper (अगर पहले से आपकी CSS में नहीं है) -->
+            <!-- ABOUT US -->
+            <a href="about.html"
+               :class="(page === 'about.html') 
+                       ? 'bg-gradient-to-r from-cyan-400 to-blue-600 text-white shadow-[0_0_12px_rgba(0,242,254,0.5)]' 
+                       : 'text-slate-300 hover:text-white hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 hover:shadow-[0_0_12px_rgba(0,242,254,0.5)]'"
+               class="inline-flex h-auto min-h-[34px] flex-shrink-0 justify-center items-center gap-2 rounded-full px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ease-in-out transform hover:scale-105 xl:text-[10.5px]">
+                <i class="fa-regular fa-circle-question text-[11px] flex-shrink-0"></i>
+                <span>ABOUT US</span>
+            </a>
 
+            <!-- REGISTRATION NOW -->
+            <a href="project.html"
+               :class="(window.location.hash === '#portfolio-idx') 
+                       ? 'bg-gradient-to-r from-cyan-400 to-blue-600 text-white shadow-[0_0_12px_rgba(0,242,254,0.5)]' 
+                       : 'text-slate-300 hover:text-white hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 hover:shadow-[0_0_12px_rgba(0,242,254,0.5)]'"
+               class="inline-flex h-auto min-h-[34px] flex-shrink-0 justify-center items-center gap-2 rounded-full px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ease-in-out transform hover:scale-105 xl:text-[10.5px]">
+                <i class="fa-regular fa-file-lines text-[11px] flex-shrink-0"></i>
+                <span>REGISTRATION NOW</span>
+            </a>
 
+            <!-- TRAINING -->
+            <a href="traning.html"
+               :class="(page === 'traning.html') 
+                       ? 'bg-gradient-to-r from-cyan-400 to-blue-600 text-white shadow-[0_0_12px_rgba(0,242,254,0.5)]' 
+                       : 'text-slate-300 hover:text-white hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 hover:shadow-[0_0_12px_rgba(0,242,254,0.5)]'"
+               class="inline-flex h-auto min-h-[34px] flex-shrink-0 justify-center items-center gap-2 rounded-full px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ease-in-out transform hover:scale-105 xl:text-[10.5px]">
+                <i class="fa-solid fa-book-open text-[11px] flex-shrink-0"></i>
+                <span>TRAINING</span>
+            </a>
+
+            <!-- PROJECTS -->
+            <a href="project.html"
+               :class="(page === 'project-list.html') 
+                       ? 'bg-gradient-to-r from-cyan-400 to-blue-600 text-white shadow-[0_0_12px_rgba(0,242,254,0.5)]' 
+                       : 'text-slate-300 hover:text-white hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 hover:shadow-[0_0_12px_rgba(0,242,254,0.5)]'"
+               class="inline-flex h-auto min-h-[34px] flex-shrink-0 justify-center items-center gap-2 rounded-full px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ease-in-out transform hover:scale-105 xl:text-[10.5px]">
+                <i class="fa-regular fa-clipboard text-[11px] flex-shrink-0"></i>
+                <span>PROJECTS</span>
+            </a>
+
+            <!-- SERVICE -->
+            <a href="service.html"
+               :class="(page === 'service.html') 
+                       ? 'bg-gradient-to-r from-cyan-400 to-blue-600 text-white shadow-[0_0_12px_rgba(0,242,254,0.5)]' 
+                       : 'text-slate-300 hover:text-white hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 hover:shadow-[0_0_12px_rgba(0,242,254,0.5)]'"
+               class="inline-flex h-auto min-h-[34px] flex-shrink-0 justify-center items-center gap-2 rounded-full px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ease-in-out transform hover:scale-105 xl:text-[10.5px]">
+                <i class="fa-solid fa-toolbox text-[11px] flex-shrink-0"></i>
+                <span>SERVICE</span>
+            </a>
+
+            <!-- GEM SOLUTION -->
+            <a href="solution.html"
+               :class="(window.location.hash === '#gem-reg-idx') 
+                       ? 'bg-gradient-to-r from-cyan-400 to-blue-600 text-white shadow-[0_0_12px_rgba(0,242,254,0.5)]' 
+                       : 'text-slate-300 hover:text-white hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 hover:shadow-[0_0_12px_rgba(0,242,254,0.5)]'"
+               class="inline-flex h-auto min-h-[34px] flex-shrink-0 justify-center items-center gap-2 rounded-full px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ease-in-out transform hover:scale-105 xl:text-[10.5px]">
+                <i class="fa-solid fa-file-invoice text-[11px] flex-shrink-0"></i>
+                <span>GEM SOLUTION</span>
+            </a>
+
+            <!-- CONTACT -->
+            <a href="contact.html"
+               :class="(page === 'contact.html') 
+                       ? 'bg-gradient-to-r from-cyan-400 to-blue-600 text-white shadow-[0_0_12px_rgba(0,242,254,0.5)]' 
+                       : 'text-slate-300 hover:text-white hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 hover:shadow-[0_0_12px_rgba(0,242,254,0.5)]'"
+               class="inline-flex h-auto min-h-[34px] flex-shrink-0 justify-center items-center gap-2 rounded-full px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ease-in-out transform hover:scale-105 xl:text-[10.5px]">
+                <i class="fa-solid fa-envelope text-[11px] flex-shrink-0"></i>
+                <span>CONTACT</span>
+            </a>
+
+        </div>
+    </nav>
 </header>
     <!-- SECTION 1: HOME / HERO PANEL -->
     <main id="hero-view-idx" class="min-h-screen pt-32 pb-20 px-6 lg:px-12 flex items-center justify-center">
