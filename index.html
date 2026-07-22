@@ -1461,8 +1461,7 @@ body {
             <span x-text="toastMessage"></span>
         </div>
     </div>
-
-  <header x-data="{ isScrolled: false, mobileMenuOpen: false }"
+<header x-data="{ isScrolled: false, mobileMenuOpen: false }"
     @scroll.window="isScrolled = window.scrollY > 50"
     :class="isScrolled ? 'bg-[#020617]/85 border-b border-white/5 backdrop-blur-md py-3 shadow-[0_4px_30px_rgba(0,0,0,0.4)]' : 'bg-transparent py-5'" 
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 lg:px-12 flex flex-col items-center justify-between"
@@ -1489,7 +1488,7 @@ body {
         <nav class="hidden md:flex items-center space-x-8">
             <ul class="font-medium flex items-center space-x-6 text-sm lg:text-base">
                 <li>
-                    <a href="home" class="text-cyan-400 transition-colors duration-200">HOME</a>
+                    <a href="index.html" class="text-cyan-400 transition-colors duration-200">HOME</a>
                 </li>
                 <li>
                     <a href="about.html" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">ABOUT</a>
@@ -1540,23 +1539,34 @@ body {
         id="navbar-default">
         <ul class="font-medium flex flex-col space-y-3">
             <li>
-                <a href="#" class="block py-2 px-3 text-cyan-400 bg-white/5 rounded-lg">Home</a>
+                <a href="index.html" class="block py-2 px-3 text-cyan-400 bg-white/5 rounded-lg">HOME</a>
             </li>
             <li>
-                <a href="#" class="block py-2 px-3 text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">About</a>
+                <a href="about.html" class="block py-2 px-3 text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">ABOUT</a>
             </li>
             <li>
-                <a href="#" class="block py-2 px-3 text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">Services</a>
+                <a href="ragistrasion.html" class="block py-2 px-3 text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">REGISTRATION</a>
             </li>
             <li>
-                <a href="#" class="block py-2 px-3 text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">Pricing</a>
+                <a href="traning.html" class="block py-2 px-3 text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">TRAINING</a>
             </li>
             <li>
-                <a href="#" class="block py-2 px-3 text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">Contact</a>
+                <a href="project.html" class="block py-2 px-3 text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">PROJECTS</a>
+            </li>
+            <li>
+                <a href="service.html" class="block py-2 px-3 text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">SERVICE</a>
+            </li>
+           
+            <li>
+                <a href="solution.html" class="block py-2 px-3 text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">GEM SOLUTIONS</a>
+            </li>
+            <li>
+                <a href="contact.html" class="block py-2 px-3 text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">CONTACT NOW</a>
             </li>
         </ul>
     </div>
 </header>
+
     <!-- SECTION 1: HOME / HERO PANEL -->
     <main id="hero-view-idx" class="min-h-screen pt-32 pb-20 px-6 lg:px-12 flex items-center justify-center">
         <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
