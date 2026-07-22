@@ -4,218 +4,448 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="https://i.ibb.co/ymS4Y7Nx/kkkk.jpg" type="image/x-icon">
-    <!-- Solution Page / Section Meta Tags -->
-<title>End-to-End Government Procurement & GeM Portal Solutions | NavigateGeM</title>
- <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build Your Project | NavigateGeM Procurement</title>
+    <title>End-to-End Government Procurement & GeM Portal Solutions | NavigateGeM</title>
+    
     <!-- Tailwind CSS dynamic framework CDN link -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- FontAwesome Library Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- AlpineJS Framework CDN Link -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<meta name="description" content="NavigateGeM provides end-to-end government procurement solutions in Lucknow, including GeM portal registration, OEM panel setup, vendor assessment, and expert training.">
+    
+    <meta name="description" content="NavigateGeM provides end-to-end government procurement solutions in Lucknow, including GeM portal registration, OEM panel setup, vendor assessment, and expert training.">
+    <meta name="keywords" content="gem portal registration, oem registration process, vendor assessment gem, government e-marketplace consultancy lucknow">
+    
+    <!-- Externastl CSS Link -->
+     <style>
 
-<meta name="keywords" content="end-to-end government procurement solutions, gem portal solutions, government e-marketplace consultancy lucknow, oem registration solutions, gem training">
-  <style>
-        :root {
-            --bg-deep: #030a16;
-            --panel-glass: rgba(13, 31, 56, 0.7);
-            --accent-orange: #F26A1B;
-            --accent-glow: rgba(242, 106, 27, 0.25);
-            --text-main: #f8fafc;
-            --text-sub: #94a3b8;
-            --border-neon: rgba(30, 41, 59, 0.8);
-            --critical-red: #ff3838;
-            --success-green: #25D366;
-        }
 
-        * { box-sizing: border-box; transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1); }
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            margin: 0; padding: 0;
-            background-color: var(--bg-deep);
-            color: var(--text-main);
-            -webkit-font-smoothing: antialiased;
-        }
 
-        /* 1. System Urgency Notice Board Sync Feed Logic */
-        .live-notice-strip {
-            background: linear-gradient(90deg, #7a2200 0%, #0d1f38 100%);
-            border-bottom: 1px solid var(--accent-orange);
-            padding: 10px 24px; text-align: center; font-size: 0.85rem; font-weight: 700;
-            position: sticky; top: 0; z-index: 99999; backdrop-filter: blur(10px);
-        }
-        .live-notice-strip span { color: var(--accent-orange); text-transform: uppercase; animation: blink 1.5s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+:root {
+    --bg-deep: #030a16;
+    --panel-glass: rgba(13, 31, 56, 0.7);
+    --accent-orange: #F26A1B;
+    --accent-glow: rgba(242, 106, 27, 0.25);
+    --text-main: #f8fafc;
+    --text-sub: #94a3b8;
+    --border-neon: rgba(30, 41, 59, 0.8);
+    --critical-red: #ff3838;
+    --success-green: #25D366;
+}
 
-        /* Hero Layout Banner Stage */
-        .hero-section {
-            padding: 80px 24px 50px 24px; text-align: center;
-            background: radial-gradient(circle at top center, rgba(242, 106, 27, 0.08) 0%, transparent 60%);
-            border-bottom: 1px solid var(--border-neon);
-        }
-        .hero-section h1 { font-size: 2.8rem; font-weight: 900; letter-spacing: -1px; margin: 0 0 16px 0; line-height: 1.2; }
-        .hero-section h1 span { background: linear-gradient(135deg, #fff 30%, var(--accent-orange) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-section p { font-size: 1.1rem; color: var(--text-sub); max-width: 800px; margin: 0 auto; }
+* { box-sizing: border-box; transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1); }
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    margin: 0; padding: 0;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; display: grid; grid-template-columns: 1fr 320px; gap: 30px; }
-        @media (max-width: 900px) { .container { grid-template-columns: 1fr; } }
+/* Hero Layout Banner Stage */
+.hero-section {
+    padding: 50px 16px 30px 16px; text-align: center;
+    background: radial-gradient(circle at top center, rgba(242, 106, 27, 0.08) 0%, transparent 60%);
+    border-bottom: 1px solid var(--border-neon);
+}
+.hero-section h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 900; letter-spacing: -1px; margin: 0 0 12px 0; line-height: 1.2; }
+.hero-section h1 span { background: linear-gradient(135deg, #fff 30%, var(--accent-orange) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-section p { font-size: clamp(0.95rem, 2vw, 1.1rem); color: var(--text-sub); max-width: 800px; margin: 0 auto; }
 
-        /* 2. Instant Search Filter Bar System Logic */
-        .search-wrapper { margin-bottom: 30px; position: relative; }
-        .search-input {
-            width: 100%; background: var(--panel-glass); border: 1px solid var(--border-neon);
-            padding: 16px 20px; border-radius: 12px; color: #fff; font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        .search-input:focus { border-color: var(--accent-orange); outline: none; box-shadow: 0 0 15px var(--accent-glow); }
+/* Fully Responsive Grid Container */
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 20px 16px; 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 20px; 
+}
 
-        /* 3. Dynamic Interactive Yes/No Flowchart Wizard Engine Logic */
-        .wizard-card {
-            background: rgba(13, 31, 56, 0.4); border: 1px solid var(--border-neon);
-            padding: 24px; border-radius: 16px; margin-bottom: 30px;
-        }
-        .wizard-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 12px; color: var(--accent-orange); }
-        .wizard-btn-box { display: flex; gap: 12px; margin-top: 15px; }
-        .wizard-btn {
-            background: rgba(255,255,255,0.05); border: 1px solid var(--border-neon);
-            color: #fff; padding: 10px 24px; border-radius: 8px; cursor: pointer; font-weight: 700;
-        }
-        .wizard-btn:hover { border-color: var(--accent-orange); background: rgba(242,106,27,0.1); }
+@media (min-width: 900px) {
+    .container { 
+        grid-template-columns: 1fr 320px; 
+        padding: 40px 24px;
+        gap: 30px;
+    }
+}
 
-        /* 4. Categorized Severity Tabs Navigation System Logic */
-        .tabs-row { display: flex; gap: 10px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 8px; }
-        .tab-btn {
-            background: var(--panel-glass); border: 1px solid var(--border-neon); padding: 12px 20px;
-            border-radius: 10px; color: var(--text-sub); cursor: pointer; font-weight: 700; white-space: nowrap;
-        }
-        .tab-btn.active-tab, .tab-btn:hover { border-color: var(--accent-orange); color: #fff; background: rgba(242,106,27,0.05); }
+/* Instant Search Filter Bar */
+.search-wrapper { margin-bottom: 20px; position: relative; }
+.search-input {
+    width: 100%; background: var(--panel-glass); border: 1px solid var(--border-neon);
+    padding: 14px 18px; border-radius: 12px; color: #fff; font-size: 0.95rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.search-input:focus { border-color: var(--accent-orange); outline: none; box-shadow: 0 0 15px var(--accent-glow); }
 
-        /* Problem Cards Architecture */
-        .issue-card {
-            background: var(--panel-glass); border: 1px solid var(--border-neon);
-            border-radius: 16px; padding: 24px; margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        /* 5. Severity Level Badges UI Logic */
-        .badge-row { display: flex; gap: 8px; margin-bottom: 12px; }
-        .badge { font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 6px; text-transform: uppercase; }
-        .badge-critical { background: rgba(255, 56, 56, 0.15); color: var(--critical-red); border: 1px solid rgba(255, 56, 56, 0.3); }
-        .badge-medium { background: rgba(242, 106, 27, 0.15); color: var(--accent-orange); border: 1px solid rgba(242, 106, 27, 0.3); }
+/* Dynamic Interactive Wizard */
+.wizard-card {
+    background: rgba(13, 31, 56, 0.4); border: 1px solid var(--border-neon);
+    padding: 20px; border-radius: 16px; margin-bottom: 20px;
+}
+.wizard-title { font-size: 1rem; font-weight: 800; margin-bottom: 12px; color: var(--accent-orange); }
+.wizard-btn-box { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+@media (min-width: 600px) { .wizard-btn-box { flex-direction: row; } }
+.wizard-btn {
+    background: rgba(255,255,255,0.05); border: 1px solid var(--border-neon);
+    color: #fff; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: 700; width: 100%; text-align: center;
+}
+.wizard-btn:hover { border-color: var(--accent-orange); background: rgba(242,106,27,0.1); }
 
-        /* 6. Step-by-Step Interactive Accordion System Logic */
-        .issue-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
-        .issue-header h3 { margin: 0; font-size: 1.2rem; color: #fff; }
-        .accordion-arrow { font-size: 1.2rem; color: var(--text-sub); transition: transform 0.3s; }
-        .issue-card.expanded .accordion-arrow { transform: rotate(180px); }
+/* Categorized Severity Tabs Navigation */
+.tabs-row { display: flex; gap: 8px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+.tab-btn {
+    background: var(--panel-glass); border: 1px solid var(--border-neon); padding: 10px 16px;
+    border-radius: 10px; color: var(--text-sub); cursor: pointer; font-weight: 700; white-space: nowrap; font-size: 0.85rem;
+}
+.tab-btn.active-tab, .tab-btn:hover { border-color: var(--accent-orange); color: #fff; background: rgba(242,106,27,0.05); }
 
-        .issue-content { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .issue-card.expanded .issue-content { max-height: 2000px; opacity: 1; padding-top: 20px; }
+/* Problem Cards Architecture */
+.issue-card {
+    background: var(--panel-glass); border: 1px solid var(--border-neon);
+    border-radius: 16px; padding: 18px; margin-bottom: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+@media (min-width: 600px) { .issue-card { padding: 24px; margin-bottom: 20px; } }
 
-        /* 7. Common Sense Pre-flight Validation Checklist UI Logic */
-        .preflight-box {
-            background: rgba(3, 10, 22, 0.5); padding: 16px; border-radius: 10px;
-            margin-bottom: 16px; border-left: 3px solid var(--text-sub);
-        }
-        .preflight-box h5 { margin: 0 0 8px 0; color: #fff; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        .preflight-box ul { margin: 0; padding-left: 18px; font-size: 0.85rem; color: var(--text-sub); }
-        .preflight-box li { margin-bottom: 4px; }
+.badge-row { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.badge { font-size: 0.7rem; font-weight: 800; padding: 4px 8px; border-radius: 6px; text-transform: uppercase; }
+.badge-critical { background: rgba(255, 56, 56, 0.15); color: var(--critical-red); border: 1px solid rgba(255, 56, 56, 0.3); }
+.badge-medium { background: rgba(242, 106, 27, 0.15); color: var(--accent-orange); border: 1px solid rgba(242, 106, 27, 0.3); }
 
-        /* 8. 50% Diagnosis Limit Box & Rejection Analyzer Logic */
-        .diagnosis-box {
-            background: rgba(242, 106, 27, 0.02); border: 1px dashed rgba(242, 106, 27, 0.2);
-            padding: 16px; border-radius: 10px; font-size: 0.92rem; line-height: 1.5; color: var(--text-sub);
-        }
-        .diagnosis-box strong { color: #fff; display: block; margin-bottom: 4px; font-size: 0.8rem; text-transform: uppercase; }
+.issue-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; gap: 10px; }
+.issue-header h3 { margin: 0; font-size: 1.05rem; color: #fff; line-height: 1.4; }
+@media (min-width: 600px) { .issue-header h3 { font-size: 1.2rem; } }
+.accordion-arrow { font-size: 1.1rem; color: var(--text-sub); transition: transform 0.3s; flex-shrink: 0; }
+.issue-card.expanded .accordion-arrow { transform: rotate(180deg); }
 
-        /* 9. Smart Contextual Dynamic CTA Text Replacement System Logic */
-        .embedded-whatsapp-btn {
-            display: inline-flex; align-items: center; gap: 8px; background: rgba(242, 106, 27, 0.1);
-            color: var(--accent-orange); border: 1px solid var(--accent-orange); padding: 10px 18px;
-            border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.88rem; margin-top: 14px;
-        }
-        .embedded-whatsapp-btn:hover { background: var(--accent-orange); color: #fff; box-shadow: 0 0 15px var(--accent-glow); }
+.issue-content { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+.issue-card.expanded .issue-content { max-height: 2500px; opacity: 1; padding-top: 16px; }
 
-        /* Right-Side Dashboard Sidebar Control Panel Layout */
-        .sidebar-panel {
-            background: var(--panel-glass); border: 1px solid var(--border-neon);
-            border-radius: 20px; padding: 24px; position: sticky; top: 80px; height: fit-content;
-        }
-        
-        /* 10. Risk Assessment Index Score Calculator UI Logic */
-        .risk-calculator-title { font-size: 1rem; font-weight: 800; color: #fff; margin-bottom: 12px; text-transform: uppercase; }
-        .risk-meter-container { height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
-        .risk-meter-fill { height: 100%; width: 30%; background: var(--accent-orange); transition: width 0.5s ease; }
-        .risk-status-text { font-size: 0.82rem; color: var(--text-sub); font-weight: 600; }
+.preflight-box {
+    background: rgba(3, 10, 22, 0.5); padding: 14px; border-radius: 10px;
+    margin-bottom: 14px; border-left: 3px solid var(--text-sub);
+}
+.preflight-box h5 { margin: 0 0 6px 0; color: #fff; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.preflight-box ul { margin: 0; padding-left: 16px; font-size: 0.82rem; color: var(--text-sub); }
+.preflight-box li { margin-bottom: 4px; }
 
-        /* 11. Trusted Solution Metrics Live Social Proof Counter Logic */
-        .counter-badge-box {
-            margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08);
-            font-size: 0.85rem; color: var(--success-green); font-weight: 700; display: flex; align-items: center; gap: 6px;
-        }
+.diagnosis-box {
+    background: rgba(242, 106, 27, 0.02); border: 1px dashed rgba(242, 106, 27, 0.2);
+    padding: 14px; border-radius: 10px; font-size: 0.88rem; line-height: 1.5; color: var(--text-sub);
+}
+.diagnosis-box strong { color: #fff; display: block; margin-bottom: 4px; font-size: 0.78rem; text-transform: uppercase; }
 
-        /* 12. Bookmark Selection Registry System Logic */
-        .bookmark-btn {
-            background: transparent; border: none; color: var(--text-sub); cursor: pointer; font-size: 1.1rem; padding: 4px;
-        }
-        .bookmark-btn.bookmarked { color: var(--accent-orange); }
-        .batch-share-btn {
-            width: 100%; background: var(--accent-orange); color: #fff; border: none; padding: 14px;
-            border-radius: 10px; font-weight: 700; font-size: 0.95rem; cursor: pointer; margin-top: 20px;
-            box-shadow: 0 4px 15px rgba(242, 106, 27, 0.2); display: none;
-        }
-        .batch-share-btn.visible { display: block; animation: fadeIn 0.3s; }
+.embedded-whatsapp-btn {
+    display: inline-flex; align-items: center; justify-content: center; text-align: center; gap: 8px; background: rgba(242, 106, 27, 0.1);
+    color: var(--accent-orange); border: 1px solid var(--accent-orange); padding: 12px 16px;
+    border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.85rem; margin-top: 14px; width: 100%;
+}
+@media (min-width: 600px) { .embedded-whatsapp-btn { width: auto; } }
+.embedded-whatsapp-btn:hover { background: var(--accent-orange); color: #fff; box-shadow: 0 0 15px var(--accent-glow); }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
+/* Right Sidebar Controls Panel */
+.sidebar-panel {
+    background: var(--panel-glass); border: 1px solid var(--border-neon);
+    border-radius: 20px; padding: 20px; position: static; height: fit-content;
+}
+@media (min-width: 900px) { .sidebar-panel { position: sticky; top: 20px; padding: 24px; } }
+
+.risk-calculator-title { font-size: 0.95rem; font-weight: 800; color: #fff; margin-bottom: 10px; text-transform: uppercase; }
+.risk-meter-container { height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
+.risk-meter-fill { height: 100%; width: 35%; background: var(--accent-orange); transition: width 0.5s ease; }
+.risk-status-text { font-size: 0.8rem; color: var(--text-sub); font-weight: 600; }
+
+.counter-badge-box {
+    margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.82rem; color: var(--success-green); font-weight: 700; display: flex; align-items: center; gap: 6px;
+}
+
+.bookmark-btn { background: transparent; border: none; color: var(--text-sub); cursor: pointer; font-size: 1.1rem; padding: 4px; }
+.bookmark-btn.bookmarked { color: var(--accent-orange); }
+.batch-share-btn {
+    width: 100%; background: var(--accent-orange); color: #fff; border: none; padding: 14px;
+    border-radius: 10px; font-weight: 700; font-size: 0.9rem; cursor: pointer; margin-top: 16px;
+    box-shadow: 0 4px 15px rgba(242, 106, 27, 0.2); display: none;
+}
+
+
+/* FAQ Section Styling */
+.faq-section {
+    padding: 60px 16px;
+    background: radial-gradient(circle at center, rgba(13, 31, 56, 0.4) 0%, var(--bg-deep, #030a16) 100%);
+    border-top: 1px solid var(--border-neon, rgba(242, 106, 27, 0.2));
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--panel-glass, rgba(13, 25, 45, 0.7));
+    border: 1px solid var(--border-neon, rgba(242, 106, 27, 0.2));
+    border-radius: 20px;
+    padding: 30px 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+@media (min-width: 768px) {
+    .faq-container {
+        padding: 45px 40px;
+    }
+}
+
+.faq-heading {
+    text-align: center;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    font-weight: 900;
+    color: #fff;
+    margin: 0 0 8px 0;
+}
+
+.faq-subheading {
+    text-align: center;
+    color: var(--text-sub, #94a3b8);
+    font-size: 0.95rem;
+    margin-bottom: 35px;
+}
+
+.faq-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq-item {
+    background: rgba(3, 10, 22, 0.6);
+    border: 1px solid var(--border-neon, rgba(242, 106, 27, 0.2));
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: rgba(242, 106, 27, 0.6);
+}
+
+.faq-question {
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-main, #ffffff);
+    gap: 15px;
+    user-select: none;
+}
+
+.faq-item.active .faq-question {
+    color: var(--accent-orange, #f26a1b);
+}
+
+.faq-icon {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--accent-orange, #f26a1b);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    color: var(--text-sub, #94a3b8);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 250px;
+    padding-bottom: 20px;
+}
+.batch-share-btn.visible { display: block; animation: fadeIn 0.3s; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+     </style>
+
 </head>
 <body>
-     <div id="global-header"></div>
+      <div id="global-header"></div>
 
-    <!-- 1. Live Monitoring Strip Notice Bar Logic -->
-  
-
-    <!-- Hero Section -->
     <section class="hero-section">
-        <div class="container" style="padding:0; display:block;">
-            <h1 id="mainHeading">GeM Portal Problems <span>Advance Solution with NavigateGeM Consultant</span></h1>
-            <p>Deploy custom algorithmic diagnostic matrices to isolate primary profile dropouts and validation anomalies instantenously.</p>
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h1>GeM Portal Registration OEM Registration <span>Advanced Solutions & Consultancy with NavigateGeM</span></h1>
+            <p>Your ultimate repository for GeM Portal Registration, OEM Panel Setup, Vendor Assessment, Bid Management, and instant profile troubleshooting.</p>
         </div>
     </section>
 
+    <!-- Main Container -->
     <div class="container">
-        
         <!-- Main Content Area Left Panel -->
         <main>
-            
-            <!-- 2. Search & Auto-Suggest Engine Input -->
+            <!-- Search Input -->
             <div class="search-wrapper">
-                <input type="text" id="diagnosticsSearch" class="search-input" placeholder="Type error code or context query keyword (e.g., Aadhaar, DSC, RITES, Trademark)..." oninput="executeSearchLogic()">
+                <input type="text" id="diagnosticsSearch" class="search-input" placeholder="Type error code or keyword (e.g., Registration, OEM, Vendor Assessment, Bid, Catalog)..." oninput="executeSearchLogic()">
             </div>
 
-            <!-- 3. Dynamic Interactive Decision Flowchart Wizard Block -->
+            <!-- Decision Flowchart Wizard -->
             <div class="wizard-card" id="wizardNode">
-                <div class="wizard-title" id="wizardQuestion">Diagnostic Wizard: Is your current system lock preventing account submission?</div>
+                <div class="wizard-title" id="wizardQuestion">Diagnostic Wizard: What is your primary objective on the GeM Portal today?</div>
                 <div class="wizard-btn-box">
-                    <button class="wizard-btn" onclick="processWizardNode(true)">YES (Submission Stuck)</button>
-                    <button class="wizard-btn" onclick="processWizardNode(false)">NO (Catalog/Auction Issue)</button>
+                    <button class="wizard-btn" onclick="processWizardNode(true)">New Registration / OEM / VA Setup</button>
+                    <button class="wizard-btn" onclick="processWizardNode(false)">Bidding / Catalog / Profile Errors</button>
                 </div>
             </div>
 
-            <!-- 4. Severity Filter Navigation Row -->
+            <!-- Severity Filter Navigation Row -->
             <div class="tabs-row">
-                <button class="tab-btn active-tab" id="filter-all" onclick="filterSeverity('all')">All Anomalies Index</button>
-                <button class="tab-btn" id="filter-critical" onclick="filterSeverity('critical')">Critical Blockers (PAN/Signatory)</button>
-                <button class="tab-btn" id="filter-medium" onclick="filterSeverity('medium')">Medium Level Operational Glitches</button>
+                <button class="tab-btn active-tab" id="filter-all" onclick="filterSeverity('all')">All Modules</button>
+                <button class="tab-btn" id="filter-critical" onclick="filterSeverity('critical')">Critical Blockers</button>
+                <button class="tab-btn" id="filter-medium" onclick="filterSeverity('medium')">Guides & Operations</button>
             </div>
 
-            <!-- Problems Master Database List Container -->
+            <!-- Problems & Guides Master Database List -->
             <div id="problemsDatabaseGrid">
                 
-                <!-- Issue Block 1: Aadhaar Card Validation Dropout -->
+                <!-- Guide Block 1: Complete GeM Portal Registration Guide -->
+                <div class="issue-card" data-severity="medium" data-category="guide" id="card-gem-reg">
+                    <div class="badge-row">
+                        <span class="badge badge-medium">Step-by-Step Guide</span>
+                        <span class="badge" style="background:rgba(255,255,255,0.05); color:#fff;">Module: REG-01</span>
+                    </div>
+                    <div class="issue-header" onclick="toggleAccordion('card-gem-reg')">
+                        <h3>Complete GeM Portal Registration Guide for Sellers & Service Providers</h3>
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <button class="bookmark-btn" onclick="toggleBookmark(event, 'Complete GeM Portal Registration Guide')">☆</button>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                    </div>
+                    <div class="issue-content">
+                        <div class="preflight-box">
+                            <h5>Prerequisites for Registration:</h5>
+                            <ul>
+                                <li>Valid Business PAN Card (Proprietorship, Partnership, LLP, or Pvt Ltd company).</li>
+                                <li>Authorized Person's Aadhaar Card linked with active mobile number for OTP authentication.</li>
+                                <li>Udyam Registration Certificate (MSME) to qualify for tender EMD (Earnest Money Deposit) exemptions.</li>
+                                <li>Corporate bank account details with a scanned cancelled cheque for online financial verification.</li>
+                                <li>Digital Signature Certificate (DSC - Class 3) for high-value tenders and official agreements.</li>
+                            </ul>
+                        </div>
+                        <div class="diagnosis-box">
+                            <strong>Step-by-Step Execution Process:</strong> 
+                            Visit the official Government e-Marketplace portal, click on <strong>Sign Up > Seller</strong>, review and accept terms & conditions, enter your organization PAN and mobile-linked Aadhaar details, verify via OTP, and complete your profile dashboard setup to obtain your primary seller ID.
+                        </div>
+                        <a href="https://wa.me/918601865676?text=Hi%20Karan%2C%20I%20need%20complete%20consultancy%20for%20GeM%20Portal%20Registration." class="embedded-whatsapp-btn" target="_blank">
+                            💬 Get Professional Registration Help via WhatsApp →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Guide Block 2: OEM Panel Setup & Brand Approval -->
+                <div class="issue-card" data-severity="medium" data-category="guide" id="card-oem-setup">
+                    <div class="badge-row">
+                        <span class="badge badge-medium">OEM Panel Guide</span>
+                        <span class="badge" style="background:rgba(255,255,255,0.05); color:#fff;">Module: OEM-02</span>
+                    </div>
+                    <div class="issue-header" onclick="toggleAccordion('card-oem-setup')">
+                        <h3>OEM Panel Setup, Brand Approval & Direct Manufacturer Listing</h3>
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <button class="bookmark-btn" onclick="toggleBookmark(event, 'OEM Panel Setup & Brand Approval')">☆</button>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                    </div>
+                    <div class="issue-content">
+                        <div class="preflight-box">
+                            <h5>Required Documents for OEM Registration:</h5>
+                            <ul>
+                                <li>Official Trademark Registration Certificate or authorized brand distribution letters.</li>
+                                <li>Factory license, SSI certificate, or industrial electricity bill as manufacturing proof.</li>
+                                <li>NABL accredited lab test reports and detailed product specifications sheet.</li>
+                            </ul>
+                        </div>
+                        <div class="diagnosis-box">
+                            <strong>OEM Integration Workflow:</strong> 
+                            Manufacturers must register under the OEM panel to claim direct ownership of their brand. Once verified by GeM quality checkers, you bypass reseller restrictions and can publish custom categories and product pricing directly.
+                        </div>
+                        <a href="https://wa.me/918601865676?text=Hi%20Karan%2C%20I%20want%20to%20setup%20my%20OEM%20Panel%20and%20Brand%20Approval." class="embedded-whatsapp-btn" target="_blank">
+                            💬 Start OEM Registration & Brand Setup →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Guide Block 3: Vendor Assessment (QCI) Process -->
+                <div class="issue-card" data-severity="critical" data-category="guide" id="card-vendor-assessment">
+                    <div class="badge-row">
+                        <span class="badge badge-critical">Mandatory Compliance</span>
+                        <span class="badge" style="background:rgba(255,255,255,0.05); color:#fff;">Module: VA-03</span>
+                    </div>
+                    <div class="issue-header" onclick="toggleAccordion('card-vendor-assessment')">
+                        <h3>Vendor Assessment (QCI Audit) Process & Certificate Acquisition</h3>
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <button class="bookmark-btn" onclick="toggleBookmark(event, 'Vendor Assessment QCI Guide')">☆</button>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                    </div>
+                    <div class="issue-content">
+                        <div class="preflight-box">
+                            <h5>Checklist for Successful Vendor Assessment:</h5>
+                            <ul>
+                                <li>Online application submission via the QCI (Quality Council of India) assessment portal.</li>
+                                <li>Geo-tagged and timestamped photographs of factory units, machinery lines, and storage yards.</li>
+                                <li>Raw material procurement invoices, machinery purchase bills, and quality testing logs.</li>
+                            </ul>
+                        </div>
+                        <div class="diagnosis-box">
+                            <strong>Significance of Vendor Assessment:</strong> 
+                            Vendor Assessment (VA) is compulsory for manufacturers participating in high-value government bids or restricted categories. Successfully clearing this audit grants the official QCI Vendor Assessment Certificate.
+                        </div>
+                        <a href="https://wa.me/918601865676?text=Hi%20Karan%2C%20I%20need%20expert%20help%20for%20GeM%20Vendor%20Assessment." class="embedded-whatsapp-btn" target="_blank">
+                            💬 Clear Vendor Assessment with Expert Support →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Guide Block 4: GeM Bid Participation & Tender Management -->
+                <div class="issue-card" data-severity="medium" data-category="guide" id="card-bidding">
+                    <div class="badge-row">
+                        <span class="badge badge-medium">Bidding Strategy</span>
+                        <span class="badge" style="background:rgba(255,255,255,0.05); color:#fff;">Module: BID-04</span>
+                    </div>
+                    <div class="issue-header" onclick="toggleAccordion('card-bidding')">
+                        <h3>GeM Bid Participation, Financial Evaluation & Tender Management</h3>
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <button class="bookmark-btn" onclick="toggleBookmark(event, 'GeM Bid Participation Guide')">☆</button>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                    </div>
+                    <div class="issue-content">
+                        <div class="preflight-box">
+                            <h5>Tender Submission Checklist:</h5>
+                            <ul>
+                                <li>Ensure compliance with ATC (Additional Terms and Conditions) specified by the buyer.</li>
+                                <li>Verify turnover requirements, past performance records, and OEM authorization certificates.</li>
+                                <li>Ensure valid Class 3 Digital Signature Certificate (DSC) ready for financial bid submission.</li>
+                            </ul>
+                        </div>
+                        <div class="diagnosis-box">
+                            <strong>Strategic Bidding Execution:</strong> 
+                            Participating in government e-marketplace bids requires accurate financial evaluation and timely document uploading. Avoid disqualifications due to minor ATC non-compliance by leveraging expert advisory support.
+                        </div>
+                        <a href="https://wa.me/918601865676?text=Hi%20Karan%2C%20I%20need%20assistance%20with%20GeM%20Bid%20Participation%20and%20Tenders." class="embedded-whatsapp-btn" target="_blank">
+                            💬 Optimize Tender Bidding Success →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Issue Block 5: Aadhaar & PAN Mismatch -->
                 <div class="issue-card" data-severity="critical" data-category="reg" id="card-aadhaar">
                     <div class="badge-row">
                         <span class="badge badge-critical">Critical Level</span>
@@ -223,32 +453,31 @@
                     </div>
                     <div class="issue-header" onclick="toggleAccordion('card-aadhaar')">
                         <h3>Aadhaar Card OTP Validation Drop & Handshake Timeout</h3>
-                        <button class="bookmark-btn" onclick="toggleBookmark(event, 'ERR-REG-102: Aadhaar OTP Failure')">☆</button>
-                        <span class="accordion-arrow">▼</span>
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <button class="bookmark-btn" onclick="toggleBookmark(event, 'ERR-REG-102: Aadhaar OTP Failure')">☆</button>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
                     </div>
                     <div class="issue-content">
-                        <!-- 7. Pre-flight Check Verification List Logic -->
                         <div class="preflight-box">
                             <h5>Pre-flight Diagnostic Verification Checklist:</h5>
                             <ul>
                                 <li>Is mobile network routing layer cleared for UIDAI incoming push SMS packets?</li>
-                                <li>Does the spelling configuration string match perfectly with CBDT Income Tax PAN records?</li>
-                                <li>Have browser local storage cookie files been flushed within the last 15 minutes?</li>
+                                <li>Does spelling configuration match CBDT Income Tax PAN records?</li>
+                                <li>Have browser cache files been cleared within the last 15 minutes?</li>
                             </ul>
                         </div>
-                        <!-- 8. 50% Diagnostic Logic Box Configuration -->
                         <div class="diagnosis-box">
-                            <strong>System Root Cause Analysis (50% Solution):</strong> 
-                            This validation loop collapse occurs when the user name string on the Aadhaar array deviates structurally from the Central Income Tax PAN database. GeM security tokens refuse cryptographic handshakes upon identifying mismatch metrics.
+                            <strong>System Root Cause Analysis:</strong> 
+                            This validation loop collapse occurs when the user name string on the Aadhaar array deviates structurally from the Central Income Tax PAN database.
                         </div>
-                        <!-- 9. Contextual CTA Text Switch Custom Hook -->
-                        <a href="https://wa.me/918601865676?text=Hi%20Karan%2C%20I%20am%20facing%20critical%20ERR-REG-102%20Aadhaar%20OTP%20timeouts.%20Need%20immediate%20NavigateGeM%20override%20patch." class="embedded-whatsapp-btn" target="_blank">
-                            🔒 Deploy Core Database Override Patch via NavigateGeM Consultant →
+                        <a href="https://wa.me/918601865676?text=Hi%20Karan%2C%20I%20am%20facing%20critical%20ERR-REG-102%20Aadhaar%20OTP%20timeouts." class="embedded-whatsapp-btn" target="_blank">
+                            🔒 Deploy Core Database Override Patch →
                         </a>
                     </div>
                 </div>
 
-                <!-- Issue Block 2: Organisation Type Lockout Parameters -->
+                <!-- Issue Block 6: Organisation Type Lockout -->
                 <div class="issue-card" data-severity="critical" data-category="reg" id="card-org">
                     <div class="badge-row">
                         <span class="badge badge-critical">Critical Level</span>
@@ -256,109 +485,25 @@
                     </div>
                     <div class="issue-header" onclick="toggleAccordion('card-org')">
                         <h3>Organisation Category Selection Grid Permanent Lockout Anomaly</h3>
-                        <button class="bookmark-btn" onclick="toggleBookmark(event, 'ERR-REG-405: Organisation Lockout')">☆</button>
-                        <span class="accordion-arrow">▼</span>
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <button class="bookmark-btn" onclick="toggleBookmark(event, 'ERR-REG-405: Organisation Lockout')">☆</button>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
                     </div>
                     <div class="issue-content">
                         <div class="preflight-box">
                             <h5>Pre-flight Diagnostic Verification Checklist:</h5>
                             <ul>
-                                <li>Was the primary profile token written under a Proprietorship configuration layout rule?</li>
-                                <li>Has the entity verification registry token been validated against MCA corporate master databases?</li>
+                                <li>Was primary profile token written under a Proprietorship configuration layout rule?</li>
+                                <li>Has the entity verification token been validated against MCA corporate master databases?</li>
                             </ul>
                         </div>
                         <div class="diagnosis-box">
-                            <strong>System Root Cause Analysis (50% Solution):</strong> 
-                            Once an enterprise operational PAN token is written into the primary security ledger, the category type parameter gets permanently immutable. Changing from Proprietorship to Pvt Ltd throws programmatic access exceptions.
+                            <strong>System Root Cause Analysis:</strong> 
+                            Once an enterprise operational PAN token is written into the primary security ledger, the category type parameter becomes immutable.
                         </div>
-                        <a href="https://wa.me/918601865676?text=Hi%20Karan%2C%20I%20have%20an%20Organisation%20Type%20Lockout%20error%20ERR-REG-405.%20Need%20NavigateGeM%20database%20clearance." class="embedded-whatsapp-btn" target="_blank">
-                            🔒 Force Structural Category Reset Execution via NavigateGeM Consultant →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Issue Block 3: RITES Desktop Evaluation Dropouts -->
-                <div class="issue-card" data-severity="medium" data-category="oem" id="card-rites">
-                    <div class="badge-row">
-                        <span class="badge badge-medium">Medium Severity</span>
-                        <span class="badge" style="background:rgba(255,255,255,0.05); color:#fff;">Code: ERR-OEM-301</span>
-                    </div>
-                    <div class="issue-header" onclick="toggleAccordion('card-rites')">
-                        <h3>RITES Desktop Audit Rejection on Assembly Video Scrutiny</h3>
-                        <button class="bookmark-btn" onclick="toggleBookmark(event, 'ERR-OEM-301: RITES Video Rejection')">☆</button>
-                        <span class="accordion-arrow">▼</span>
-                    </div>
-                    <div class="issue-content">
-                        <div class="preflight-box">
-                            <h5>Pre-flight Diagnostic Verification Checklist:</h5>
-                            <ul>
-                                <li>Does your asset presentation media file size exceed strict 10MB container logic bounds?</li>
-                                <li>Are machine model plates, manufacturing serial indicators, and processing rooms cleanly visible?</li>
-                            </ul>
-                        </div>
-                        <div class="diagnosis-box">
-                            <strong>System Root Cause Analysis (50% Solution):</strong> 
-                            Vetting officers issue rejections when video arrays contain broken sequence frames or show zero live verification parameters of the manufacturing floor capability.
-                        </div>
-                        <a href="https://wa.me/918601865676?text=Hi%20Karan%2C%20my%20OEM%20video%20audit%20ERR-OEM-301%20got%20rejected.%20Need%20NavigateGeM%20compliance%20script." class="embedded-whatsapp-btn" target="_blank">
-                            🔒 Obtain RITES Compliant Production Script via NavigateGeM Consultant →
-                        </a>
-                    </div>
-                </div>
-              <!-- Issue Block 4: Trademark Category Mismatch Errors -->
-                <div class="issue-card" data-severity="medium" data-category="brand" id="card-tm">
-                    <div class="badge-row">
-                        <span class="badge badge-medium">Medium Severity</span>
-                        <span class="badge" style="background:rgba(255,255,255,0.05); color:#fff;">Code: ERR-BRD-882</span>
-                    </div>
-                    <div class="issue-header" onclick="toggleAccordion('card-tm')">
-                        <h3>Trademark Category Allocation Mismatch & Brand Rejection</h3>
-                        <button class="bookmark-btn" onclick="toggleBookmark(event, 'ERR-BRD-882: TM Class Mismatch')">☆</button>
-                        <span class="accordion-arrow">▼</span>
-                    </div>
-                    <div class="issue-content">
-                        <div class="preflight-box">
-                            <h5>Pre-flight Diagnostic Verification Checklist:</h5>
-                            <ul>
-                                <li>Is your trademark application status marked as 'Registered' or 'Objected' on IP India repository?</li>
-                                <li>Does the numerical class matching code correspond exactly to the GeM product catalog bucket?</li>
-                            </ul>
-                        </div>
-                        <div class="diagnosis-box">
-                            <strong>System Root Cause Analysis (50% Solution):</strong> 
-                            Verification filters trigger cancellation loops when your intellectual property registration class code does not perfectly cover the specific target listing parameters of the GeM category tree.
-                        </div>
-                        <a href="https://wa.me/918601865676?text=Hi%20Karan%2C%20my%20Brand%20Approval%20ERR-BRD-882%20is%20failing%20due%20to%20class%20mismatches.%20Need%20NavigateGeM%20brand%20clearance." class="embedded-whatsapp-btn" target="_blank">
-                            🔒 Override Generic Brand Safeguard Restrictions via NavigateGeM Consultant →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Issue Block 5: DSC Cryptographic Handshake Failures -->
-                <div class="issue-card" data-severity="medium" data-category="bid" id="card-dsc">
-                    <div class="badge-row">
-                        <span class="badge badge-medium">Medium Severity</span>
-                        <span class="badge" style="background:rgba(255,255,255,0.05); color:#fff;">Code: ERR-BID-504</span>
-                    </div>
-                    <div class="issue-header" onclick="toggleAccordion('card-dsc')">
-                        <h3>DSC Cryptographic Certificate Handshake Failure during Bid Submission</h3>
-                        <button class="bookmark-btn" onclick="toggleBookmark(event, 'ERR-BID-504: DSC Token Freezing')">☆</button>
-                        <span class="accordion-arrow">▼</span>
-                    </div>
-                    <div class="issue-content">
-                        <div class="preflight-box">
-                            <h5>Pre-flight Diagnostic Verification Checklist:</h5>
-                            <ul>
-                                <li>Is the EmBridge background background utility service operating inside port mapping 15886?</li>
-                                <li>Are you executing operations via an active updated Java Runtime Environment profile container?</li>
-                            </ul>
-                        </div>
-                        <div class="diagnosis-box">
-                            <strong>System Root Cause Analysis (50% Solution):</strong> 
-                            Browser scripting sandboxes prevent localized execution protocols from communicating data arrays into physical USB crypto tokens when digital signature configuration protocols are mismatched.
-                        </div>
-                        <a href="https://wa.me/918601865676?text=Hi%20Karan%2C%20my%20DSC%20EmBridge%20handshake%20ERR-BID-504%20is%20freezing.%20Need%20NavigateGeM%20technical%20assistance." class="embedded-whatsapp-btn" target="_blank">
-                            🔒 Force Cryptographic Certificate Signing Handshakes via NavigateGeM Consultant →
+                        <a href="https://wa.me/918601865676?text=Hi%20Karan%2C%20I%20have%20an%20Organisation%20Type%20Lockout%20error%20ERR-REG-405." class="embedded-whatsapp-btn" target="_blank">
+                            🔒 Force Structural Category Reset Execution →
                         </a>
                     </div>
                 </div>
@@ -366,168 +511,332 @@
             </div>
         </main>
 
-        <!-- Right Side Sidebar Controls Panel Layout -->
+        <!-- Right Side Sidebar Controls Panel -->
         <aside>
             <div class="sidebar-panel">
-                
-                <!-- 10. Risk Index Calculator Module Logic -->
                 <div class="risk-calculator-title">Account Risk Index</div>
                 <div class="risk-meter-container">
                     <div class="risk-meter-fill" id="riskMeter"></div>
                 </div>
                 <div class="risk-status-text" id="riskStatus">Risk Level: 35% Normal Parameters</div>
                 
-                <!-- 11. Live Social Proof Verification Counter Logic -->
                 <div class="counter-badge-box">
                     <span>✓</span> <span id="liveCounter">4,812</span> Active Suppliers Assisted This Month
                 </div>
 
-                <!-- 12. Batch Multi-Issue Bookmark Share Manager Logic Button -->
                 <button class="batch-share-btn" id="batchShareBtn" onclick="dispatchSelectedBookmarks()">
                     📲 Share Bookmarked Issues Bundle via WhatsApp
                 </button>
             </div>
         </aside>
+<!-- FAQ Section Start -->
+
+<!-- FAQ Section End -->
 
     </div>
-    <div id="global-footer"></div>
-    <script>
-        let currentSeverityFilter = 'all';
-        const activeBookmarks = new Set();
 
-        // 13. Dynamic Live Counter Incrementor Loop Automation Logic
-        setInterval(() => {
-            const counterNode = document.getElementById('liveCounter');
-            let currentVal = parseInt(counterNode.textContent.replace(/,/g, ''));
-            counterNode.textContent = (currentVal + Math.floor(Math.random() * 3) + 1).toLocaleString();
-        }, 8000);
-
-        // 14. Smooth Accordion Layer Expansion Controller Logic
-        function toggleAccordion(cardId) {
-            const card = document.getElementById(cardId);
-            const isExpanded = card.classList.contains('expanded');
+    <section class="faq-section">
+    <div class="faq-container">
+        <h2 class="faq-heading">Frequently Asked Questions (GeM Portal Guide)</h2>
+        <p class="faq-subheading">GeM Portal Registration, Tender Bidding, OEM Panel aur Vendor Assessment se jude sabhi sawalon ke jawab yahan paayein.</p>
+        
+        <div class="faq-wrapper">
             
-            // 15. Auto collapse active sister nodes configuration logic
-            document.querySelectorAll('.issue-card').forEach(c => c.classList.remove('expanded'));
-            
-            if (!isExpanded) {
-                card.classList.add('expanded');
-                // 16. Dynamic Risk Index Meter Modulation Adjustment Logic
-                updateRiskMeter(card.getAttribute('data-severity'));
-            } else {
-                updateRiskMeter('reset');
-            }
+            <!-- FAQ 1 -->
+            <div class="faq-item" id="faq-1" onclick="toggleFaq('faq-1')">
+                <div class="faq-question">
+                    <span>GeM रजिस्ट्रेशन कैसे करें? (How to Register on GeM Portal)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>GeM Portal par registration karne ke liye official Government e-Marketplace website par jaakar 'Sign Up > Seller' par click karein. Apni company ka PAN card, Aadhar card (mobile linked), Udyam (MSME) certificate aur business bank account details enter karke OTP verification complete karein aur apna primary seller account activate karein.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item" id="faq-2" onclick="toggleFaq('faq-2')">
+                <div class="faq-question">
+                    <span>रजिस्ट्रेशन के लिए आवश्यक दस्तावेज क्या हैं? (Required Documents for GeM Registration)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Zaroori dastavezon mein Business PAN Card, Authorized Person ka Aadhar Card, Udyam Registration Certificate (MSME), Cancelled Cheque / Bank Account Details, aur Business Address Proof (GST / Electricity Bill) shamil hain.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item" id="faq-3" onclick="toggleFaq('faq-3')">
+                <div class="faq-question">
+                    <span>क्या GeM पर सेलर अकाउंट बनाने की कोई फीस है? (Is there any Fee for GeM Seller Account?)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>GeM portal par primary seller account banana bilkul free hai. Halanki, portal par turnover ke hisab se annual subscription charge (Caution Money/Transaction fee) lagta hai jo seller ki category par nirbhar karta hai.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item" id="faq-4" onclick="toggleFaq('faq-4')">
+                <div class="faq-question">
+                    <span>GeM पर MSME का क्या लाभ मिलता है? (Benefits of MSME/Udyam on GeM)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>MSME (Udyam registered) sellers ko government tenders mein EMD (Earnest Money Deposit) se chhoot milti hai, aurkai baar public procurement policies ke tahat preferential treatment bhi milta hai.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item" id="faq-5" onclick="toggleFaq('faq-5')">
+                <div class="faq-question">
+                    <span>Product Catalogue कैसे अपलोड या लिस्ट करें? (How to Upload/List Product Catalogue)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>GeM dashboard par login karke 'Catalog' section mein jayein. Agar product pehle se listed hai toh use 'Add to Catalog' karein, warna naye product ke liye appropriate category select karke specifications, pricing aur images upload karein.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="faq-item" id="faq-6" onclick="toggleFaq('faq-6')">
+                <div class="faq-question">
+                    <span>Government Bids (टेंडर) में भाग कैसे लें? (How to Participate in Government Bids)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Bidding section mein jaakar apni category ke active tenders search karein. Tender ki ATC (Additional Terms & Conditions) ko dhyan se padhein, eligibility criteria check karein aur Class 3 DSC (Digital Signature) ke sath apna technical aur financial bid submit karein.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="faq-item" id="faq-7" onclick="toggleFaq('faq-7')">
+                <div class="faq-question">
+                    <span>L1 (Lowest 1) बिडिंग क्या है और यह कैसे काम करती है? (What is L1 Bidding on GeM)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>L1 ka matlab hai sabse kam price (Lowest Bidder). GeM portal par jo bhi seller sabse kam rate par standard quality product ya service offer karta hai, use L1 mana jata hai aur government buyer use order allocate karta hai.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 8 -->
+            <div class="faq-item" id="faq-8" onclick="toggleFaq('faq-8')">
+                <div class="faq-question">
+                    <span>Brand Approval प्राप्त करने की प्रक्रिया क्या है? (Brand Approval Process)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Agar aapka brand GeM par listed nahi hai, toh 'Brand Approval' ke liye request raise karni hoti hai. Iske liye Trademark Certificate ya Authorized Manufacturer/Distributor letter upload karna padta hai.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 9 -->
+            <div class="faq-item" id="faq-9" onclick="toggleFaq('faq-9')">
+                <div class="faq-question">
+                    <span>CRAC (Consignee Receipt and Acceptance) क्या है? (What is CRAC Document)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>CRAC ek mahatvapurna document hai jo government buyer dwara maal milne aur uski quality check karne ke baad generate kiya jata hai. Iske bina payment process aage nahi badhti.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 10 -->
+            <div class="faq-item" id="faq-10" onclick="toggleFaq('faq-10')">
+                <div class="faq-question">
+                    <span>सप्लायर को सरकारी पेमेंट कितने दिनों में मिलती है? (Government Payment Timeline for Suppliers)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>CRAC generate hone ke baad aamtaur par 10 se 30 dino ke bheetar government department dwara verified bank account mein payment transfer kar di jati hai.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 11 -->
+            <div class="faq-item" id="faq-11" onclick="toggleFaq('faq-11')">
+                <div class="faq-question">
+                    <span>EMD क्या है और रिफंड कैसे होती है? (What is EMD and How to Get Refund)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>EMD (Earnest Money Deposit) kuch high-value bids ke liye security amount ke roop mein jama ki jati hai. Bid complete hone ke baad unsuccessful bidders ki EMD automatically system dwara refund kar di jati hai.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 12 -->
+            <div class="faq-item" id="faq-12" onclick="toggleFaq('faq-12')">
+                <div class="faq-question">
+                    <span>OEM (Original Equipment Manufacturer) का पैनल कैसे लें? (How to Get OEM Panel)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Manufacturer apni factory license, trademark, aur quality test reports (jaise NABL) ke sath OEM panel ke liye apply kar sakte hain jisse wo apne brand ke direct owner ke roop mein list ho sakein.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 13 -->
+            <div class="faq-item" id="faq-13" onclick="toggleFaq('faq-13')">
+                <div class="faq-question">
+                    <span>Authorized Reseller कैसे बनें? (How to Become Authorized Reseller)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Agar aap manufacturer nahi hain, toh OEM se authorization certificate ya reseller letter lekar unke products ko apne GeM account par resell karne ke liye map kar sakte hain.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 14 -->
+            <div class="faq-item" id="faq-14" onclick="toggleFaq('faq-14')">
+                <div class="faq-question">
+                    <span>SLA डिडक्शन और पेनल्टी के क्या नियम हैं? (SLA Deduction & Penalty Rules)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Agar delivery time par nahi hoti ya service quality Service Level Agreement (SLA) ke anusar nahi pai jati, toh buyer dwara total order value par penalty ya deduction lagai ja sakti hai.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 15 -->
+            <div class="faq-item" id="faq-15" onclick="toggleFaq('faq-15')">
+                <div class="faq-question">
+                    <span>Vendor Assessment क्या है और कब करवानी होती है? (What is Vendor Assessment)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Vendor Assessment (VA) QCI (Quality Council of India) dwara ki jaane wali ek audit process hai jo manufacturers ke liye kuch specific categories mein bidding karne se pehle karvani anivarya hoti hai.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 16 -->
+            <div class="faq-item" id="faq-16" onclick="toggleFaq('faq-16')">
+                <div class="faq-question">
+                    <span>Caution Money क्या है और कितनी जमा करनी होती है? (What is Caution Money)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Caution money ek security deposit hai jo GeM portal par sellers ko apne account ki safety aur bidding eligibility banaye rakhne ke liye rules ke mutabik deposit karni hoti hai.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 17 -->
+            <div class="faq-item" id="faq-17" onclick="toggleFaq('faq-17')">
+                <div class="faq-question">
+                    <span>Consignee Location और Delivery Days कैसे सेट करें? (Setting Consignee Location & Delivery Days)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Product cataloging ya bid creation ke samay aapko delivery location (Consignee address) aur order milne ke baad dispatch karne ke liye maximum delivery days configure karne hote hain.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 18 -->
+            <div class="faq-item" id="faq-18" onclick="toggleFaq('faq-18')">
+                <div class="faq-question">
+                    <span>Invoice Generate करने का सही तरीका क्या है? (Right Way to Generate Invoice on GeM)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Order accept hone aur dispatch ke baad GeM portal ke 'Orders' section mein jakar buyer ke diye gaye consignee data aur bill details ke anusar official GeM invoice generate karni hoti hai.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 19 -->
+            <div class="faq-item" id="faq-19" onclick="toggleFaq('faq-19')">
+                <div class="faq-question">
+                    <span>Bid और RA (Reverse Auction) में क्या अंतर है? (Difference Between Bid and Reverse Auction)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Standard Bid mein sellers ek baar apna sealed price submit karte hain. Wahi Reverse Auction (RA) mein live bidding hoti hai jahan sellers ko buyer ki requirement ke mutabik real-time mein apna price aur kam karna padta hai.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 20 -->
+            <div class="faq-item" id="faq-20" onclick="toggleFaq('faq-20')">
+                <div class="faq-question">
+                    <span>GeM Direct Purchase (सीधी खरीद) लिमिट क्या है? (GeM Direct Purchase Limit)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Government buyers bina bid ke direct purchase option ka use karke নির্ধারিত limit (aamtaur par chhote values ke liye) tak ka saman seedhe L1 seller se direct purchase kar sakte hain.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+        <div id="global-footer"></div>
+<script>
+    function toggleAccordion(cardId) {
+    const card = document.getElementById(cardId);
+    card.classList.toggle('expanded');
+}
+
+function filterSeverity(level) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active-tab'));
+    document.getElementById('filter-' + level).classList.add('active-tab');
+
+    const cards = document.querySelectorAll('.issue-card');
+    cards.forEach(card => {
+        if (level === 'all' || card.dataset.severity === level) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
         }
+    });
+}
 
-        // 17. Risk Parameter Engine Weight Calculation Logic
-        function updateRiskMeter(severity) {
-            const meter = document.getElementById('riskMeter');
-            const statusText = document.getElementById('riskStatus');
-            if(severity === 'critical') {
-                meter.style.width = '85%'; meter.style.background = 'var(--critical-red)';
-                statusText.textContent = "Risk Level: 85% Critical Block Stage"; statusText.style.color = 'var(--critical-red)';
-            } else if(severity === 'medium') {
-                meter.style.width = '55%'; meter.style.background = 'var(--accent-orange)';
-                statusText.textContent = "Risk Level: 55% Operational Blocker"; statusText.style.color = 'var(--accent-orange)';
-            } else {
-                meter.style.width = '35%'; meter.style.background = 'var(--accent-orange)';
-                statusText.textContent = "Risk Level: 35% Normal Parameters"; statusText.style.color = 'var(--text-sub)';
-            }
+function executeSearchLogic() {
+    const query = document.getElementById('diagnosticsSearch').value.toLowerCase();
+    const cards = document.querySelectorAll('.issue-card');
+    cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (text.includes(query)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
         }
+    });
+}
 
-        // 18. Instant Search & Term Prediction Filtering Engine Logic
-        function executeSearchLogic() {
-            const query = document.getElementById('diagnosticsSearch').value.toLowerCase();
-            document.querySelectorAll('.issue-card').forEach(card => {
-                const textContent = card.textContent.toLowerCase();
-                // 19. Auto suggestion search match parameters filtering logic
-                if(textContent.includes(query)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+let bookmarks = [];
+function toggleBookmark(event, name) {
+    event.stopPropagation();
+    const btn = event.target;
+    btn.classList.toggle('bookmarked');
+    if (btn.classList.contains('bookmarked')) {
+        btn.textContent = '★';
+        bookmarks.push(name);
+    } else {
+        btn.textContent = '☆';
+        bookmarks = bookmarks.filter(item => item !== name);
+    }
 
-        // 20. Categorized Severity Tab Filtering Matrix Loop Logic
-        function filterSeverity(severity) {
-            currentSeverityFilter = severity;
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active-tab'));
-            document.getElementById(`filter-${severity}`).classList.add('active-tab');
+    const shareBtn = document.getElementById('batchShareBtn');
+    if (bookmarks.length > 0) {
+        shareBtn.classList.add('visible');
+    } else {
+        shareBtn.classList.remove('visible');
+    }
+}
 
-            document.querySelectorAll('.issue-card').forEach(card => {
-                if(severity === 'all' || card.getAttribute('data-severity') === severity) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+function dispatchSelectedBookmarks() {
+    const text = encodeURIComponent("Hi Karan, I want consultation on these bookmarked GeM portal issues:\n- " + bookmarks.join('\n- '));
+    window.open(`https://wa.me/918601865676?text=${text}`, '_blank');
+}
 
-        // 21. Interactive Decision Tree Tree Questionnaire Wizard Logic
-        function processWizardNode(answerIsYes) {
-            const questionNode = document.getElementById('wizardQuestion');
-            const wizardNode = document.getElementById('wizardNode');
-            if(answerIsYes) {
-                questionNode.innerHTML = "🚀 **Diagnostic Route recommendation:** Filter for 'Critical Blockers'. We advise checking **ERR-REG-102 Aadhaar Verification** instantly.";
-                filterSeverity('critical');
-            } else {
-                questionNode.innerHTML = "📊 **Diagnostic Route recommendation:** Check **ERR-OEM-301 RITES Evaluation rejections** or DSC Java configurations.";
-                filterSeverity('medium');
-            }
-        }
+function processWizardNode(isStuck) {
+    const question = document.getElementById('wizardQuestion');
+    if (isStuck) {
+        question.textContent = "Diagnostic Result: Submission is locked due to profile validation or DSC signature failures. Check Critical Blockers below.";
+        filterSeverity('critical');
+    } else {
+        question.textContent = "Diagnostic Result: Catalog or auction issue detected. Review Medium Level Operational Glitches below.";
+        filterSeverity('medium');
+    }
+}
 
-        // 22. Bookmark Star State Registry Multi-Selection System Logic
-        function toggleBookmark(event, issueTitle) {
-            event.stopPropagation(); // 23. Prevent execution event propagation bubble lock
-            const btn = event.target;
-            btn.classList.toggle('bookmarked');
-            
-            if(btn.classList.contains('bookmarked')) {
-                btn.textContent = '★'; activeBookmarks.add(issueTitle);
-            } else {
-                btn.textContent = '☆'; activeBookmarks.delete(issueTitle);
-            }
-
-            // 24. Conditional multi-bookmark panel toggle view logic
-            const shareBtn = document.getElementById('batchShareBtn');
-            if(activeBookmarks.size > 0) {
-                shareBtn.classList.add('visible');
-            } else {
-                shareBtn.classList.remove('visible');
-            }
-        }
-
-        // 25. Multi-Issue Combined Parameter Bundle Share WhatsApp Dispatch Logic
-        function dispatchSelectedBookmarks() {
-            if(activeBookmarks.size === 0) return;
-            const bundleArr = Array.from(activeBookmarks);
-            const messagePayload = `Hi Karan, I have analyzed my GeM portal framework errors using the NavigateGeM Advanced Diagnostics Center.\n\nHere is my bookmarked critical error stack:\n- ${bundleArr.join('\n- ')}\n\nPlease process resolution parameters context.`;
-            window.open(`https://wa.me/918601865676?text=${encodeURIComponent(messagePayload)}`, '_blank');
-        }
-
-        // 26. Notice Strip Dynamic Content Rotation Engine Logic
-        const dynamicNotices = [
-            "● LIVE SYSTEM SCANNING: GeM Server EmBridge signature verification nodes are facing handshake latency today.",
-            "● POLICY COMPLIANCE WARNING: Local content Make in India (MII) auditor calculation sheets verification parameters tightened.",
-            "● CAUTION NOTE: Account lockout loops reported due to multiple signatory PAN verification requests."
-        ];
-        let noticeIdx = 0;
-        setInterval(() => {
-            noticeIdx = (noticeIdx + 1) % dynamicNotices.length;
-            document.getElementById('noticeStrip').innerHTML = `<span>● LIVE UPDATE:</span> ${dynamicNotices[noticeIdx]}`;
-        }, 12000);
-
-
-
-             function redirectToWhatsApp() {
-            if(generatedURL) {
-                window.open(generatedURL, '_blank');
-                document.getElementById('successCelebrationNode').classList.remove('active');
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', (event) => {
+   window.addEventListener('DOMContentLoaded', (event) => {
             switchChecklist('reg');
         });
 
@@ -550,7 +859,25 @@
                     console.warn(`Local preview layout active for ${target.file}. Server bypass initiated.`);
                 });
         });
-    </script>
+
+
+        function toggleFaq(faqId) {
+    const currentItem = document.getElementById(faqId);
+    const isOpen = currentItem.classList.contains('active');
+    
+    // Baaki sabhi FAQs ko close karne ke liye (Accordion mode)
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // Agar current item pehle se open nahi tha, toh use open karo
+    if (!isOpen) {
+        currentItem.classList.add('active');
+    }
+}
+
+</script>
+    <!-- External JavaScript Link -->
+    <script src="script.js"></script>
 </body>
 </html>
-                
