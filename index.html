@@ -2910,8 +2910,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const autoNode = {
     ...rawNode,
     badge: rawNode.heading,                  // Chote badge mein 'Defending Against Profile Risks' aayega
-    heading: `HAPPY ${rawNode.badge}`        // Badi heading mein 'HAPPY KARGIL VIJAY DIWAS' aayega
-};
+    heading: `HAPPY ${rawNode.badge}`, // Badi heading mein 'HAPPY KARGIL VIJAY DIWAS' aayega
+    text: `NavigateGem Consultant: ${rawNode.text}`
+    };
 
 
 
@@ -2929,7 +2930,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             badge: rawNode.heading, 
             heading: `HAPPY ${rawNode.badge}`
             
-
+              text: `NavigateGem Consultant: ${rawNode.text}`
             };
 
             document.getElementById('promo-badge').innerText = autoNode.badge;
