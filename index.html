@@ -2905,39 +2905,33 @@ window.addEventListener('DOMContentLoaded', () => {
                 applyDynamicTheme(badgeVal || "SPECIAL");
                 startTimerAndPublish(finalDiscount, headingVal, textVal, imgVal);
             } else {
-    const rawNode = getHardcodedCalendarNode();
-    // Swap badge and heading + Prefix HAPPY
-    const autoNode = {
-    ...rawNode,
-    badge: rawNode.heading,                  // Chote badge mein 'Defending Against Profile Risks' aayega
-    heading: `HAPPY ${rawNode.badge}`, // Badi heading mein 'HAPPY KARGIL VIJAY DIWAS' aayega
-    text: `NavigateGem Consultant: ${rawNode.text}`
-    };
-
-
-
-
-    document.getElementById('promo-badge').innerText = autoNode.badge;
-    applyDynamicTheme(autoNode.heading);
-    startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text, autoNode.img);
-}
-
-        })
-            .catch(() => {
             const rawNode = getHardcodedCalendarNode();
-            const autoNode = {
-                ...rawNode,
-                            badge: rawNode.heading, 
-            heading: `HAPPY ${rawNode.badge}`
-            
-              text: `NavigateGem Consultant: ${rawNode.text}`
-            };
+        // Swap badge and heading + Prefix HAPPY
+        const autoNode = {
+            ...rawNode,
+            badge: rawNode.heading,
+            heading: 'HAPPY ' + rawNode.badge,
+            text: 'NavigateGem Consultant: ' + (rawNode.text || rawNode.sub || '')
+        };
 
-            document.getElementById('promo-badge').innerText = autoNode.badge;
-            applyDynamicTheme(autoNode.heading);
-              
-            startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text, autoNode.img);
-        });
+        document.getElementById('promo-badge').innerText = autoNode.badge;
+        applyDynamicTheme(autoNode.heading);
+        startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text || autoNode.sub, autoNode.img);
+    }
+    })
+    .catch(() => {
+        const rawNode = getHardcodedCalendarNode();
+        const autoNode = {
+            ...rawNode,
+            badge: rawNode.heading,
+            heading: 'HAPPY ' + rawNode.badge,
+            text: 'NavigateGem Consultant: ' + (rawNode.text || rawNode.sub || '')
+        };
+
+        document.getElementById('promo-badge').innerText = autoNode.badge;
+        applyDynamicTheme(autoNode.heading);
+        startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text || autoNode.sub, autoNode.img);
+    });
 
 
     if (new Date().getHours() >= 18 || new Date().getHours() < 6) {
