@@ -2818,7 +2818,7 @@ window.addEventListener('DOMContentLoaded', () => {
         if (monthNum === 7 && dateNum === 11) return { badge: "WORLD POPULATION MATRIX", discount: "20% OFF", heading: "High-Volume Catalog Optimization", text: "Scale your inventory to reach thousands of institutional buying systems safely and seamlessly.", img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=600" };
         if (monthNum === 7 && dateNum === 12) return { badge: "WORLD MALALA DAY", discount: "22% OFF", heading: "Empowering Structural Competency", text: "Unlock custom brand configuration setups and register new parameters with professional consultation matrix nodes.", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=600" };
         if (monthNum === 7 && dateNum === 15) return { badge: "YOUTH SKILLS MATRIX", discount: "20% OFF", heading: "Advanced Bid Management Telemetry", text: "Train your team to manage intricate custom specifications and safeguard your transactional margins.", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600" };
-        if (monthNum === 7 && dateNum === 26) return { badge: "KARGIL VIJAY DIWAS", discount: "25% OFF", heading: "Defending Against Profile Risks", text: "Secure your operational configurations from sudden compliance flags and validation hold events.", img: "https://images.unsplash.com/photo-1590172545431-d599c5a5e86d?q=80&w=600" };
+        if (monthNum === 7 && dateNum === 26) return { badge: "KARGIL VIJAY DIWAS", discount: "25% OFF", heading: "Defending Against Profile Risks", text: "Secure your operational configurations from sudden compliance flags and validation hold .", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDOnDOWgBiS8wT0g3yQcFLfa5dAoNKhovY-UMqGBpZky8XRnzh053-ZA&s=10" };
         if (monthNum === 7 && dateNum === 28) return { badge: "NATURE CONSERVATION", discount: "20% OFF", heading: "Pruned Data Parameter Frameworks", text: "Keep your profile lean and accurate by removing redundant product fields that trigger algorithmic rejections.", img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" };
 
         // --- AUGUST MAPPINGS ---
@@ -2908,10 +2908,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const rawNode = getHardcodedCalendarNode();
     // Swap badge and heading + Prefix HAPPY
     const autoNode = {
-        ...rawNode,
-        badge: `HAPPY ${rawNode.heading}`,
-        heading: rawNode.badge
-    };
+    ...rawNode,
+    badge: `HAPPY ${rawNode.badge}`,
+    heading: rawNode.heading
+};
+
 
     document.getElementById('promo-badge').innerText = autoNode.badge;
     applyDynamicTheme(autoNode.badge);
@@ -2923,8 +2924,9 @@ window.addEventListener('DOMContentLoaded', () => {
             const rawNode = getHardcodedCalendarNode();
             const autoNode = {
                 ...rawNode,
-                badge: `HAPPY ${rawNode.heading}`,
-                heading: rawNode.badge
+                            badge: `HAPPY ${rawNode.badge}`,
+            heading: rawNode.heading
+
             };
 
             document.getElementById('promo-badge').innerText = autoNode.badge;
