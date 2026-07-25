@@ -2249,129 +2249,7 @@ body {
 </section>
 
 <!-- Animation Styles -->
-
-    <!-- UNIFIED CORPORATE STRATEGIC FOOTER PANEL -->
-   <div style="flex-grow: 1;"></div>
-
-    <!-- START IMAGE_B9483B.PNG MATCHED COMPLIANT FOOTER MODULE -->
-    <footer class="premium-system-footer">
-        
-        <!-- 1. Top Scrolling Infinite Header Bar (As seen in the image) -->
-        <div class="footer-marquee-bar">
-            <div class="marquee-inner-payload">
-                RA Participation, Registration On GEM Portal, OEM Registration, New Product Uploading, GEM Bid Participation, Provide Details Result Summary. &nbsp;&nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp;&nbsp; NavigateGeM: Your Gateway To Strategic Procurement Success.
-            </div>
-        </div>
-
-        <!-- 2. Main Structured Grid Column Links Panel -->
-        <div class="footer-main-content">
-            
-            <!-- Logo Block -->
-            <div class="footer-logo-column">
-                <div class="footer-logo-circle">⚙️</div>
-                <div class="footer-logo-subtext">NAVIGATGEM COUNSULTANT</div>
-            </div>
-
-            <!-- Category Column 1 -->
-            <div class="footer-matrix-column">
-                <h4>Policy</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Refund & Cancellation policy</a></li>
-                </ul>
-            </div>
-
-            <!-- Category Column 2 -->
-            <div class="footer-matrix-column">
-                <h4>GeM Services</h4>
-                <ul>
-                    <li><a href="#">GeM Registration</a></li>
-                    <li><a href="#">GeM Profile Completion</a></li>
-                    <li><a href="#">Vendor Assessment</a></li>
-                    <li><a href="#">Brand Approval</a></li>
-                    <li><a href="#">Catalogue Creation</a></li>
-                    <li><a href="#">Bid Participation</a></li>
-                    <li><a href="#">Order Processing</a></li>
-                    <li><a href="#">Buyer Account Registration</a></li>
-                </ul>
-            </div>
-
-            <!-- Category Column 3 -->
-            <div class="footer-matrix-column">
-                <h4>GeM Training</h4>
-                <ul>
-                    <li><a href="#">Full GeM Training</a></li>
-                    <li><a href="#">Product Upload</a></li>
-                    <li><a href="#">Brand Approve</a></li>
-                    <li><a href="#">Bid Participation</a></li>
-                    <li><a href="#">Order Processing</a></li>
-                    <li><a href="#">OEM Panel</a></li>
-                </ul>
-            </div>
-
-            <!-- Category Column 4 -->
-            <div class="footer-matrix-column">
-                <h4>GeM Support</h4>
-                <ul>
-                    <li><a href="#">Registration</a></li>
-                    <li><a href="#">Product Upload</a></li>
-                    <li><a href="#">Brand Approve</a></li>
-                    <li><a href="#">Bid Participation</a></li>
-                    <li><a href="#">Order Processing</a></li>
-                    <li><a href="#">L1 Purchase</a></li>
-                </ul>
-            </div>
-
-            <!-- Category Column 5: Exact Content Coordinates From image_b9483b.png -->
-            <div class="footer-matrix-column">
-                <h4>Contact Us</h4>
-                <div class="contact-info-text">GeM Expert</div>
-                <div class="contact-info-text"><a href="mailto:navigatgemconsultant@gmail.com">Navigatgemconsultant@gmail.com</a></div>
-                <div class="contact-info-text"><a href="tel:+917984637177">+91 8601865676</a></div>
-                <div class="contact-info-text"><a href="tel:+919924901438">+91 9236654464</a></div>
-                <div class="contact-info-text" style="color: var(--heading-color);">24 x 7 support</div>
-                <div class="contact-info-text"> Keshav Nagar 2 Lucknow India 226020 </div>
-            </div>
-
-        </div>
-
-        <!-- 3. Red Accent Visual Separator Divider Line -->
-        <hr class="footer-accent-divider">
-
-        <!-- Social Media Navigation Dock (Using SVG/Text Icons as represented in sample layout) -->
-                <div class="footer-social-dock">
-           <a href="https://www.instagram.com/navigatgem_consultant?igsh=bGExOHhmd2dnMw==" class="social-link instagram" target="_blank" aria-label="Instagram">
-    <i class="fab fa-instagram"></i>
-</a>
-        
-       <!-- Sahi Tarika (Corrected Code) -->
-<a href="https://youtube.com/@gemportalvideotraining" class="social-link youtube" target="_blank" aria-label="YouTube">
-    <i class="fab fa-youtube"></i>
-</a>
-        
-      <a href="https://www.facebook.com/share/1QE2d3WN3r/" class="social-link facebook" target="_blank" aria-label="Facebook">
-    <i class="fab fa-facebook"></i>
-</a>
-        
-        <a href="#" class="social-link linkedin" target="_blank" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-        </a>
-
-            
-
-
-            
-        </div>
-
-        <!-- 4. Bottom Base Copyright Content Segment -->
-        <div class="footer-base-credits">
-            COPYRIGHT © 2026 NAVIGATGEM CONSULTANT . DESIGN & DEVELOPED BY AISHA&PARTH SOLUTION
-        </div>
-
-    </footer>
-
-   
+ <div id="global-footer"></div>
 
     <!-- INTERSECTION OBSERVER SYSTEM LOGIC FOR ACTIVE NAV TRACKING -->
 
@@ -3190,6 +3068,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     counters.forEach(counter => counterObserver.observe(counter));
 });
+
+
+     window.addEventListener('DOMContentLoaded', (event) => {
+            switchChecklist('reg');
+        });
+
+        // Fail-safe Header/Footer Dynamic Injector Engine
+        const fileFetchArray = [
+            { id: 'global-header', file: 'header.html' },
+            { id: 'global-footer', file: 'footer.html' }
+        ];
+
+        fileFetchArray.forEach(target => {
+            fetch(target.file)
+                .then(response => {
+                    if (!response.ok) throw new Error('CORS or Local File Blocked');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(target.id).innerHTML = data;
+                })
+                .catch(err => {
+                    console.warn(`Local preview layout active for ${target.file}. Server bypass initiated.`);
+                });
+        });
+
 
  </Script>
 
