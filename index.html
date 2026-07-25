@@ -2905,18 +2905,33 @@ window.addEventListener('DOMContentLoaded', () => {
                 applyDynamicTheme(badgeVal || "SPECIAL");
                 startTimerAndPublish(finalDiscount, headingVal, textVal, imgVal);
             } else {
-                const autoNode = getHardcodedCalendarNode();
-                document.getElementById('promo-badge').innerText = autoNode.badge;
-                applyDynamicTheme(autoNode.badge);
-                startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text, autoNode.img);
-            }
+    const rawNode = getHardcodedCalendarNode();
+    // Swap badge and heading + Prefix HAPPY
+    const autoNode = {
+        ...rawNode,
+        badge: `HAPPY ${rawNode.heading}`,
+        heading: rawNode.badge
+    };
+
+    document.getElementById('promo-badge').innerText = autoNode.badge;
+    applyDynamicTheme(autoNode.badge);
+    startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text, autoNode.img);
+}
+
         })
-        .catch(() => {
-            const autoNode = getHardcodedCalendarNode();
+            .catch(() => {
+            const rawNode = getHardcodedCalendarNode();
+            const autoNode = {
+                ...rawNode,
+                badge: `HAPPY ${rawNode.heading}`,
+                heading: rawNode.badge
+            };
+
             document.getElementById('promo-badge').innerText = autoNode.badge;
             applyDynamicTheme(autoNode.badge);
             startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text, autoNode.img);
         });
+
 
     if (new Date().getHours() >= 18 || new Date().getHours() < 6) {
         document.querySelectorAll('.smarthub-card').forEach(c => c.style.borderColor = 'rgba(14, 165, 233, 0.25)');
