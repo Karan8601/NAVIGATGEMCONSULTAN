@@ -2909,9 +2909,11 @@ window.addEventListener('DOMContentLoaded', () => {
     // Swap badge and heading + Prefix HAPPY
     const autoNode = {
     ...rawNode,
-    badge: `HAPPY ${rawNode.badge}`,
-    heading: rawNode.heading
+    badge: rawNode.heading,                  // Chote badge mein 'Defending Against Profile Risks' aayega
+    heading: `HAPPY ${rawNode.badge}`        // Badi heading mein 'HAPPY KARGIL VIJAY DIWAS' aayega
 };
+
+
 
 
     document.getElementById('promo-badge').innerText = autoNode.badge;
@@ -2924,8 +2926,9 @@ window.addEventListener('DOMContentLoaded', () => {
             const rawNode = getHardcodedCalendarNode();
             const autoNode = {
                 ...rawNode,
-                            badge: `HAPPY ${rawNode.badge}`,
-            heading: rawNode.heading
+                            badge: rawNode.heading, 
+            heading: `HAPPY ${rawNode.badge}`
+            
 
             };
 
