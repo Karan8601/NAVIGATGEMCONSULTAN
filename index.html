@@ -2917,7 +2917,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     document.getElementById('promo-badge').innerText = autoNode.badge;
-    applyDynamicTheme(autoNode.badge);
+    applyDynamicTheme(autoNode.heading);
     startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text, autoNode.img);
 }
 
@@ -2933,7 +2933,8 @@ window.addEventListener('DOMContentLoaded', () => {
             };
 
             document.getElementById('promo-badge').innerText = autoNode.badge;
-            applyDynamicTheme(autoNode.badge);
+            applyDynamicTheme(autoNode.heading);
+              
             startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text, autoNode.img);
         });
 
