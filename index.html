@@ -2752,122 +2752,65 @@ window.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 document.addEventListener("DOMContentLoaded", () => {
+   document.addEventListener("DOMContentLoaded", () => {
     
-    // --- 365-DAY MASTER AUTOMATION ENGINE MATRIX DATABASE ---
- document.addEventListener("DOMContentLoaded", () => {
-    
-    // --- SECTION VISIBILITY FIX ---
-    const promoSection = document.getElementById('dynamic-festival-section');
-    if (promoSection) {
-        promoSection.style.display = 'block';
-    }
-
     // --- 365-DAY MASTER AUTOMATION ENGINE MATRIX DATABASE ---
     function getHardcodedCalendarNode() {
-        const now = new Date();
-        const monthNum = now.getMonth() + 1; // 1 to 12
-        const dateNum = now.getDate();       // 1 to 31
-        const dayOfWeek = now.getDay();      // 0 (Sun) to 6 (Sat)
-
-        // --- JULY MAPPINGS ---
-        if (monthNum === 7 && dateNum === 27) return { badge: "Pruned Data Parameter Frameworks", discount: "20%", heading: "NATURE CONSERVATION", text: "Keep your profile lean and accurate by removing redundant product fields that trigger algorithmic rejections.", img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" };
-        if (monthNum === 7 && dateNum === 28) return { badge: "Pruned Data Parameter Frameworks", discount: "20%", heading: "NATURE CONSERVATION", text: "Keep your profile lean and accurate by removing redundant product fields that trigger algorithmic rejections.", img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" };
-        if (monthNum === 7 && dateNum >= 25 && dateNum <= 31) return { badge: "Mid-Year Review Frameworks", discount: "20%", heading: "SUMMER COMPLIANCE PUSH", text: "Ensure your corporate credentials and catalogs match current portal guidelines smoothly.", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600" };
-
+        // --- JANUARY MAPPINGS ---
+        if (monthNum === 7 && dateNum === 27) return { badge: "Pruned Data Parameter Frameworks", discount: "20% OFF", heading: "NATURE CONSERVATION", text: "Keep your profile lean and accurate by removing redundant product fields that trigger algorithmic rejections.", img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" };
+        if (monthNum === 7 && dateNum === 28) return { badge: "Pruned Data Parameter Frameworks", discount: "20% OFF", heading: "NATURE CONSERVATION", text: "Keep your profile lean and accurate by removing redundant product fields that trigger algorithmic rejections.", img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" };
+        
         // --- AUGUST MAPPINGS ---
-        if (monthNum === 8 && dayOfWeek === 0 && dateNum <= 7) return { badge: "Special Quota waived for Diverse Profiles", discount: "25%", heading: "SISTERS' DAY PROMO", text: "Unlock specialized institutional waivers and structural fee exemptions reserved for diverse vendor setups.", img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=600" };
-        if (monthNum === 8 && dateNum === 7) return { badge: "Targeted B2B Market Dominance", discount: "20%", heading: "NATIONAL JAVELIN DAY", text: "Aim for L1 positioning index markers with absolute accuracy using verified pricing simulator matrix tools.", img: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=600" };
-        if (monthNum === 8 && dateNum === 12) return { badge: "Startup Structural Acceleration", discount: "20%", heading: "INTERNATIONAL YOUTH DAY", text: "Helping newly registered entities acquire immediate vendor assessment waivers safely.", img: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=600" };
-        if (monthNum === 8 && dateNum === 15) return { badge: "Celebrate Complete Business Freedom!", discount: "15%", heading: "INDEPENDENCE DAY INDIA", text: "Break free from catalog limitations. Deploy verified OEM status protocols and step into open marketplace arrays.", img: "https://images.unsplash.com/photo-1532375810709-75b1da00537c?q=80&w=600" };
-        if (monthNum === 8 && dateNum === 29) return { badge: "Competitive Edge In Bidding Tenders", discount: "20%", heading: "NATIONAL SPORTS DAY", text: "Outmaneuver validation errors and outperform competing suppliers with clean strategic compliance profiles.", img: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=600" };
-        if (monthNum === 8 && dateNum >= 20 && dateNum <= 30) return { badge: "Secure Business Protection Shield!", discount: "20%", heading: "RAKSHA BANDHAN BOUNDS", text: "Protect your corporate account against structural risk vectors. Deploy pristine authentication matrices.", img: "https://images.unsplash.com/photo-1627641016832-7bb8c5fbcd42?q=80&w=600" };
+        if (monthNum === 8 && dayOfWeek === 0 && dateNum <= 7) return { badge: "Special Quota waived for Diverse Profiles", discount: "25% OFF", heading: "SISTERS' DAY PROMO", text: "Unlock specialized institutional waivers and structural fee exemptions reserved for diverse vendor setups.", img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=600" };
+        if (monthNum === 8 && dateNum === 7) return { badge: "Targeted B2B Market Dominance", discount: "20% OFF", heading: "NATIONAL JAVELIN DAY", text: "Aim for L1 positioning index markers with absolute accuracy using verified pricing simulator matrix tools.", img: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=600" };
+        if (monthNum === 8 && dateNum === 12) return { badge: "Startup Structural Acceleration", discount: "20% OFF", heading: "INTERNATIONAL YOUTH DAY", text: "Helping newly registered entities acquire immediate vendor assessment waivers safely.", img: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=600" };
+        if (monthNum === 8 && dateNum === 15) return { badge: "Celebrate Complete Business Freedom!", discount: "15% OFF", heading: "INDEPENDENCE DAY INDIA", text: "Break free from catalog limitations. Deploy verified OEM status protocols and step into open marketplace arrays.", img: "https://images.unsplash.com/photo-1532375810709-75b1da00537c?q=80&w=600" };
+        if (monthNum === 8 && dateNum === 29) return { badge: "Competitive Edge In Bidding Tenders", discount: "20% OFF", heading: "NATIONAL SPORTS DAY", text: "Outmaneuver validation errors and outperform competing suppliers with clean strategic compliance profiles.", img: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=600" };
+        if (monthNum === 8 && dateNum >= 20 && dateNum <= 30) return { badge: "Secure Business Protection Shield!", discount: "20% OFF", heading: "RAKSHA BANDHAN BOUNDS", text: "Protect your corporate account against structural risk vectors. Deploy pristine authentication matrices.", img: "https://images.unsplash.com/photo-1627641016832-7bb8c5fbcd42?q=80&w=600" };
 
         // --- SEPTEMBER MAPPINGS ---
-        if (monthNum === 9 && dateNum === 5) return { badge: "Mastering Public Sector Strategy", discount: "25%", heading: "TEACHERS' DAY BLUES", text: "Acquire high-level portfolio optimization blueprints under the guidance of our master consultants.", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600" };
-        if (monthNum === 9 && dateNum === 8) return { badge: "Demystifying Policy Documentation", discount: "20%", heading: "INTERNATIONAL LITERACY", text: "Translate complex procurement rules into direct, actionable business parameters safely.", img: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=600" };
-        if (monthNum === 9 && dateNum === 14) return { badge: "Connecting Regional Corporate Assets", discount: "20%", heading: "HINDI DIWAS SPECIAL", text: "Accelerating technical synchronization cycles for verified MSMEs across local state sectors.", img: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=600" };
-        if (monthNum === 9 && dateNum === 15) return { badge: "Precision-Engineered Compliance Arrays", discount: "30%", heading: "ENGINEERS' DAY HYPER", text: "Engineered to eliminate catalog bottlenecks. Map advanced checklists without experiencing tracking friction.", img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600" };
-        if (monthNum === 9 && dateNum === 16) return { badge: "Shielding Corporate Credibility", discount: "20%", heading: "WORLD OZONE DAY", text: "Deploy reliable defense strategies to insulate your profile from arbitrary account blocks.", img: "https://images.unsplash.com/photo-1534088568595-a066f410bcda?q=80&w=600" };
-        if (monthNum === 9 && dateNum === 21) return { badge: "Frictionless Account Resolution", discount: "20%", heading: "INTERNATIONAL PEACE DAY", text: "Resolve long-standing buyer disputes and clear locked order sequences with legal optimization nodes.", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=600" };
-        if (monthNum === 9 && dateNum === 27) return { badge: "Global Marketplace Adaptability", discount: "20%", heading: "WORLD TOURISM DAY", text: "Configure your setup to capture secondary cross-border procurement pipelines smoothly.", img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=600" };
+        if (monthNum === 9 && dateNum === 5) return { badge: "Mastering Public Sector Strategy", discount: "25% OFF", heading: "TEACHERS' DAY BLUES", text: "Acquire high-level portfolio optimization blueprints under the guidance of our master consultants.", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600" };
+        if (monthNum === 9 && dateNum === 8) return { badge: "Demystifying Policy Documentation", discount: "20% OFF", heading: "INTERNATIONAL LITERACY", text: "Translate complex procurement rules into direct, actionable business parameters safely.", img: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=600" };
+        if (monthNum === 9 && dateNum === 14) return { badge: "Connecting Regional Corporate Assets", discount: "20% OFF", heading: "HINDI DIWAS SPECIAL", text: "Accelerating technical synchronization cycles for verified MSMEs across local state sectors.", img: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=600" };
+        if (monthNum === 9 && dateNum === 15) return { badge: "Precision-Engineered Compliance Arrays", discount: "30% OFF", heading: "ENGINEERS' DAY HYPER", text: "Engineered to eliminate catalog bottlenecks. Map advanced checklists without experiencing tracking friction.", img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600" };
+        if (monthNum === 9 && dateNum === 16) return { badge: "Shielding Corporate Credibility", discount: "20% OFF", heading: "WORLD OZONE DAY", text: "Deploy reliable defense strategies to insulate your profile from arbitrary account blocks.", img: "https://images.unsplash.com/photo-1534088568595-a066f410bcda?q=80&w=600" };
+        if (monthNum === 9 && dateNum === 21) return { badge: "Frictionless Account Resolution", discount: "20% OFF", heading: "INTERNATIONAL PEACE DAY", text: "Resolve long-standing buyer disputes and clear locked order sequences with legal optimization nodes.", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=600" };
+        if (monthNum === 9 && dateNum === 27) return { badge: "Global Marketplace Adaptability", discount: "20% OFF", heading: "WORLD TOURISM DAY", text: "Configure your setup to capture secondary cross-border procurement pipelines smoothly.", img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=600" };
 
         // --- OCTOBER MAPPINGS ---
-        if (monthNum === 10 && dateNum === 2) return { badge: "Self-Reliance via Domestic Supply", discount: "20%", heading: "GANDHI JAYANTI FRAMEWORK", text: "Promoting structural growth parameters for local manufacturing hubs with pristine compliance frameworks.", img: "https://images.unsplash.com/photo-1601058268499-e52658b8bb88?q=80&w=600" };
-        if (monthNum === 10 && dateNum === 5) return { badge: "Advanced Tender Blueprint Auditing", discount: "20%", heading: "WORLD TEACHERS' DAY", text: "Learn absolute portfolio strategies to map complex validation matrices without indexing faults.", img: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=600" };
-        if (monthNum === 10 && dateNum === 8) return { badge: "High-Altitude Strategy Formats", discount: "25%", heading: "INDIAN AIR FORCE DAY", text: "Soar over pricing anomalies. Secure L1 tags seamlessly using tactical optimization modules.", img: "https://images.unsplash.com/photo-1516496636080-14fb876e029f?q=80&w=600" };
-        if (monthNum === 10 && dateNum === 9) return { badge: "Accelerated Document Dispatch Matrix", discount: "20%", heading: "WORLD POST SYSTEM", text: "Expedite delayed verification requests on the portal. Clear structural backlog nodes seamlessly.", img: "https://images.unsplash.com/photo-1566937169390-7be4c63b8a0e?q=80&w=600" };
-        if (monthNum === 10 && dateNum === 11) return { badge: "Empowering Underrepresented Enterprises", discount: "25%", heading: "INTL. GIRL CHILD DAY", text: "Tap into targeted regulatory benefits and structural parameters reserved for diverse ecosystems.", img: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=600" };
-        if (monthNum === 10 && dateNum === 15) return { badge: "B2B Operation Methodology", discount: "20%", heading: "WORLD STUDENTS DAY", text: "Train your procurement teams to navigate intricate technical specifications without operational delay.", img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600" };
-        if (monthNum === 10 && dateNum === 16) return { badge: "Nurturing Steady Business Pipelines", discount: "20%", heading: "WORLD FOOD MATRIX", text: "Feed your sales pipelines with highly profitable public bids. Secure continuous institutional order streams.", img: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=600" };
-        if (monthNum === 10 && dateNum === 24) return { badge: "Standardized Global Integration Protocols", discount: "20%", heading: "UNITED NATIONS DAY", text: "Align corporate profile data maps with standardized international validation parameters cleanly.", img: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=600" };
-        if (monthNum === 10 && dateNum === 31) return { badge: "Consolidating Multi-Branch Assets", discount: "20%", heading: "NATIONAL UNITY DAY", text: "Unify parent credentials and separate sub-accounts under a singular verified master corporate profile.", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 2) return { badge: "Self-Reliance via Domestic Supply", discount: "20% OFF", heading: "GANDHI JAYANTI FRAMEWORK", text: "Promoting structural growth parameters for local manufacturing hubs with pristine compliance frameworks.", img: "https://images.unsplash.com/photo-1601058268499-e52658b8bb88?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 5) return { badge: "Advanced Tender Blueprint Auditing", discount: "20% OFF", heading: "WORLD TEACHERS' DAY", text: "Learn absolute portfolio strategies to map complex validation matrices without indexing faults.", img: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 8) return { badge: "High-Altitude Strategy Formats", discount: "25% OFF", heading: "INDIAN AIR FORCE DAY", text: "Soar over pricing anomalies. Secure L1 tags seamlessly using tactical optimization modules.", img: "https://images.unsplash.com/photo-1516496636080-14fb876e029f?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 9) return { badge: "Accelerated Document Dispatch Matrix", discount: "20% OFF", heading: "WORLD POST SYSTEM", text: "Expedite delayed verification requests on the portal. Clear structural backlog nodes seamlessly.", img: "https://images.unsplash.com/photo-1566937169390-7be4c63b8a0e?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 11) return { badge: "Empowering Underrepresented Enterprises", discount: "25% OFF", heading: "INTL. GIRL CHILD DAY", text: "Tap into targeted regulatory benefits and structural parameters reserved for diverse ecosystems.", img: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 15) return { badge: "B2B Operation Methodology", discount: "20% OFF", heading: "WORLD STUDENTS DAY", text: "Train your procurement teams to navigate intricate technical specifications without operational delay.", img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 16) return { badge: "Nurturing Steady Business Pipelines", discount: "20% OFF", heading: "WORLD FOOD MATRIX", text: "Feed your sales pipelines with highly profitable public bids. Secure continuous institutional order streams.", img: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 24) return { badge: "Standardized Global Integration Protocols", discount: "20% OFF", heading: "UNITED NATIONS DAY", text: "Align corporate profile data maps with standardized international validation parameters cleanly.", img: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=600" };
+        if (monthNum === 10 && dateNum === 31) return { badge: "Consolidating Multi-Branch Assets", discount: "20% OFF", heading: "NATIONAL UNITY DAY", text: "Unify parent credentials and separate sub-accounts under a singular verified master corporate profile.", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=600" };
 
         // --- NOVEMBER MAPPINGS ---
-        if (monthNum === 11 && dateNum === 1) return { badge: "Clean Data Architecture Formats", discount: "20%", heading: "WORLD VEGAN THEME", text: "Purge complex synthetic parameters triggering automated platform alerts. Maintain pristine listings.", img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=600" };
-        if (monthNum === 11 && dateNum === 7) return { badge: "Proactive Profile Risk Deletion", discount: "20%", heading: "CANCER AWARENESS NODE", text: "Isolate and eliminate structural bugs before compliance updates freeze active account permissions.", img: "https://images.unsplash.com/photo-1579684389782-64d84b5e901a?q=80&w=600" };
-        if (monthNum === 11 && dateNum === 11) return { badge: "Mastering Bid Optimization Strategy", discount: "20%", heading: "NATIONAL EDUCATION DAY", text: "Equip your compliance teams with strategic intelligence maps to navigate complex public tenders safely.", img: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=600" };
-        if (monthNum === 11 && dateNum === 14) return { badge: "Simplifying Marketplace Architectures", discount: "22%", heading: "CHILDREN'S DAY PROMO", text: "Making complex vendor registration systems easy to navigate. Zero operational friction grids.", img: "https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?q=80&w=600" };
-        if (monthNum === 11 && dateNum === 19) return { badge: "Supporting Industrial Enterprise Leaders", discount: "20%", heading: "INTERNATIONAL MEN'S DAY", text: "Accelerating technical synchronization metrics for corporate entities across national bidding tracks.", img: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=600" };
-        if (monthNum === 11 && dateNum === 26) return { badge: "Regulatory Compliance Assurance", discount: "25%", heading: "CONSTITUTION DAY INDIA", text: "Align your profile data structures accurately with the latest government marketplace frameworks.", img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600" };
-        if (monthNum === 11 && dateNum >= 1 && dateNum <= 12) return { badge: "Festival of Corporate Prosperity!", discount: "35%", heading: "DIWALI CELEBRATION MATRIX", text: "Propel operational victory straight to your balance sheets. Clear validation items with strategic audits.", img: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=600" };
+        if (monthNum === 11 && dateNum === 1) return { badge: "Clean Data Architecture Formats", discount: "20% OFF", heading: "WORLD VEGAN THEME", text: "Purge complex synthetic parameters triggering automated platform alerts. Maintain pristine listings.", img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=600" };
+        if (monthNum === 11 && dateNum === 7) return { badge: "Proactive Profile Risk Deletion", discount: "20% OFF", heading: "CANCER AWARENESS NODE", text: "Isolate and eliminate structural bugs before compliance updates freeze active account permissions.", img: "https://images.unsplash.com/photo-1579684389782-64d84b5e901a?q=80&w=600" };
+        if (monthNum === 11 && dateNum === 11) return { badge: "Mastering Bid Optimization Strategy", discount: "20% OFF", heading: "NATIONAL EDUCATION DAY", text: "Equip your compliance teams with strategic intelligence maps to navigate complex public tenders safely.", img: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=600" };
+        if (monthNum === 11 && dateNum === 14) return { badge: "Simplifying Marketplace Architectures", discount: "22% OFF", heading: "CHILDREN'S DAY PROMO", text: "Making complex vendor registration systems easy to navigate. Zero operational friction grids.", img: "https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?q=80&w=600" };
+        if (monthNum === 11 && dateNum === 19) return { badge: "Supporting Industrial Enterprise Leaders", discount: "20% OFF", heading: "INTERNATIONAL MEN'S DAY", text: "Accelerating technical synchronization metrics for corporate entities across national bidding tracks.", img: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=600" };
+        if (monthNum === 11 && dateNum === 26) return { badge: "Regulatory Compliance Assurance", discount: "25% OFF", heading: "CONSTITUTION DAY INDIA", text: "Align your profile data structures accurately with the latest government marketplace frameworks.", img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600" };
+        if (monthNum === 11 && dateNum >= 1 && dateNum <= 12) return { badge: "Festival of Corporate Prosperity!", discount: "35% OFF", heading: "DIWALI CELEBRATION MATRIX", text: "Propel operational victory straight to your balance sheets. Clear validation items with strategic audits.", img: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=600" };
 
         // --- DECEMBER MAPPINGS ---
-        if (monthNum === 12 && dateNum === 1) return { badge: "System Integrity Diagnostics", discount: "20%", heading: "WORLD AIDS DAY SCAN", text: "Detect and remove corrupt catalog fields triggering structural account blocks immediately.", img: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?q=80&w=600" };
-        if (monthNum === 12 && dateNum === 2) return { badge: "Eliminating Inventory Redundancies", discount: "20%", heading: "POLLUTION CONTROL NODE", text: "Clean out unoptimized entries causing systematic failures in search query indexing sequences.", img: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?q=80&w=600" };
-        if (monthNum === 12 && dateNum === 4) return { badge: "Deep-Water Strategic Maneuvers", discount: "25%", heading: "INDIAN NAVY DAY SYNC", text: "Navigate complex price-dumping parameters safely. Setup secure L1 reference tags cleanly.", img: "https://images.unsplash.com/photo-1547683905-f686c993aae5?q=80&w=600" };
-        if (monthNum === 12 && dateNum === 7) return { badge: "Securing Verified Corporate Shields", discount: "20%", heading: "ARMED FORCES FLAG DAY", text: "Insulate your product profiles against unvetted platform rejections with professional auditing frameworks.", img: "https://images.unsplash.com/photo-1590172545431-d599c5a5e86d?q=80&w=600" };
-        if (monthNum === 12 && dateNum === 10) return { badge: "Democratized Procurement Frameworks", discount: "20%", heading: "HUMAN RIGHTS DAY SLATE", text: "Ensuring fair, open access routes for entry-level micro sellers to capture high value public tenders.", img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600" };
-        if (monthNum === 12 && dateNum === 14) return { badge: "Optimizing Resource Velocities", discount: "20%", heading: "ENERGY CONSERVATION", text: "Reduce time wastage caused by tedious manual application loops. Automate your tracking profiles.", img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=600" };
-        if (monthNum === 12 && dateNum === 22) return { badge: "Advanced Mathematical Simulators", discount: "25%", heading: "MATHEMATICS DAY ENGINE", text: "Stay ahead of regulatory market changes. Compute dynamic pricing limits without indexing blocks.", img: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=600" };
-        if (monthNum === 12 && dateNum === 23) return { badge: "Primary Sector Supply Configurations", discount: "20%", heading: "KISAN DIWAS TELEMETRY", text: "Optimizing supply chain parameters for agricultural equipment listings and primary sector contracts.", img: "https://images.unsplash.com/photo-1592997572594-34be01bc36c7?q=80&w=600" };
-        if (monthNum === 12 && dateNum === 24) return { badge: "Protecting Corporate Transactions", discount: "20%", heading: "CONSUMER RIGHTS DRIVE", text: "Overcome unfair operational penalties and clear blocked payment sequences safely with targeted counsel.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600" };
-        if (monthNum === 12 && dateNum === 25) return { badge: "Merry Christmas Corporate Extensions!", discount: "25%", heading: "CHRISTMAS HOLIDAY FRAMEWORKS", text: "Unwrap premium dashboard setups. Re-modulate unoptimized catalog entries with special winter exemption nodes.", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 1) return { badge: "System Integrity Diagnostics", discount: "20% OFF", heading: "WORLD AIDS DAY SCAN", text: "Detect and remove corrupt catalog fields triggering structural account blocks immediately.", img: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 2) return { badge: "Eliminating Inventory Redundancies", discount: "20% OFF", heading: "POLLUTION CONTROL NODE", text: "Clean out unoptimized entries causing systematic failures in search query indexing sequences.", img: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 4) return { badge: "Deep-Water Strategic Maneuvers", discount: "25% OFF", heading: "INDIAN NAVY DAY SYNC", text: "Navigate complex price-dumping parameters safely. Setup secure L1 reference tags cleanly.", img: "https://images.unsplash.com/photo-1547683905-f686c993aae5?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 7) return { badge: "Securing Verified Corporate Shields", discount: "20% OFF", heading: "ARMED FORCES FLAG DAY", text: "Insulate your product profiles against unvetted platform rejections with professional auditing frameworks.", img: "https://images.unsplash.com/photo-1590172545431-d599c5a5e86d?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 10) return { badge: "Democratized Procurement Frameworks", discount: "20% OFF", heading: "HUMAN RIGHTS DAY SLATE", text: "Ensuring fair, open access routes for entry-level micro sellers to capture high value public tenders.", img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 14) return { badge: "Optimizing Resource Velocities", discount: "20% OFF", heading: "ENERGY CONSERVATION", text: "Reduce time wastage caused by tedious manual application loops. Automate your tracking profiles.", img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 22) return { badge: "Advanced Mathematical Simulators", discount: "25% OFF", heading: "MATHEMATICS DAY ENGINE", text: "Stay ahead of regulatory market changes. Compute dynamic pricing limits without indexing blocks.", img: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 23) return { badge: "Primary Sector Supply Configurations", discount: "20% OFF", heading: "KISAN DIWAS TELEMETRY", text: "Optimizing supply chain parameters for agricultural equipment listings and primary sector contracts.", img: "https://images.unsplash.com/photo-1592997572594-34be01bc36c7?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 24) return { badge: "Protecting Corporate Transactions", discount: "20% OFF", heading: "CONSUMER RIGHTS DRIVE", text: "Overcome unfair operational penalties and clear blocked payment sequences safely with targeted counsel.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600" };
+        if (monthNum === 12 && dateNum === 25) return { badge: "Merry Christmas Corporate Extensions!", discount: "25% OFF", heading: "CHRISTMAS HOLIDAY FRAMEWORKS", text: "Unwrap premium dashboard setups. Re-modulate unoptimized catalog entries with special winter exemption nodes.", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600" };
         
         // --- ABSOLUTE GLOBAL DEFAULT ---
-        return { heading: "LIMITED TIME PROMO", discount: "25%", badge: "SPECIAL", text: "Establish secure baseline setups for your corporate configurations. Initiate comprehensive dashboard auditing workflows immediately.", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600" };
-    }
-
-    const globalNow = new Date();
-    const monthNum = globalNow.getMonth() + 1;
-    const dateNum = globalNow.getDate();
-    const todayStr = `${String(dateNum).padStart(2, '0')}/${String(monthNum).padStart(2, '0')}/${globalNow.getFullYear()}`;
-    const url = "YOUR_GOOGLE_SHEET_JSON_URL_HERE";
-
-    // Helper function to render data and start countdown/progress bar
-    function startTimerAndPublish(discount, heading, text, img) {
-        const headingElem = document.getElementById('promo-heading');
-        const textElem = document.getElementById('promo-text');
-        const discountElem = document.getElementById('promo-discount');
-        const imgElem = document.getElementById('promo-img');
-
-        if (headingElem) headingElem.innerText = heading;
-        if (textElem) textElem.innerText = text;
-        if (discountElem) discountElem.innerText = discount.includes('%') ? discount : `${discount}% OFF`;
-        if (imgElem) imgElem.src = img;
-
-        let totalSeconds = 86400; // 24 Hours
-        setInterval(() => {
-            let h = Math.floor(totalSeconds / 3600);
-            let m = Math.floor((totalSeconds % 3600) / 60);
-            let s = totalSeconds % 60;
-            
-            const clockDigits = document.getElementById('countdown-clock');
-            if (clockDigits) {
-                clockDigits.innerText = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-            }
-
-            const progressBar = document.getElementById('timer-progress');
-            if (progressBar) {
-                let percentage = (totalSeconds / 86400) * 100;
-                progressBar.style.width = `${percentage}%`;
-            }
-
-            if (totalSeconds > 0) totalSeconds--;
-        }, 1000);
-    }
-
-    function applyDynamicTheme(heading) {
-        // Theme hook placeholder
+        return { heading: "LIMITED TIME PROMO", discount: "25% OFF", badge: "Get Government Orders ! Register on GeM Portal today", text: "Establish secure baseline setups for your corporate configurations. Initiate comprehensive dashboard auditing workflows immediately.", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600" };
     }
 
     // CORE HYBRID RUN DISPATCHER
@@ -2896,12 +2839,50 @@ document.addEventListener("DOMContentLoaded", () => {
                 applyDynamicTheme(headingVal || "SPECIAL");
                 startTimerAndPublish(finalDiscount, headingVal, textVal, imgVal);
             } else {
-                renderFallbackNode();
+                const rawNode = getHardcodedCalendarNode();
+                const isDefault = rawNode.heading === "LIMITED TIME PROMO";
+
+                const autoNode = {
+                    ...rawNode,
+                    heading: isDefault ? rawNode.heading : rawNode.heading,
+                    badge: isDefault ? rawNode.badge : 'HAPPY ' + rawNode.badge,
+                    text: 'NavigateGem Consultant: ' + (rawNode.text || rawNode.sub || '')
+                };
+
+                document.getElementById('promo-badge').innerText = autoNode.badge;
+                applyDynamicTheme(autoNode.heading);
+                startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text || autoNode.sub, autoNode.img);
             }
         })
         .catch(() => {
-            renderFallbackNode();
+            const rawNode = getHardcodedCalendarNode();
+            const isDefault = rawNode.heading === "LIMITED TIME PROMO";
+
+            const autoNode = {
+                ...rawNode,
+                heading: isDefault ? rawNode.heading : rawNode.heading,
+                badge: isDefault ? rawNode.badge : 'HAPPY ' + rawNode.badge,
+                text: 'NavigateGem Consultant: ' + (rawNode.text || rawNode.sub || '')
+            };
+
+            document.getElementById('promo-badge').innerText = autoNode.badge;
+            applyDynamicTheme(autoNode.heading);
+            startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text || autoNode.sub, autoNode.img);
         });
+
+    if (new Date().getHours() >= 18 || new Date().getHours() < 6) {
+        document.querySelectorAll('.smarthub-card').forEach(c => c.style.borderColor = 'rgba(14, 165, 233, 0.25)');
+    }
+    
+    if (typeof rotateTicker === 'function') {
+        rotateTicker();
+    }
+
+    // ---------------------------------------------------
+    // 👤 PART A: REVIEWS MARQUEE STREAM CONFIGURATION
+    // ---------------------------------------------------
+    // Yahan aap apna reviews marquee stream ka baaki ka code continue kar sakte hain
+});
 
     function renderFallbackNode() {
         const rawNode = getHardcodedCalendarNode();
