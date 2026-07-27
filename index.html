@@ -2754,7 +2754,7 @@ window.addEventListener('DOMContentLoaded', () => {
 document.addEventListener("DOMContentLoaded", () => {
     
     // --- 365-DAY MASTER AUTOMATION ENGINE MATRIX DATABASE ---
-  document.addEventListener("DOMContentLoaded", () => {
+ document.addEventListener("DOMContentLoaded", () => {
     
     // --- SECTION VISIBILITY FIX ---
     const promoSection = document.getElementById('dynamic-festival-section');
@@ -2912,6 +2912,14 @@ document.addEventListener("DOMContentLoaded", () => {
         startTimerAndPublish(rawNode.discount, rawNode.heading, rawNode.text, rawNode.img);
     }
 });
+
+// Secure Seal Function for Action Button
+function triggerSecureSeal(event) {
+    const sealBox = document.getElementById('secure-seal-box');
+    if (sealBox) {
+        sealBox.style.display = 'flex';
+    }
+}
 
 // Secure Seal Function for Action Button
 function triggerSecureSeal(event) {
