@@ -2870,6 +2870,7 @@ window.addEventListener('DOMContentLoaded', () => {
         if (monthNum === 12 && dateNum === 24) return { badge: "Protecting Corporate Transactions", discount: "20% OFF", heading: "CONSUMER RIGHTS DRIVE", text: "Overcome unfair operational penalties and clear blocked payment sequences safely with targeted counsel.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600" };
         if (monthNum === 12 && dateNum === 25) return { badge: "Merry Christmas Corporate Extensions!", discount: "25% OFF", heading: "CHRISTMAS HOLIDAY FRAMEWORKS", text: "Unwrap premium dashboard setups. Re-modulate unoptimized catalog entries with special winter exemption nodes.", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600" };
      // --- ABSOLUTE GLOBAL DEFAULT ---
+    // --- ABSOLUTE GLOBAL DEFAULT ---
         return { heading: "LIMITED TIME PROMO", discount: "25% OFF", badge: "Get Government Orders  !    Register on GeM Portal today ", text: "Establish secure baseline setups for your corporate configurations. Initiate comprehensive dashboard auditing workflows immediately.", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600" };
     }
 
@@ -2899,34 +2900,34 @@ window.addEventListener('DOMContentLoaded', () => {
                 applyDynamicTheme(headingVal || "SPECIAL");
                 startTimerAndPublish(finalDiscount, headingVal, textVal, imgVal);
             } else {
+                const rawNode = getHardcodedCalendarNode();
+                
+                // Yahan par heading ko main heading banaya aur badge mein 'HAPPY' prefix kiya
+                const autoNode = {
+                    ...rawNode,
+                    heading: rawNode.heading,             // Special day name ab bade heading mein aayega
+                    badge: 'HAPPY ' + rawNode.badge,      // Chote pill badge mein 'HAPPY + description' aayega
+                    text: 'NavigateGem Consultant: ' + (rawNode.text || rawNode.sub || '')
+                };
+
+                document.getElementById('promo-badge').innerText = autoNode.badge;
+                applyDynamicTheme(autoNode.heading);
+                startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text || autoNode.sub, autoNode.img);
+            }
+        })
+        .catch(() => {
             const rawNode = getHardcodedCalendarNode();
-        // Swap badge and heading + Prefix HAPPY
-        const autoNode = {
-            ...rawNode,
-            heading: rawNode.badge,
-            badge: 'HAPPY ' + rawNode.heading,
-            text: 'NavigateGem Consultant: ' + (rawNode.text || rawNode.sub || '')
-        };
+            const autoNode = {
+                ...rawNode,
+                heading: rawNode.heading,
+                badge: 'HAPPY ' + rawNode.badge,
+                text: 'NavigateGem Consultant: ' + (rawNode.text || rawNode.sub || '')
+            };
 
-        document.getElementById('promo-badge').innerText = autoNode.badge;
-        applyDynamicTheme(autoNode.heading);
-        startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text || autoNode.sub, autoNode.img);
-    }
-    })
-    .catch(() => {
-        const rawNode = getHardcodedCalendarNode();
-        const autoNode = {
-            ...rawNode,
-            heading: rawNode.badge,
-            badge: 'HAPPY ' + rawNode.heading,
-            text: 'NavigateGem Consultant: ' + (rawNode.text || rawNode.sub || '')
-        };
-
-        document.getElementById('promo-badge').innerText = autoNode.badge;
-        applyDynamicTheme(autoNode.heading);
-        startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text || autoNode.sub, autoNode.img);
-    });
-
+            document.getElementById('promo-badge').innerText = autoNode.badge;
+            applyDynamicTheme(autoNode.heading);
+            startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text || autoNode.sub, autoNode.img);
+        });
 
     if (new Date().getHours() >= 18 || new Date().getHours() < 6) {
         document.querySelectorAll('.smarthub-card').forEach(c => c.style.borderColor = 'rgba(14, 165, 233, 0.25)');
