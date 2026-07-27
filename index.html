@@ -2732,27 +2732,48 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-   function startTimerAndPublish(discountVal, headingVal, textVal, imgVal) {
+function startTimerAndPublish(discountVal, headingVal, textVal, imgVal) {
     document.getElementById('promo-heading').innerText = headingVal;
     document.getElementById('promo-text').innerText = textVal;
-    document.getElementById('promo-img').src = imgVal;
+    
+    const imgElement = document.getElementById('promo-img');
+    if (imgVal) {
+        imgElement.src = imgVal;
+        imgElement.style.display = 'block';
+    } else {
+        imgElement.style.display = 'none';
+    }
+    
     document.getElementById('promo-discount').innerText = discountVal;
 
     const wpText = `Hi Karan, I want to claim the ${discountVal} offer for "${headingVal}" active on NavigateGeMConsultant.`;
     document.getElementById('promo-action-btn').href = `https://wa.me/918601865757?text=${encodeURIComponent(wpText)}`;
     document.getElementById('dynamic-festival-section').style.display = 'block';
 
+    // Countdown Timer Logic
     setInterval(() => {
         const diff = new Date().setHours(24, 0, 0, 0) - new Date();
         const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
         const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
         const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
-        document.getElementById('countdown-clock').innerText = `${hours}:${minutes}:${seconds}`;
-        document.getElementById('timer-progress').style.width = (100 - ((86400000 - diff) / 86400000) * 100) + '%';
+        
+        const clockElem = document.getElementById('countdown-clock');
+        if (clockElem) clockElem.innerText = `${hours}:${minutes}:${seconds}`;
+        
+        const progressElem = document.getElementById('timer-progress');
+        if (progressElem) {
+            progressElem.style.width = (100 - ((86400000 - diff) / 86400000) * 100) + '%';
+        }
     }, 1000);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+// Secure Seal Effect Function (HTML onclick ke liye)
+function triggerSecureSeal(event) {
+    const sealBox = document.getElementById('secure-seal-box');
+    if (sealBox) {
+        sealBox.style.display = 'flex';
+    }
+}
     document.addEventListener('DOMContentLoaded', () => {
 
         // --- 365-DAY MASTER AUTOMATION ENGINE MATRIX DATABASE ---
