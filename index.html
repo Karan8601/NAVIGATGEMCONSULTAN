@@ -2751,14 +2751,19 @@ window.addEventListener('DOMContentLoaded', () => {
             document.getElementById('timer-progress').style.width = (100 - ((86400000 - diff) / 86400000) * 100) + '%';
         }, 1000);
     }
-// --- 365-DAY MASTER AUTOMATION ENGINE MATRIX DATABASE ---
 document.addEventListener("DOMContentLoaded", () => {
     
     // --- 365-DAY MASTER AUTOMATION ENGINE MATRIX DATABASE ---
     function getHardcodedCalendarNode() {
+        // Safe Date Initialization
+        const now = new Date();
+        const monthNum = now.getMonth() + 1; // 1 to 12
+        const dateNum = now.getDate();       // 1 to 31
+        const dayOfWeek = now.getDay();      // 0 (Sun) to 6 (Sat)
+
         // --- JANUARY MAPPINGS ---
-        if (monthNum === 7 && dateNum === 27) return { badge: "Pruned Data Parameter Frameworks", discount: "20% OFF", heading: "NATURE CONSERVATION", text: "Keep your profile lean and accurate by removing redundant product fields that trigger algorithmic rejections.", img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" };
-        if (monthNum === 7 && dateNum === 28) return { badge: "Pruned Data Parameter Frameworks", discount: "20% OFF", heading: "NATURE CONSERVATION", text: "Keep your profile lean and accurate by removing redundant product fields that trigger algorithmic rejections.", img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 27) return { badge: "Pruned Data Parameter Frameworks", discount: "20% OFF", heading: "NATURE CONSERVATION", text: "Keep your profile lean and accurate by removing redundant product fields that trigger algorithmic rejections.", img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" };
+        if (monthNum === 1 && dateNum === 28) return { badge: "Pruned Data Parameter Frameworks", discount: "20% OFF", heading: "NATURE CONSERVATION", text: "Keep your profile lean and accurate by removing redundant product fields that trigger algorithmic rejections.", img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" };
         
         // --- AUGUST MAPPINGS ---
         if (monthNum === 8 && dayOfWeek === 0 && dateNum <= 7) return { badge: "Special Quota waived for Diverse Profiles", discount: "25% OFF", heading: "SISTERS' DAY PROMO", text: "Unlock specialized institutional waivers and structural fee exemptions reserved for diverse vendor setups.", img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=600" };
@@ -2812,6 +2817,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // --- ABSOLUTE GLOBAL DEFAULT ---
         return { heading: "LIMITED TIME PROMO", discount: "25% OFF", badge: "Get Government Orders ! Register on GeM Portal today", text: "Establish secure baseline setups for your corporate configurations. Initiate comprehensive dashboard auditing workflows immediately.", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600" };
     }
+
+    const globalNow = new Date();
+    const monthNum = globalNow.getMonth() + 1;
+    const dateNum = globalNow.getDate();
+    const todayStr = `${String(dateNum).padStart(2, '0')}/${String(monthNum).padStart(2, '0')}/${globalNow.getFullYear()}`;
+    const url = "YOUR_GOOGLE_SHEET_JSON_URL_HERE";
 
     // CORE HYBRID RUN DISPATCHER
     fetch(url)
@@ -2870,18 +2881,13 @@ document.addEventListener("DOMContentLoaded", () => {
             startTimerAndPublish(autoNode.discount, autoNode.heading, autoNode.text || autoNode.sub, autoNode.img);
         });
 
-    if (new Date().getHours() >= 18 || new Date().getHours() < 6) {
+    if (globalNow.getHours() >= 18 || globalNow.getHours() < 6) {
         document.querySelectorAll('.smarthub-card').forEach(c => c.style.borderColor = 'rgba(14, 165, 233, 0.25)');
     }
     
     if (typeof rotateTicker === 'function') {
         rotateTicker();
     }
-
-    // ---------------------------------------------------
-    // 👤 PART A: REVIEWS MARQUEE STREAM CONFIGURATION
-    // ---------------------------------------------------
-    // Yahan aap apna reviews marquee stream ka baaki ka code continue kar sakte hain
 });
     // Upgraded Raw Data Array containing Real Professional Profiles & NavigateGeM branding
     const reviewsData = [
