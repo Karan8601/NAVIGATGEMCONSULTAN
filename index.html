@@ -2752,9 +2752,9 @@ window.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 // --- 365-DAY MASTER AUTOMATION ENGINE MATRIX DATABASE ---
+ // --- 365-DAY MASTER AUTOMATION ENGINE MATRIX DATABASE ---
     function getHardcodedCalendarNode() {
         // --- JANUARY MAPPINGS ---
-        if (monthNum === 7 && dateNum === 27) return { badge: "Pruned Data Parameter Frameworks", discount: "20% OFF", heading: "NATURE CONSERVATION", text: "Keep your profile lean and accurate by removing redundant product fields that trigger algorithmic rejections.", img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" };
         if (monthNum === 7 && dateNum === 28) return { badge: "Pruned Data Parameter Frameworks", discount: "20% OFF", heading: "NATURE CONSERVATION", text: "Keep your profile lean and accurate by removing redundant product fields that trigger algorithmic rejections.", img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" };
         
         // --- AUGUST MAPPINGS ---
@@ -2837,9 +2837,9 @@ window.addEventListener('DOMContentLoaded', () => {
                 startTimerAndPublish(finalDiscount, headingVal, textVal, imgVal);
             } else {
                 const rawNode = getHardcodedCalendarNode();
-                const isDefault = rawNode.heading.includes("LIMITED TIME PROmo") || rawNode.heading.includes("LIMITED TIME PROMO");
+                const isDefault = rawNode.heading === "LIMITED TIME PROMO";
 
-                // Agar default hoga toh HAPPY nahi lagega, special day hoga tabhi 'HAPPY' prefix aayega
+                // Agar default hai toh jaisa hai waisa rahega, special day hone par heading aur badge swap ho jayenge + HAPPY lag jayega
                 const autoNode = {
                     ...rawNode,
                     heading: isDefault ? rawNode.heading : rawNode.heading,
@@ -2854,11 +2854,11 @@ window.addEventListener('DOMContentLoaded', () => {
         })
         .catch(() => {
             const rawNode = getHardcodedCalendarNode();
-            const isDefault = rawNode.heading.includes("LIMITED TIME PROMO");
+            const isDefault = rawNode.heading === "LIMITED TIME PROMO";
 
             const autoNode = {
                 ...rawNode,
-                heading: rawNode.heading,
+                heading: isDefault ? rawNode.heading : rawNode.heading,
                 badge: isDefault ? rawNode.badge : 'HAPPY ' + rawNode.badge,
                 text: 'NavigateGem Consultant: ' + (rawNode.text || rawNode.sub || '')
             };
