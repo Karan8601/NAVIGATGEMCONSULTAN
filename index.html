@@ -2869,13 +2869,8 @@ window.addEventListener('DOMContentLoaded', () => {
         if (monthNum === 12 && dateNum === 23) return { badge: "Primary Sector Supply Configurations", discount: "20% OFF", heading: "KISAN DIWAS TELEMETRY", text: "Optimizing supply chain parameters for agricultural equipment listings and primary sector contracts.", img: "https://images.unsplash.com/photo-1592997572594-34be01bc36c7?q=80&w=600" };
         if (monthNum === 12 && dateNum === 24) return { badge: "Protecting Corporate Transactions", discount: "20% OFF", heading: "CONSUMER RIGHTS DRIVE", text: "Overcome unfair operational penalties and clear blocked payment sequences safely with targeted counsel.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600" };
         if (monthNum === 12 && dateNum === 25) return { badge: "Merry Christmas Corporate Extensions!", discount: "25% OFF", heading: "CHRISTMAS HOLIDAY FRAMEWORKS", text: "Unwrap premium dashboard setups. Re-modulate unoptimized catalog entries with special winter exemption nodes.", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600" };
-        // --- WEEKEND BACKUP MATRIX ---
-        if (dayOfWeek === 6 || dayOfWeek === 0) {
-            return { badge: "WEEKEND SCALE-UP", discount: "20% OFF", heading: "Weekend Strategy Matrix Active", text: "Maximize weekend downtime by resolving critical profile readiness issues before next week's institutional bidding starts.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600" };
-        }
-
-        // --- ABSOLUTE GLOBAL DEFAULT ---
-        return { badge: "LIMITED TIME PROMO", discount: "25% OFF", heading: "Get Government Orders  !    Register on GeM Portal today ", text: "Establish secure baseline setups for your corporate configurations. Initiate comprehensive dashboard auditing workflows immediately.", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600" };
+     // --- ABSOLUTE GLOBAL DEFAULT ---
+        return { heading: "LIMITED TIME PROMO", discount: "25% OFF", badge: "Get Government Orders  !    Register on GeM Portal today ", text: "Establish secure baseline setups for your corporate configurations. Initiate comprehensive dashboard auditing workflows immediately.", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600" };
     }
 
     // CORE HYBRID RUN DISPATCHER
@@ -2884,13 +2879,13 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             const jsonData = JSON.parse(data.substring(47, data.length - 2));
             const rows = jsonData.table.rows;
-            let badgeVal = "", headingVal = "", textVal = "", imgVal = "", discountVal = "", dataFound = false;
+            let headingVal = "", badgeVal = "", textVal = "", imgVal = "", discountVal = "", dataFound = false;
 
             rows.forEach(row => {
                 const sheetDate = row.c[0] ? row.c[0].v : "";
                 if (sheetDate === todayStr) {
-                    badgeVal    = row.c[1] ? row.c[1].v : "";
-                    headingVal  = row.c[2] ? row.c[2].v : "";
+                    headingVal  = row.c[1] ? row.c[1].v : "";
+                    badgeVal    = row.c[2] ? row.c[2].v : "";
                     textVal     = row.c[3] ? row.c[3].v : ""; 
                     imgVal      = row.c[4] ? row.c[4].v : ""; 
                     discountVal = row.c[5] ? row.c[5].v : ""; 
@@ -2901,15 +2896,15 @@ window.addEventListener('DOMContentLoaded', () => {
             if (dataFound) {
                 if (badgeVal) document.getElementById('promo-badge').innerText = badgeVal;
                 let finalDiscount = discountVal ? `${discountVal}% OFF` : `${dateNum}% OFF`;
-                applyDynamicTheme(badgeVal || "SPECIAL");
+                applyDynamicTheme(headingVal || "SPECIAL");
                 startTimerAndPublish(finalDiscount, headingVal, textVal, imgVal);
             } else {
             const rawNode = getHardcodedCalendarNode();
         // Swap badge and heading + Prefix HAPPY
         const autoNode = {
             ...rawNode,
-            badge: rawNode.heading,
-            heading: 'HAPPY ' + rawNode.badge,
+            heading: rawNode.badge,
+            badge: 'HAPPY ' + rawNode.heading,
             text: 'NavigateGem Consultant: ' + (rawNode.text || rawNode.sub || '')
         };
 
@@ -2922,8 +2917,8 @@ window.addEventListener('DOMContentLoaded', () => {
         const rawNode = getHardcodedCalendarNode();
         const autoNode = {
             ...rawNode,
-            badge: rawNode.heading,
-            heading: 'HAPPY ' + rawNode.badge,
+            heading: rawNode.badge,
+            badge: 'HAPPY ' + rawNode.heading,
             text: 'NavigateGem Consultant: ' + (rawNode.text || rawNode.sub || '')
         };
 
@@ -2938,7 +2933,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     rotateTicker();
 });
-
 document.addEventListener("DOMContentLoaded", () => {
     
     // ---------------------------------------------------
