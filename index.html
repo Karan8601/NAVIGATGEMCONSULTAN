@@ -2753,6 +2753,9 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 // --- 365-DAY MASTER AUTOMATION ENGINE MATRIX DATABASE ---
  // --- 365-DAY MASTER AUTOMATION ENGINE MATRIX DATABASE ---
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- 365-DAY MASTER AUTOMATION ENGINE MATRIX DATABASE ---
     function getHardcodedCalendarNode() {
         // --- JANUARY MAPPINGS ---
         if (monthNum === 7 && dateNum === 27) return { badge: "Pruned Data Parameter Frameworks", discount: "20% OFF", heading: "NATURE CONSERVATION", text: "Keep your profile lean and accurate by removing redundant product fields that trigger algorithmic rejections.", img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" };
@@ -2840,7 +2843,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 const rawNode = getHardcodedCalendarNode();
                 const isDefault = rawNode.heading === "LIMITED TIME PROMO";
 
-                // Agar default hai toh jaisa hai waisa rahega, special day hone par heading aur badge swap ho jayenge + HAPPY lag jayega
                 const autoNode = {
                     ...rawNode,
                     heading: isDefault ? rawNode.heading : rawNode.heading,
@@ -2872,9 +2874,16 @@ window.addEventListener('DOMContentLoaded', () => {
     if (new Date().getHours() >= 18 || new Date().getHours() < 6) {
         document.querySelectorAll('.smarthub-card').forEach(c => c.style.borderColor = 'rgba(14, 165, 233, 0.25)');
     }
-    rotateTicker();
-document.addEventListener("DOMContentLoaded", () => {
     
+    if (typeof rotateTicker === 'function') {
+        rotateTicker();
+    }
+
+    // ---------------------------------------------------
+    // 👤 PART A: REVIEWS MARQUEE STREAM CONFIGURATION
+    // ---------------------------------------------------
+    // Yahan aap apna reviews marquee stream ka baaki ka code continue kar sakte hain
+});
     // ---------------------------------------------------
     // 👤 PART A: REVIEWS MARQUEE STREAM CONFIGURATION
     // ---------------------------------------------------
