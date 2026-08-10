@@ -1,4 +1,4 @@
-<header x-data="{ isScrolled: false, mobileMenuOpen: false }"
+<header x-data="{ isScrolled: false, mobileMenuOpen: false, activeDropdown: null }"
     @scroll.window="isScrolled = window.scrollY > 50"
     :class="isScrolled ? 'bg-[#020617]/90 border-b border-white/10 backdrop-blur-md py-2.5 shadow-[0_4px_30px_rgba(0,0,0,0.5)]' : 'bg-transparent py-4'" 
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-3 sm:px-6 lg:px-12 flex flex-col items-center justify-between"
@@ -32,28 +32,22 @@
                     <a href="about.html" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">ABOUT</a>
                 </li>
                 
-                <!-- GEM SERVICES DROPDOWN (Desktop with Timeout Fix) -->
-                <li class="relative" x-data="{ 
-                    dropdownOpen: false, 
-                    timeout: null,
-                    open() { clearTimeout(this.timeout); this.dropdownOpen = true; },
-                    close() { this.timeout = setTimeout(() => { this.dropdownOpen = false; }, 300); }
-                }" @mouseenter="open()" @mouseleave="close()">
-                
-                    <button @click="dropdownOpen = !dropdownOpen" class="flex items-center space-x-1 py-2 text-gray-300 hover:text-cyan-400 transition-colors duration-200 focus:outline-none">
+                <!-- GEM SERVICES DROPDOWN (Desktop Click & Hover Fixed) -->
+                <li class="relative" @mouseenter="activeDropdown = 'services'" @mouseleave="activeDropdown = null">
+                    <button @click.prevent="activeDropdown = activeDropdown === 'services' ? null : 'services'" 
+                            class="flex items-center space-x-1 py-2 text-gray-300 hover:text-cyan-400 transition-colors duration-200 focus:outline-none cursor-pointer">
                         <span>GEM SERVICES</span>
-                        <svg class="w-2.5 h-2.5 transition-transform duration-200" :class="dropdownOpen ? 'rotate-180' : ''" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <svg class="w-2.5 h-2.5 transition-transform duration-200" :class="activeDropdown === 'services' ? 'rotate-180' : ''" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                         </svg>
                     </button>
 
-                    <div x-show="dropdownOpen" x-transition @mouseenter="open()" @mouseleave="close()" class="absolute left-0 w-72 bg-slate-900/95 border border-white/10 rounded-xl shadow-xl z-50 mt-1 py-2 backdrop-blur-md max-h-[75vh] overflow-y-auto" style="display: none;">
+                    <div x-show="activeDropdown === 'services'" x-transition class="absolute left-0 w-72 bg-slate-900/95 border border-white/10 rounded-xl shadow-xl z-50 mt-1 py-2 backdrop-blur-md max-h-[75vh] overflow-y-auto" style="display: none;">
                         <a href="service.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-cyan-400 transition-colors">Services</a>
                         <a href="gem-portal-registration.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-cyan-400 transition-colors">GeM Registration</a>
                         <a href="oem-portal-registration.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-cyan-400 transition-colors">GeM OEM Registration</a>
                         <a href="tender-bidding.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-cyan-400 transition-colors">GeM Tender Bidding</a>
                         
-                        <!-- Normal Links for State and City -->
                         <a href="states.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-cyan-400 transition-colors">Navigate Service in State</a>
                         <a href="city.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-cyan-400 transition-colors">Navigate Service in City</a>
 
@@ -90,7 +84,7 @@
 
     <!-- Mobile Dropdown Menu -->
     <div x-show="mobileMenuOpen" 
-        @click.away="mobileMenuOpen = false"
+        @click.outside="mobileMenuOpen = false"
         x-transition:enter="transition ease-out duration-200"
         x-transition:enter-start="opacity-0 -translate-y-2"
         x-transition:enter-end="opacity-100 translate-y-0"
@@ -124,7 +118,6 @@
                     <a href="oem-portal-registration.html" class="block py-2 px-3 text-sm text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">GeM OEM Registration</a>
                     <a href="tender-bidding.html" class="block py-2 px-3 text-sm text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">GeM Tender Bidding</a>
                     
-                    <!-- Normal Links for Mobile State and City -->
                     <a href="states.html" class="block py-2 px-3 text-sm text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">Navigate Service in State</a>
                     <a href="city.html" class="block py-2 px-3 text-sm text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">Navigate Service in City</a>
 
@@ -135,7 +128,7 @@
             </li>
 
             <li>
-                <a href="traning.html" class="block py-2.5 px-3 text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">TRAINING</a>
+                <a href="traning.html" class="block py-2.5 px-3 text-gray-300 hover:bg-white/5 hover:text-gray-300 rounded-lg transition-colors">TRAINING</a>
             </li>
             <li>
                 <a href="project.html" class="block py-2.5 px-3 text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-lg transition-colors">PROJECTS</a>
