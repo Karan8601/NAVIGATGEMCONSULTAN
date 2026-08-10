@@ -2378,43 +2378,198 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
         });
 
-  const statesDatabase = {
-  "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur", "Nellore", "Kurnool", "Tirupati", "Rajahmundry", "Kakinada", "Kadapa", "Anantapur"],
-  "Arunachal Pradesh": ["Itanagar", "Tawang", "Pasighat", "Ziro", "Namsai", "Bomdila", "Aalo", "Tezu", "Changlang", "Seppa"],
-  "Assam": ["Guwahati", "Silchar", "Dibrugarh", "Jorhat", "Nagaon", "Tinsukia", "Tezpur", "Bongaigaon", "Karimganj", "Diphu"],
-  "Bihar": ["Patna", "Gaya", "Bhagalpur", "Muzaffarpur", "Purnia", "Darbhanga", "Bihar Sharif", "Arrah", "Begusarai", "Katihar"],
-  "Chhattisgarh": ["Raipur", "Bhilai", "Bilaspur", "Korba", "Durg", "Rajnandgaon", "Raigarh", "Jagdalpur", "Ambikapur", "Dhamtari"],
-  "Delhi NCR": ["New Delhi", "North Delhi", "South Delhi", "East Delhi", "West Delhi", "Dwarka", "Rohini", "Connaught Place", "Karol Bagh", "Saket"],
-  "Goa": ["Panaji", "Vasco da Gama", "Margao", "Mapusa", "Ponda", "Bicholim", "Curchorem", "Sanquelim", "Canacona", "Pernem"],
-  "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Gandhinagar", "Anand", "Bharuch", "Vapi"],
-  "Haryana": ["Faridabad", "Gurugram", "Panipat", "Ambala", "Yamunanagar", "Rohtak", "Hisar", "Karnal", "Sonipat", "Panchkula"],
-  "Himachal Pradesh": ["Shimla", "Dharamshala", "Solan", "Mandi", "Kullu", "Bilaspur", "Chamba", "Una", "Nahan", "Palampur"],
-  "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Deoghar", "Hazaribagh", "Giridih", "Ramgarh", "Medininagar", "Phusro"],
-  "Karnataka": ["Bangalore", "Mysore", "Hubli-Dharwad", "Mangalore", "Belgaum", "Gulbarga", "Davanagere", "Bellary", "Shimoga", "Tumkur"],
-  "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode", "Kollam", "Thrissur", "Palakkad", "Alappuzha", "Malappuram", "Kannur", "Kottayam"],
-  "Madhya Pradesh": ["Bhopal", "Indore", "Gwalior", "Jabalpur", "Ujjain", "Sagar", "Dewas", "Satna", "Ratlam", "Rewa"],
-  "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik", "Thane", "Aurangabad", "Solapur", "Amravati", "Kolhapur", "Jalgaon"],
-  "Manipur": ["Imphal", "Thoubal", "Bishnupur", "Churachandpur", "Senapati", "Ukhrul", "Tamenglong", "Jiribam", "Kakching", "Moreh"],
-  "Meghalaya": ["Shillong", "Tura", "Jowai", "Nongpoh", "Baghmara", "Williamnagar", "Resubelpara", "Mairang", "Cherrapunji", "Khliehriat"],
-  "Mizoram": ["Aizawl", "Lunglei", "Saiha", "Champhai", "Kolasib", "Serchhip", "Lawngtlai", "Mamit", "Hnahthial", "Khawzawl"],
-  "Nagaland": ["Kohima", "Dimapur", "Mokokchung", "Tuensang", "Wokha", "Zunheboto", "Kiphire", "Phek", "Longleng", "Mon"],
-  "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela", "Berhampur", "Sambalpur", "Puri", "Balasore", "Bhadrak", "Baripada", "Jharsuguda"],
-  "Punjab": ["Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda", "Hoshiarpur", "Mohali", "Batala", "Pathankot", "Moga"],
-  "Rajasthan": ["Jaipur", "Jodhpur", "Kota", "Bikaner", "Ajmer", "Udaipur", "Bhilwara", "Alwar", "Bharatpur", "Sikar"],
-  "Sikkim": ["Gangtok", "Namchi", "Gyalshing", "Mangan", "Singtam", "Rangpo", "Jorethang", "Ravangla", "Pakyong", "Nayabazar"],
-  "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem", "Tirunelveli", "Erode", "Vellore", "Thoothukudi", "Dindigul"],
-  "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar", "Ramagundam", "Khammam", "Mahbubnagar", "Nalgonda", "Adilabad", "Suryapet"],
-  "Tripura": ["Agartala", "Udaipur", "Dharmanagar", "Kailashahar", "Belonia", "Khowai", "Ambassa", "Teliamura", "Melaghar", "Sonamura"],
-  "Uttar Pradesh": ["Lucknow", "Kanpur", "Ghaziabad", "Agra", "Varanasi", "Meerut", "Prayagraj", "Bareilly", "Aligarh", "Moradabad"],
-  "Uttarakhand": ["Dehradun", "Haridwar", "Roorkee", "Haldwani", "Rudrapur", "Kashipur", "Rishikesh", "Pithoragarh", "Ramnagar", "Almora"],
-  "West Bengal": ["Kolkata", "Howrah", "Durgapur", "Asansol", "Siliguri", "Kharagpur", "Haldia", "Bardhaman", "Malda", "Bongaon"]
+const statesDatabase = {
+  "Andhra Pradesh": [
+    "Visakhapatnam", "Vijayawada", "Guntur", "Nellore", "Kurnool", "Tirupati", "Rajahmundry", "Kakinada", "Kadapa", "Anantapur",
+    "Eluru", "Ongole", "Nandyal", "Machilipatnam", "Adoni", "Tenali", "Proddatur", "Chittoor", "Hindupur", "Srikakulam",
+    "Bhimavaram", "Madanapalle", "Guntakal", "Dharmavaram", "Gudivada", "Narasaraopet", "Tadipatri", "Kavali", "Pithapuram", "Amalapuram"
+  ],
+  "Arunachal Pradesh": [
+    "Itanagar", "Tawang", "Pasighat", "Ziro", "Namsai", "Bomdila", "Aalo", "Tezu", "Changlang", "Seppa",
+    "Yingkiong", "Khonsa", "Roing", "Anini", "Longding", "Koloriang", "Palin", "Daporijo", "Bhalukpong", "Dirang",
+    "Deomali", "Rupa", "Mechuka", "Hawai", "Basar", "Nari", "Jairampur", "Miao", "Tuting", "Sagalee"
+  ],
+  "Assam": [
+    "Guwahati", "Silchar", "Dibrugarh", "Jorhat", "Nagaon", "Tinsukia", "Tezpur", "Bongaigaon", "Karimganj", "Diphu",
+    "North Lakhimpur", "Goalpara", "Sivasagar", "Barpeta", "Dhubri", "Kokrajhar", "Golaghat", "Hailakandi", "Mangaldoi", "Udalguri",
+    "Nalbari", "Marigaon", "Lanka", "Lumding", "Badarpur", "Rangia", "Sapatgram", "Naharkatia", "Bokakhat", "Duliajan"
+  ],
+  "Bihar": [
+    "Patna", "Gaya", "Bhagalpur", "Muzaffarpur", "Purnia", "Darbhanga", "Bihar Sharif", "Arrah", "Begusarai", "Katihar",
+    "Munger", "Chhapra", "Danapur", "Saharsa", "Hajipur", "Sasaram", "Dehri", "Siwan", "Motihari", "Nawada",
+    "Bettiah", "Kishanganj", "Jamalpur", "Buxar", "Jehanabad", "Aurangabad", "Sitamarhi", "Madhubani", "Samastipur", "Supaul"
+  ],
+  "Chhattisgarh": [
+    "Raipur", "Bhilai", "Bilaspur", "Korba", "Durg", "Rajnandgaon", "Raigarh", "Jagdalpur", "Ambikapur", "Dhamtari",
+    "Mahasamund", "Kanker", "Chirmiri", "Dalli-Rajhara", "Naila Janjgir", "Kawardha", "Kondagaon", "Jashpur Nagar", "Baikunthpur", "Mungeli",
+    "Bemetara", "Surajpur", "Baloda Bazar", "Gariaband", "Dantewada", "Narayanpur", "Sukma", "Bijapur", "Khairagarh", "Pendra"
+  ],
+  "Delhi NCR": [
+    "New Delhi", "North Delhi", "South Delhi", "East Delhi", "West Delhi", "Dwarka", "Rohini", "Connaught Place", "Karol Bagh", "Saket",
+    "Noida", "Gurugram", "Faridabad", "Ghaziabad", "Greater Noida", "Chandni Chowk", "Vasant Kunj", "Lajpat Nagar", "Mayur Vihar", "Janakpuri",
+    "Mehrauli", "Palam", "Najafgarh", "Shahdara", "Patparganj", "Pitampura", "Okhla", "Rajouri Garden", "Punjabi Bagh", "Connaught Place"
+  ],
+  "Goa": [
+    "Panaji", "Vasco da Gama", "Margao", "Mapusa", "Ponda", "Bicholim", "Curchorem", "Sanquelim", "Canacona", "Pernem",
+    "Valpoi", "Quepem", "Sanguem", "Morjim", "Calangute", "Anjuna", "Candolim", "Colva", "Cortalim", "Siolim",
+    "Baga", "Arambol", "Palolem", "Assagao", "Miramar", "Dona Paula", "Chapora", "Agonda", "Varca", "Cavelossim"
+  ],
+  "Gujarat": [
+    "Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Gandhinagar", "Anand", "Bharuch", "Vapi",
+    "Navsari", "Morbi", "Mehsana", "Surendranagar", "Gandhidham", "Porbandar", "Godhra", "Palanpur", "Valsad", "Patan",
+    "Nadiad", "Junagadh", "Dahod", "Amreli", "Botad", "Navsari", "Veraval", "Bhuj", "Kalol", "Jetpur"
+  ],
+  "Haryana": [
+    "Faridabad", "Gurugram", "Panipat", "Ambala", "Yamunanagar", "Rohtak", "Hisar", "Karnal", "Sonipat", "Panchkula",
+    "Bhiwani", "Sirsa", "Bahadurgarh", "Jind", "Thanesar", "Kaithal", "Rewari", "Palwal", "Hansi", "Narnaul",
+    "Fatehabad", "Gohana", "Tohana", "Narwana", "Charkhi Dadri", "Shahabad", "Pehowa", "Gharaunda", "Samalkha", "Ratia"
+  ],
+  "Himachal Pradesh": [
+    "Shimla", "Dharamshala", "Solan", "Mandi", "Kullu", "Bilaspur", "Chamba", "Una", "Nahan", "Palampur",
+    "Kangra", "Sundarnagar", "Baddi", "Dalhousie", "Manali", "Kasauli", "Rampur", "Nurpur", "Paonta Sahib", "Jogindernagar",
+    "Hamirpur", "Keylong", "Reckong Peo", "Sujanpur", "Mehatpur", "Arki", "Nadaun", "Santokhgarh", "Bhuntar", "Parwanoo"
+  ],
+  "Jharkhand": [
+    "Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Deoghar", "Hazaribagh", "Giridih", "Ramgarh", "Medininagar", "Phusro",
+    "Chaibasa", "Jamtara", "Godda", "Sahibganj", "Dumka", "Pakur", "Lohardaga", "Gumla", "Simdega", "Koderma",
+    "Chirkunda", "Madhupur", "Chatra", "Garhwa", "Khunti", "Serampore", "Bishrampur", "Ghatshila", "Jhumri Tilaiya", "Barhi"
+  ],
+  "Karnataka": [
+    "Bangalore", "Mysore", "Hubli-Dharwad", "Mangalore", "Belgaum", "Gulbarga", "Davanagere", "Bellary", "Shimoga", "Tumkur",
+    "Bijapur", "Raichur", "Bidar", "Hospet", "Gadag-Betageri", "Udupi", "Robertsonpet", "Hassan", "Bhadravati", "Chitradurga",
+    "Kolar", "Mandya", "Chikmagalur", "Gangavati", "Ranebennuru", "Bagalkot", "Ranibennur", "Yadgir", "Karwar", "Koppal"
+  ],
+  "Kerala": [
+    "Thiruvananthapuram", "Kochi", "Kozhikode", "Kollam", "Thrissur", "Palakkad", "Alappuzha", "Malappuram", "Kannur", "Kottayam",
+    "Manjeri", "Thalassery", "Ponnani", "Vatakara", "Kanhangad", "Payyanur", "Kayamkulam", "Neyyattinkara", "Kasaragod", "Kunnamkulam",
+    "Ottapalam", "Thiruvalla", "Koduvally", "Tirur", "Changanassery", "Punalur", "Nilambur", "Cherthala", "Maradu", "Varkala"
+  ],
+  "Madhya Pradesh": [
+    "Bhopal", "Indore", "Gwalior", "Jabalpur", "Ujjain", "Sagar", "Dewas", "Satna", "Ratlam", "Rewa",
+    "Murwara", "Singrauli", "Burhanpur", "Khandwa", "Bhind", "Chhindwara", "Guna", "Shivpuri", "Vidisha", "Damoh",
+    "Mandsaur", "Khargone", "Neemuch", "Pithampur", "Hoshangabad", "Itarsi", "Sehore", "Betul", "Seoni", "Datia"
+  ],
+  "Maharashtra": [
+    "Mumbai", "Pune", "Nagpur", "Nashik", "Thane", "Aurangabad", "Solapur", "Amravati", "Kolhapur", "Jalgaon",
+    "Akola", "Latur", "Dhule", "Ahmednagar", "Chandrapur", "Parbhani", "Jalna", "Bhusawal", "Navi Mumbai", "Panvel",
+    "Beed", "Yavatmal", "Gondia", "Satara", "Baramati", "Wardha", "Achalpur", "Osmanabad", "Nandurbar", "Panvel"
+  ],
+  "Manipur": [
+    "Imphal", "Thoubal", "Bishnupur", "Churachandpur", "Senapati", "Ukhrul", "Tamenglong", "Jiribam", "Kakching", "Moreh",
+    "Wangjing", "Yairipok", "Nambol", "Moirang", "Kabi", "Kangpokpi", "Lilong", "Sugnu", "Tengnoupal", "Pherzawl",
+    "Andro", "Thoubal Wangkhem", "Bishnupur Keinou", "Noney", "Kamjong", "Pallel", "Mayang Imphal", "Oinam", "Thongkhong Laxmi Bazar", "Sekmai"
+  ],
+  "Meghalaya": [
+    "Shillong", "Tura", "Jowai", "Nongpoh", "Baghmara", "Williamnagar", "Resubelpara", "Mairang", "Cherrapunji", "Khliehriat",
+    "Nongstoin", "Amarem", "Dadenggre", "Byrnihat", "Mawlai", "Pynursla", "Tikrikilla", "Ranikor", "Umiam", "Resubel",
+    "Mawkyrwat", "Dawki", "Sohra", "Laitryngew", "Nongthymmai", "Madanrting", "Nongmynsong", "Jyrngam", "Mawdiangdiang", "Bhoirymbong"
+  ],
+  "Mizoram": [
+    "Aizawl", "Lunglei", "Saiha", "Champhai", "Kolasib", "Serchhip", "Lawngtlai", "Mamit", "Hnahthial", "Khawzawl",
+    "Vairengte", "Bairabi", "Saitual", "Tlabung", "North Vanlaiphai", "Darlawn", "Khawhai", "Phullen", "Sialsuk", "Ngopa",
+    "Thenzawl", "Hrangchalkawn", "Bunghmun", "Zotlang", "Rawpuichhip", "Nkawrtlang", "Lungdai", "Phainuam", "Keifang", "Thingsulthliah"
+  ],
+  "Nagaland": [
+    "Kohima", "Dimapur", "Mokokchung", "Tuensang", "Wokha", "Zunheboto", "Kiphire", "Phek", "Longleng", "Mon",
+    "Tuli", "Chumoukedima", "Peren", "Noklak", "Medziphema", "Pfutsero", "Tizit", "Jalukie", "Shamator", "Aghunato",
+    "Meluri", "Nisanyu", "Tseminyu", "Tobu", "Changtongya", "Naganimora", "Rengma", "Satakha", "Chozuba", "Bhandari"
+  ],
+  "Odisha": [
+    "Bhubaneswar", "Cuttack", "Rourkela", "Berhampur", "Sambalpur", "Puri", "Balasore", "Bhadrak", "Baripada", "Jharsuguda",
+    "Jeypore", "Bargarh", "Rayagada", "Bhawanipatna", "Dhenkanal", "Barbil", "Kendujhar", "Sunabeda", "Paradip", "Talcher",
+    "Kendrapara", "Koraput", "Phulbani", "Malkangiri", "Nabarangpur", "Nuapada", "Jagatsinghpur", "Anugul", "Nayagarh", "Boudh"
+  ],
+  "Punjab": [
+    "Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda", "Hoshiarpur", "Mohali", "Batala", "Pathankot", "Moga",
+    "Abohar", "Malerkotla", "Khanna", "Phagwara", "Muktsar", "Barnala", "Rajpura", "Firozpur", "Kapurthala", "Sunam",
+    "Faridkot", "Zirakpur", "Kharar", "Mansa", "Nabha", "Kotkapura", "Talwandi Sabo", "Malout", "Patti", "Derabassi"
+  ],
+  "Rajasthan": [
+    "Jaipur", "Jodhpur", "Kota", "Bikaner", "Ajmer", "Udaipur", "Bhilwara", "Alwar", "Bharatpur", "Sikar",
+    "Pali", "Tonk", "Kishangarh", "Beawar", "Hanumangarh", "Dholpur", "Gangapur City", "Sawai Madhopur", "Churu", "Jhunjhunu",
+    "Barmer", "Banswara", "Chittorgarh", "Sujangarh", "Nagaur", "Bundi", "Sardarshahar", "Ladnun", "Ratangarh", "Makrana"
+  ],
+  "Sikkim": [
+    "Gangtok", "Namchi", "Gyalshing", "Mangan", "Singtam", "Rangpo", "Jorethang", "Ravangla", "Pakyong", "Nayabazar",
+    "Chungthang", "Lachung", "Lachen", "Melli", "Rhenock", "Soreng", "Yuksom", "Dentam", "Rongli", "Temi",
+    "Singhik", "Zuluk", "Chujachen", "Kabi", "Maniram", "Martam", "Yangang", "Phodong", "Passingdon", "Nathang"
+  ],
+  "Tamil Nadu": [
+    "Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem", "Tirunelveli", "Erode", "Vellore", "Thoothukudi", "Dindigul",
+    "Thanjavur", "Ranipet", "Sivakasi", "Karur", "Udhagamandalam", "Hosur", "Nagercoil", "Kanchipuram", "Kumarapalayam", "Karaikudi",
+    "Neyveli", "Cuddalore", "Kumbakonam", "Tiruvannamalai", "Pollachi", "Rajapalayam", "Pudukkottai", "Vaniyambadi", "Ambur", "Nagapattinam"
+  ],
+  "Telangana": [
+    "Hyderabad", "Warangal", "Nizamabad", "Karimnagar", "Ramagundam", "Khammam", "Mahbubnagar", "Nalgonda", "Adilabad", "Suryapet",
+    "Siddipet", "Miryalaguda", "Jagtial", "Mancherial", "Nirmal", "Kothagudem", "Kamareddy", "Sangareddy", "Bodhan", "Palwancha",
+    "Vikarabad", "Jangaon", "Bhongir", "Gadwal", "Narayanpet", "Wanaparthy", "Nagarkurnool", "Medak", "Kamareddy", "Sircilla"
+  ],
+  "Tripura": [
+    "Agartala", "Udaipur", "Dharmanagar", "Kailashahar", "Belonia", "Khowai", "Ambassa", "Teliamura", "Melaghar", "Sonamura",
+    "Amarpur", "Ranirbazar", "Sabroom", "Mohanpur", "Jirania", "Kumarghat", "Kamalpur", "Santirbazar", "Bishalgarh", "Kachucherra",
+    "Panisagar", "Gandacherra", "Manu", "Boxanagar", "Jampuijala", "Kalyanpur", "Karbook", "Mungiakami", "Teliamura", "Rajnagar"
+  ],
+  "Uttar Pradesh": [
+    "Lucknow", "Kanpur", "Ghaziabad", "Agra", "Varanasi", "Meerut", "Prayagraj", "Bareilly", "Aligarh", "Moradabad",
+    "Saharanpur", "Bangarmau", "Gorakhpur", "Noida", "Firozabad", "Jhansi", "Muzaffarnagar", "Mathura", "Rampur", "Shahjahanpur", "Farrukhabad",
+    "Maunath Bhanjan", "Hapur", "Ayodhya", "Etawah", "Mirzapur", "Bulandshahr", "Sambhal", "Amroha", "Hardoi", "Fatehpur"
+  ],
+  "Uttarakhand": [
+    "Dehradun", "Haridwar", "Roorkee", "Haldwani", "Rudrapur", "Kashipur", "Rishikesh", "Pithoragarh", "Ramnagar", "Almora",
+    "Nainital", "Tehri", "Pauri", "Kotdwar", "Uttarkashi", "Chamoli", "Bageshwar", "Champawat", "Mussoorie", "Jaspur",
+    "Ranikhet", "Srinagar", "Manglaur", "Laksar", "Khatima", "Sitarganj", "Tanakpur", "Bhowali", "Vikasnagar", "Dugadda"
+  ],
+  "West Bengal": [
+    "Kolkata", "Howrah", "Durgapur", "Asansol", "Siliguri", "Kharagpur", "Haldia", "Bardhaman", "Malda", "Bongaon",
+    "Bahrampur", "Habra", "Shantipur", "Dankuni", "Dhulian", "Ranaghat", "Halisahar", "Kalyani", "Barasat", "Serampore",
+    "Chandannagar", "Uluberia", "Basirhat", "Bankura", "Krishnanagar", "Raiganj", "Balurghat", "Purulia", "Jalpaiguri", "Cooch Behar"
+  ]
 };
 
 const keywordServices = [
+  // Original 12 Keywords
   "GeM Registration Consultants", "GeM Bid Participation Services", "GeM Vendor Assessment",
   "OEM Panel Registration", "GeM Catalogue Management", "GeM Tender Bidding Support",
   "GeM L1 Purchase Consultancy", "GeM Compliance Audit", "GeM Profile Updation",
-  "GeM Direct Purchase Help", "GeM Custom Bid Services", "GePNIC GeM Training"
+  "GeM Direct Purchase Help", "GeM Custom Bid Services", "GePNIC GeM Training",
+
+  // 50 Additional Targeted GeM Keywords (Integrated)
+  "GeM Seller Account Creation", "GeM Portal Setup Services", "GeM Brand Approval Assistance", 
+  "GeM Product Upload Agency", "GeM Service Listing Support", "GeM BOQ Bid Participation", 
+  "GeM Reverse Auction Support", "GeM Bunch Bid Consultancy", "GeM Startup Runway Registration", 
+  "GeM MSE Exemption Advisory", "GeM Udyam Registration Support", "GeM Quarterly Return Filing", 
+  "GeM Invoice Processing Support", "GeM CRAC Generation Assistance", "GeM Logistical Support Services", 
+  "GeM ePBG and EMD Guidance", "GeM Penalty Resolution Service", "GeM Account Suspension Recovery", 
+  "GeM Rating Improvement Agency", "GeM Secondary User Management", "GeM Buyer Account Registration", 
+  "GeM Tender Tracking Services", "GeM Technical Evaluation Support", "GeM Financial Evaluation Help", 
+  "GeM Matching Price Consultancy", "GeM Competitor Price Analysis", "GeM Category Creation Request", 
+  "GeM Variant Addition Services", "GeM Specification Mapping", "GeM Local Supplier Classification", 
+  "GeM Make in India Compliance", "GeM Class I II Local Verification", "GeM Tender Alert Subscription", 
+  "GeM Bid Result Analysis", "GeM Contract Execution Support", "GeM Order Fulfillment Consultancy", 
+  "GeM Dispatch Clearance Help", "GeM Consignee Receipt Assistance", "GeM Payment Tracking Services", 
+  "GeM Delayed Payment Resolution", "GeM SLA Violation Management", "GeM Incident Management Support", 
+  "GeM Helpdesk Ticket Resolution", "GeM Annual Maintenance Contracts", "GeM Corporate Training Program", 
+  "GeM Workshop for Vendors", "GeM B2G Marketing Strategy", "GeM Tender Documentation Expert", 
+  "GeM Legal Dispute Advisory", "GeM End-to-End Procurement Management",
+
+  // Top 50 Keywords Added from Previous List
+  "GeM Portal Registration Consultant", "GeM Registration Services Near Me", "GeM Seller Registration Agency", 
+  "GeM Account Creation Consultant", "GeM Portal MSME Registration Help", "GeM Profile Completion Services", 
+  "Hire Expert for GeM Registration", "GeM Portal GST and PAN Verification Issue", "GeM Portal Registration Fees Consultancy", 
+  "GeM ID Creation Services", "GeM Bid Participation Services", "Tender Bidding Consultant for GeM", 
+  "GeM Portal Tender Filling Services", "GeM Reverse Auction Consultant", "Hire GeM Bidding Expert", 
+  "GeM Portal L1 Bidding Strategy Consulting", "Custom Bid Participation on GeM", "BOQ Bid Submission Expert", 
+  "GeM Tender Tracking Services", "Forward Auction GeM Consultant", "GeM Catalog Management Services", 
+  "GeM Product Upload Consultant", "GeM Portal Service Listing Agency", "GeM Catalog Optimization Expert", 
+  "Bulk Product Upload on GeM Portal", "Resolve GeM Catalog Rejection", "GeM Product Mapping Services", 
+  "GeM Portal Pricing and SKU Optimization", "GeM Category Selection Consultant", "Golden Parameters GeM Listing Help", 
+  "GeM Vendor Assessment Consultant", "RITES Vendor Assessment Services GeM", "GeM OEM Registration Consultant", 
+  "OEM Panel Approval GeM Portal", "Brand Approval on GeM Portal Expert", "QCI Vendor Assessment GeM Consultant", 
+  "Reseller Authorization on GeM Portal", "GeM Portal Authorization Code Expert", "MSME Exemption for GeM Vendor Assessment", 
+  "GeM OEM Dashboard Management Services", "GeM Portal Consultancy Near Me", "Best GeM Consultant in India", 
+  "GeM Portal Consultant in Delhi NCR", "GeM Expert Contact Number", "GeM Account Management Services", 
+  "GeM Portal Training for Sellers", "GeM Portal Dispute Resolution Consultant", "GeM Incident Management Support", 
+  "GeM Portal CA Certificate Format Expert", "Monthly Retainer GeM Consultancy Services"
 ];
 
 const blogPosts = [
@@ -2447,7 +2602,7 @@ const blogPosts = [
   }
 ];
 
-let currentView = "home";
+let currentView = window.location.hash.replace("#", "").toUpperCase() || "home";
 let activeParam = null;
 
 function getAllCitiesFlat() {
@@ -2645,9 +2800,9 @@ function render() {
   } else if (currentView === "states-page") {
     app.innerHTML = createListView("Best GeM Portal Consultant & Service Provider in All States", Object.keys(statesDatabase), "map-pin", "state");
   } else if (currentView === "cities-page") {
-    app.innerHTML = createListView("Best GeM Portal Consultant & Service Provider in 200+ Cities", getAllCitiesFlat(), "building-2", "city");
+    app.innerHTML = createListView("Best GeM Portal Consultant & Service Provider in Cities", getAllCitiesFlat(), "building-2", "city");
   } else if (currentView === "services-page") {
-    app.innerHTML = createListView("Specialized GeM Portal Consultancy Services & Keywords", keywordServices, "tag", "service");
+    app.innerHTML = createListView("Specialized GeM Portal Consultancy Services Provider", keywordServices, "tag", "service");
   } else if (currentView === "blogs-page") {
     app.innerHTML = createBlogListView();
   } else if (currentView === "state-detail") {
