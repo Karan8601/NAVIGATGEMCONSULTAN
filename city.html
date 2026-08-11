@@ -9,6 +9,29 @@
     <!-- Tailwind CSS CDN for modern responsive styling -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
+    <style>
+    /* Custom Scrollbar */
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    /* Enhanced City Card Effect */
+    .city-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid #e2e8f0;
+    }
+    .city-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        border-color: #3b82f6;
+    }
+    .city-icon {
+        color: #3b82f6;
+        margin-bottom: 8px;
+    }
+</style>
 <body class="bg-gray-50 text-gray-800 antialiased flex flex-col min-h-screen">
 
     <!-- Global Header Insertion Point -->
@@ -342,6 +365,26 @@
                 citiesGrid.appendChild(cityCard);
             });
         }
+
+// Populate Cities Grid
+if (citiesGrid) {
+    citiesGrid.innerHTML = "";
+    citiesList.forEach(city => {
+        const cityCard = document.createElement('div');
+        cityCard.className = "city-card bg-white p-5 rounded-xl text-center flex flex-col items-center cursor-pointer";
+        cityCard.innerHTML = `
+            <!-- Modern Location Icon -->
+            <svg class="w-6 h-6 city-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            <span class="text-[10px] uppercase tracking-widest text-blue-600 font-bold mb-1">Service Area</span>
+            <span class="font-bold text-gray-900 text-sm">${city}</span>
+        `;
+        citiesGrid.appendChild(cityCard);
+    });
+}
+        
     </script>
 </body>
 </html>
