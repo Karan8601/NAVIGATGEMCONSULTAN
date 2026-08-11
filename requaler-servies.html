@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive GeM Portal Services & Keyword Solutions Directory</title>
+    <meta name="description" content="Explore complete Government e-Marketplace (GeM) professional services, registration agencies, tender bidding consultants, and catalog management experts.">
+    <!-- Tailwind CSS CDN for modern responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Global Header Insertion Point -->
+    <div id="global-header"></div>
+
+    <!-- Main Content Dynamic Container -->
+    <main class="flex-grow">
+        
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-indigo-900 to-blue-800 text-white py-16 px-4">
+            <div class="max-w-6xl mx-auto text-center">
+                <h1 class="text-3xl md:text-5xl font-bold mt-4 mb-4">Government e-Marketplace (GeM) Services & Expertise</h1>
+                <p class="text-lg text-indigo-100 max-w-2xl mx-auto mb-8">
+                    Browse our extensive directory of specialized GeM portal solutions, ranging from vendor assessment and catalog management to advanced tender bidding consultancy.
+                </p>
+                <div class="max-w-md mx-auto relative">
+                    <input type="text" id="service-search" placeholder="Search specific GeM service..." class="w-full px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-md">
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Content Display Section -->
+        <section class="max-w-6xl mx-auto py-16 px-4">
+            <div class="flex justify-between items-center mb-8">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900">
+                        Available <span class="text-indigo-600">GeM Services</span> Directory
+                    </h2>
+                    <p class="text-gray-600">Select or search from our exhaustive list of professional marketplace solutions below.</p>
+                </div>
+                <div class="text-sm font-semibold text-gray-500">
+                    Total Solutions: <span id="total-count" class="text-indigo-600 font-bold">0</span>
+                </div>
+            </div>
+            
+            <!-- Grid Container for Services Cards -->
+            <div class="max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
+                <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Service Cards injected dynamically via script -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Tailored Support Highlights Section -->
+        <section class="bg-white py-16 px-4 border-t border-b border-gray-200">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Core B2G Advisory Highlights</h2>
+                <p class="text-gray-600 mb-8">Streamline your government procurement workflow with dedicated domain experts.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-indigo-50 rounded-xl border border-indigo-100">
+                        <h3 class="font-bold text-lg text-indigo-900 mb-2">Setup & Compliance</h3>
+                        <p class="text-gray-600 text-sm mb-4">Complete seller registration, profile verification, Udyam MSME linkage, and routine compliance audit management.</p>
+                        <span class="text-indigo-600 font-semibold text-sm">Explore Solutions &rarr;</span>
+                    </div>
+                    <div class="p-6 bg-indigo-50 rounded-xl border border-indigo-100">
+                        <h3 class="font-bold text-lg text-indigo-900 mb-2">Bidding & Operations</h3>
+                        <p class="text-gray-600 text-sm mb-4">BOQ participation, custom bids, reverse auctions, L1 pricing strategies, and order fulfillment tracking.</p>
+                        <span class="text-indigo-600 font-semibold text-sm">Explore Solutions &rarr;</span>
+                    </div>
+                    <div class="p-6 bg-indigo-50 rounded-xl border border-indigo-100">
+                        <h3 class="font-bold text-lg text-indigo-900 mb-2">OEM & Catalog Mastery</h3>
+                        <p class="text-gray-600 text-sm mb-4">Brand approvals, golden parameter mapping, bulk product uploads, and vendor assessments (QCI/RITES).</p>
+                        <span class="text-indigo-600 font-semibold text-sm">Explore Solutions &rarr;</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Footer Insertion Point -->
+    <div id="global-footer"></div>
+
+    <!-- Custom Scrollbar Styling -->
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+
+    <!-- Application Script Engine -->
+    <script>
+        // 1. Fail-safe Header/Footer Dynamic Injector Engine
+        const fileFetchArray = [
+            { id: 'global-header', file: 'header.html' },
+            { id: 'global-footer', file: 'footer.html' }
+        ];
+
+        fileFetchArray.forEach(target => {
+            fetch(target.file)
+                .then(response => {
+                    if (!response.ok) throw new Error('CORS or Local File Blocked');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(target.id).innerHTML = data;
+                })
+                .catch(err => {
+                    console.warn(`Local preview layout active for ${target.file}. Server bypass initiated.`);
+                });
+        });
+
+        // 2. Complete Keyword Services Database provided
+        const keywordServices = [
+            "GeM Registration Consultants", "GeM Bid Participation Services", "GeM Vendor Assessment",
+            "OEM Panel Registration", "GeM Catalogue Management", "GeM Tender Bidding Support",
+            "GeM L1 Purchase Consultancy", "GeM Compliance Audit", "GeM Profile Updation",
+            "GeM Direct Purchase Help", "GeM Custom Bid Services", "GePNIC GeM Training",
+            "GeM Seller Account Creation", "GeM Portal Setup Services", "GeM Brand Approval Assistance", 
+            "GeM Product Upload Agency", "GeM Service Listing Support", "GeM BOQ Bid Participation", 
+            "GeM Reverse Auction Support", "GeM Bunch Bid Consultancy", "GeM Startup Runway Registration", 
+            "GeM MSE Exemption Advisory", "GeM Udyam Registration Support", "GeM Quarterly Return Filing", 
+            "GeM Invoice Processing Support", "GeM CRAC Generation Assistance", "GeM Logistical Support Services", 
+            "GeM ePBG and EMD Guidance", "GeM Penalty Resolution Service", "GeM Account Suspension Recovery", 
+            "GeM Rating Improvement Agency", "GeM Secondary User Management", "GeM Buyer Account Registration", 
+            "GeM Tender Tracking Services", "GeM Technical Evaluation Support", "GeM Financial Evaluation Help", 
+            "GeM Matching Price Consultancy", "GeM Competitor Price Analysis", "GeM Category Creation Request", 
+            "GeM Variant Addition Services", "GeM Specification Mapping", "GeM Local Supplier Classification", 
+            "GeM Make in India Compliance", "GeM Class I II Local Verification", "GeM Tender Alert Subscription", 
+            "GeM Bid Result Analysis", "GeM Contract Execution Support", "GeM Order Fulfillment Consultancy", 
+            "GeM Dispatch Clearance Help", "GeM Consignee Receipt Assistance", "GeM Payment Tracking Services", 
+            "GeM Delayed Payment Resolution", "GeM SLA Violation Management", "GeM Incident Management Support", 
+            "GeM Helpdesk Ticket Resolution", "GeM Annual Maintenance Contracts", "GeM Corporate Training Program", 
+            "GeM Workshop for Vendors", "GeM B2G Marketing Strategy", "GeM Tender Documentation Expert", 
+            "GeM Legal Dispute Advisory", "GeM End-to-End Procurement Management",
+            "GeM Portal Registration Consultant", "GeM Registration Services Near Me", "GeM Seller Registration Agency", 
+            "GeM Account Creation Consultant", "GeM Portal MSME Registration Help", "GeM Profile Completion Services", 
+            "Hire Expert for GeM Registration", "GeM Portal GST and PAN Verification Issue", "GeM Portal Registration Fees Consultancy", 
+            "GeM ID Creation Services", "Tender Bidding Consultant for GeM", "GeM Portal Tender Filling Services", 
+            "GeM Reverse Auction Consultant", "Hire GeM Bidding Expert", "GeM Portal L1 Bidding Strategy Consulting", 
+            "Custom Bid Participation on GeM", "BOQ Bid Submission Expert", "Forward Auction GeM Consultant", 
+            "GeM Catalog Management Services", "GeM Product Upload Consultant", "GeM Portal Service Listing Agency", 
+            "GeM Catalog Optimization Expert", "Bulk Product Upload on GeM Portal", "Resolve GeM Catalog Rejection", 
+            "GeM Product Mapping Services", "GeM Portal Pricing and SKU Optimization", "GeM Category Selection Consultant", 
+            "Golden Parameters GeM Listing Help", "GeM Vendor Assessment Consultant", "RITES Vendor Assessment Services GeM", 
+            "GeM OEM Registration Consultant", "OEM Panel Approval GeM Portal", "Brand Approval on GeM Portal Expert", 
+            "QCI Vendor Assessment GeM Consultant", "Reseller Authorization on GeM Portal", "GeM Portal Authorization Code Expert", 
+            "MSME Exemption for GeM Vendor Assessment", "GeM OEM Dashboard Management Services", "GeM Portal Consultancy Near Me", 
+            "Best GeM Consultant in India", "GeM Portal Consultant in Delhi NCR", "GeM Expert Contact Number", 
+            "GeM Account Management Services", "GeM Portal Training for Sellers", "GeM Portal Dispute Resolution Consultant", 
+            "GeM Portal CA Certificate Format Expert", "Monthly Retainer GeM Consultancy Services"
+        ];
+
+        // 3. Render Services Grid View with filter capabilities
+        function renderServicesView(filterQuery = "") {
+            const grid = document.getElementById('services-grid');
+            grid.innerHTML = "";
+
+            const filteredServices = keywordServices.filter(service => service.toLowerCase().includes(filterQuery));
+            document.getElementById('total-count').innerText = filteredServices.length;
+
+            if (filteredServices.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-8 text-gray-500">No specific services found matching your search.</div>`;
+                return;
+            }
+
+            filteredServices.forEach(service => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-5 rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-indigo-500 transition cursor-pointer flex flex-col justify-between group";
+                card.innerHTML = `
+                    <div>
+                        <span class="text-xs text-indigo-600 font-semibold uppercase tracking-wider block mb-1">GeM Verified Solution</span>
+                        <h3 class="font-bold text-gray-800 text-md group-hover:text-indigo-600 transition">${service}</h3>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between text-xs font-medium">
+    <a href="contact.html" class="text-gray-400 group-hover:text-indigo-600 underline">Enquire Now</a>
+    <a href="contact.html" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-lg transition shadow-sm flex items-center gap-1">
+     
+        <span class="group-hover:translate-x-1 transition">&rarr;</span>
+    </a>
+</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // 4. Live Search Event Listener
+        const searchInput = document.getElementById('service-search');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                renderServicesView(query);
+            });
+        }
+
+        // Initialize default view on load
+        renderServicesView();
+    </script>
+</body>
+</html>
