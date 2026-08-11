@@ -1,6 +1,4 @@
-
-
-  <style>
+<style>
     /* CSS Variables & Reset */
     :root {
       --bg-dark: #020617;
@@ -219,7 +217,7 @@
         transform: translateY(-8.5px) rotate(-45deg);
       }
 
-      /* Mobile Navigation Menu Slide Down */
+      /* Mobile Navigation Menu Slide Down with Scroll Support */
       .nav-menu {
         position: absolute;
         top: 100%;
@@ -233,6 +231,11 @@
         padding: 16px 24px;
         display: none; /* Default Hidden */
         box-shadow: 0 20px 30px rgba(0,0,0,0.8);
+        
+        /* Added fixes to handle long menus on mobile screens */
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
 
       /* Magic Trigger: Checkbox On = Menu Visible */
@@ -271,7 +274,6 @@
     }
   </style>
 
-
   <!-- Main Pure CSS Header -->
   <header class="header">
     <div class="nav-container">
@@ -304,7 +306,7 @@
         
         <!-- Dropdown Menu -->
         <li class="dropdown">
-          <a href="" class="nav-link">GEM SERVICES ▾</a>
+          <a href="javascript:void(0);" class="nav-link">GEM SERVICES ▾</a>
           <ul class="dropdown-menu">
             <li><a href="service.html" class="dropdown-item">Services</a></li>
             <li><a href="gem-registration.html" class="dropdown-item">GeM Registration</a></li>
@@ -334,8 +336,5 @@
         <li><a href="contact.html" class="nav-link">CONTACT</a></li>
       </ul>
 
-
-      
     </div>
   </header>
-
