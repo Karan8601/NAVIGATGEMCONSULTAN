@@ -879,7 +879,7 @@ section {
       </div>
   </section>
 
-<!-- GALLERY SECTION -->
+<<!-- GALLERY SECTION -->
 <section id="scroll-gallery" class="relative w-full py-28 bg-[#030712] text-white overflow-hidden">
     <!-- Section Header -->
     <div class="scroll-fade max-w-7xl mx-auto px-6 mb-16 text-center transform translate-y-10 opacity-0 transition-all duration-1000 ease-out">
@@ -937,22 +937,32 @@ section {
         let cardsHTML = '';
         fullGalleryList.forEach((item) => {
             cardsHTML += `
-                <div class="group relative flex-shrink-0 w-[320px] h-[380px] sm:w-[420px] sm:h-[440px] cursor-pointer transition-all duration-500 hover:-translate-y-2">
-                    <div class="card-inner w-full h-full rounded-[2rem] overflow-hidden border border-white/10 bg-neutral-900/80 backdrop-blur-xl shadow-2xl group-hover:border-cyan-400/60 group-hover:shadow-[0_20px_50px_rgba(6,182,212,0.3)] transition-all duration-500">
-                        <img src="${item.url}?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-85 group-hover:opacity-100" alt="${item.title}">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#030712] via-[#030712]/50 to-transparent p-6 sm:p-8 flex flex-col justify-end transition-all duration-500">
-                            <div class="mb-3 transform translate-y-1 opacity-90 group-hover:translate-y-0 transition-all duration-300">
-                                <span class="px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs font-semibold uppercase tracking-wider backdrop-blur-md">
-                                    Verified Project
-                                </span>
+                <div class="group relative flex-shrink-0 w-[320px] h-[400px] sm:w-[400px] sm:h-[460px] cursor-pointer transition-all duration-500 hover:-translate-y-2">
+                    <div class="card-inner w-full h-full rounded-[2rem] overflow-hidden border border-white/10 bg-[#070b19] backdrop-blur-xl shadow-2xl group-hover:border-cyan-400/60 group-hover:shadow-[0_20px_50px_rgba(6,182,212,0.3)] transition-all duration-500 flex flex-col">
+                        
+                        <!-- Image Container with Padding to prevent cutting -->
+                        <div class="w-full h-[62%] p-4 sm:p-5 flex items-center justify-center bg-[#050814] relative overflow-hidden">
+                            <div class="absolute inset-0 bg-cyan-500/5 group-hover:bg-cyan-500/10 transition-colors duration-500"></div>
+                            <img src="${item.url}?q=80&w=1200&auto=format&fit=crop" class="max-w-full max-h-full object-contain rounded-xl transition-transform duration-700 ease-out group-hover:scale-105 shadow-md" alt="${item.title}">
+                        </div>
+
+                        <!-- Text Details Container -->
+                        <div class="w-full h-[38%] bg-gradient-to-t from-[#030712] via-[#050914] to-[#070b19] p-5 sm:p-6 flex flex-col justify-between border-t border-white/5">
+                            <div>
+                                <div class="inline-block mb-1.5 transform translate-y-1 opacity-90 group-hover:translate-y-0 transition-all duration-300">
+                                    <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-[10px] font-semibold uppercase tracking-wider backdrop-blur-md">
+                                        Verified Project
+                                    </span>
+                                </div>
+                                <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight group-hover:text-cyan-300 transition-colors duration-300 truncate">
+                                    ${item.title}
+                                </h3>
                             </div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight group-hover:text-cyan-300 transition-colors duration-300">
-                                ${item.title}
-                            </h3>
-                            <p class="text-neutral-300 text-xs sm:text-sm mt-2 line-clamp-2">
+                            <p class="text-neutral-400 text-xs sm:text-sm line-clamp-2">
                                 ${item.desc}
                             </p>
                         </div>
+
                     </div>
                 </div>
             `;
