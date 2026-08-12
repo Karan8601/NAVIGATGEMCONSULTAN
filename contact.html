@@ -15,638 +15,701 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    
-    <!-- Social Open-Graph Tags -->
-    <meta property="og:title" content="NavigateGeM Corporate Strategy | Karan Yadav">
-    <meta property="og:description" content="Architecting absolute compliance parameters for enterprise OEMs and MSMEs nationwide.">
-    <meta property="og:image" content="https://navigategemconsultant.com/og-banner.jpg">
-
-    <!-- Local SEO Schema Integration -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "ProfessionalService",
-          "@id": "https://navigategemconsultant.com/#organization",
-          "name": "NavigateGeM Consultant",
-          "url": "https://navigategemconsultant.com",
-          "logo": "https://navigategemconsultant.com/logo.png",
-          "telephone": "+918601865676",
-          "email": "karanyadav1409757@gmail.com",
-          "priceRange": "₹4999 - ₹14999",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Aliganj",
-            "addressLocality": "Lucknow",
-            "addressRegion": "Uttar Pradesh",
-            "postalCode": "226024",
-            "addressCountry": "IN"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "184"
-          },
-          "areaServed": ["Delhi NCR", "Mumbai", "Lucknow", "Kanpur", "Jaipur", "Patna", "Bengaluru", "Kolkata", "Pan-India"]
-        }
-      ]
-    }
-    </script>
 
     <style>
-        :root {
-            --brand-dark: #070B14;
-            --brand-surface: #0F172A;
-            --brand-card: #131C31;
-            --brand-border: #1E293B;
-            --brand-blue: #2563EB;
-            --brand-accent: #38BDF8;
-            --text-main: #F1F5F9;
-            --text-muted: #94A3B8;
-            --white: #FFFFFF;
-            --success: #22C55E;
-            --danger: #EF4444;
-            --wa-green: #25D366;
-        }
+  :root {
+    --brand-dark: #070a13;
+    --brand-card: #0f172a;
+    --brand-border: #1e293b;
+    --sky-primary: #0ea5e9;
+    --sky-hover: #38bdf8;
+    --emerald-success: #10b981;
+    --accent-glow: rgba(14, 165, 233, 0.25);
+}
 
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            margin: 0;
-            padding: 0 0 70px 0;
-            color: var(--text-main);
-            background-color: var(--brand-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.08) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.06) 0px, transparent 50%);
-        }
+/* Smooth Scrolling & Global Resets */
+html {
+    scroll-behavior: smooth;
+}
 
-        /* Modern Hero Gradient & Glow */
-        .hero-header {
-            background: radial-gradient(circle at 50% 20%, #1e293b 0%, #070b14 100%);
-            color: var(--white);
-            padding: 90px 20px 80px 20px;
-            text-align: center;
-            position: relative;
-        }
-        .hero-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--brand-accent), transparent);
-        }
+body {
+    background-color: var(--brand-dark);
+    color: #f8fafc;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
 
-        .hero-header h1 { font-size: 2.8rem; margin: 15px 0 15px 0; font-weight: 800; letter-spacing: -0.02em; }
-        .hero-header p { font-size: 1.2rem; color: var(--text-muted); max-width: 750px; margin: 0 auto; }
+/* ==========================================
+   Hero Header (Fixed Mobile Viewport Issue)
+   ========================================== */
+.hero-header {
+    background: radial-gradient(circle at top center, #1e293b 0%, var(--brand-dark) 75%);
+    padding: clamp(3rem, 8vw, 6rem) 1.25rem clamp(2.5rem, 6vw, 4rem);
+    text-align: center;
+    border-bottom: 1px solid var(--brand-border);
+    position: relative;
+    overflow: hidden;
+}
 
-        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+.hero-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
 
-        /* Trust Bar Styling with Glassmorphism */
-        .trust-bar {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(16px);
-            padding: 35px 25px;
-            border-radius: 20px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            margin-bottom: 50px;
-            border: 1px solid var(--brand-border);
-            position: relative;
-            margin-top: -50px;
-            z-index: 10;
-        }
+.hero-header h1 {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
 
-        .live-status-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(22, 101, 52, 0.2);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            color: #4ADE80;
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-        }
+.hero-header p {
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: #94a3b8;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
 
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #22C55E;
-            border-radius: 50%;
-            box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
-            animation: pulse-animation 1.8s infinite;
-        }
+/* ==========================================
+   Layout Grid
+   ========================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
 
-        @keyframes pulse-animation {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-        }
+.contact-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
 
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 20px;
-        }
+@media (min-width: 900px) {
+    .contact-layout-grid {
+        grid-template-columns: 380px 1fr;
+    }
+}
 
-        .stat-card {
-            text-align: center;
-            padding: 22px;
-            background: var(--brand-card);
-            border-radius: 14px;
-            border: 1px solid var(--brand-border);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+/* ==========================================
+   Animated Cards & Panels
+   ========================================== */
+.contact-info-panel, .lead-form-side, .pricing-card, .service-card, .location-card, .blog-card, .testi-card, .expert-bio-card, .faq-container, .policy-corner, .lead-magnet-card, .support-banner-section, .process-step {
+    background: var(--brand-card);
+    border: 1px solid var(--brand-border);
+    border-radius: 1rem;
+    padding: 1.75rem;
+    position: relative;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .stat-card:hover {
-            transform: translateY(-6px);
-            background: #192642;
-            border-color: var(--brand-accent);
-            box-shadow: 0 12px 25px rgba(14, 165, 233, 0.15);
-        }
+.contact-info-panel:hover, .lead-form-side:hover, .service-card:hover, .location-card:hover, .blog-card:hover, .pricing-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(14, 165, 233, 0.5);
+    box-shadow: 0 12px 35px -8px var(--accent-glow);
+}
 
-        .stat-card.border-highlight {
-            border: 1.5px dashed rgba(217, 119, 6, 0.5);
-            background: rgba(217, 119, 6, 0.05);
-        }
+.quick-contact-top {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--brand-border);
+}
 
-        .stat-number-wrap {
-            font-size: 2.3rem;
-            font-weight: 800;
-            color: var(--brand-accent);
-            line-height: 1;
-        }
+/* Quick Action Buttons */
+.quick-wa-btn {
+    background: #22c55e;
+    color: #fff;
+    font-weight: 700;
+    padding: 0.85rem 1rem;
+    border-radius: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+    transition: all 0.25s ease;
+}
+.quick-wa-btn:hover { background: #16a34a; transform: scale(1.02); }
 
-        .plus-sign { color: var(--brand-blue); margin-left: 2px; }
+.quick-call-btn {
+    background: var(--sky-primary);
+    color: #fff;
+    font-weight: 700;
+    padding: 0.85rem 1rem;
+    border-radius: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+    transition: all 0.25s ease;
+}
+.quick-call-btn:hover { background: var(--sky-hover); transform: scale(1.02); }
 
-        .rating-box-wrap {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+.info-item i {
+    color: var(--sky-primary);
+    font-size: 1.25rem;
+    margin-top: 0.2rem;
+}
 
-        .rating-value { font-size: 2rem; font-weight: 800; color: #FBBF24; }
-        .stars { color: #F59E0B; font-size: 1.1rem; }
+/* ==========================================
+   Form Styles & Inputs
+   ========================================== */
+.lead-form-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+}
 
-        .stat-label { font-size: 0.9rem; font-weight: 600; color: var(--text-main); margin: 8px 0 0 0; }
-        .stat-tooltip { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-top: 6px; }
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+}
 
-        /* Filter Section */
-        .filter-section {
-            background: var(--brand-surface);
-            padding: 30px;
-            border-radius: 16px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
-            border: 1px solid var(--brand-border);
-        }
-        .filter-box input {
-            width: 100%;
-            padding: 14px 18px;
-            font-size: 1rem;
-            border: 2px solid var(--brand-border);
-            background: var(--brand-card);
-            color: var(--text-main);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            outline: none;
-        }
-        .filter-box input:focus {
-            border-color: var(--brand-accent);
-            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
-        }
+@media(min-width: 600px) {
+    .form-row:first-child {
+        grid-template-columns: 1fr 1fr;
+    }
+}
 
-        /* Core Services & Location Cards */
-        .services-grid-section, .location-hub { margin-bottom: 50px; }
-        .service-cards-container, .location-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 25px; }
-        
-        .service-card, .location-card {
-            background: var(--brand-surface);
-            padding: 25px;
-            border-radius: 14px;
-            border: 1px solid var(--brand-border);
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
-            transition: all 0.35s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .service-card { border-top: 4px solid var(--brand-blue); }
-        .location-card { border-left: 4px solid var(--brand-accent); }
+.lead-form-inner input, .lead-form-inner select, .lead-form-inner textarea, .filter-box input {
+    width: 100%;
+    background: #020617;
+    border: 1px solid var(--brand-border);
+    color: #fff;
+    padding: 0.85rem 1rem;
+    border-radius: 0.6rem;
+    outline: none;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+}
 
-        .service-card:hover, .location-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
-            border-color: var(--brand-accent);
-            background: var(--brand-card);
-        }
+.lead-form-inner input:focus, .lead-form-inner select:focus, .lead-form-inner textarea:focus, .filter-box input:focus {
+    border-color: var(--sky-primary);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+    background: #090d16;
+}
 
-        /* Lead Magnet Banner */
-        .lead-magnet-card {
-            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%);
-            color: var(--white);
-            padding: 35px;
-            border-radius: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-bottom: 50px;
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.4);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-        }
-        .badge-accent { background: rgba(14, 165, 233, 0.15); color: var(--brand-accent); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 0.8rem; border: 1px solid rgba(14, 165, 233, 0.3); }
-        .cta-btn-alt { background: var(--brand-blue); color: var(--white); padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); }
-        .cta-btn-alt:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6); }
+.cta-btn, .cta-btn-alt {
+    background: linear-gradient(135deg, var(--sky-primary), #0284c7);
+    color: #fff;
+    font-weight: 700;
+    padding: 0.95rem 1.5rem;
+    border-radius: 0.6rem;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+}
 
-        /* Direct WhatsApp/Consultation Support Banner */
-        .support-banner-section {
-            background: linear-gradient(135deg, #0f172a 0%, #131c31 100%);
-            padding: 40px;
-            border-radius: 20px;
-            margin-bottom: 50px;
-            border: 1px solid rgba(37, 211, 102, 0.3);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .support-banner-section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--wa-green), var(--brand-accent));
-        }
-        .support-actions {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 25px;
-        }
-        .wa-direct-btn {
-            background-color: var(--wa-green);
-            color: var(--white);
-            padding: 14px 28px;
-            border-radius: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.05rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
-        }
-        .wa-direct-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.5);
-            filter: brightness(1.05);
-        }
-        .call-direct-btn {
-            background-color: var(--brand-blue);
-            color: var(--white);
-            padding: 14px 28px;
-            border-radius: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.05rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
-        }
-        .call-direct-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(37, 99, 235, 0.5);
-            filter: brightness(1.05);
-        }
+.cta-btn:hover, .cta-btn-alt:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(14, 165, 233, 0.6);
+    background: linear-gradient(135deg, var(--sky-hover), var(--sky-primary));
+}
 
-        /* Process Steps */
-        .process-section { margin-bottom: 50px; }
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 25px; }
-        .process-step { background: var(--brand-surface); padding: 30px 20px; border-radius: 14px; text-align: center; border: 1px solid var(--brand-border); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2); transition: transform 0.3s ease; }
-        .process-step:hover { transform: translateY(-5px); border-color: var(--brand-accent); background: var(--brand-card); }
-        .step-num { background: linear-gradient(135deg, var(--brand-blue), var(--brand-accent)); color: var(--white); width: 45px; height: 45px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 800; font-size: 1.1rem; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); }
+/* ==========================================
+   Pricing Grid & Badges
+   ========================================== */
+.pricing-section {
+    max-width: 900px;
+    margin: 3.5rem auto;
+    padding: 0 1rem;
+}
 
-        /* Categories Chips */
-        .categories-section { background: var(--brand-surface); padding: 30px; border-radius: 16px; margin-bottom: 50px; border: 1px solid var(--brand-border); }
-        .category-chips { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
-        .category-chips span { background: var(--brand-card); border: 1px solid var(--brand-border); padding: 10px 18px; border-radius: 30px; font-size: 0.9rem; font-weight: 600; color: var(--text-muted); transition: all 0.3s ease; }
-        .category-chips span:hover { background: var(--brand-blue); color: var(--white); border-color: var(--brand-blue); transform: translateY(-2px); }
+.pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
 
-        /* Blog Section */
-        .blog-section { margin-bottom: 50px; }
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 24px; margin-top: 25px; }
-        .blog-card { background: var(--brand-surface); padding: 30px; border-radius: 16px; border: 1px solid var(--brand-border); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; }
-        .blog-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); border-color: var(--brand-accent); background: var(--brand-card); }
-        .blog-tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--brand-accent); font-weight: 800; }
-        .blog-card h3 { color: var(--white); font-size: 1.25rem; margin: 12px 0; font-weight: 700; line-height: 1.4; }
-        .read-link { color: var(--brand-accent); text-decoration: none; font-weight: 700; display: inline-block; margin-top: 15px; transition: color 0.2s; }
-        .read-link:hover { color: var(--white); }
+@media(min-width: 768px) {
+    .pricing-grid { grid-template-columns: 1fr 1fr; }
+}
 
-        /* Testimonials */
-        .testimonial-section { margin-bottom: 50px; }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 24px; margin-top: 25px; }
-        .testi-card { background: var(--brand-surface); padding: 25px; border-radius: 16px; border-top: 4px solid #F59E0B; border-left: 1px solid var(--brand-border); border-right: 1px solid var(--brand-border); border-bottom: 1px solid var(--brand-border); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2); }
+.pricing-card.featured {
+    border-color: var(--sky-primary);
+    position: relative;
+    background: linear-gradient(180deg, rgba(14, 165, 233, 0.08) 0%, var(--brand-card) 70%);
+}
 
-        /* FAQ & Policy */
-        .policy-corner, .faq-container, .expert-bio-card, .map-signal-card { background: var(--brand-surface); padding: 35px; border-radius: 16px; margin-bottom: 50px; border: 1px solid var(--brand-border); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2); }
-        details { border-bottom: 1px solid var(--brand-border); padding: 18px 0; transition: background 0.2s; }
-        details[open] { background-color: var(--brand-card); padding-left: 15px; padding-right: 15px; border-radius: 8px; border-bottom: none; }
-        summary { font-weight: 700; font-size: 1.1rem; cursor: pointer; color: var(--white); outline: none; }
-        .faq-content { padding-top: 12px; color: var(--text-muted); line-height: 1.6; }
+.popular-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--sky-primary), #0284c7);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.3rem 0.85rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(14, 165, 233, 0.4);
+}
 
-        /* Pricing Cards */
-        .pricing-section { margin-bottom: 50px; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px; margin-top: 25px; }
-        .pricing-card { background: var(--brand-surface); padding: 35px; border-radius: 16px; text-align: center; border: 1px solid var(--brand-border); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2); position: relative; transition: all 0.35s ease; }
-        .pricing-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); background: var(--brand-card); }
-        .pricing-card.featured { border: 2px solid var(--brand-accent); background: linear-gradient(180deg, var(--brand-surface) 0%, rgba(37, 99, 235, 0.1) 100%); }
-        .popular-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--brand-blue); color: var(--white); padding: 4px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4); }
-        .price { font-size: 2.5rem; font-weight: 800; color: var(--white); margin: 15px 0; }
+.price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 0.75rem 0;
+    letter-spacing: -0.03em;
+}
 
-        /* Contact-Page Styled Split Form Layout with Direct Options on Top */
-        .lead-section { 
-            background: var(--brand-surface); 
-            color: var(--text-main); 
-            padding: 50px; 
-            border-radius: 24px; 
-            margin-bottom: 50px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--brand-border);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact-layout-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.3fr;
-            gap: 40px;
-            align-items: start;
-        }
-        
-        @media(max-width: 900px) {
-            .contact-layout-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
+/* ==========================================
+   Trust Bar, Live Status & Stats
+   ========================================== */
+.trust-bar {
+    margin: 3.5rem 0;
+}
 
-        .contact-info-panel {
-            background: linear-gradient(135deg, #070B14 0%, #111C34 100%);
-            color: var(--white);
-            padding: 40px;
-            border-radius: 18px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid var(--brand-border);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
-        }
+.live-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 0.45rem 1.1rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--emerald-success);
+    margin-bottom: 1.5rem;
+}
 
-        .quick-contact-top {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 30px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--emerald-success);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
 
-        .quick-wa-btn {
-            background-color: var(--wa-green);
-            color: var(--white);
-            padding: 14px 20px;
-            border-radius: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 1.05rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
-        }
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
 
-        .quick-wa-btn:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.05);
-        }
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
 
-        .quick-call-btn {
-            background-color: var(--brand-blue);
-            color: var(--white);
-            padding: 14px 20px;
-            border-radius: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 1.05rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
-        }
+@media(min-width: 768px) {
+    .trust-grid { grid-template-columns: repeat(4, 1fr); }
+}
 
-        .quick-call-btn:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.05);
-        }
+.stat-card {
+    background: var(--brand-card);
+    border: 1px solid var(--brand-border);
+    padding: 1.75rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.stat-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(14, 165, 233, 0.4);
+}
 
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
+.stat-number-wrap {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #fff;
+}
 
-        .info-item i {
-            font-size: 1.3rem;
-            color: var(--brand-accent);
-            margin-top: 3px;
-        }
+.stat-number, .plus-sign { color: var(--sky-primary); }
 
-        .lead-form-side {
-            padding: 10px 0;
-        }
+.stat-label {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-top: 0.35rem;
+}
 
-        .lead-form-side .form-row { 
-            display: flex; 
-            gap: 15px; 
-            margin-bottom: 18px; 
-            flex-wrap: wrap; 
-        }
+.stat-tooltip {
+    font-size: 0.75rem;
+    color: var(--emerald-success);
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
 
-        .lead-form-side .form-row input, 
-        .lead-form-side .form-row select,
-        .lead-form-side .form-row textarea { 
-            flex: 1; 
-            min-width: 230px; 
-            padding: 15px 18px; 
-            border-radius: 10px; 
-            border: 2px solid var(--brand-border); 
-            background: var(--brand-card);
-            color: var(--text-main); 
-            font-size: 0.95rem; 
-            outline: none;
-            transition: all 0.3s ease;
-        }
+.rating-box-wrap {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+}
 
-        .lead-form-side .form-row input:focus, 
-        .lead-form-side .form-row select:focus,
-        .lead-form-side .form-row textarea:focus { 
-            border-color: var(--brand-accent); 
-            background: var(--brand-surface);
-            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
-        }
+.stars { color: #f59e0b; font-size: 1.1rem; }
 
-        .lead-form-side .cta-btn { 
-            width: 100%; 
-            padding: 16px; 
-            background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-accent) 100%); 
-            color: var(--white); 
-            border: none; 
-            border-radius: 10px; 
-            font-size: 1.1rem; 
-            font-weight: 700; 
-            cursor: pointer; 
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
-        }
+/* ==========================================
+   Grids & Content Sections
+   ========================================== */
+.filter-section { margin: 3.5rem 0; }
+.filter-box { max-width: 600px; }
 
-        .lead-form-side .cta-btn:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 12px 25px rgba(37, 99, 235, 0.5); 
-            filter: brightness(1.05);
-        }
+.services-grid-section, .location-hub, .process-section, .categories-section, .blog-section, .testimonial-section, .policy-corner, .expert-bio-card, .faq-container {
+    margin: 3.5rem 0;
+}
 
-        /* Mobile Sticky Bar */
-        .sticky-bar { position: fixed; bottom: 0; left: 0; width: 100%; display: flex; background: var(--brand-dark); box-shadow: 0 -4px 20px rgba(0,0,0,0.6); z-index: 999; border-top: 1px solid var(--brand-border); }
-        .bar-btn { flex: 1; text-align: center; padding: 15px 0; color: var(--white); text-decoration: none; font-weight: 700; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 8px; transition: filter 0.2s; }
-        .bar-btn.call { background: var(--brand-blue); }
-        .bar-btn.wa { background: var(--wa-green); }
-        .bar-btn:hover { filter: brightness(1.1); }
+.service-cards-container, .location-grid, .process-grid, .blog-grid, .testimonial-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+@media(min-width: 640px) {
+    .service-cards-container, .location-grid, .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media(min-width: 1024px) {
+    .service-cards-container { grid-template-columns: repeat(4, 1fr); }
+    .location-grid { grid-template-columns: repeat(4, 1fr); }
+    .process-grid { grid-template-columns: repeat(4, 1fr); }
+    .blog-grid { grid-template-columns: repeat(3, 1fr); }
+    .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Process Steps */
+.process-step {
+    position: relative;
+    overflow: hidden;
+}
+
+.step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(14, 165, 233, 0.12);
+    color: var(--sky-primary);
+    border: 1px solid rgba(14, 165, 233, 0.35);
+    font-weight: 800;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+/* Category Chips */
+.category-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.category-chips span {
+    background: var(--brand-card);
+    border: 1px solid var(--brand-border);
+    padding: 0.55rem 1.15rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.category-chips span:hover {
+    border-color: var(--sky-primary);
+    background: rgba(14, 165, 233, 0.08);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Blog Cards */
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.blog-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--sky-primary);
+    background: rgba(14, 165, 233, 0.1);
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+}
+
+.blog-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.read-link {
+    color: var(--sky-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: gap 0.2s ease;
+}
+.read-link:hover { gap: 0.5rem; text-decoration: underline; }
+
+/* Lead Magnet Card */
+.lead-magnet-card {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px -5px rgba(2, 132, 199, 0.4);
+}
+
+@media(min-width: 768px) {
+    .lead-magnet-card { flex-direction: row; align-items: center; }
+}
+
+.badge-accent {
+    background: rgba(255, 255, 255, 0.22);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.3rem 0.85rem;
+    border-radius: 9999px;
+    letter-spacing: 0.05em;
+}
+
+/* Support Banner Section */
+.support-banner-section {
+    text-align: center;
+    background: radial-gradient(circle at center, #1e293b 0%, var(--brand-card) 100%);
+    border: 1px solid rgba(14, 165, 233, 0.4);
+    box-shadow: 0 10px 40px -10px var(--accent-glow);
+}
+
+.support-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+@media(min-width: 600px) {
+    .support-actions { flex-direction: row; }
+}
+
+.wa-direct-btn {
+    background: #22c55e;
+    color: #fff;
+    font-weight: 700;
+    padding: 0.85rem 1.75rem;
+    border-radius: 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+    transition: all 0.25s ease;
+}
+.wa-direct-btn:hover { background: #16a34a; transform: translateY(-2px); }
+
+.call-direct-btn {
+    background: var(--sky-primary);
+    color: #fff;
+    font-weight: 700;
+    padding: 0.85rem 1.75rem;
+    border-radius: 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+    transition: all 0.25s ease;
+}
+.call-direct-btn:hover { background: var(--sky-hover); transform: translateY(-2px); }
+
+/* FAQ Accordion */
+.faq-container details {
+    background: #020617;
+    border: 1px solid var(--brand-border);
+    border-radius: 0.6rem;
+    padding: 1.15rem;
+    margin-bottom: 0.85rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.faq-container details:hover {
+    border-color: rgba(14, 165, 233, 0.4);
+}
+
+.faq-container details[open] {
+    border-color: var(--sky-primary);
+    background: rgba(14, 165, 233, 0.02);
+}
+
+.faq-container summary {
+    font-weight: 700;
+    color: #fff;
+    outline: none;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-container summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-content {
+    margin-top: 0.85rem;
+    font-size: 0.925rem;
+    color: #94a3b8;
+    line-height: 1.65;
+}
     </style>
 </head>
 <body>
-
-    <!-- Global Header Dynamic Injector Target -->
-    <div id="global-header"></div>
+      <div id="global-header"></div>
 
     <!-- Hero Section -->
-    <header class="hero-header" data-aos="fade-down" data-aos-duration="1000">
-        <span class="badge mb-3 inline-block">🚀 Pan-India Certified Advisory</span>
+    <header class="hero-header">
         <h1>Contact GeM Portal Experts Consultant</h1>
         <p>End-to-End Assistance for OEM Panel Setup, RITES Vendor Assessment Audit, and High-Conversion L1 Tender Strategy.</p>
     </header>
- <!-- Contact-Page Style Split Lead Form Section (Direct Contact Options Placed at the Very Top) -->
-        <section class="lead-section" id="audit-form" data-aos="zoom-in">
-            <div class="contact-layout-grid">
-                
-                <!-- Left Side: Professional Contact Details Card with Direct Contact Options First -->
-                <div class="contact-info-panel">
-                    <!-- DIRECT CONTACT BUTTONS PLACED AT THE VERY TOP -->
-                    <div class="quick-contact-top">
-                        <span class="badge-accent mb-1 inline-block">⚡ FASTEST WAY TO CONNECT</span>
-                        <h2 class="text-xl font-extrabold text-white mb-2">Connect Instantly</h2>
-                        <a href="https://wa.me/918601865676?text=Hi%20Karan,%20I%20need%20urgent%20GeM%20consultation." class="quick-wa-btn" target="_blank">
-                            <i class="fa-brands fa-whatsapp text-xl"></i> Chat on WhatsApp Now
-                        </a>
-                        <a href="tel:+918601865676" class="quick-call-btn">
-                            <i class="fa-solid fa-phone-volume"></i> Call Direct: +91 8601865676
-                        </a>
-                    </div>
 
-                    <div>
-                        <h3 class="text-lg font-bold text-white mb-3">Headquarters & Details</h3>
-                    </div>
+    <!-- Contact Section -->
+    <section class="lead-section" id="audit-form">
+        <div class="contact-layout-grid">
+            
+            <!-- Left Side: Professional Contact Details Card -->
+            <div class="contact-info-panel" data-aos="fade-right">
+                <div class="quick-contact-top">
+                    <span class="bg-sky-500/10 text-sky-400 border border-sky-500/30 px-3 py-1 rounded-full text-xs font-semibold inline-block w-fit">⚡ FASTEST WAY TO CONNECT</span>
+                    <h2 class="text-xl font-extrabold text-white mb-1">Connect Instantly</h2>
+                    <a href="https://wa.me/918601865676?text=Hi%20Karan,%20I%20need%20urgent%20GeM%20consultation." class="quick-wa-btn" target="_blank">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> Chat on WhatsApp Now
+                    </a>
+                    <a href="tel:+918601865676" class="quick-call-btn">
+                        <i class="fa-solid fa-phone-volume"></i> Call Direct: +91 8601865676
+                    </a>
+                </div>
 
-                    <div class="contact-details-list space-y-3">
-                        <div class="info-item">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <div>
-                                <strong class="block text-white text-sm">office Location</strong>
-                                <span class="text-slate-300 text-xs">keshav Nagar 2 , Lucknow, Uttar Pradesh, 226020</span>
-                            </div>
-                        </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-3">Headquarters & Details</h3>
+                </div>
 
-                        <div class="info-item">
-                            <i class="fa-solid fa-envelope"></i>
-                            <div>
-                                <strong class="block text-white text-sm">Email Inquiry</strong>
-                                <span class="text-slate-300 text-xs">karanyadav.parth@gmail.com</span>
-                            </div>
+                <div class="contact-details-list space-y-3">
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <strong class="block text-white text-sm">Office Location</strong>
+                            <span class="text-slate-300 text-xs">Keshav Nagar 2, Lucknow, Uttar Pradesh, 226020</span>
                         </div>
                     </div>
 
-                    <div class="mt-6 pt-4 border-t border-slate-800">
-                        <span class="text-xs text-sky-400 font-semibold">⚡ Pan-India Online Support Available 24/7</span>
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <strong class="block text-white text-sm">Email Inquiry</strong>
+                            <span class="text-slate-300 text-xs">karanyadav1409757@gmail.com</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Right Side: Clean Modern Interactive Form -->
-                <div class="lead-form-side">
-                    <h3 class="text-xl font-extrabold text-white mb-1">Claim Your Free Profile Audit</h3>
-                    <p class="text-sm text-slate-400 mb-6">Fill in your information to receive an instant callback from Karan Yadav.</p>
-
-                    <form class="lead-form-inner" action="mailto:karanyadav.parth@gmail.com" method="post" enctype="text/plain">
-                        <div class="form-row">
-                            <input type="text" placeholder="Business / Firm Name" required>
-                            <input type="tel" placeholder="Mobile Number (WhatsApp Enabled)" required>
-                        </div>
-                        <div class="form-row">
-                            <select required>
-                                <option value="" disabled selected style="background: var(--brand-dark); color: #fff;">Select Service Required</option>
-                                <option style="background: var(--brand-dark); color: #fff;">Vendor Assessment Desktop & Video Audit</option>
-                                <option style="background: var(--brand-dark); color: #fff;">OEM Panel Setup & Brand Authorization</option>
-                                <option style="background: var(--brand-dark); color: #fff;">Tender Management & L1 Strategy</option>
-                                <option style="background: var(--brand-dark); color: #fff;">Complete GeM Account Profile Audit</option>
-                            </select>
-                        </div>
-                        <div class="form-row">
-                            <textarea rows="3" placeholder="Briefly describe your requirements or issues (optional)" style="resize: none;"></textarea>
-                        </div>
-                        <button type="submit" class="cta-btn">Submit for Express Audit</button>
-                    </form>
-                </div>
-
-            </div>
-        </section>
-
-      
-    
-
-        <!-- Interactive Pricing & Package Cards -->
-        <section class="pricing-section" data-aos="fade-up">
-            <h2 class="text-2xl font-extrabold text-white text-center mb-2">💳 Transparent Pricing & Engagement Packages</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3 class="font-bold text-xl text-white">OEM / Brand Approval</h3>
-                    <div class="price">₹4,999</div>
-                    <p class="text-sm text-slate-400 mb-6">Primary panel setup, brand authorization code generation, and category pairing.</p>
-                    <a href="#audit-form" class="cta-btn-alt block text-center">Select Package</a>
-                </div>
-                <div class="pricing-card featured">
-                    <span class="popular-badge">Most Popular</span>
-                    <h3 class="font-bold text-xl text-white">Vendor Assessment Handholding</h3>
-                    <div class="price">₹14,999</div>
-                    <p class="text-sm text-slate-400 mb-6">Complete RITES desktop & video assessment readiness audit with guaranteed support.</p>
-                    <a href="#audit-form" class="cta-btn-alt block text-center">Select Package</a>
+                <div class="mt-6 pt-4 border-t border-slate-800">
+                    <span class="text-xs text-sky-400 font-semibold">⚡ Pan-India Online Support Available 24/7</span>
                 </div>
             </div>
-        </section>
+
+            <!-- Right Side: Clean Modern Interactive Form -->
+            <div class="lead-form-side" data-aos="fade-left">
+                <h3 class="text-xl font-extrabold text-white mb-1">Claim Your Free Profile Audit</h3>
+                <p class="text-sm text-slate-400 mb-6">Fill in your information to receive an instant callback from Karan Yadav.</p>
+
+                <form class="lead-form-inner" action="mailto:karanyadav1409757@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-row">
+                        <input type="text" name="Business_Name" placeholder="Business / Firm Name" required>
+                        <input type="tel" name="Mobile_Number" placeholder="Mobile Number (WhatsApp Enabled)" required>
+                    </div>
+                    <div class="form-row">
+                        <select name="Service_Required" required>
+                            <option value="" disabled selected style="background: var(--brand-dark); color: #fff;">Select Service Required</option>
+                            <option value="Vendor Assessment" style="background: var(--brand-dark); color: #fff;">Vendor Assessment Desktop & Video Audit</option>
+                            <option value="OEM Panel Setup" style="background: var(--brand-dark); color: #fff;">OEM Panel Setup & Brand Authorization</option>
+                            <option value="Tender Management" style="background: var(--brand-dark); color: #fff;">Tender Management & L1 Strategy</option>
+                            <option value="Profile Audit" style="background: var(--brand-dark); color: #fff;">Complete GeM Account Profile Audit</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <textarea name="Requirements" rows="3" placeholder="Briefly describe your requirements or issues (optional)" style="resize: none;"></textarea>
+                    </div>
+                    <button type="submit" class="cta-btn">Submit for Express Audit</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive Pricing & Package Cards -->
+    <section class="pricing-section" data-aos="fade-up">
+        <h2 class="text-2xl font-extrabold text-white text-center mb-2">💳 Transparent Pricing & Engagement Packages</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 class="font-bold text-xl text-white">OEM / Brand Approval</h3>
+                <div class="price">₹4,999</div>
+                <p class="text-sm text-slate-400 mb-6">Primary panel setup, brand authorization code generation, and category pairing.</p>
+                <a href="#audit-form" class="cta-btn-alt block text-center">Select Package</a>
+            </div>
+            <div class="pricing-card featured">
+                <span class="popular-badge">Most Popular</span>
+                <h3 class="font-bold text-xl text-white">Vendor Assessment Handholding</h3>
+                <div class="price">₹14,999</div>
+                <p class="text-sm text-slate-400 mb-6">Complete RITES desktop & video assessment readiness audit with guaranteed support.</p>
+                <a href="#audit-form" class="cta-btn-alt block text-center">Select Package</a>
+            </div>
+        </div>
+    </section>
 
     <div class="container">
 
@@ -760,21 +823,7 @@
             </div>
         </section>
 
-        <!-- Direct Instant Consultation & Quick Support Banner -->
-        <section class="support-banner-section" data-aos="fade-up">
-            <span class="badge-accent mb-3 inline-block">💬 INSTANT EXPERT CONNECT</span>
-            <h2 class="text-2xl font-extrabold text-white mt-1 mb-2">Have Urgent Tender Doubts or Profile Suspension Notice?</h2>
-            <p class="text-sm text-slate-300 max-w-2xl mx-auto mb-2">Connect instantly with Karan Yadav and certified GeM specialists for prompt compliance resolution and tender bid analysis.</p>
-            <div class="support-actions">
-                <a href="https://wa.me/918601865676?text=Hi%20Karan,%20I%20need%20urgent%20GeM%20consultation%20regarding%20my%20account." class="wa-direct-btn" target="_blank">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> Chat on WhatsApp Now
-                </a>
-                <a href="tel:+918601865676" class="call-direct-btn">
-                    <i class="fa-solid fa-phone-volume"></i> Call Direct: +91 8601865676
-                </a>
-            </div>
-        </section>
-
+    
         <!-- Step-by-Step Onboarding Process Flow -->
         <section class="process-section" data-aos="fade-up">
             <h2 class="text-2xl font-extrabold text-white text-center mb-2">🔄 Our 4-Step Seamless GeM Onboarding Framework</h2>
@@ -817,9 +866,9 @@
 
         <!-- Knowledge Hub / Mini-Blog Feed -->
         <section class="blog-section" data-aos="fade-up">
-            <div class="section-header">
+            <div class="section-header mb-6">
                 <h2 class="text-2xl font-extrabold text-white">📚 GeM Portal Knowledge Hub & Policy Updates</h2>
-                <span class="badge-accent">Updated for 2026 Rules</span>
+                <span class="badge-accent inline-block mt-2">Updated for 2026 Rules</span>
             </div>
             <div class="blog-grid">
                 <article class="blog-card">
@@ -853,7 +902,7 @@
 
         <!-- Client Testimonials -->
         <section class="testimonial-section" data-aos="fade-up">
-            <h2 class="text-2xl font-extrabold text-white">💬 Verified Government Vendor Feedback</h2>
+            <h2 class="text-2xl font-extrabold text-white mb-4">💬 Verified Government Vendor Feedback</h2>
             <div class="testimonial-grid">
                 <div class="testi-card">
                     <p class="text-sm text-slate-300 italic mb-3">"NavigateGeM helped us clear our RITES Desktop Assessment in just 4 days without any objection. Highly recommended for manufacturing firms!"</p>
@@ -876,19 +925,18 @@
             </ul>
         </section>
 
-       
-
         <!-- Chief Consultant Credential Badge -->
         <section class="expert-bio-card" data-aos="fade-up">
             <div class="bio-content">
-                <h3 class="text-xl font-extrabold text-white mb-2">Contact Direct Expert  — Karan Yadav</h3>
+                <h3 class="text-xl font-extrabold text-white mb-2">Contact Direct Expert — Karan Yadav</h3>
                 <p class="text-slate-400">Lead Consultant at NavigateGeM. Specializing in GeM Procurement Compliance, OEM Onboarding, and L1 Tender Strategy for over 450+ businesses across India.</p>
             </div>
         </section>
 
-       
     </div>
-         <!-- FAQ Section -->
+
+    <!-- FAQ Section -->
+    <div class="container">
         <section class="faq-container" data-aos="fade-up">
             <h2 class="text-2xl font-extrabold text-white mb-4">❓ Frequently Asked Questions (FAQ)</h2>
             <details>
@@ -904,108 +952,137 @@
                 </div>
             </details>
         </section>
-
-    <!-- Sticky Mobile Floating Call/WhatsApp Bar -->
-  
+    </div>
 
     <!-- Global Footer Dynamic Injector Target -->
     <div id="global-footer"></div>
 
-    <!-- AOS Animation Library Script -->
+    <!-- AOS Library JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Initialize AOS Motion Animations
-        AOS.init({
-            once: true,
-            offset: 100,
-            duration: 800,
-        });
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
 
-        // Intersection Observer Counter Script
-        document.addEventListener("DOMContentLoaded", () => {
-            const trustSection = document.getElementById("trust-bar-section");
-            const counters = document.querySelectorAll(".stat-number");
-            let hasAnimated = false;
+            // Counter Animation Trigger
+            const statNumbers = document.querySelectorAll('.stat-number');
+            let animated = false;
 
-            function animateCounters() {
-                counters.forEach((counter) => {
-                    const target = +counter.getAttribute("data-target");
-                    const duration = 1800;
-                    const startTime = performance.now();
-
-                    function updateCount(currentTime) {
-                        const elapsedTime = currentTime - startTime;
-                        const progress = Math.min(elapsedTime / duration, 1);
-                        const easeOutProgress = 1 - (1 - progress) * (1 - progress);
-                        const currentVal = Math.floor(easeOutProgress * target);
-
-                        counter.innerText = currentVal;
-
-                        if (progress < 1) {
-                            requestAnimationFrame(updateCount);
+            function runCounters() {
+                if (animated) return;
+                
+                statNumbers.forEach(num => {
+                    const target = +num.getAttribute('data-target');
+                    let current = 0;
+                    const increment = target / 50; 
+                    
+                    const updateCount = () => {
+                        current += increment;
+                        if (current < target) {
+                            num.innerText = Math.ceil(current);
+                            setTimeout(updateCount, 30);
                         } else {
-                            counter.innerText = target;
+                            num.innerText = target;
                         }
-                    }
-
-                    requestAnimationFrame(updateCount);
+                    };
+                    updateCount();
                 });
+                animated = true;
             }
 
-            if ("IntersectionObserver" in window && trustSection) {
-                const observer = new IntersectionObserver(
-                    (entries) => {
-                        entries.forEach((entry) => {
-                            if (entry.isIntersecting && !hasAnimated) {
-                                hasAnimated = true;
-                                animateCounters();
-                            }
-                        });
-                    },
-                    { threshold: 0.3 }
-                );
+            // Trigger counter when trust section enters viewport
+            const trustSection = document.getElementById('trust-bar-section');
+            if (trustSection) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            runCounters();
+                        }
+                    });
+                }, { threshold: 0.3 });
                 observer.observe(trustSection);
-            } else {
-                animateCounters();
             }
         });
 
-        // Live Interactive Search Filter
+        // Real-Time Region/Keyword Search Filter Function
         function filterServices() {
             let input = document.getElementById('search-input').value.toLowerCase();
-            let cards = document.getElementsByClassName('location-card');
+            let cards = document.querySelectorAll('#service-grid .location-card');
 
-            for (let i = 0; i < cards.length; i++) {
-                let keywordData = cards[i].getAttribute('data-keyword').toLowerCase();
-                let cardText = cards[i].innerText.toLowerCase();
+            cards.forEach(card => {
+                let keywords = card.getAttribute('data-keyword').toLowerCase();
+                let title = card.querySelector('h3').innerText.toLowerCase();
+                let desc = card.querySelector('p').innerText.toLowerCase();
 
-                if (keywordData.includes(input) || cardText.includes(input)) {
-                    cards[i].style.display = "block";
+                if (keywords.includes(input) || title.includes(input) || desc.includes(input)) {
+                    card.style.display = "block";
                 } else {
-                    cards[i].style.display = "none";
+                    card.style.display = "none";
                 }
+            });
+        }
+
+
+               // Header Load Karne Ke Liye
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('global-header').innerHTML = data;
+        });
+
+    // Footer Load Karne Ke Liye
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('global-footer').innerHTML = data;
+        });
+        function openPolicyModal(title, content) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalContent').innerText = content;
+            document.getElementById('policyModal').classList.remove('hidden');
+        }
+
+        function closePolicyModal() {
+            document.getElementById('policyModal').classList.add('hidden');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('policyModal');
+            if (event.target === modal) {
+                closePolicyModal();
             }
         }
 
-        // Fail-safe Header/Footer Dynamic Injector Engine
-        const fileFetchArray = [
-            { id: 'global-header', file: 'header.html' },
-            { id: 'global-footer', file: 'footer.html' }
-        ];
-
-        fileFetchArray.forEach(target => {
-            fetch(target.file)
-                .then(response => {
-                    if (!response.ok) throw new Error('CORS or Local File Blocked');
-                    return response.text();
-                })
+        function loadComponent(id, file) {
+            fetch(file)
+                .then(response => response.text())
                 .then(data => {
-                    document.getElementById(target.id).innerHTML = data;
-                })
-                .catch(err => {
-                    console.warn(`Local preview layout active for ${target.file}. Server bypass initiated.`);
+                    document.getElementById(id).innerHTML = data;
+                    
+                    // हेडर लोड होने के बाद स्क्रिप्ट एक्टिवेट करें
+                    if (id === 'header-placeholder') {
+                        initHeaderScripts();
+                    }
                 });
-        });
+        }
+
+        // लोड करें
+        loadComponent('header-placeholder', 'header.html');
+        loadComponent('global-footer', 'footer.html');
+
+        // हेडर की पुरानी फंक्शनैलिटी यहाँ डालें
+        function initHeaderScripts() {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            if(hamburger) {
+                hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+            }
+            // अन्य मेन्यू लॉजिक...
+        }
     </script>
 </body>
 </html>
