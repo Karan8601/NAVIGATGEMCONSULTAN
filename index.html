@@ -781,6 +781,303 @@ section {
   .bento-grid, .results-grid, .services-grid, .counter-box { grid-template-columns: 1fr; }
   .bento-large, .bento-medium, .bento-small { grid-column: span 1; }
 }
+
+
+.smart-hub-section {
+            padding: 80px 30px;
+            border-radius: 36px;
+            margin: 50px auto;
+            max-width: 1200px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            background-size: 300% 300%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .smart-hub-section::before, .smart-hub-section::after {
+            content: '';
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+            animation: floatOrb 10s ease-in-out infinite alternate;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .smart-hub-section::before { top: -150px; left: -150px; }
+        .smart-hub-section::after { bottom: -150px; right: -150px; animation-delay: -5s; }
+
+        @keyframes floatOrb {
+            0% { transform: translateY(0) scale(1) rotate(0deg); }
+            100% { transform: translateY(40px) scale(1.15) rotate(10deg); }
+        }
+
+        .hub-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hub-banner-box {
+            flex: 1;
+            min-width: 320px;
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: #0f172a;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            overflow: hidden;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transform: scale(1.02);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hub-banner-box:hover .image-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .banner-overlay-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 20px;
+            background: linear-gradient(to top, rgba(3, 7, 18, 0.98) 40%, rgba(3, 7, 18, 0.85) 80%, transparent 100%);
+            color: #ffffff;
+        }
+
+        .hub-badge {
+            padding: 7px 16px;
+            font-size: 11px;
+            font-weight: 800;
+            border-radius: 30px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 10px;
+            letter-spacing: 1.2px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        .banner-overlay-text h3 {
+            margin: 0 0 8px 0;
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+        }
+
+        .banner-overlay-text p {
+            margin: 0 0 14px 0;
+            font-size: 13px;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .stats-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            backdrop-filter: blur(8px);
+        }
+
+        .hub-form-box {
+            flex: 1;
+            min-width: 320px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(30px);
+            padding: 45px 40px;
+            border-radius: 28px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            color: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .form-header h2 {
+            margin: 0 0 8px 0;
+            font-size: 30px;
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+        }
+
+        .form-header p {
+            margin: 0 0 25px 0;
+            font-size: 14px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-sizing: border-box;
+            background: #f8fafc;
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            border-color: #6366f1;
+            background: #ffffff;
+            box-shadow: 0 0 0 5px rgba(99, 102, 241, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .hub-submit-btn {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 800;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 25px rgba(99, 102, 241, 0.35);
+            letter-spacing: 0.5px;
+        }
+
+        .hub-submit-btn:hover { 
+            transform: translateY(-3px);
+            box-shadow: 0 18px 32px rgba(99, 102, 241, 0.45);
+        }
+
+        .live-ticker {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+            background: #f1f5f9;
+            padding: 14px 18px;
+            border-radius: 14px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .pulse-dot {
+            height: 10px;
+            width: 10px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 12px;
+            box-shadow: 0 0 10px #22c55e;
+            animation: pulseAnimation 2s infinite;
+        }
+
+        @keyframes pulseAnimation {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        #global-footer {
+            width: 100%;
+            background: #030712;
+            color: #94a3b8;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+        }
+        #global-footer footer, .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .smart-hub-section.theme-default { 
+            background: linear-gradient(135deg, #090d16, #1e1b4b, #311042, #111e38); 
+            border: 2px solid rgba(99, 102, 241, 0.5); 
+        }
+        .smart-hub-section.theme-default .hub-badge { background: linear-gradient(135deg, #3b82f6, #6366f1); color: #fff; }
+        .smart-hub-section.theme-default .hub-submit-btn { background: linear-gradient(135deg, #2563eb, #4f46e5); }
+
+        .smart-hub-section.theme-newyear { 
+            background: linear-gradient(135deg, #2e0854, #701a75, #4c1d95, #090d16); 
+            border: 2px solid #ec4899; 
+        }
+        .smart-hub-section.theme-newyear .hub-badge { background: linear-gradient(135deg, #ec4899, #f43f5e); color: #fff; }
+        .smart-hub-section.theme-newyear .hub-submit-btn { background: linear-gradient(135deg, #db2777, #9333ea); }
+
+        .smart-hub-section.theme-republic { 
+            background: linear-gradient(135deg, #7c2d12, #1e3a8a, #064e3b, #c2410c); 
+            border: 2px solid #f97316; 
+        }
+        .smart-hub-section.theme-republic .hub-badge { background: linear-gradient(135deg, #f97316, #22c55e); color: #fff; }
+        .smart-hub-section.theme-republic .hub-submit-btn { background: linear-gradient(135deg, #ea580c, #16a34a); }
+
+        .smart-hub-section.theme-diwali { 
+            background: linear-gradient(135deg, #581c87, #7c2d12, #451a03, #090d16); 
+            border: 2px solid #fbbf24; 
+        }
+        .smart-hub-section.theme-diwali .hub-badge { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #000; }
+        .smart-hub-section.theme-diwali .hub-submit-btn { background: linear-gradient(135deg, #d97706, #b45309); }
+
+        .smart-hub-section.theme-independence { 
+            background: linear-gradient(135deg, #064e3b, #1e3a8a, #022c22, #047857); 
+            border: 2px solid #f97316; 
+        }
+        .smart-hub-section.theme-independence .hub-badge { background: linear-gradient(135deg, #f97316, #ffffff); color: #000; }
+        .smart-hub-section.theme-independence .hub-submit-btn { background: linear-gradient(135deg, #ea580c, #15803d); }
+
+        @media (max-width: 768px) {
+            .hub-container { flex-direction: column; }
+            .smart-hub-section { padding: 30px 15px; margin: 15px 8px; border-radius: 20px; }
+            .image-wrapper { height: 380px; }
+            .banner-overlay-text { padding: 20px 15px; }
+            .banner-overlay-text h3 { font-size: 20px; }
+            .hub-form-box { padding: 30px 20px; }
+        }
 </style>
 
 
@@ -878,6 +1175,57 @@ section {
 
       </div>
   </section>
+
+
+
+  <section id="dynamic-offer-hub" class="smart-hub-section">
+        <div class="hub-container">
+            <div class="hub-banner-box">
+                <div class="image-wrapper">
+                    <img id="hubBannerImg" src="" alt="Theme Banner">
+                    <div class="banner-overlay-text">
+                        <span id="hubBadge" class="hub-badge">Special Offer</span>
+                        <h3 id="hubHeading">Loading...</h3>
+                        <p id="hubSubText"></p>
+                        <div class="stats-pill">
+                            🔥 <span id="counterValue">1,420</span>+ Brands Successfully Approved
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hub-form-box">
+                <div class="form-header">
+                    <h2>Accelerate Your GeM Success</h2>
+                    <p>Get expert assistance from Karan Yadav's team.</p>
+                </div>
+                
+                <form id="leadCaptureForm">
+                    <div class="form-group">
+                        <select id="serviceType" name="service_type" required>
+                            <option value="">Select Core Service Needed</option>
+                            <option value="OEM & Brand Approval">OEM Registration & Brand Approval</option>
+                            <option value="GeM Registration">New GeM Seller Registration</option>
+                            <option value="Tender & L1 Bidding">Tender Bidding & L1 Support</option>
+                            <option value="Vendor Assessment">Vendor Assessment / QCI Audit</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="businessName" name="business_name" placeholder="Enter Business / Brand Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="whatsappNo" name="whatsapp_no" placeholder="Enter WhatsApp Number" required>
+                    </div>
+                    <button type="submit" id="hubSubmitBtn" class="hub-submit-btn">Get Free Expert Consultation</button>
+                </form>
+
+                <div class="live-ticker">
+                    <span class="pulse-dot"></span> 
+                    <span id="tickerText">⚡ Live Update: 5 OEM Brands Approved in Lucknow Today!</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <<!-- GALLERY SECTION -->
 <section id="scroll-gallery" class="relative w-full py-28 bg-[#030712] text-white overflow-hidden">
@@ -1871,7 +2219,129 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+const SITE_THEME_CONFIG = {
+            default: {
+                themeClass: 'theme-default',
+                badgeText: 'Live Offer',
+                bannerImage: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=90',
+                headingText: 'GeM Rejection ko Kahe Alvida!',
+                subText: 'Get 100% Guaranteed OEM & Brand Approval with Karan Yadav.'
+            },
+            newYear: {
+                themeClass: 'theme-newyear',
+                badgeText: '🎉 Happy New Year',
+                bannerImage: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=90',
+                headingText: 'Naye Saal Mein Naye Government Contracts Jeetein!',
+                subText: 'Scale your business on GeM Portal this New Year.'
+            },
+            republicDay: {
+                themeClass: 'theme-republic',
+                badgeText: '🇮🇳 Republic Day Special',
+                bannerImage: 'https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?auto=format&fit=crop&w=1200&q=90',
+                headingText: 'Republic Day Special: Fast-Track OEM Approvals!',
+                subText: 'Empower your enterprise with seamless government e-marketplace solutions.'
+            },
+            diwali: {
+                themeClass: 'theme-diwali',
+                badgeText: '🪔 Happy Diwali Fest',
+                bannerImage: 'https://images.unsplash.com/photo-1605648916361-9bc12ad6a569?auto=format&fit=crop&w=1200&q=90',
+                headingText: 'Is Diwali, Apne Business ko De GeM Growth ki Udaan!',
+                subText: 'Special festive offers on Brand Approvals, OEM Setup & Bidding.'
+            },
+            independenceDay: {
+                themeClass: 'theme-independence',
+                badgeText: '🇮🇳 Independence Day Special',
+                bannerImage: 'https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=1200&q=90',
+                headingText: 'Aatmanirbhar Bharat ke Saath Karein Procurement!',
+                subText: 'Celebrate Freedom from GeM Rejection with Karan Yadav.'
+            }
+        };
 
+        document.addEventListener("DOMContentLoaded", function () {
+            const today = new Date();
+            const month = today.getMonth() + 1;
+            const day = today.getDate();
+
+            let currentConfig = SITE_THEME_CONFIG.default;
+
+            if (month === 1 && day === 1) currentConfig = SITE_THEME_CONFIG.newYear;
+            else if (month === 1 && (day === 25 || day === 26)) currentConfig = SITE_THEME_CONFIG.republicDay;
+            else if (month === 8 && (day === 14 || day === 15)) currentConfig = SITE_THEME_CONFIG.independenceDay;
+            else if ((month === 10 && day >= 20) || (month === 11 && day <= 5)) currentConfig = SITE_THEME_CONFIG.diwali;
+
+            const section = document.getElementById("dynamic-offer-hub");
+            section.className = "smart-hub-section " + currentConfig.themeClass;
+
+            document.getElementById("hubBadge").innerText = currentConfig.badgeText;
+            document.getElementById("hubHeading").innerText = currentConfig.headingText;
+            document.getElementById("hubSubText").innerText = currentConfig.subText;
+            document.getElementById("hubBannerImg").src = currentConfig.bannerImage;
+
+            let count = 1420;
+            setInterval(() => {
+                count += Math.floor(Math.random() * 2);
+                document.getElementById("counterValue").innerText = count.toLocaleString();
+            }, 6000);
+
+            const fileFetchArray = [
+                { id: 'global-header', file: 'header.html' },
+                { id: 'global-footer', file: 'footer.html' }
+            ];
+
+            fileFetchArray.forEach(target => {
+                fetch(target.file)
+                    .then(response => {
+                        if (!response.ok) throw new Error('CORS or Local File Blocked');
+                        return response.text();
+                    })
+                    .then(data => {
+                        document.getElementById(target.id).innerHTML = data;
+                    })
+                    .catch(err => {
+                        if(target.id === 'global-footer') {
+                            document.getElementById('global-footer').innerHTML = `
+                                <footer class="footer-container">
+                                    <p>&copy; 2026 NavigateGeM Consultant. All Rights Reserved. Managed by Karan Yadav's Team.</p>
+                                </footer>
+                            `;
+                        }
+                    });
+            });
+
+            const form = document.getElementById("leadCaptureForm");
+            const submitBtn = document.getElementById("hubSubmitBtn");
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                submitBtn.innerText = "Sending Query...";
+                submitBtn.disabled = true;
+
+                const serviceType = document.getElementById("serviceType").value;
+                const businessName = document.getElementById("businessName").value;
+                const whatsappNo = document.getElementById("whatsappNo").value;
+                const formData = new FormData(form);
+
+                fetch("https://formspree.io/f/xgawzlow", {
+                    method: "POST",
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                }).then(response => {
+                    const myWhatsAppNumber = "917275554932";
+                    const whatsappMessage = `Hello Karan, I want consultation.%0A%0A*Service:* ${serviceType}%0A*Business Name:* ${businessName}%0A*WhatsApp:* ${whatsappNo}`;
+                    
+                    window.open(`https://wa.me/${myWhatsAppNumber}?text=${whatsappMessage}`, '_blank');
+
+                    alert("Query sent to email and WhatsApp successfully!");
+                    form.reset();
+                    submitBtn.innerText = "Get Free Expert Consultation";
+                    submitBtn.disabled = false;
+                }).catch(error => {
+                    alert("Something went wrong. Please try again.");
+                    submitBtn.innerText = "Get Free Expert Consultation";
+                    submitBtn.disabled = false;
+                });
+            });
+        });
 
 
 
