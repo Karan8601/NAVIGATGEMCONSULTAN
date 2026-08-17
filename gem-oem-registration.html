@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="shortcut icon" href="https://i.ibb.co/ymS4Y7Nx/kkkk.jpg" type="image/x-icon">
-    <title>GeM OEM Registration &amp; Vendor Assessment India &amp; Lucknow | Navigate GeM Consultant</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/ymS4Y7Nx/kkkk.jpg" type="image/x-icon">
+    <title>GeM OEM Registration & Vendor Assessment In Lucknow India | Navigate GeM Consultant</title>
     <link rel="canonical" href="https://navigategemconsultant.com/gem-oem-registration.html" />
     
-    
-    
-      <link rel="shortcut icon" href="https://i.ibb.co/ymS4Y7Nx/kkkk.jpg" type="image/x-icon">
-    <meta name="description" content="Looking for top GeM OEM registration and consultant in Lucknow & PAN India? Get complete brand authorization, catalog management, and government e-marketplace solutions.">
-    <meta name="keywords" content="gem oem registration and consultant in lucknow, gem portal consultant pan india, gem oem panel setup, brand authorization gem portal, gem registration services lucknow">
+    <meta name="description" content="Looking for expert GeM OEM registration and consultant in Lucknow & PAN India? Get complete brand authorization, catalog management, vendor assessment, and government e-marketplace solutions.">
+    <meta name="keywords" content="gem oem registration and consultant in lucknow, gem portal consultant pan india, gem oem panel setup, brand authorization gem portal, gem registration services lucknow, vendor assessment gem">
     
     <!-- Frameworks & Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Three.js for Advanced 3D Hero Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- AOS Library CSS for Smooth Section Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
     <style>
         :root {
             --primary: #0f172a;
-            --accent: #00f2fe; 
-            --accent-glow: rgba(0, 242, 254, 0.3);
-            --blue-glow: rgba(79, 172, 254, 0.2);
-            --bg-light: #050b14;
+            --accent: #00f2fe; /* Ultra-Enhanced Vivid Electric Cyan */
+            --accent-secondary: #7928ca; /* Deep Vibrant Electric Purple for Depth */
+            --accent-glow: rgba(0, 242, 254, 0.5);
+            --bg-light: #030712;
             --card-bg: rgba(255, 255, 255, 0.03);
             --border-color: rgba(255, 255, 255, 0.08);
         }
@@ -42,44 +44,25 @@
             overflow-x: hidden;
         }
 
-        /* Hero Section with Split Content Layout */
+        /* 3D Canvas container specifically behind Hero */
+        #hero-canvas-3d {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Hero Section with Enhanced 3D Depth */
         .hero {
             position: relative;
-            background: linear-gradient(135deg, #030712 0%, #0f172a 100%);
-            padding: 100px 20px;
+            background: radial-gradient(circle at center, #0f172a 0%, #030712 100%);
+            padding: 130px 20px;
             overflow: hidden;
             border-bottom: 1px solid var(--border-color);
-        }
-
-        .glow-orb {
-            position: absolute;
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, rgba(0,0,0,0) 70%);
-            top: -100px;
-            left: -100px;
-            z-index: 1;
-            animation: floatOrb 8s infinite alternate ease-in-out;
-        }
-
-        .glow-orb-2 {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--blue-glow) 0%, rgba(0,0,0,0) 70%);
-            bottom: -150px;
-            right: -100px;
-            z-index: 1;
-            animation: floatOrb2 10s infinite alternate ease-in-out;
-        }
-
-        @keyframes floatOrb {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, 50px) scale(1.1); }
-        }
-        @keyframes floatOrb2 {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(-60px, -40px) scale(1.2); }
+            perspective: 1400px;
         }
 
         .hero-grid {
@@ -95,15 +78,16 @@
 
         .badge {
             display: inline-block;
-            background: rgba(0, 242, 254, 0.1);
+            background: rgba(0, 242, 254, 0.12);
             color: var(--accent);
             padding: 8px 20px;
             border-radius: 30px;
             font-size: 0.9rem;
             font-weight: 700;
-            border: 1px solid var(--accent);
+            border: 1px solid rgba(0, 242, 254, 0.4);
             margin-bottom: 20px;
-            box-shadow: 0 0 15px var(--accent-glow);
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: translateZ(40px);
         }
 
         .hero h1 {
@@ -112,10 +96,12 @@
             font-weight: 800 !important;
             line-height: 1.2 !important;
             color: #ffffff !important;
-            background: linear-gradient(135deg, #ffffff 30%, #00f2fe 100%) !important;
+            background: linear-gradient(135deg, #ffffff 20%, #00f2fe 100%) !important;
             -webkit-background-clip: text !important;
             background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
+            transform: translateZ(60px);
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
         }
 
         .hero p {
@@ -123,21 +109,19 @@
             color: #94a3b8;
             margin-bottom: 35px;
             line-height: 1.6;
+            transform: translateZ(35px);
         }
 
-        /* Animated Hero Image Styling */
+        /* Fixed Stable 3D Glass Frame for Image (Zero Motion/Tilt, Pure 3D Depth Glow) */
         .hero-img-wrapper {
             position: relative;
             border-radius: 24px;
             overflow: hidden;
             border: 1px solid rgba(0, 242, 254, 0.3);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px var(--accent-glow);
-            animation: floatImage 4s ease-in-out infinite alternate;
-        }
-
-        @keyframes floatImage {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-12px); }
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 242, 254, 0.2);
+            transform: translateZ(50px);
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
         }
 
         .hero-img-wrapper img {
@@ -145,18 +129,11 @@
             height: auto;
             display: block;
             object-fit: cover;
-            transform: scale(1.02);
-            transition: transform 0.5s ease;
         }
 
-        .hero-img-wrapper:hover img {
-            transform: scale(1.08);
-        }
-
-        /* Buttons */
         .btn-cyan {
             background: linear-gradient(135deg, #00f2fe, #4facfe);
-            color: #000;
+            color: #030712;
             padding: 16px 35px;
             font-size: 1.1rem;
             font-weight: 700;
@@ -167,16 +144,18 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 5px 25px var(--accent-glow);
+            box-shadow: 0 10px 30px var(--accent-glow);
             transition: all 0.3s ease;
+            transform: translateZ(45px);
         }
 
         .btn-cyan:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 8px 30px rgba(0, 242, 254, 0.6);
+            transform: translateZ(60px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(0, 242, 254, 0.7);
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
         }
 
-        /* Container Layouts */
+        /* Container Layouts for Rest of the Page */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -202,7 +181,6 @@
             font-size: 1.1rem;
         }
 
-        /* Glassmorphism Grid Cards */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -235,7 +213,7 @@
 
         .glass-card:hover {
             transform: translateY(-12px) scale(1.02);
-            border-color: rgba(0, 242, 254, 0.5);
+            border-color: rgba(0, 242, 254, 0.4);
             box-shadow: 0 25px 50px rgba(0, 242, 254, 0.15);
         }
 
@@ -340,7 +318,132 @@
             line-height: 1.6;
         }
 
-        /* SEO Content & FAQ Section */
+        /* Vendor Assessment Grid */
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .assessment-card {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 18px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .assessment-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .assessment-card h4 {
+            color: #fff;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .assessment-card h4 i {
+            color: var(--accent);
+            font-size: 1.4rem;
+        }
+
+        .assessment-card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Pricing Picker Cards */
+        .pricing-picker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .picker-card {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px 30px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .picker-card.highlight {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px var(--accent-glow);
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .picker-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+        }
+
+        .picker-card h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .picker-card .price-tag {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .picker-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .picker-features li {
+            color: #94a3b8;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .picker-features li i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .btn-picker {
+            background: transparent;
+            color: #fff;
+            border: 1px solid var(--accent);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .picker-card.highlight .btn-picker,
+        .btn-picker:hover {
+            background: var(--accent);
+            color: #030712;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* SEO & FAQ */
         .seo-content-box {
             background: rgba(15, 23, 42, 0.4);
             border: 1px solid var(--border-color);
@@ -421,36 +524,46 @@
             margin-bottom: 30px;
         }
 
+        /* Mobile Responsive adjustments for buttons */
         @media(max-width: 968px) {
             .hero-grid { grid-template-columns: 1fr; text-align: center; }
             .hero h1 { font-size: 2.3rem !important; }
             .btn-cyan { margin: 0 auto; }
             .seo-content-box { padding: 25px; }
         }
+
+        @media(max-width: 576px) {
+            .btn-cyan {
+                padding: 10px 20px !important;
+                font-size: 0.9rem !important;
+                border-radius: 40px !important;
+                gap: 8px !important;
+            }
+            .hero {
+                padding: 90px 15px;
+            }
+        }
     </style>
-    
-    <!-- AOS Library CSS for Enhanced Scroll Animations -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 <body>
 
-    <!-- Global Dynamic Header Injection Target -->
     <div id="global-header"></div>
 
-    <!-- Hero Section with Integrated Floating OEM Visual Element -->
+    <!-- Hero Section with Enhanced 3D Background & Static Stable Image -->
     <section class="hero">
-        <div class="glow-orb"></div>
-        <div class="glow-orb-2"></div>
+        <!-- Advanced 3D Interactive Canvas -->
+        <canvas id="hero-canvas-3d"></canvas>
+        
         <div class="hero-grid">
-            <div class="hero-content" data-aos="fade-right" data-aos-duration="1200">
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
                 <span class="badge"><i class="fas fa-award"></i> #1 GeM OEM Registration & Consultant in Lucknow & PAN India</span>
                 <h1>GeM OEM Panel Setup & Brand Authorization Services</h1>
-                <p>Looking for an expert GeM OEM registration and consultant in Lucknow & PAN India? We provide comprehensive brand approvals, product catalog mapping, and reseller control systems to scale your business in government e-marketplaces.</p>
+                <p>Looking for an expert GeM OEM registration and consultant in Lucknow & PAN India? We handle complete brand approvals, product catalog mapping, vendor assessment, and reseller control systems to scale your business in government e-marketplaces.</p>
                 <a href="https://wa.me/918601865676" class="btn-cyan"><i class="fab fa-whatsapp"></i> Connect with Expert Consultant</a>
             </div>
-            <div class="hero-image-container" data-aos="fade-left" data-aos-duration="1200">
+            <div class="hero-image-container" data-aos="fade-left" data-aos-duration="1000">
+                <!-- Image wrapper is completely stable (No Motion/Tilt), beautifully embedded with 3D depth lighting -->
                 <div class="hero-img-wrapper">
-                    <!-- High-Resolution Professional GeM OEM Representation Image -->
                     <img src="https://i.ibb.co/NdPTM3t6/f2.jpg" alt="GeM OEM Registration Dashboard & Business Analytics Consultant Lucknow PAN India">
                 </div>
             </div>
@@ -501,6 +614,89 @@
                 <h3>Direct Government Tenders</h3>
                 <p>Unlock high-value direct procurement opportunities and special departmental order quotas reserved strictly for original manufacturers.</p>
             </div>
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-check-double"></i>
+                <h3>Zero-Error Registration</h3>
+                <p>Avoid portal rejections caused by improper data formats or mismatched specifications. Our professionals ensure flawless paperwork execution.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pick Your Service Section -->
+    <div class="container" style="padding-top: 0;">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Pick Your Service Package</h2>
+            <p>Select the exact solution matching your manufacturing scale and compliance requirements.</p>
+        </div>
+        <div class="pricing-picker-grid">
+            <div class="picker-card" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <h3>Basic Brand Approval</h3>
+                    <div class="price-tag">Standard</div>
+                    <ul class="picker-features">
+                        <li><i class="fas fa-check"></i> Brand Mapping on GeM Portal</li>
+                        <li><i class="fas fa-check"></i> Trademark & MSME Verification</li>
+                        <li><i class="fas fa-check"></i> Up to 5 Product Categories</li>
+                        <li><i class="fas fa-check"></i> Basic Dashboard Setup</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/918601865676" class="btn-picker">Select Basic Plan</a>
+            </div>
+
+            <div class="picker-card highlight" data-aos="fade-up" data-aos-delay="200">
+                <div>
+                    <span style="background: var(--accent); color: #030712; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; display: inline-block; margin-bottom: 15px;">MOST POPULAR</span>
+                    <h3>Complete OEM Panel Setup</h3>
+                    <div class="price-tag">Comprehensive</div>
+                    <ul class="picker-features">
+                        <li><i class="fas fa-check"></i> Full Master OEM Dashboard</li>
+                        <li><i class="fas fa-check"></i> Unlimited Reseller Authorization</li>
+                        <li><i class="fas fa-check"></i> Catalog Upload & Technical Mapping</li>
+                        <li><i class="fas fa-check"></i> Vendor Assessment Support</li>
+                        <li><i class="fas fa-check"></i> Priority Dedicated Manager</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/918601865676" class="btn-picker">Select Advanced Plan</a>
+            </div>
+
+            <div class="picker-card" data-aos="fade-up" data-aos-delay="300">
+                <div>
+                    <h3>Enterprise Tender Package</h3>
+                    <div class="price-tag">Custom</div>
+                    <ul class="picker-features">
+                        <li><i class="fas fa-check"></i> End-to-End Tender Bid Management</li>
+                        <li><i class="fas fa-check"></i> Multi-Plant Factory Documentation</li>
+                        <li><i class="fas fa-check"></i> Legal Compliance & Dispute Handling</li>
+                        <li><i class="fas fa-check"></i> 24/7 Portal Administration Support</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/918601865676" class="btn-picker">Select Enterprise Plan</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Required Documentation Section -->
+    <div class="container" style="padding-top: 0;">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Required Documentation for GeM OEM Panel</h2>
+            <p>Make sure you have the following records ready for seamless processing across PAN India.</p>
+        </div>
+        <div class="grid-3">
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-file-contract"></i>
+                <h3>Legal & Business Identity</h3>
+                <p>• GST Registration Certificate<br>• MSME / Udyam Certificate<br>• Company Pan Card & Certificate of Incorporation<br>• Authorized Signatory ID Proof</p>
+            </div>
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-certificate"></i>
+                <h3>Brand & Quality Certificates</h3>
+                <p>• Valid Trademark Registration or Application Receipt<br>• MSME Databank Entry Record<br>• Quality Test Reports / ISI / ISO Compliance (if applicable)<br>• Brand Authorization Mandate</p>
+            </div>
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-building"></i>
+                <h3>Manufacturing Plant Proofs</h3>
+                <p>• Factory License or Municipal Trade License<br>• Utility Bills (Electricity/Water connection)<br>• Machinery List & Unit Photos<br>• Plant Location Geo-tagged records</p>
+            </div>
         </div>
     </div>
 
@@ -508,37 +704,65 @@
     <div class="container" style="padding-top: 0;">
         <div class="section-title" data-aos="fade-up">
             <h2>Our Structured OEM Onboarding Process</h2>
-            <p>From initial document screening to final marketplace launch across PAN India.</p>
+            <p>From initial document screening to final desktop and video assessments across PAN India.</p>
         </div>
         <div class="process-grid">
             <div class="process-step" data-aos="fade-right" data-aos-delay="100">
                 <span class="step-number">01</span>
                 <h4>Brand & Legal Audit</h4>
-                <p>Detailed verification of your Trademark certificates, MSME documents, and factory inspection records.</p>
+                <p>Detailed verification of your Trademark certificates, MSME documents, and factory compliance records.</p>
             </div>
             <div class="process-step" data-aos="fade-right" data-aos-delay="200">
                 <span class="step-number">02</span>
                 <h4>OEM Panel Mapping</h4>
-                <p>Linking manufacturing setup directly with the official Government e-Marketplace vendor portal.</p>
+                <p>Linking your manufacturing setup directly with the official Government e-Marketplace vendor portal.</p>
             </div>
             <div class="process-step" data-aos="fade-right" data-aos-delay="300">
                 <span class="step-number">03</span>
-                <h4>Catalog & Specification Approval</h4>
-                <p>Uploading precise product classifications, technical data sheets, and custom testing certificates.</p>
+                <h4>First Step: Desktop Assessment</h4>
+                <p>Rigorous verification of submitted documents, machinery details, and compliance papers by portal evaluators via remote portal tools.</p>
             </div>
             <div class="process-step" data-aos="fade-right" data-aos-delay="400">
                 <span class="step-number">04</span>
-                <h4>Reseller Enablement</h4>
-                <p>Activating permissions for authorized dealers to trade your brand items under strict compliance.</p>
+                <h4>Second Step: Video Assessment</h4>
+                <p>Live video inspection and virtual walk-through support for your production plant, assembly lines, and stock storage areas to secure final clearance.</p>
+            </div>
+            <div class="process-step" data-aos="fade-right" data-aos-delay="500">
+                <span class="step-number">05</span>
+                <h4>Catalog & Reseller Activation</h4>
+                <p>Uploading precise product specifications, technical data sheets, and authorizing secondary distributors securely.</p>
             </div>
         </div>
     </div>
 
-    <!-- SEO Rich Content & FAQ Section -->
+    <!-- Vendor Assessment Breakdown -->
+    <div class="container" style="padding-top: 0;">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Understanding Vendor Assessment on GeM</h2>
+            <p>Comprehensive breakdown of the mandatory verification milestones required for manufacturing brands.</p>
+        </div>
+        <div class="assessment-grid">
+            <div class="assessment-card" data-aos="fade-up" data-aos-delay="100">
+                <h4><i class="fas fa-desktop"></i> Desktop Assessment Phase</h4>
+                <p>Evaluators check your uploaded manufacturing proofs, trade licenses, utility bills, and quality testing reports online. Our experts pre-audit every file to prevent technical objections.</p>
+            </div>
+            <div class="assessment-card" data-aos="fade-up" data-aos-delay="200">
+                <h4><i class="fas fa-video"></i> Video Assessment Phase</h4>
+                <p>A live virtual inspection conducted by authorized agencies (such as QCI or NABCB) where your plant machinery, working staff, and raw materials are inspected via live video link.</p>
+            </div>
+            <div class="assessment-card" data-aos="fade-up" data-aos-delay="300">
+                <h4><i class="fas fa-clipboard-check"></i> Final Certification Report</h4>
+                <p>Upon successful clearing of both desktop and video audit stages, your vendor assessment report is generated, unlocking unrestricted OEM status across all government bids.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO Content & FAQ Section -->
     <div class="container" style="padding-top: 0;">
         <div class="seo-content-box" data-aos="fade-up">
             <h3>Complete Guidance on GeM OEM Registration & Consultancy</h3>
-            <p>If you are a manufacturer based in Lucknow or anywhere across PAN India looking to expand your supply chain into government sectors, getting registered as an OEM on the Government e-Marketplace (GeM) is mandatory. Without an OEM panel, manufacturers risk losing brand identity to unauthorized resellers who list items without permission. Our specialized consultancy handles everything from documentation to portal activation with zero rejection assurance.</p>
+            <p>If you are a manufacturer based in Lucknow or anywhere across PAN India looking to expand your supply chain into government sectors, getting registered as an OEM on the Government e-Marketplace (GeM) is mandatory. Without an OEM panel, manufacturers risk losing brand identity to unauthorized resellers who list items without permission. Our specialized consultancy handles everything from initial paperwork to desktop assessments, video evaluations, and portal activation with zero rejection assurance.</p>
+            <p>Additionally, our local expertise in Uttar Pradesh combined with pan-national operational capability ensures that businesses get personalized consultation, onsite factory guidance where needed, and fast-track processing through official channels.</p>
             
             <h3 style="margin-top: 40px;">Frequently Asked Questions (FAQs)</h3>
             <div class="faq-grid">
@@ -554,33 +778,120 @@
                     <h4>Can secondary sellers list my brand without my approval?</h4>
                     <p>Once your OEM panel is established, no third party can list your brand items without explicit authorization tokens generated through your master dashboard, giving you total pricing control.</p>
                 </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <h4>What is vendor assessment on GeM and how do desktop/video steps work?</h4>
+                    <p>Vendor assessment verifies the physical existence and capabilities of manufacturing units via desktop document audits and live video inspections by agencies like QCI, which is mandatory for specific product categories.</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Final Call to Action -->
+    <!-- Action Banner -->
     <div class="container" style="padding-top: 0;">
         <div class="action-banner" data-aos="zoom-in" data-aos-duration="1000">
-            <h2>Ready to Secure Your Brand on the GeM Portal?</h2>
-            <p>Connect with the top-rated GeM OEM registration and consultant in Lucknow & PAN India today.</p>
-            <a href="https://wa.me/918601865676" class="btn-cyan"><i class="fab fa-whatsapp"></i> Chat on WhatsApp Now</a>
+            <span class="badge" style="margin-bottom: 15px;"><i class="fas fa-bolt"></i> Fast-Track Approval Guaranteed</span>
+            <h2>Ready to Dominate Government Tenders as an OEM?</h2>
+            <p>Don't let paperwork delays or assessment rejections slow down your business growth. Speak directly with our senior GeM consultants in Lucknow for instant guidance and priority brand mapping.</p>
+            
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px;">
+                <a href="https://wa.me/918601865676" class="btn-cyan">
+                    <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Chat on WhatsApp (Instant Reply)
+                </a>
+                <a href="tel:918601865676" class="btn-cyan" style="background: transparent; border: 2px solid var(--accent); color: #fff;">
+                    <i class="fas fa-phone-volume" style="color: var(--accent);"></i> Call Expert Now
+                </a>
+            </div>
+
+            <div style="display: flex; justify-content: center; align-items: center; gap: 30px; margin-top: 35px; flex-wrap: wrap; color: #94a3b8; font-size: 0.9rem;">
+                <span><i class="fas fa-check-circle" style="color: var(--accent);"></i> Free Document Audit</span>
+                <span><i class="fas fa-check-circle" style="color: var(--accent);"></i> 100% Data Confidentiality</span>
+                <span><i class="fas fa-check-circle" style="color: var(--accent);"></i> PAN India Support</span>
+            </div>
         </div>
     </div>
 
-    <!-- Global Dynamic Footer Injection Target -->
     <div id="global-footer"></div>
 
-    <!-- AOS Animation Script & Header/Footer Fetch Function Engine -->
+    <!-- AOS Script & Advanced 3D Interactive Hero Engine -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // Initialize AOS Scroll Animations
+        // Initialize AOS animations for the rest of the sections
         AOS.init({
             once: true,
             offset: 100,
             duration: 800
         });
 
-        // Fail-safe Header/Footer Dynamic Injector Engine
+        // --- ENHANCED THREE.JS 3D HERO BACKGROUND ENGINE ---
+        const canvas = document.getElementById('hero-canvas-3d');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+
+        renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // Create Multi-layered High-Intensity 3D Particles (Removed Torus Ring completely as requested)
+        const particlesCount = 1200;
+        const particlesGeometry = new THREE.BufferGeometry();
+        const posArray = new Float32Array(particlesCount * 3);
+
+        for(let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 16;
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+        // Ultra-Enhanced Electric Cyan Color & High Brightness Blending
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.045,
+            color: 0x00f2fe,
+            transparent: true,
+            opacity: 0.95,
+            blending: THREE.AdditiveBlending
+        });
+
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
+
+        camera.position.z = 4.5;
+
+        // Interactive Mouse Parallax Engine
+        let mouseX = 0;
+        let mouseY = 0;
+        let targetX = 0;
+        let targetY = 0;
+
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX - window.innerWidth / 2) * 0.0015;
+            mouseY = (event.clientY - window.innerHeight / 2) * 0.0015;
+        });
+
+        const clock = new THREE.Clock();
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            targetX += (mouseX - targetX) * 0.07;
+            targetY += (mouseY - targetY) * 0.07;
+
+            // Smooth 3D Rotations with Higher Vibrancy
+            const elapsedTime = clock.getElapsedTime();
+            particlesMesh.rotation.y = elapsedTime * 0.06 + targetX;
+            particlesMesh.rotation.x = elapsedTime * 0.04 + targetY;
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = canvas.clientWidth / canvas.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+        });
+
+        // Header/Footer Dynamic Injector
         const fileFetchArray = [
             { id: 'global-header', file: 'header.html' },
             { id: 'global-footer', file: 'footer.html' }
